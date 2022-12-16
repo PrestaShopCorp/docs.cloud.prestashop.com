@@ -6,7 +6,7 @@ title: Integrating a Module with PrestaShop Account
 
 ## Prerequisites
 
-To complete this procedure, you need to have at your disposal a running PrestaShop (see [Preparing your environment](https://docs.cloud.prestashop.com/1-preparing-your-environment)) and a module that you can either [create yourself](https://devdocs.prestashop-project.org/8/modules/creation/) or [generate](https://validator.prestashop.com/generator).
+To complete this procedure, you need to have at your disposal a running PrestaShop (see [Preparing your environment](https://docs.cloud.prestashop.com/2-preparing-your-environment)) and a module that you can either [create yourself](https://devdocs.prestashop-project.org/8/modules/creation/) or [generate](https://validator.prestashop.com/generator).
 
 :::warning Warning
 The backend of a module integrated with PrestaShop Cloud Services is made of [PHP](https://www.php.net/) while the frontend is made of [Vue.js 3](https://vuejs.org/), Vanilla JavaScript, or React. You need to master these languages to be able to perform the integration.
