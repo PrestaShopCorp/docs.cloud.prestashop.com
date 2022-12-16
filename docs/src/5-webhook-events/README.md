@@ -4,7 +4,7 @@ title: Webhook & Events
 
 <Block>
 
-# ![](/assets/images/common/logo-condensed-sm.png) Webhook & Events
+# :hook: Webhook & Events
 
 </Block>
 

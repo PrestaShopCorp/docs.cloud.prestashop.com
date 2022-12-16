@@ -1,7 +1,7 @@
 const { description } = require('../../package')
 
 module.exports = {
-  title: 'SaaS App by Prestashop',
+  title: 'Prestashop Cloud Services',
   description: '',
   theme: '',
 
@@ -37,23 +37,20 @@ module.exports = {
     sidebarDepth: 2,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Overview', link: '/0-overview/' },
-      { text: 'Relationships', link: '/1-relationships/' },
-      { text: 'SaaS app', link: '/2-saas-app/' },
-      { text: 'Webhook Events', link: '/3-webhook-events/' },
-      { text: 'Setup dev environment', link: '/4-setup-dev-environment/' },
-      { text: 'API', link: '/5-api/' },
-      { text: 'FAQ', link: '/6-faq/' }
+      { text: 'PrestaShop Open Source Documentation', link: 'https://devdocs.prestashop-project.org/' },
+      { text: 'Module Generator', link: 'https://validator.prestashop.com/generator' },
+      { text: 'Sample Module Repository', link: 'https://github.com/PrestaShopCorp/partner-devtools.prestashop.com' }
     ],
     sidebar: [
       [ '/' ,'Home' ],
-      [ '/0-overview/', 'Overview' ],
-      [ '/1-relationships/', 'Relationships' ],
-      [ '/2-saas-app/', 'SaaS app' ],
-      [ '/3-webhook-events/', 'Webhook Events' ],
-      [ '/4-setup-dev-environment/', 'Setup dev environment'],
-      [ '/5-api/', 'API' ],
-      [ '/6-faq/', 'FAQ' ]
+      [ '/0-introduction/', 'Introduction' ],
+      [ '/1-how-it-works/', 'How It Works' ],
+      [ '/2-preparing-your-environment/', 'Preparing Your Environment' ],
+      [ '/3-prestashop-account/', 'Integrating PrestaShop Account' ],
+      [ '/4-account-and-billing/', 'Integrating PrestaShop Account and Billing'],
+      [ '/5-webhook-events/', 'Webhook Events'],
+      [ '/6-api/', 'API' ],
+      [ '/7-faq/', 'FAQ' ]
     ]
   },
 
