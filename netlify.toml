@@ -2,27 +2,3 @@
   base = "docs"
   publish = "/src/.vuepress/dist"
   command = "vuepress build ."
-
-[[redirects]]
-  from = "http://billing-docs.netlify.app/*"
-  to = "https://docs.cloud.prestashop.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://billing-docs.netlify.app/*"
-  to = "https://docs.cloud.prestashop.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://billing-docs.netlify.app"
-  to = "https://docs.cloud.prestashop.com"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://billing-docs.netlify.app"
-  to = "https://docs.cloud.prestashop.com"
-  status = 301
-  force = true
