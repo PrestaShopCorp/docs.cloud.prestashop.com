@@ -22,7 +22,7 @@ At the root of your module folder, create a `composer.json` file with the follow
 
 ```json{13,14}
 {
-    "name": "prestashop/module_name",
+    "name": "prestashop/<module_name>",
     "description": "",
     "config": {
         "preferred-install": "dist",
@@ -39,7 +39,7 @@ At the root of your module folder, create a `composer.json` file with the follow
     },
     "autoload": {
         "classmap": [
-            "module_name.php"
+            "<module_name>.php"
         ]
     },
     "author": "PrestaShop",
@@ -65,13 +65,13 @@ services:
   ##############
   # Your Module
 
-  module_name.module:
-    class: module_name
+  <module_name>.module:
+    class: <module_name>
     factory: ['Module', 'getInstanceByName']
     arguments:
-      - 'module_name'
+      - '<module_name>'
 
-  module_name.context:
+  <module_name>.context:
     class: Context
     factory: ['Context', 'getContext']
 
@@ -88,14 +88,14 @@ services:
       - '@ps_accounts.installer'
 ```
 
-### Edit the module_name.php file
+### Edit the <module_name>.php file
 
 :::tip Note
-For simplification, all PHP methods listed below are created in the `module_name.php` file.
+For simplification, all PHP methods listed below are created in the `<module_name>.php` file.
 Feel free to re-organize the code structure in a different way to match the module evolution.
 :::
 
-Modify the `module_name.php` file as follows:
+Modify the `<module_name>.php` file as follows:
 
 ```php
 <?php
@@ -106,7 +106,7 @@ if (!defined('_PS_VERSION_')) {
 
 require 'vendor/autoload.php';
 
-class module_name extends Module
+class <module_name> extends Module
 
 {
     /**
@@ -236,8 +236,8 @@ class module_name extends Module
             $this->context->smarty->assign('urlAccountsVueCdn', $accountsService->getAccountsCdn());
 
             // The path of your js build (optionnal)
-            $this->context->smarty->assign('pathVendor', $this->getPathUri() . 'views/js/chunk-vendors-module_name.' . $this->version . '.js');
-            $this->context->smarty->assign('pathApp', $this->getPathUri() . 'views/js/app-module_name.' . $this->version . '.js');
+            $this->context->smarty->assign('pathVendor', $this->getPathUri() . 'views/js/chunk-vendors-<module_name>.' . $this->version . '.js');
+            $this->context->smarty->assign('pathApp', $this->getPathUri() . 'views/js/app-<module_name>.' . $this->version . '.js');
         } catch (Exception $e) {
             $this->context->controller->errors[] = $e->getMessage();
             return '';
@@ -431,7 +431,7 @@ class Rbm_example extends Module
 
 ### Create the Module Template
 
-Create the global vue app template in `views/templates/admin/<module_name>.tpl`. The name should match the name defined in `<module_name>.php` by this line:
+Create the global vue app template in `views/templates/admin/<module_name>.tpl`. The name should match the name defined in this line of the `<module_name>.php` file:
 
 ```php
 return $this->context->smarty->fetch($this->template_dir . '<module_name>.tpl');
@@ -455,7 +455,7 @@ The 3 `$urlAccountsCdn`, `$pathVendor` and `$pathApp` variables are prepared in 
 
 ## Frontend
 
-::: tip About VueJS
+:::tip About VueJS
 Javascript and Vue knowledge are prerequisite (cf [https://vuejs.org/v2/guide/](https://vuejs.org/v2/guide/)). This section only introduces the essentials, for more information, see the [example of PrestaShop Cloud Services integrated module](https://github.com/PrestaShopCorp/partner-devtools.prestashop.com/tree/main/modules/rbm_example) or the [Using VueJS PrestaShop documentation](https://devdocs.prestashop.com/1.7/modules/concepts/templating/vuejs/).
 :::
 
@@ -466,7 +466,7 @@ Create a `_dev` folder in your module. This folder will contain the VueJS app co
 
 Access this folder, and then create a [VueJS project](https://cli.vuejs.org/guide/creating-a-project.html#vue-create).
 
-::: tip
+:::tip Note
 Feel free to organize your application in your own way.
 :::
 
@@ -483,7 +483,7 @@ You need to update or create the `vue.config.js` to compile properly your VueJS 
 This is only an example of `vue.config.js`, you may modify this configuration.
 
 ::: warning Chunk path
-These file's names must match the ones (`$pathVendor`, `$pathApp`) used in the `getContent` hook, and the version of this module PHP (cf composer.json) and the vue app (cf package.json) must be the same.
+These file names must match the ones (`$pathVendor`, `$pathApp`) used in the `getContent` hook, and the version of this module PHP (cf composer.json) and the Vue app (cf package.json) must be the same.
 :::
 
 ```js
