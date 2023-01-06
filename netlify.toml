@@ -1,4 +1,4 @@
 [build]
-  base = "docs"
-  publish = "/.vuepress/dist"
+  base = "docs/src"
+  publish = "/src/.vuepress/dist"
   command = "vuepress build ."
