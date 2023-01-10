@@ -143,15 +143,14 @@ There are only two levels of hierarchy: parent and child, so `root_id` is at the
 
 ### Overview
 
-PrestaShop CloudSync allows you to synchronize PrestaShop data into the cloud, so you can have access to reliable and secure data and provide an optimized experience for merchants.
-
+ PrestaShop CloudSync allows you to synchronize merchant store data in the cloud (carriers, carts, orders, products and more) so you can access and integrate comprehensive data into your modules or services to offer merchants the most optimized experience.
 
 ### Why Use it?
 
-- Capture comprehensive data into the cloud
-- Access and integrate reliable, structured, and fresh data
-- Ensure data security and user privacy
-- Get a better understanding of usage through data monitoring
+- Capture comprehensive merchant store data into the cloud
+- Access reliable, structured, and fresh data in just a few clicks
+- Easily integrate PrestaShop data in your modules or services
+- Get a better understanding of your modules or services usage through data monitoring
 
 ### Data Flow
 
@@ -161,34 +160,30 @@ PrestaShop CloudSync synchronizes data from remote stores into PrestaShop's mana
 
 ### Components
 
-PrestaShop CloudSync is composed of several components that allow you to develop powerful modules, based on reliable PrestaShop data, and offer the best possible experience to merchants. Below are the main pillars of PrestaShop CloudSync:
+ PrestaShop CloudSync is composed of several components that help you develop powerful modules or services, based on reliable PrestaShop data, in order to offer the best experience to merchants. Below are the main pillars of PrestaShop CloudSync:
 
 #### :hammer_and_wrench: CloudSync SDK
 
-CloudSync SDK is a toolkit containing several components enabling you to easily integrate CloudSync with your modules.
+CloudSync SDK is a toolkit containing several components enabling you to easily and quickly integrate CloudSync into your modules or services.
 
 ##### Merchant Sharing Consent UI
 
-A UI component library, allowing merchants to consent to the data sharing between their store and your modules. You need to integrate this component into the activation funnel of your modules. Merchants are thus aware of the type of data being shared and can give their consent:
+A UI component library, allowing merchants to consent to the data sharing between their store and your modules or services. You need to integrate this component into the activation funnel of your modules. Merchants are thus aware of the type of data being shared and can give their consent:
 
 ![Merchant Sharing Consent UI](/assets/images/cloudsync/cloudsync-consent-ui.png)
 
 ##### PrestaShop Tech Vendor Boilerplate
 
-The PrestaShop Tech Vendor Boilerplate is a sample module helping you to integrate PrestaShop EventBus and Merchant Consent Sharing CDC into your module.
+The [PrestaShop Tech Vendor Boilerplate](https://github.com/PrestaShopCorp/ps_tech_vendor_boilerplate) is a sample module helping you integrate PrestaShop EventBus and Merchant Sharing Consent UI into your modules or services.
 
-##### Docker Compose Kickstarter
+#### :arrows_counterclockwise: PrestaShop EventBus Module
 
-A docker-compose Kickstarter for PrestaShop. This project relies on ngrok to open a network edge endpoint.
+Acting as a CloudSync agent, PrestaShop EventBus is a companion module that enables the synchronization of store data to CloudSync services. Following the download and installation of a CloudSync-based module, PrestaShop EventBus is automatically installed on the merchant's store as a dependency. It enables the synchronization of technical and non-personal data only:
 
-#### :arrows_counterclockwise: PrestaShop EventBus module
-
-Acting as a CloudSync agent, PrestaShop EventBus is a companion module that enables the synchronization of store data to CloudSync services.
-
-Following the download and installation of a CloudSync-based module, PrestaShop EventBus is automatically installed on the merchant's store as a dependency. It enables the synchronization of technical and non-personal data only.
+![PrestaShop EventBus Module](/assets/images/cloudsync/cloudsync-eventbus-module.png)
 
 :::tip Note
-This data synchronization is necessary for your modules to operate. Uninstalling the PrestaShop EventBus module may cause them to bug or even to stop working.
+This data synchronization is necessary for your modules to operate. Uninstalling the PrestaShop EventBus module may cause bugs or the complete shutdown of your modules or services
 :::
 
 #### :electric_plug: PrestaShop CloudSync APIs

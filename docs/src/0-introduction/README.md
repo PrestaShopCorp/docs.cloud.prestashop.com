@@ -32,7 +32,7 @@ PrestaShop Billing allows the PrestaShop billing system to deal with the **manag
 
 #### PrestaShop CloudSync
 
-PrestaShop CloudSync takes charge of the **duplication and synchronization of merchant data on PrestaShop servers**, thus reducing complexity and bugs. Its easy-to-use APIs allow technology vendors to access merchant data more easily so they can better analyze their behavior.
+ At the core of PrestaShop, CloudSync takes charge of the **duplication and synchronization of merchant store data on PrestaShop cloud servers** (carriers, carts, orders, products and more). Its powerful APIs allow technology vendors to access and integrate these data more easily so they can provide the best experience for merchants using their modules or services.
 
 #### PrestaShop Design system (currently in development)
 
