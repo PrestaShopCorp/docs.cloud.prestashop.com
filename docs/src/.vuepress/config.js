@@ -34,7 +34,7 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     displayAllHeaders: true,
-    sidebarDepth: 2,
+    sidebarDepth: 1,
     nav: [
       { text: 'Home', link: '/' },
       { text: 'PrestaShop Open Source Documentation', link: 'https://devdocs.prestashop-project.org/' },

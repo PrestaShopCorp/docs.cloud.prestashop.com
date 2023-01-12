@@ -14,101 +14,67 @@ The backend of a module integrated with PrestaShop Cloud Services is made of [PH
 
 ## Backend
 
-### Composer
+### Install PrestaShop Account
 
-Make sure [Composer](https://getcomposer.org/) is installed on your machine.
+1. If needed, install [Composer](https://getcomposer.org/).
+2. Open the command line of your choice.
+2. Run this command to Install the PrestaShop Account package (available on [Packagist](https://packagist.org/packages/prestashop/prestashop-accounts-installer)):
+    ```
+    composer require prestashop/prestashop-accounts-installer
+    ```
+    :arrow_right: A `vendor` folder and a `composer.json` containing the PrestaShop Account dependency are created within the module folder.
+3. To register your module and PrestaShop Account as services, create a `config\admin\service.yml` file with the following contents at the root of the module folder:
+    
+    ```yaml
+    services:
+      _defaults:
+        public: true
+    
+      ##############
+      # Your Module
 
-At the root of your module folder, create a `composer.json` file with the following contents:
+      <module_name>.module:
+        class: <module_name>
+        factory: ['Module', 'getInstanceByName']
+        arguments:
+          - '<module_name>'
 
-```json{13,14}
-{
-    "name": "prestashop/<module_name>",
-    "description": "",
-    "config": {
-        "preferred-install": "dist",
-        "optimize-autoloader": true,
-        "prepend-autoloader": false
-    },
-    "require-dev": {
-        "prestashop/php-dev-tools": "^4.2.1"
-    },
-    "require": {
-        "php": ">=5.6",
-        "prestashop/prestashop-accounts-installer": "^1.0.1",
-        "prestashop/module-lib-service-container": "^1.4"
-    },
-    "autoload": {
-        "classmap": [
-            "<module_name>.php"
-        ]
-    },
-    "author": "PrestaShop",
-    "license": "MIT"
-}
-```
+      <module_name>.context:
+        class: Context
+        factory: ['Context', 'getContext']
 
-### Register Your Module and PrestaShop Account as Services
+      #####################
+      # PrestaShop Account
+      ps_accounts.installer:
+        class: 'PrestaShop\PsAccountsInstaller\Installer\Installer'
+        arguments:
+          - '5.0'
 
-First, you need to register your module and PrestaShop Account as services. 
+      ps_accounts.facade:
+        class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
+        arguments:
+          - '@ps_accounts.installer'
+    ```
 
-:::tip Note
-For more information about services, see the [related documentation](https://devdocs.prestashop.com/1.7/modules/concepts/services/).
-:::
+    :::tip Note
+    For more information about services, see the [related documentation](https://devdocs.prestashop.com/1.7/modules/concepts/services/).
+    :::
 
-At the root of your module folder, create a `config` folder containing a `common.yml` file with the following contents:
-
-```yaml
-services:
-  _defaults:
-    public: true
-
-  ##############
-  # Your Module
-
-  <module_name>.module:
-    class: <module_name>
-    factory: ['Module', 'getInstanceByName']
-    arguments:
-      - '<module_name>'
-
-  <module_name>.context:
-    class: Context
-    factory: ['Context', 'getContext']
-
-  #####################
-  # PrestaShop Account
-  ps_accounts.installer:
-    class: 'PrestaShop\PsAccountsInstaller\Installer\Installer'
-    arguments:
-      - '5.0'
-
-  ps_accounts.facade:
-    class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
-    arguments:
-      - '@ps_accounts.installer'
-```
-
-### Edit the <module_name>.php file
+### Edit the <module_name>.php File
 
 :::tip Note
 For simplification, all PHP methods listed below are created in the `<module_name>.php` file.
-Feel free to re-organize the code structure in a different way to match the module evolution.
+Feel free to reorganize the code structure in a different way to match your module evolution.
 :::
 
-Modify the `<module_name>.php` file as follows:
+#### Set Up the Automatic Installation
 
-```php
-<?php
+Add the following highlighted contents to the `<module_name>.php` file.
 
-if (!defined('_PS_VERSION_')) {
-    exit;
-}
+They will allow your module to automatically install PrestaShop Account when necessary, and allow you to use PsAccountService.
 
-require 'vendor/autoload.php';
-
-class <module_name> extends Module
-
-{
+```php{5,11,12,13,14,15,16,24,36,37,38,39,54,55,56,57,58}
+class <module_name> extends Module {
     /**
      * @var ServiceContainer
      */
@@ -116,25 +82,7 @@ class <module_name> extends Module
 
     public function __construct()
     {
-
-        $this->name = 'rmb_example';
-        $this->tab = 'advertising_marketing';
-        $this->version = '1.0.0';
-        $this->author = 'Prestashop';
-        $this->emailSupport = 'support@prestashop.com';
-        $this->need_instance = 0;
-        $this->ps_versions_compliancy = [
-            'min' => '1.6.1.0',
-            'max' => _PS_VERSION_,
-        ];
-        $this->bootstrap = true;
-        parent::__construct();
-        $this->displayName = $this->l('Account example');
-        $this->description = $this->l('This is an example for a module using Prestashop Accounts.');
-        $this->confirmUninstall = $this->l('Are you sure to uninstall this module?');
-        $this->uri_path = Tools::substr($this->context->link->getBaseLink(null, null, true), 0, -1);
-        $this->images_dir = $this->uri_path . $this->getPathUri() . 'views/img/';
-        $this->template_dir = $this->getLocalPath() . 'views/templates/admin/';
+        // ...
 
         if ($this->container === null) {
             $this->container = new \PrestaShop\ModuleLibServiceContainer\DependencyInjection\ServiceContainer(
@@ -144,183 +92,15 @@ class <module_name> extends Module
         }
     }
 
-    /**
-     * Retrieve service
-     *
-     * @param string $serviceName
-     *
-     * @return mixed
-     */
-    public function getService($serviceName)
-    {
-        return $this->container->getService($serviceName);
-    }
-
-    // The following installs PrestaShop Account on your module installation
+    // ...
     public function install()
     {
+        // Load the PrestaShop Account utility
         return parent::install() &&
             $this->getService('ps_accounts.installer')->install();
     }
 
-    public function uninstall()
-    {
-        if (!parent::uninstall()) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * Get the Tos URL from the context language, if null, send default link value
-     *
-     * @return string
-     */
-    public function getTosLink($iso_lang)
-    {
-        switch ($iso_lang) {
-            case 'fr':
-                $url = 'https://www.prestashop.com/fr/prestashop-account-cgu';
-                break;
-            default:
-                $url = 'https://www.prestashop.com/en/prestashop-account-terms-conditions';
-                break;
-        }
-
-        return $url;
-    }
-
-    /**
-     * Get the Tos URL from the context language, if null, send default link value
-     *
-     * @return string
-     */
-    public function getPrivacyLink($iso_lang)
-    {
-        switch ($iso_lang) {
-            case 'fr':
-                $url = 'https://www.prestashop.com/fr/politique-confidentialite';
-                break;
-            default:
-                $url = 'https://www.prestashop.com/en/privacy-policy';
-                break;
-        }
-
-        return $url;
-    }
-
-    public function getContent()
-    {
-        $accountsService = null;
-        try {
-            $accountsFacade = $this->getService('ps_accounts.facade');
-            $accountsService = $accountsFacade->getPsAccountsService();
-        } catch (\PrestaShop\PsAccountsInstaller\Installer\Exception\InstallerException $e) {
-            // Prestashop Account is not installed, we use accountsInstaller to automatically install it
-
-            $accountsInstaller = $this->getService('ps_accounts.installer');
-            $accountsInstaller->install();
-            $accountsFacade = $this->getService('ps_accounts.facade');
-            $accountsService = $accountsFacade->getPsAccountsService();
-        }
-
-        try {
-            // The context needed for PrestaShop Account to work
-            Media::addJsDef([
-                'contextPsAccounts' => $accountsFacade->getPsAccountsPresenter()
-                    ->present($this->name),
-            ]);
-
-            // Retrieve Account CDN
-            $this->context->smarty->assign('urlAccountsVueCdn', $accountsService->getAccountsCdn());
-
-            // The path of your js build (optionnal)
-            $this->context->smarty->assign('pathVendor', $this->getPathUri() . 'views/js/chunk-vendors-<module_name>.' . $this->version . '.js');
-            $this->context->smarty->assign('pathApp', $this->getPathUri() . 'views/js/app-<module_name>.' . $this->version . '.js');
-        } catch (Exception $e) {
-            $this->context->controller->errors[] = $e->getMessage();
-            return '';
-        }
-        
-        return $this->context->smarty->fetch($this->template_dir . 'rmb_example.tpl');
-    }
-}
-```
-
-> You should follow the documentation from [prestashop-accounts-installer](https://github.com/PrestaShopCorp/prestashop-accounts-installer) to properly install the PS Account utility.
-
-### Check the PrestaShop Account Association
-
-To know whether the shop has been successfully associated or not, use the `isAccountLinked` function from the `PsAccountsService` service.
-
-```php
-// Account
-$accountsService = $this->getService('ps_accounts.facade')->getPsAccountsService();
-$accountsService->isAccountLinked();
-```
-
-### Load the Front JavaScript App
-
-You should load the bundle of the front JS app in the `getContent` hook of your module PHP file. See [Compile your app](#compile-your-app) to get the correct path.
-
-```php
-// Update the path to have the proper path
-$this->context->smarty->assign('pathVendor', $this->getPathUri() . 'views/js/chunk-vendors-rbm_example.' . $this->version . '.js');
-$this->context->smarty->assign('pathApp', $this->getPathUri() . 'views/js/app-rbm_example.' . $this->version . '.js');
-```
-
-```php
-<?php
-
-if (!defined('_PS_VERSION_')) {
-    exit;
-}
-
-require 'vendor/autoload.php';
-
-class Rbm_example extends Module
-{
-    private $emailSupport;
-
-    /**
-     * @var ServiceContainer
-     */
-    private $container;
-
-    public function __construct()
-    {
-        $this->name = 'rbm_example';
-        $this->tab = 'advertising_marketing';
-        $this->version = '1.0.0';
-        $this->author = 'Prestashop';
-        $this->emailSupport = 'support@prestashop.com';
-        $this->need_instance = 0;
-
-        $this->ps_versions_compliancy = [
-            'min' => '1.6.1.0',
-            'max' => _PS_VERSION_,
-        ];
-        $this->bootstrap = true;
-
-        parent::__construct();
-
-        $this->displayName = $this->l('RBM example');
-        $this->description = $this->l('This is a RBM example module.');
-
-        $this->confirmUninstall = $this->l('Are you sure to uninstall this module?');
-
-        $this->uri_path = Tools::substr($this->context->link->getBaseLink(null, null, true), 0, -1);
-        $this->images_dir = $this->uri_path . $this->getPathUri() . 'views/img/';
-        $this->template_dir = $this->getLocalPath() . 'views/templates/admin/';
-
-        if ($this->container === null) {
-            $this->container = new \PrestaShop\ModuleLibServiceContainer\DependencyInjection\ServiceContainer(
-                $this->name,
-                $this->getLocalPath()
-            );
-        }
-    }
+    // ...
 
     /**
      * Retrieve the service
@@ -333,101 +113,62 @@ class Rbm_example extends Module
     {
         return $this->container->getService($serviceName);
     }
+}
+```
 
-    public function install()
-    {
-        return parent::install() &&
-            $this->getService('ps_accounts.installer')->install();
-    }
+#### Inject the Library and Context
 
-    public function uninstall()
-    {
-        if (!parent::uninstall()) {
-            return false;
-        }
+To function properly, PrestaShop Account requires some information which is provided by injecting a `context`. To do so, you need to update the `getContent` hook. This will inject `contextPsAccounts` into the browser `window` object (`window.contextPsAccounts`).
 
-        return true;
-    }
+The PrestaShop Account service is also responsible for returning the proper URL for the frontend component, [which is loaded via CDN](#use-prestashop-account).
 
-    /**
-     * Get the Tos URL from the context language, if null, send default link value
-     *
-     * @return string
-     */
-    public function getTosLink($iso_lang)
-    {
-        switch ($iso_lang) {
-            case 'fr':
-                $url = 'https://www.prestashop.com/fr/prestashop-account-cgu';
-                break;
-            default:
-                $url = 'https://www.prestashop.com/en/prestashop-account-terms-conditions';
-                break;
-        }
+::: warning PrestaShop Account component doc
+For a custom VueJS implementation, check [PsAccount vue component documentation](https://storybook-accounts.distribution.prestashop.net/)
+:::
 
-        return $url;
-    }
-
-    /**
-     * Get the Tos URL from the context language, if null, send default link value
-     *
-     * @return string
-     */
-    public function getPrivacyLink($iso_lang)
-    {
-        switch ($iso_lang) {
-            case 'fr':
-                $url = 'https://www.prestashop.com/fr/politique-confidentialite';
-                break;
-            default:
-                $url = 'https://www.prestashop.com/en/privacy-policy';
-                break;
-        }
-
-        return $url;
-    }
-
+```php{14,15,16,17,18}
     public function getContent()
     {
-        // Allow to auto-install Account
-        $accountsInstaller = $this->getService('ps_accounts.installer');
-        $accountsInstaller->install();
-
-        try {
-            // Account
-            $accountsFacade = $this->getService('ps_accounts.facade');
-            $accountsService = $accountsFacade->getPsAccountsService();
-            Media::addJsDef([
-                'contextPsAccounts' => $accountsFacade->getPsAccountsPresenter()
-                    ->present($this->name),
-            ]);
-
-            // Retrieve Account CDN
-            $this->context->smarty->assign('urlAccountsCdn', $accountsService->getAccountsCdn());
-
-            $billingFacade = $this->getService('ps_billings.facade');
-            $partnerLogo = $this->getLocalPath() . 'views/img/partnerLogo.png';
-
-            // Billing
-            Media::addJsDef($billingFacade->present([
-                'logo' => $partnerLogo,
-                'tosLink' => $this->getTosLink($this->context->language->iso_code),
-                'privacyLink' => $this->getPrivacyLink($this->context->language->iso_code),
-                'emailSupport' => $this->emailSupport,
-            ]));
-
-            $this->context->smarty->assign('pathVendor', $this->getPathUri() . 'views/js/chunk-vendors-rbm_example.' . $this->version . '.js');
-            $this->context->smarty->assign('pathApp', $this->getPathUri() . 'views/js/app-rbm_example.' . $this->version . '.js');
-        } catch (Exception $e) {
-            $this->context->controller->errors[] = $e->getMessage();
-
-            return '';
+        /**
+         * If values have been submitted in the form, process them
+         */
+        if (((bool)Tools::isSubmit('submit<module_name>Module')) == true) {
+            $this->postProcess();
         }
+        ​
+        $this->context->smarty->assign('module_dir', $this->_path);
 
-        return $this->context->smarty->fetch($this->template_dir . 'rbm_example.tpl');
+        $output = $this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');
+
+        Media::addJsDef([
+            'contextPsAccounts' => $this->getService('ps_accounts.facade')
+                ->getPsAccountsPresenter()
+                ->present($this->name),
+        ]);
+
+        return $output.$this->renderForm();
     }
-}
-````
+```
+
+### Make Sure the PrestaShop Account Service Loads Into Your Module
+
+1. Zip your module folder.
+1. In the back office of your PrestaShop store, go to **Modules** > **Module Catalog**.
+3. Click the **Upload a module** button and select your archive.
+    Your module is now available in the catalog.
+4. Install it and click on **Configure**.
+5. Right-click its configuration panel, and inspect the code.
+    If `contextPsAccount` is present, the service was successfully loaded.
+
+### Load the Front JavaScript App
+
+You should load the bundle of the front JS app in the `getContent` hook of your module PHP file. See [Compile your app](#compile-your-app) to get the correct path.
+
+```php
+// Update the path to have the proper path
+$this->context->smarty->assign('pathVendor', $this->getPathUri() . 'views/js/chunk-vendors-rbm_example.' . $this->version . '.js');
+$this->context->smarty->assign('pathApp', $this->getPathUri() . 'views/js/app-rbm_example.' . $this->version . '.js');
+```
 
 ### Create the Module Template
 
@@ -555,7 +296,7 @@ CDN is the proper way to implement PrestaShop Cloud Services. You should use onl
       * The PsAccountsVueComponents can be used in any technology (reactjs, vuejs, native...).
       * It is mounted via the <prestashop-accounts> tag.
       * If the CDN is loaded, then init via the CDN for automatic update.
-      * If the CDN di not work, load it from the installed npm repository.
+      * If the CDN did not work, load it from the installed npm repository.
     **/
     window?.psaccountsVue?.init() || require('prestashop_accounts_vue_components').init();
 </script>
