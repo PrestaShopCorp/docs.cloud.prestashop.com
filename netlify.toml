@@ -1,7 +1,7 @@
 [build]
   base = "docs"
   publish = "/src/.vuepress/dist"
-  command = "vuepress build ."
+  command = "vuepress build src/."
 
 [[redirects]]
   from = "http://billing-docs.netlify.app/*"
