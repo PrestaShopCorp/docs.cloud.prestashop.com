@@ -18,25 +18,55 @@ The goal of this documentation is to help you **create modules integrated with t
 
 Previously known as "SaaS App", PrestaShop Cloud Services is an integration framework provided by PrestaShop. Including several different services that you can select according to your needs, it improves merchant experience and streamlines the development of commonly used features such as billing and data synchronization.
 
-### Available services
+## Why Use PrestaShop Cloud Services?
 
-#### PrestaShop Account
+### :eight_pointed_black_star: General Benefits
 
-Required to use any other service, PrestaShop Account establishes a **link between the module and the PrestaShop accounts**. It allows you and PrestaShop to identify the merchant in the PrestaShop system.
+**Faster time to market**: Integration to PrestaShop Cloud Services allows you to upgrade PrestaShop module less frequently, so you can deploy your services as soon as they are ready, and make them available to all merchants right away.
 
-Once the module has been configured to establish a connection, merchants are automatically logged in, which helps them save time. PrestaShop Account also improves technology vendors visibility on merchant data, allowing them to gain insights on merchant conversions.
+**Open tech stack**: You can develop your services in any language (PHP, Node.js, Go, Rust, Java, ...) or framework available. APIs allow your developers to agnostically integrate a PrestaShop environment.
 
-#### PrestaShop Billing
+**Breaking changes loose coupling**: When PrestaShop releases a major version, only your module has to be updated. You can keep your backend services as they are.
 
-PrestaShop Billing allows the PrestaShop billing system to deal with the **management and invoicing of merchant subscriptions**, allowing merchants to enjoy an optimized payment experience and technology vendors to receive monthly payments automatically. It also improves GDPR compliance, as merchants are requested to consent to the processing of their data when proceeding to payment.
+**High computing load**: You can manipulate data without compromising the merchants' ability to serve their customers. Heavy data processing can be performed on your own services.
 
-#### PrestaShop CloudSync
+### :passport_control: PrestaShop Account
 
- At the core of PrestaShop, CloudSync takes charge of the **duplication and synchronization of merchant store data on PrestaShop cloud servers** (carriers, carts, orders, products and more). Its powerful APIs allow technology vendors to access and integrate these data more easily so they can provide the best experience for merchants using their modules or services.
+PrestaShop Account establishes a **link between the module and the PrestaShop accounts**. It allows you and PrestaShop to identify the merchant in the PrestaShop system.
 
-#### PrestaShop Design system (currently in development)
+#### Why Use It?
+- Required to use other PrestaShop Cloud Services
+- Saves time for merchants through automatic login
+- Improves your visibility on merchant data: insights on conversions
 
-PrestaShop Design system consists in **module configuration page templates**. It simplifies greatly the configuration process and allows existing merchants to adopt new modules easily.
+### :credit_card: PrestaShop Billing
+
+PrestaShop Billing allows the PrestaShop billing system to deal with the **management and invoicing of merchant subscriptions**.
+
+#### Why Use It?
+- Optimized payment experience for merchants
+- New payment model for you with automatic monthly payments
+- Improvement of GDPR compliance, as merchants are requested to consent to the processing of their data when proceeding to payment
+- Better tracking of the store activations for your module
+- Possibility to offer different pricing plans
+
+### :arrows_counterclockwise: PrestaShop CloudSync
+
+At the core of PrestaShop, CloudSync allows you to **duplicate and synchronize merchant store data on PrestaShop cloud servers** (carriers, carts, orders, products and more) so you can access and integrate comprehensive data into your modules or services to offer merchants the most optimized experience.
+
+#### Why Use It?
+- Capture comprehensive merchant store data into the cloud
+- Access reliable, structured, and fresh data in just a few clicks
+- Easily integrate PrestaShop data in your modules or services: CloudSync handles the support of all versions of PrestaShop, and standardize data models across PrestaShop versions
+- Get a better understanding of your modules or services usage through data monitoring
+
+### :art: PrestaShop Design system (currently in development)
+
+PrestaShop Design system consists in **module configuration page templates**. 
+
+#### Why Use It?
+- Greatly simplified configuration process
+- Easier adoption of new modules for merchants
 
 ## Prerequisites
 
@@ -55,10 +85,13 @@ The following configuration is required to integrate your module with PrestaShop
 | 1.6.1.x             | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | 1.6.4 – 1.6.9                      |
 
 ### Supported languages
-To integrate your module with PrestaShop Cloud Services, you need to use the following languages:
+
+To perform the integration of your module with PrestaShop Cloud Services, you need to use the following languages:
 
 - [PHP](https://www.php.net/) for the backend
 - [Vue.js 3](https://vuejs.org/), Vanilla JavaScript, or React for the frontend
+
+For your own services, that you will connect to PrestaShop Cloud Services, you can use the language of your choice. See [PrestaShop Cloud Services Architecture](../1-how-it-works/README.md#prestashop-cloud-services-architecture) for more information.
 
 ## Getting help
 
