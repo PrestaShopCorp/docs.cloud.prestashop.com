@@ -4,21 +4,11 @@ title: How It Works
 
 # :gear: How It Works
 
-## PrestaShop Cloud Services Data Flow
+## PrestaShop Cloud Services Architecture
 
-![PrestaShop Cloud Services Data Flow](/assets/images/0-overview/schema.png)
+![PrestaShop Cloud Services Architecture](/assets/images/1-relationships/architecture.jpg)
 
-## PrestaShop Account
-
-### Overview
-
-PrestaShop Account establishes a link between the module and the PrestaShop accounts. It allows you and PrestaShop to identify the merchant in the PrestaShop system. 
-
-### Why Use it?
-
-- Required to use other PrestaShop Cloud Services
-- Saves time for merchants through automatic login
-- Improves technology vendors visibility on merchant data
+## PrestaShop Account 
 
 ### Components
 
@@ -62,16 +52,6 @@ There are two possibilities:
 :::
 
 ## PrestaShop Billing
-
-### Overview
-
-PrestaShop Billing allows the PrestaShop billing system to deal with the management and invoicing of merchant subscriptions.
-
-### Why Use it?
-
-- Optimized payment experience for merchants
-- Automatic monthly payments for technology vendors
-- Improvement of GDPR compliance, as merchants are requested to consent to the processing of their data when proceeding to payment
 
 ### Components
 
@@ -141,17 +121,6 @@ There are only two levels of hierarchy: parent and child, so `root_id` is at the
 
 ## PrestaShop CloudSync
 
-### Overview
-
- PrestaShop CloudSync allows you to synchronize merchant store data in the cloud (carriers, carts, orders, products and more) so you can access and integrate comprehensive data into your modules or services to offer merchants the most optimized experience.
-
-### Why Use it?
-
-- Capture comprehensive merchant store data into the cloud
-- Access reliable, structured, and fresh data in just a few clicks
-- Easily integrate PrestaShop data in your modules or services
-- Get a better understanding of your modules or services usage through data monitoring
-
 ### Data Flow
 
 PrestaShop CloudSync synchronizes data from remote stores into PrestaShop's managed cloud infrastructure and enables data processing:
@@ -160,7 +129,7 @@ PrestaShop CloudSync synchronizes data from remote stores into PrestaShop's mana
 
 ### Components
 
- PrestaShop CloudSync is composed of several components that help you develop powerful modules or services, based on reliable PrestaShop data, in order to offer the best experience to merchants. Below are the main pillars of PrestaShop CloudSync:
+PrestaShop CloudSync is composed of several components that help you develop powerful modules or services, based on reliable PrestaShop data, in order to offer the best experience to merchants. Below are the main pillars of PrestaShop CloudSync:
 
 #### :hammer_and_wrench: CloudSync SDK
 
