@@ -1,12 +1,16 @@
 ---
 home: true
-title: PrestaShop Cloud Services
-description: Not sure where to start? Read this to learn how to build a module powered by PrestaShop Cloud Services.
-actionText: Get Started
+heroImage: assets/images/common/homepage.png
+heroText: PrestaShop Integration Framework
+tagline: Learn how to build a module powered by the PrestaShop Integration Framework
+actionText: Get Started →
 actionLink: /0-introduction/
-footer: Made by PrestaShop, Powered by VuePress.
+features:
+- title: PrestaShop Account
+  details: Authenticate your module within the PrestaShop ecosystem.
+- title: PrestaShop Billing
+  details: Streamline the management and invoicing of merchant subscriptions.
+- title: PrestaShop CloudSync
+  details: Synchronize and access merchant store data in the cloud.
+footer: © Copyright 2007-2023 PrestaShop. All rights reserved.
 ---
-
-<div style="text-align: center;">
-  <img alt="PrestaShop logo" src="/assets/images/common/logo.png" style="max-width: 300px;"></img>
-</div>

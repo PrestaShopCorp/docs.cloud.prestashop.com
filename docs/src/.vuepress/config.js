@@ -1,7 +1,7 @@
 const { description } = require('../../package')
 
 module.exports = {
-  title: 'Prestashop Cloud Services',
+  title: 'Prestashop Integration Services',
   description: '',
   theme: '',
 
@@ -37,9 +37,16 @@ module.exports = {
     sidebarDepth: 1,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'PrestaShop Open Source Documentation', link: 'https://devdocs.prestashop-project.org/' },
-      { text: 'Module Generator', link: 'https://validator.prestashop.com/generator' },
-      { text: 'Sample Module Repository', link: 'https://github.com/PrestaShopCorp/partner-devtools.prestashop.com' }
+      {
+        text: 'Standard Module Development References',
+        ariaLabel: 'Standard Module Development References',
+        items: [
+          { text: 'PrestaShop Technical Documentation', link: 'https://devdocs.prestashop-project.org/' },
+          { text: 'Module Generator', link: 'https://validator.prestashop.com/generator' }
+        ]
+      },
+      { text: 'PrestaShop User Documentation', link: 'https://docs.prestashop-project.org/welcome/' },
+      { text: 'Sample Module Repository', link: 'https://github.com/PrestaShopCorp/partner-devtools.prestashop.com/tree/main/modules/rbm_example' }
     ],
     sidebar: [
       [ '/' ,'Home' ],
