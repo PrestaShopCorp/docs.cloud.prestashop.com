@@ -4,9 +4,9 @@ title: How It Works
 
 # :gear: How It Works
 
-## PrestaShop Cloud Services Architecture
+## PrestaShop Integration Framework Architecture
 
-![PrestaShop Cloud Services Architecture](/assets/images/1-relationships/architecture.jpg)
+![PrestaShop Integration Framework Architecture](/assets/images/1-relationships/architecture.jpg)
 
 ## PrestaShop Account 
 
@@ -88,13 +88,13 @@ The "parent" customer is created based on the `ownerUuid` of the SSO user from t
 
 ![Relationship map](/assets/images/1-relationships/relationship_map.png)
 
-For every store using a PrestaShop Cloud Services module, a parent customer and a child customer are created once, and so is their relationship.
+For every store using an integrated module, a parent customer and a child customer are created once, and so is their relationship.
 
 A merchant with the same `ownerUuid` (same SSO user, same parent customer) might have one or multiple stores with different `shopUuid` (different child customers):
 
 ![One customer to many stores](/assets/images/1-relationships/one_customer_multiple_shop.png)
 
-For each store, a merchant can subscribe to one or more PrestaShop Cloud Services modules.
+For each store, a merchant can subscribe to one or more integrated modules.
 
 :::warning Important
 

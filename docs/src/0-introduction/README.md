@@ -6,23 +6,23 @@ title: introduction
 
 ## Who is this documentation for?
 
-This documentation is intended for **technology vendors**: partners, sellers, developers, and agencies who **create and distribute modules and/or themes** that will be added to the PrestaShop Addons Marketplace.
+This documentation is intended for partners, sellers, developers, and agencies who **create and distribute modules and/or themes** that will be added to the [PrestaShop Marketplace](https://addons.prestashop.com/en/).
 
 ## Why read this?
 
 PrestaShop is an extremely customizable e-commerce platform that was designed so that third-party modules could easily build upon its foundations.
 
-The goal of this documentation is to help you **create modules integrated with the PrestaShop ecosystem** using PrestaShop Cloud Services to optimize development and usability.
+The goal of this documentation is to help you **take advantage of the PrestaShop Integration Framework to connect your modules to the PrestaShop ecosystem** so you can optimize development and usability.
 
-## What is PrestaShop Cloud Services?
+## What is the PrestaShop Integration Framework?
 
-Previously known as "SaaS App", PrestaShop Cloud Services is an integration framework provided by PrestaShop. Including several different services that you can select according to your needs, it improves merchant experience and streamlines the development of commonly used features such as billing and data synchronization.
+Previously known as "SaaS App", the PrestaShop Integration Framework includes several different services that you can select according to your needs. It improves merchant experience and streamlines the development of commonly used features such as billing and data synchronization.
 
-## Why Use PrestaShop Cloud Services?
+## Why Use the PrestaShop Integration Framework?
 
 ### :eight_pointed_black_star: General Benefits
 
-**Faster time to market**: Integration to PrestaShop Cloud Services allows you to upgrade PrestaShop module less frequently, so you can deploy your services as soon as they are ready, and make them available to all merchants right away.
+**Faster time to market**: The PrestaShop Integration Framework allows you to upgrade PrestaShop module less frequently, so you can deploy your services as soon as they are ready, and make them available to all merchants right away.
 
 **Open tech stack**: You can develop your services in any language (PHP, Node.js, Go, Rust, Java, ...) or framework available. APIs allow your developers to agnostically integrate a PrestaShop environment.
 
@@ -35,7 +35,7 @@ Previously known as "SaaS App", PrestaShop Cloud Services is an integration fram
 PrestaShop Account establishes a **link between the module and the PrestaShop accounts**. It allows you and PrestaShop to identify the merchant in the PrestaShop system.
 
 #### Why Use It?
-- Required to use other PrestaShop Cloud Services
+- Required to use other services of the PrestaShop Integration Framework
 - Saves time for merchants through automatic login
 - Improves your visibility on merchant data: insights on conversions
 
@@ -72,7 +72,7 @@ PrestaShop Design system consists in **module configuration page templates**.
 
 ### Compatibility chart
 
-The following configuration is required to integrate your module with PrestaShop Cloud Services:
+The following configuration is required to use the PrestaShop Integration Framework:
 
 | PrestaShop platform | PHP          | PrestaShop Account    | PrestaShop Billing (components)    | PrestaShop Billing (PHP helper)    | PrestaShop CloudSync (EventBus)    |
 | ------------------- | ------------ | --------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
@@ -86,12 +86,12 @@ The following configuration is required to integrate your module with PrestaShop
 
 ### Supported languages
 
-To perform the integration of your module with PrestaShop Cloud Services, you need to use the following languages:
+To perform the integration of your module with the PrestaShop ecosystem, you need to use the following languages:
 
 - [PHP](https://www.php.net/) for the backend
 - [Vue.js 3](https://vuejs.org/), Vanilla JavaScript, or React for the frontend
 
-For your own services, that you will connect to PrestaShop Cloud Services, you can use the language of your choice. See [PrestaShop Cloud Services Architecture](../1-how-it-works/README.md#prestashop-cloud-services-architecture) for more information.
+For your own services, that you will connect to the PrestaShop ecosystem, you can use the language of your choice. See [PrestaShop Integration Framework Architecture](../1-how-it-works/README.md#prestashop-integration-framework-architecture) for more information.
 
 ## Getting help
 

@@ -1,7 +1,7 @@
 const { description } = require('../../package')
 
 module.exports = {
-  title: 'Prestashop Integration Services',
+  title: 'Prestashop Integration Framework',
   description: '',
   theme: '',
 
