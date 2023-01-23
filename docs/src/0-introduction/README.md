@@ -6,7 +6,7 @@ title: introduction
 
 ## Who is this documentation for?
 
-This documentation is intended partners, sellers, developers, and agencies who **create and distribute modules and/or themes** that will be added to the PrestaShop Addons Marketplace.
+This documentation is intended for partners, sellers, developers, and agencies who **create and distribute modules and/or themes** that will be added to the PrestaShop Addons Marketplace.
 
 ## Why read this?
 
