@@ -9,7 +9,7 @@ title: Integrating a Module with PrestaShop Account
 To complete this procedure, you need to have at your disposal a running PrestaShop (see [Preparing your environment](https://docs.cloud.prestashop.com/2-preparing-your-environment)) and a module that you can either [create yourself](https://devdocs.prestashop-project.org/8/modules/creation/) or [generate](https://validator.prestashop.com/generator).
 
 :::warning Warning
-The backend of a module integrated with PrestaShop Cloud Services is made of [PHP](https://www.php.net/) while the frontend is made of [Vue.js 3](https://vuejs.org/), Vanilla JavaScript, or React. You need to master these languages to be able to perform the integration.
+The backend of an integrated module is made of [PHP](https://www.php.net/) while the frontend is made of [Vue.js 3](https://vuejs.org/), Vanilla JavaScript, or React. You need to master these languages to be able to perform the integration.
 :::
 
 ## Backend
@@ -197,7 +197,7 @@ The 3 `$urlAccountsCdn`, `$pathVendor` and `$pathApp` variables are prepared in 
 ## Frontend
 
 :::tip About VueJS
-Javascript and Vue knowledge are prerequisite (cf [https://vuejs.org/v2/guide/](https://vuejs.org/v2/guide/)). This section only introduces the essentials, for more information, see the [example of PrestaShop Cloud Services integrated module](https://github.com/PrestaShopCorp/partner-devtools.prestashop.com/tree/main/modules/rbm_example) or the [Using VueJS PrestaShop documentation](https://devdocs.prestashop.com/1.7/modules/concepts/templating/vuejs/).
+Javascript and Vue knowledge are prerequisite (cf [https://vuejs.org/v2/guide/](https://vuejs.org/v2/guide/)). This section only introduces the essentials, for more information, see the [example of integrated module](https://github.com/PrestaShopCorp/partner-devtools.prestashop.com/tree/main/modules/rbm_example) or the [Using VueJS PrestaShop documentation](https://devdocs.prestashop.com/1.7/modules/concepts/templating/vuejs/).
 :::
 
 
@@ -281,7 +281,7 @@ yarn add prestashop_accounts_vue_components
 The `PsAccount` front component is loaded by the CDN in the smarty template.
 
 ::: warning Use the CDN
-CDN is the proper way to implement PrestaShop Cloud Services. You should use only the npm dependency as a fallback in case the CDN does not work properly
+CDN is the proper way to implement the PrestaShop Integration Framework. You should use only the npm dependency as a fallback in case the CDN does not work properly
 :::
 
 ```html
