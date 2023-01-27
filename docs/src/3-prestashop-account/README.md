@@ -14,14 +14,7 @@ Integrating your module will require using [PHP](https://www.php.net/) for the b
 
 ## Install PrestaShop Account
 
-1. If needed, install [Composer](https://getcomposer.org/).
-2. Within your module folder, open the command line of your choice.
-2. Run the following command to install the PrestaShop Account package (available on [Packagist](https://packagist.org/packages/prestashop/prestashop-accounts-installer)):
-    ```
-    composer require prestashop/prestashop-accounts-installer
-    ```
-    :arrow_right: A `vendor` folder and a `composer.json` containing the PrestaShop Account dependency are created within the module folder.
-3. To register your module and PrestaShop Account as services, create a `config\admin\services.yml` file with the following contents at the root of the module folder:
+1. To register your module and PrestaShop Account as services, create a `config\admin\services.yml` file with the following contents at the root of the module folder:
     
     ```yaml
     services:
@@ -58,7 +51,37 @@ Integrating your module will require using [PHP](https://www.php.net/) for the b
     For more information about services, see the [related documentation](https://devdocs.prestashop.com/1.7/modules/concepts/services/).
     :::
 
-4. Make sure you replace every occurrence of `<module_name>` with the actual name of your module.
+2. Make sure you replace every occurrence of `<module_name>` with the actual name of your module.
+
+3. At the root of your module folder, create a file named `composer.json` with the following contents:
+
+    ```json
+    {
+      "name": "prestashop/<module_name>",
+      "description": "",
+      "config": {
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "prepend-autoloader": false
+      },
+      "require-dev": {
+        "prestashop/php-dev-tools": "^4.2.1"
+      },
+      "require": {
+        "php": ">=5.6",
+        "prestashop/prestashop-accounts-installer": "^1.0",
+        "prestashop/module-lib-service-container": "^1.4"
+      },
+      "autoload": {
+        "classmap": [
+          "<module_name>.php"
+        ]
+      },
+      "author": "PrestaShop",
+      "license": "MIT"
+    }
+
+4. Make sure you replace every occurrence of `<module_name>` with the actual name of your module. 
 
 ## Edit the <module_name>.php File
 
@@ -171,24 +194,30 @@ Add the following highlighted contents to the `<module_name>.php` file:
 
 1. Access the template file allowing you to render the configuration page for your module in the back office. If your module was created through the [generator](https://validator.prestashop.com/generator), it has the following path: `views/templates/admin/configure.tpl`. Create it if necessary.
 
-2. Make sure your template file's path matches the one defined in this line of the `<module_name>.php` file:
+2. In the `<module_name>.php` file, make sure your template file's path matches the one defined in this line:
 
     ```php
     $output = $this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');
     ```
 
-3. Add the following tag at the beginning of the template file:
+3. In the template file, add the following tag at the beginning:
 
     ```javascript
     <prestashop-accounts></prestashop-accounts>
     ```
 
-4. Add the following script lines at the end of the template file:
+4. In the template file, add the following script lines at the end:
 
     ```javascript
     <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
+
     <script>
         window?.psaccountsVue?.init();
+
+        if(window.psaccountsVue.isOnboardingCompleted() != true)
+        {
+        	document.getElementById("module-config").style.opacity = "0.5";
+        }
     </script>
     ```
 
@@ -204,4 +233,6 @@ To test if the PrestaShop Account service is loading successfully in your module
 
 4. Click **Configure** in the pop-up window that displays.
     
-    :arrow_right: Your module should contain the PrestaShop Account panel.
+    :arrow_right: Your module configuration page should contain the PrestaShop Account association panel:
+
+    ![PrestaShop Account not linked](/assets/images/0-overview/ps_account_not_linked.png)
