@@ -223,7 +223,7 @@ Add the following highlighted contents to the `<module_name>.php` file:
 
 ## Test Your Module
 
-To test if the PrestaShop Account service is loading successfully in your module:
+To test if PrestaShop Account is loading successfully into your module:
 
 1. Zip your module folder.
 
