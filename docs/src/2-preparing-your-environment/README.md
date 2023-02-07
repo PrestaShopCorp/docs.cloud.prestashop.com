@@ -2,17 +2,17 @@
 title: Preparing Your Environment for the PrestaShop Integration Framework
 ---
 
-# :building_construction: Preparing Your Environment for the PrestaShop Integration Framework
+# :roller_coaster: Preparing Your Environment for the PrestaShop Integration Framework
 
 To use the PrestaShop Integration Framework, you need to **have a PrestaShop store instance running and available online**.
 
-You can either choose to install PrestaShop and configure it yourself, or use Docker Compose Kickstarter, a repository allowing you to install a Docker image of a preconfigured PrestaShop environment, already available online.
+You can either choose to install PrestaShop manually and configure it yourself, or use Docker Compose Kickstarter, a repository allowing you to install a Docker image of a preconfigured PrestaShop environment, already available online.
 
 ## Installing PrestaShop Manually
 
 ### Follow the Documentation
 
-You can install PrestaShop manually by following the [PrestaShop Open Source documentation](https://devdocs.prestashop-project.org/8/basics/installation/).
+You can install PrestaShop manually by following the [Module Developer Guide](https://devdocs.prestashop-project.org/8/basics/installation/).
 
 ### Create an SSH Tunnel
 

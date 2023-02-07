@@ -60,14 +60,6 @@ At the core of PrestaShop, CloudSync allows you to **duplicate and synchronize m
 - Easily integrate PrestaShop data in your modules or services: CloudSync handles the support of all versions of PrestaShop, and standardize data models across PrestaShop versions
 - Get a better understanding of your modules or services usage through data monitoring
 
-### :art: PrestaShop Design system (currently in development)
-
-PrestaShop Design system consists in **module configuration page templates**. 
-
-#### Why Use It?
-- Greatly simplified configuration process
-- Easier adoption of new modules for merchants
-
 ## Prerequisites
 
 ### Compatibility chart
@@ -89,10 +81,16 @@ The following configuration is required to use the PrestaShop Integration Framew
 To perform the integration of your module with the PrestaShop ecosystem, you need to use the following languages:
 
 - [PHP](https://www.php.net/) for the backend
-- [Vue.js 3](https://vuejs.org/), Vanilla JavaScript, or React for the frontend
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) for the frontend
 
-For your own services, that you will connect to the PrestaShop ecosystem, you can use the language of your choice. See [PrestaShop Integration Framework Architecture](../1-how-it-works/README.md#prestashop-integration-framework-architecture) for more information.
+:::tip Note
+For the **frontend**, you can also use [Vue.js 3](https://vuejs.org/) or [React](https://fr.reactjs.org/), but PrestaShop does not provide support for integrations implemented with these languages.
+:::
+
+:::tip Note
+For **your own services**, that you will connect to the PrestaShop ecosystem, you can use the language of your choice. See [PrestaShop Integration Framework Architecture](../1-how-it-works/README.md#prestashop-integration-framework-architecture) for more information.
+:::
 
 ## Getting help
 
-If you need any extra help, please get in touch with your solution engineer at PrestaShop.
+If you need any extra help, please get in touch with your **Solution Engineer** at PrestaShop.
