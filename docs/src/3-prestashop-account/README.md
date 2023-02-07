@@ -9,7 +9,7 @@ title: Integrating a Module with PrestaShop Account
 To complete this procedure, you need to have at your disposal a running PrestaShop store (see [Preparing your environment](https://docs.cloud.prestashop.com/2-preparing-your-environment)) and a module that you can either [create yourself](https://devdocs.prestashop-project.org/8/modules/creation/) or [generate](https://validator.prestashop.com/generator).
 
 :::warning Warning
-Integrating your module will require using [PHP](https://www.php.net/) for the backend. In the following procedure, we used **JavaScript** for the frontend, but you can also choose to use [Vue.js 3](https://vuejs.org/) or [React](https://fr.reactjs.org/), according to your preference.
+Integrating your module will require using [PHP](https://www.php.net/) for the backend. In the following procedure, we used [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) for the frontend, but you can also choose to use [Vue.js 3](https://vuejs.org/) or [React](https://fr.reactjs.org/), according to your preference.
 :::
 
 ## Install PrestaShop Account
@@ -212,6 +212,8 @@ Add the following highlighted contents to the `<module_name>.php` file:
     <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
 
     <script>
+
+        //Load the PrestaShop Account component
         window?.psaccountsVue?.init();
 
         if(window.psaccountsVue.isOnboardingCompleted() != true)
@@ -220,6 +222,10 @@ Add the following highlighted contents to the `<module_name>.php` file:
         }
     </script>
     ```
+
+:::tip Note
+The `window.psaccountsVue.isOnboardingCompleted()` function allows you to check if the PrestaShop Account service has been associated. We recommend you use it –as in the script shown above or in a different way– to prevent the merchant from proceeding with the module configuration until they have done the association.
+:::
 
 ## Test Your Module
 
