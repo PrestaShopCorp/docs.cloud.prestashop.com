@@ -4,7 +4,7 @@ title: Webhook & Events
 
 <Block>
 
-# :hook: Webhook & Events
+# :link: Webhook & Events
 
 </Block>
 

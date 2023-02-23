@@ -8,7 +8,7 @@ title: Integrating a Module with PrestaShop Billing
 
 To complete this procedure, you need to have already integrated your module with [PrestaShop Account](../3-prestashop-account/README.md).
 
-## Install PrestaShop Account
+## Install PrestaShop Billing
 
 1. Edit the `config\admin\services.yml` file to include the following highlighted contents:
     
@@ -51,7 +51,7 @@ To complete this procedure, you need to have already integrated your module with
         arguments:
         - '@ps_accounts.facade'
         - '@<module_name>.context'
-        - true # if true you are in sandbox mode, if false or empty not in sandbox
+        - true # if true, enables the sandbox mode, if false or empty, disables it
 
       ps_billings.facade:
         class: 'PrestaShopCorp\Billing\Presenter\BillingPresenter'
@@ -66,6 +66,10 @@ To complete this procedure, you need to have already integrated your module with
         - '@ps_billings.context_wrapper'
         - '@<module_name>.module'
     ```
+
+  :::warning Sandbox Mode
+  During your development, you should set the sandbox mode to `true` (as shown in the code above), which allows you to use a test card. You can use `4111 1111 1111 1111` as a test card, or [see the official Chargebee documentation](https://www.chargebee.com/docs/2.0/chargebee-test-gateway.html#test-card-numbers).
+  :::
 
 2. Make sure you replace every occurrence of `<module_name>` with the actual name of your module.
 
@@ -101,7 +105,7 @@ To complete this procedure, you need to have already integrated your module with
 
 ## Edit the <module_name>.php File
 
-### Inject the PrestaShop Billing context
+### Inject the PrestaShop Billing Context
 
 You need to inject the `psBillingContext` into the `window.psBillingContext` global variable to initialize PrestaShop Billing related components.
 
@@ -181,9 +185,44 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
     | privacyLink         | string | Link to your terms & services (required)                              |
     | emailSupport        | string | Email to your support (required)                                      |
 
-:::warning Sandbox mode
-During your development, you should use the sandbox mode, which allows you to use a test card. You can use `4111 1111 1111 1111` as a test card, or [see the official Chargebee documentation](https://www.chargebee.com/docs/2.0/chargebee-test-gateway.html#test-card-numbers).
-:::
+### Use BillingService to Retrieve Billing Data in PHP
+
+As seen in the `services.yml` file, the PrestaShop Billing composer provides a BillingService:
+
+```yaml
+  ps_billings.service:
+    class: PrestaShopCorp\Billing\Services\BillingService
+    public: true
+    arguments:
+      - '@ps_billings.context_wrapper'
+      - '@rbm_example.module'
+```
+
+If needed, you can retrieve this service and its data in the same way you retrieve the facade:
+
+```php
+// Load the service for PrestaShop Billing
+$billingService = $this->getService('ps_billings.service');
+
+// Retrieve the customer
+$customer = $billingService->getCurrentCustomer();
+
+// Retrieve the subscritpion for this module
+$subscription = $billingService->getCurrentSubscription();
+
+// Retrieve the list and description of module plans
+$plans = $billingService->getModulePlans();
+```
+
+Each method will return a PHP array with the following format:
+
+```
+[
+    'success' => true,    // returns true if status is 2xx
+    'httpStatus' => 200,  // normalized HTTP status
+    'body' => [],         // The data to retrieve, the format is similar to the one used in the webhook system
+];
+```
 
 ## Edit the Template File
 
@@ -211,26 +250,27 @@ During your development, you should use the sandbox mode, which allows you to us
 
         if(window.psaccountsVue.isOnboardingCompleted() != true)
         {
-        	document.getElementById("module-config").style.opacity = "0.5";
-        }
-
-		        /*********************
+        	  /*********************
 		        * PrestaShop Billing *
 		        * *******************/
 		        window.psBilling.initialize(window.psBillingContext.context, '#ps-billing', '#ps-modal', (type, data) => {
 		    	      // Event hook listener
 		    	      switch (type) {
+                    // Hook triggered when PrestaShop Billing is initialized
 		    	          case window.psBilling.EVENT_HOOK_TYPE.BILLING_INITIALIZED:
 		    	              console.log('Billing initialized', data);
 		    	              break;
+                    // Hook triggered when the subscription is created or updated
 		    	          case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
 		    	              console.log('Sub updated', data);
     		    	          break;
+                    // Hook triggered when the subscription is cancelled
 		    	          case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CANCELLED:
 		        	          console.log('Sub cancelled', data);
 		        	          break;
 		    	      }
 		        });
+        } 
     </script>
     ```
 
