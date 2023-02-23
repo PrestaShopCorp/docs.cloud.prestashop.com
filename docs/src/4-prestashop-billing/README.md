@@ -248,7 +248,8 @@ Each method will return a PHP array with the following format:
         * *******************/
         window?.psaccountsVue?.init();
 
-        if(window.psaccountsVue.isOnboardingCompleted() != true)
+        // Check if Account is associated before displaying Billing component
+        if(window.psaccountsVue.isOnboardingCompleted() == true)
         {
         	  /*********************
 		        * PrestaShop Billing *
