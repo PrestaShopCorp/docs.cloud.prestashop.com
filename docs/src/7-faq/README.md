@@ -25,10 +25,6 @@ You will find here the different questions concerning the use of the SaaS App so
 
 **A:** No, this is not planned at this time. However, we are regularly improving this service in order to meet the needs of our partners.
 
-#### Q: Can I use another library than VueJS to display the components?
-
-**A:** Yes, it is possible to load components in Vanilla Javascript or any other javascript framework such as React. Examples will be available soon.
-
 #### Q: What is the IP of the webhook system
 
 **A:** The IP of the webhook system is `34.77.109.237`. You can protect your API by filtering call not triggered from the IP.
