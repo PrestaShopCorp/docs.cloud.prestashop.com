@@ -147,47 +147,51 @@ The PrestaShop Account service is also responsible for returning the proper URL 
 
 Add the following highlighted contents to the `<module_name>.php` file:
 
-```php{12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36}
-    public function getContent()
-    {
-        /**
-         * If values have been submitted in the form, process.
-         */
-        if (((bool)Tools::isSubmit('submitExampleaccountsModule')) == true) {
-            $this->postProcess();
-        }
-
-        $this->context->smarty->assign('module_dir', $this->_path);
-
-        $accountsService = null;
-
-        try {
-            $accountsFacade = $this->getService('ps_accounts.facade');
-            $accountsService = $accountsFacade->getPsAccountsService();
-        } catch (\PrestaShop\PsAccountsInstaller\Installer\Exception\InstallerException $e) {
-            $accountsInstaller = $this->getService('ps_accounts.installer');
-            $accountsInstaller->install();
-            $accountsFacade = $this->getService('ps_accounts.facade');
-            $accountsService = $accountsFacade->getPsAccountsService();
-        }
-
-        try {
-            Media::addJsDef([
-                'contextPsAccounts' => $accountsFacade->getPsAccountsPresenter()
-                    ->present($this->name),
-            ]);
-
-            // Retrieve Account CDN
-            $this->context->smarty->assign('urlAccountsCdn', $accountsService->getAccountsCdn());
-
-        } catch (Exception $e) {
-            $this->context->controller->errors[] = $e->getMessage();
-            return '';
-        }
-
-        $output = $this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');
-        return $output;
+```php{12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40}
+public function getContent()
+{
+    /**
+     * If values have been submitted in the form, process.
+     */
+    if (((bool)Tools::isSubmit('submitExampleaccountsModule')) == true) {
+        $this->postProcess();
     }
+
+    $this->context->smarty->assign('module_dir', $this->_path);
+
+    /*********************
+    * PrestaShop Account *
+    * *******************/
+
+    $accountsService = null;
+
+    try {
+        $accountsFacade = $this->getService('ps_accounts.facade');
+        $accountsService = $accountsFacade->getPsAccountsService();
+    } catch (\PrestaShop\PsAccountsInstaller\Installer\Exception\InstallerException $e) {
+        $accountsInstaller = $this->getService('ps_accounts.installer');
+        $accountsInstaller->install();
+        $accountsFacade = $this->getService('ps_accounts.facade');
+        $accountsService = $accountsFacade->getPsAccountsService();
+    }
+
+    try {
+        Media::addJsDef([
+            'contextPsAccounts' => $accountsFacade->getPsAccountsPresenter()
+                ->present($this->name),
+        ]);
+
+        // Retrieve the PrestaShop Account CDN
+        $this->context->smarty->assign('urlAccountsCdn', $accountsService->getAccountsCdn());
+
+    } catch (Exception $e) {
+        $this->context->controller->errors[] = $e->getMessage();
+        return '';
+    }
+
+    $output = $this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');
+    return $output;
+}
 ```
 
 ## Edit the Template File
@@ -212,20 +216,44 @@ Add the following highlighted contents to the `<module_name>.php` file:
     <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
 
     <script>
-
-        //Load the PrestaShop Account component
+        /*********************
+        * PrestaShop Account *
+        * *******************/
         window?.psaccountsVue?.init();
-
-        if(window.psaccountsVue.isOnboardingCompleted() != true)
-        {
-        	document.getElementById("module-config").style.opacity = "0.5";
-        }
     </script>
     ```
 
-:::tip Note
-The `window.psaccountsVue.isOnboardingCompleted()` function allows you to check if the PrestaShop Account service has been associated. We recommend you use it –as in the script shown above or in a different way– to prevent the merchant from proceeding with the module configuration until they have done the association.
-:::
+## Restrict the Configuration Until PrestaShop Account Is Associated
+
+For merchants to configure the module, PrestaShop Account needs to be associated. 
+
+Two functions allow you to **check if PrestaShop Account has been associated**:
+- The `$accountsService->isAccountLinked();` PHP function
+- The `window.psaccountsVue.isOnboardingCompleted()` JavaScript function
+
+They will return `true` if the association has been performed, and `false` if not.
+
+You can use either of these functions to prevent the merchant from proceeding with the module configuration until they have done the association. While the PHP function provides stricter security, the JavaScript one allows you to customize the display.
+
+### :bulb: Example
+For example, you can use the following code in the template file to gray out the configuration pane until the association is done:
+
+```javascript{7,8,9,10}
+<script>
+    /*********************
+    * PrestaShop Account *
+    * *******************/
+    window?.psaccountsVue?.init();
+
+    if(window.psaccountsVue.isOnboardingCompleted() != true)
+    {
+    	document.getElementById("module-config").style.opacity = "0.5";
+    }
+</script>
+```
+This code will create the following output:
+
+![Grayed configuration pane](/assets/images/account/ps_account_grayed_settings.png)
 
 ## Test Your Module
 

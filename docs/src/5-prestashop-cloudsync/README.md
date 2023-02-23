@@ -169,7 +169,7 @@ To allow the merchant to share their data with your services, you have to pair y
   ```
 
 :::tip Note
-If you prefer to set the rendering into another element, you can pass the `querySelector` to the init mehthod as follows: `cdc.init("#consents-box")`
+If you prefer to set the rendering into another element, you can pass the `querySelector` to the init method as follows: `cdc.init("#consents-box")`
 :::
 
 :::tip Note
