@@ -6,7 +6,7 @@ title: Frequently Asked Question
 
 
 
-You will find here the different questions concerning the use of the SaaS App solution within your modules
+You will find here the most commonly asked questions about the PrestaShop Integration Framework:
 
 
 #### Q: How do I manage my subscription plans?
