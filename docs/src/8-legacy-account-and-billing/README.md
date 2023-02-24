@@ -1,8 +1,8 @@
 ---
-title: Integrating a Module with PrestaShop Account and Billing
+title: Integrating a Module with PrestaShop Account and Billing (Deprecated)
 ---
 
-# Integrating a Module with PrestaShop Account and Billing
+# Integrating a Module with PrestaShop Account and Billing (Deprecated)
 
 ::: warning Warning: Deprecated Page
 This page about the integration of the PrestaShop Account and Billing components using VueJS will be deprecated soon. A new page describing this operation using Vanilla JavaScript is under construction. :construction:

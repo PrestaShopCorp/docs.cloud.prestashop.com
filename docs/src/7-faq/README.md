@@ -2,7 +2,7 @@
 title: Frequently Asked Questions
 ---
 
-# :speech_balloon: Frequently Asked Questions
+# :speech_balloon: Frequently Asked Questions 
 
 
 Here are the most commonly asked questions about the PrestaShop Integration Framework:
