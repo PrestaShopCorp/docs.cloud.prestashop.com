@@ -1,10 +1,10 @@
 ---
-title: PrestaShop Billing Webhook & Events
+title: PrestaShop Billing Webhooks & Events
 ---
 
 <Block>
 
-# :bellhop_bell: PrestaShop Billing Webhook & Events
+# :bellhop_bell: PrestaShop Billing Webhooks & Events
 
 </Block>
 
