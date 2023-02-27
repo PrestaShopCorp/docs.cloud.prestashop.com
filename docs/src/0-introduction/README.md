@@ -50,7 +50,7 @@ PrestaShop Billing allows the PrestaShop billing system to deal with the **manag
 - Better tracking of the store activations for your module
 - Possibility to offer different pricing plans
 
-### :arrows_counterclockwise: PrestaShop CloudSync
+### :cloud: PrestaShop CloudSync
 
 At the core of PrestaShop, CloudSync allows you to **duplicate and synchronize merchant store data on PrestaShop cloud servers** (carriers, carts, orders, products and more) so you can access and integrate comprehensive data into your modules or services to offer merchants the most optimized experience.
 

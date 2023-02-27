@@ -159,13 +159,7 @@ This data synchronization is necessary for your modules to operate. Uninstalling
 
 PrestaShop CloudSync includes several API endpoints which expose all the data collected on PrestaShop merchants' stores and synchronized into the cloud.
 
-##### Expose Raw API
-
-Enables you to request all the raw data captured by CloudSync. This API exposes 20 tables (carriers, carts, categories, modules, orders, products, stores, themes, etc.) that contains more than 200 properties.
-
-##### Reporting API
-
-Enables you to query the status of the latest synchronizations and errors from stores using your modules and services.
+See [PrestaShop CloudSync APIs](../7-apis/README.md#prestashop-cloudsync-apis) for more information.
 
 #### :chart_with_upwards_trend: CloudSync Tech Console
 
