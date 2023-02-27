@@ -55,10 +55,11 @@ module.exports = {
       [ '/2-preparing-your-environment/', 'Preparing Your Environment' ],
       [ '/3-prestashop-account/', 'Integrating PrestaShop Account' ],
       [ '/4-prestashop-billing/', 'Integrating PrestaShop Billing'],
-      [ '/5-prestashop-cloudsync/', 'Integrating PrestaShop CloudSync'],
-      [ '/6-webhook-events/', 'Webhook Events'],
-      [ '/7-faq/', 'FAQ' ],
-      [ '/8-legacy-account-and-billing/', 'Legacy Procedure for Account and Billing' ]
+      [ '/5-billing-webhook-events/', 'PrestaShop Billing Webhook & Events'],
+      [ '/6-prestashop-cloudsync/', 'Integrating PrestaShop CloudSync'],
+      [ '/7-apis/', 'APIs' ],
+      [ '/8-faq/', 'FAQ' ],
+      [ '/9-legacy-account-and-billing/', 'Legacy Procedure for Account and Billing' ]
     ]
   },
 
