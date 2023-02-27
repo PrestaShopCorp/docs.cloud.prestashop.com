@@ -5,7 +5,7 @@ title: Integrating a Module with PrestaShop Account and Billing (Deprecated)
 # Integrating a Module with PrestaShop Account and Billing (Deprecated)
 
 ::: warning Warning: Deprecated Page
-This page about the integration of the PrestaShop Account and Billing components using VueJS is deprecated soon. A new procedure is now available to integrate [PrestaShop Account](../3-prestashop-account/README.md) and [PrestaShop Billing](../4-prestashop-billing/README.md) with vanilla JavaScript.
+This page about the integration of the PrestaShop Account and Billing components using VueJS is deprecated. A new procedure is now available to integrate [PrestaShop Account](../3-prestashop-account/README.md) and [PrestaShop Billing](../4-prestashop-billing/README.md) with vanilla JavaScript.
 :::
 
 A SaaS App is a composition of [PHP](https://www.php.net/) as backend and [Vue 2](https://vuejs.org/) as frontend.
