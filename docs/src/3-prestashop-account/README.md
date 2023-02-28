@@ -81,7 +81,9 @@ Integrating your module will require using [PHP](https://www.php.net/) for the b
       "license": "MIT"
     }
 
-4. Make sure you replace every occurrence of `<module_name>` with the actual name of your module. 
+4. Make sure you replace every occurrence of `<module_name>` with the actual name of your module.
+
+5. Run the `composer install` command to implement the new dependencies.
 
 ## Edit the <module_name>.php File
 

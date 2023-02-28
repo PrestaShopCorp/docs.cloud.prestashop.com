@@ -8,6 +8,10 @@ title: Integrating a Module with PrestaShop Billing
 
 To complete this procedure, you need to have already integrated your module with [PrestaShop Account](../3-prestashop-account/README.md).
 
+:::warning Contact Us
+Our team is here to help you get started with the implementation of PrestaShop Billing. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.
+:::
+
 ## Install PrestaShop Billing
 
 1. Edit the `config\admin\services.yml` file to include the following highlighted contents:
@@ -102,6 +106,8 @@ To complete this procedure, you need to have already integrated your module with
       "license": "MIT"
     }
     ```
+
+4. Run the `composer install` command to implement the new dependency.
 
 ## Edit the <module_name>.php File
 
