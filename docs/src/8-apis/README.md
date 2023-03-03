@@ -15,6 +15,10 @@ Through these various CloudSync API routes, you can easily access and integrate 
 - You must be registered in our system to receive a valid token in order to query these routes.
 - The CloudSync APIs are fully documented in an OpenAPI 3.0 compliant doc.
 
+:::warning Contact Us
+Our team is here to help you get started with the implementation of PrestaShop CloudSync APIs. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.
+:::
+
 
 ### Building with the CloudSync APIs
 
