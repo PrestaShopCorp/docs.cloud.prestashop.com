@@ -109,7 +109,7 @@ To allow the merchant to share their data with your services, you have to pair y
 
                 $eventbusPresenterService = $eventbusModule->getService('PrestaShop\Module\PsEventbus\Service\PresenterService');
 
-                $this->context->smarty->assign('urlCloudsync', "https://integration-assets.prestashop3.com/ext/cloudsync-merchant-sync-consent/latest/cloudsync-cdc.js");
+                $this->context->smarty->assign('urlCloudsync', "https://assets.prestashop3.com/ext/cloudsync-merchant-sync-consent/latest/cloudsync-cdc.js");
 
                 Media::addJsDef([
                     'contextPsEventbus' => $eventbusPresenterService->expose($this, ['info', 'modules', 'themes', 'orders'])
@@ -135,12 +135,6 @@ To allow the merchant to share their data with your services, you have to pair y
   - `taxonomies`: Enhanced categories specific to PrestaShop Facebook (advanced categories)
   - `currencies`: List of the store currencies and conversion rates
   - `customers`: Anonymized clients known by the store
-
-3. Edit the CDC URL according to your needs. You can use:
-
-  - **Integration**: https://integration-assets.prestashop3.com/ext/cloudsync-merchant-sync-consent/latest/cloudsync-cdc.js
-  - **Preproduction**: https://preproduction-assets.prestashop3.com/ext/cloudsync-merchant-sync-consent/latest/cloudsync-cdc.js
-  - **Production**: https://assets.prestashop3.com/ext/cloudsync-merchant-sync-consent/latest/cloudsync-cdc.js
 
 ## Edit the Template File
 
