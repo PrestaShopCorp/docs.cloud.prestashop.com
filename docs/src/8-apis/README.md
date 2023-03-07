@@ -36,7 +36,7 @@ The general documentation for CloudSync APIs is [available here](https://docs.cl
 
 #### ![Expose Raw API](/assets/images/cloudsync/cloudsync-expose-raw-api.png)&ensp;Expose Raw API Documentation
 
-This API enables you to request all the raw data captured by CloudSync. It exposes 20 tables that contain more than 200 properties.
+This API enables you to request all the raw data captured by CloudSync. It exposes 30 tables that contain more than 300 properties.
 
 [Expose Raw API Reference Guide](https://docs.cloudsync.prestashop.com/api-doc/expose-raw-api#/)
 
