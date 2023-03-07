@@ -20,7 +20,7 @@ There is no dependency to add in the composer of your module to support PrestaSh
 
 To download the PrestaShop EventBus module dependency, add the following highlighted contents to the `<module_name>.php` file:
     
-```php{4,23,24,25,26,27,28,29,30,31,32,33}
+```php{4,18,19,20,21,22,23,24,25,26,27,28}
 <?php
 // ...
 
@@ -38,11 +38,6 @@ class <module_name> extends Module
     {
         Configuration::updateValue('ITNEVERWORKS_LIVE_MODE', false);
 
-        return parent::install() &&
-            $this->registerHook('header') &&
-            $this->registerHook('displayBackOfficeHeader') &&
-            $this->getService('ps_accounts.installer')->install();
-
         /* CloudSync */
         $moduleManager = ModuleManagerBuilder::getInstance()->build();
 
@@ -54,6 +49,11 @@ class <module_name> extends Module
         } else {
             $moduleManager->upgrade('ps_eventbus');
         }
+
+        return parent::install() &&
+            $this->registerHook('header') &&
+            $this->registerHook('displayBackOfficeHeader') &&
+            $this->getService('ps_accounts.installer')->install();
 
     }
 ```
