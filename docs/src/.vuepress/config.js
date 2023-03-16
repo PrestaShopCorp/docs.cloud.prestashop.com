@@ -59,8 +59,9 @@ module.exports = {
       [ '/6-billing-webhooks-events/', 'PrestaShop Billing Webhook & Events'],
       [ '/7-prestashop-cloudsync/', 'Integrating PrestaShop CloudSync'],
       [ '/8-apis/', 'APIs' ],
-      [ '/9-faq/', 'FAQ' ],
-      [ '/10-legacy-account-and-billing/', 'Legacy Procedure for Account and Billing' ]
+      [ '/9-submitting-your-module/', 'Submitting Your Module' ],
+      [ '/10-faq/', 'FAQ' ],
+      [ '/11-legacy-account-and-billing/', 'Legacy Procedure for Account and Billing' ]
     ]
   },
 
