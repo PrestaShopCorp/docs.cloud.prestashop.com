@@ -14,7 +14,7 @@ The [Module Generator](https://validator.prestashop.com/generator) allows you to
 
 ### Method Search Engine
 
-A [Method Search Engine](https://validator.prestashop.com/guide/) is available within the Validator to help you work out which methods are available for the various versions of PrestaShop. It is not entirely up-to-date but we intend to work on it.
+A [Method Search Engine](https://validator.prestashop.com/guide/) is available within the Validator to help you work out which methods are available for the various versions of PrestaShop.
 
 ### Validator
 
@@ -26,7 +26,7 @@ The [Validator](https://validator.prestashop.com) is a tool created to check if 
 The Validator then automatically creates a detailed report explaining what needs to be improved/changed in your module. By following this report, you can submit your module error-free.
 
 :::warning Important  
-Since version 1.6.1.0, PrestaShop uses the PSR-2 norm. We recommend you follow it, it will not prevent your module from passing the validation if you do not. To know more, read [this blog article](https://build.prestashop-project.org/news/prestashop-moves-to-psr-2/).
+PrestaShop uses the PSR-2 norm. We recommend you follow it, it will not prevent your module from passing the validation if you do not. To know more, read [this blog article](https://build.prestashop-project.org/news/prestashop-moves-to-psr-2/).
 :::
 
 ## Preparing for Technical Validation
