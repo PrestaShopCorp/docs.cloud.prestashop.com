@@ -159,7 +159,7 @@ This data synchronization is necessary for your modules to operate. Uninstalling
 
 PrestaShop CloudSync includes several API endpoints which expose all the data collected on PrestaShop merchants' stores and synchronized into the cloud.
 
-See [PrestaShop CloudSync APIs](../7-apis/README.md#prestashop-cloudsync-apis) for more information.
+See [PrestaShop CloudSync APIs](../8-apis/README.md#prestashop-cloudsync-apis) for more information.
 
 #### :chart_with_upwards_trend: CloudSync Tech Console
 
