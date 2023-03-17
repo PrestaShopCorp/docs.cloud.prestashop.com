@@ -40,7 +40,7 @@ Once the development of your module is done, it needs to be submitted for **tech
 
 5. Click on **Submit Your Product**.
 
-:arrow_right: The Marketing Team will check the information provided in all selected languages within a maximum of 10 working days. In the meanwhile, you can proceed with the next step: submitting your zipped module.
+:arrow_right: You can now proceed to the next step: submitting your zipped module.
 
 ## Submit Your Zipped Module
 
@@ -114,6 +114,6 @@ Now that you have added the key, you can upload the module to your seller accoun
 
 5. Check the required boxes, and click on **Submit your file**.
 
-6. Once you have submitted your module, inform your partner manager.
-
 :arrow_right: When you submit your zip, it will be automatically sent to the validator, then the technical team will test it and review the code.  It usually takes us **5 to 10 working days** to review the contents. Once your module has been verified, you will receive an e-mail informing you of its status (:heavy_check_mark:&nbsp;approved or :x:&nbsp;rejected). If there is any issue, you will get **detailed information on what to change** before resubmitting your module.
+
+:arrow_right: After technical validation, the marketing team will check the product page information provided in all selected languages within 10 working days. You will also be notified by e-mail of the validation status and of necessary changes, if any. Finally, your module will be made available to merchants on the PrestaShop Marketplace.
