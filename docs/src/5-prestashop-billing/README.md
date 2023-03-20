@@ -16,7 +16,7 @@ Our team is here to help you get started with the implementation of PrestaShop B
 
 1. Edit the `config\admin\services.yml` file to include the following highlighted contents:
     
-    ```yaml{31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52}
+    ```yaml{31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54}
     services:
       _defaults:
         public: true
@@ -59,6 +59,7 @@ Our team is here to help you get started with the implementation of PrestaShop B
 
       ps_billings.facade:
         class: 'PrestaShopCorp\Billing\Presenter\BillingPresenter'
+        public: true
         arguments:
         - '@ps_billings.context_wrapper'
         - '@<module_name>.module'
@@ -66,6 +67,7 @@ Our team is here to help you get started with the implementation of PrestaShop B
       # Remove this if you do not need BillingService
       ps_billings.service:
         class: 'PrestaShopCorp\Billing\Services\BillingService'
+        public: true
         arguments:
         - '@ps_billings.context_wrapper'
         - '@<module_name>.module'
@@ -79,14 +81,17 @@ Our team is here to help you get started with the implementation of PrestaShop B
 
 3. Edit the `composer.json` file to include the PrestaShop Billing library:
 
-    ```json{16}
+    ```json{19}
     {
       "name": "prestashop/<module_name>",
       "description": "",
       "config": {
         "preferred-install": "dist",
         "optimize-autoloader": true,
-        "prepend-autoloader": false
+        "prepend-autoloader": false,
+        "platform": {
+            "php": "7.1"
+        } 
       },
       "require-dev": {
         "prestashop/php-dev-tools": "^4.2.1"
@@ -123,7 +128,7 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
             /**
              * If values have been submitted in the form, process.
              */
-            if (((bool)Tools::isSubmit('submitExampleaccountsModule')) == true) {
+            if (((bool)Tools::isSubmit('submit<module_name>Module')) == true) {
                 $this->postProcess();
             }
 
@@ -244,7 +249,7 @@ Each method will return a PHP array with the following format:
 
 3. In the template file, add the following highlighted contents at the end:
 
-    ```javascript{2,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31}
+    ```javascript{2,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32}
     <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
     <script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel=preload></script>
 
