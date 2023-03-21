@@ -122,17 +122,18 @@ To allow the merchant to share their data with your services, you have to pair y
 
 2. Edit the required consents according to your needs. You can use:
 
-  - `info` (mandatory): Store technical data (PrestaShop version, PHP version, etc.)
-  - `modules` (mandatory): List of modules installed on the store
-  - `themes` (mandatory): List of themes installed on the store
-  - `carts`: Shopping cart data of the store (current carts, abandoned carts, cart contents, product details)
-  - `carriers`: Characteristics of the carriers offered by the merchant (shipping rates, shipping weight, countries, shipping zones)
-  - `categories`: Product categories offered by the store
-  - `orders`: Orders data (order ID, order content, order status and history)
-  - `products`: Products offered by the store (products, variations, specific prices)
-  - `taxonomies`: Enhanced categories specific to PrestaShop Facebook (advanced categories)
-  - `currencies`: List of the store currencies and conversion rates
-  - `customers`: Anonymized clients known by the store
+  - `info` (mandatory): The shop technical data such as the version of PrestaShop or PHP (read only)
+  - `modules` (mandatory): The list of modules installed on the shop (read only)
+  - `themes` (mandatory): The list of themes installed on the shop (read only)
+  - `carts`: Information about the shopping carts of the shop (read only)
+  - `carriers`: The characteristics of the carriers available on the shop (read only)
+  - `categories`: The list of product categories of the shop (read only)
+  - `currencies`: The list of currencies available in the shop (read only)
+  - `customers`: The anonymized list of the shop customers (read only)
+  - `orders`: Information about orders placed on the shop (read only)
+  - `products`: The list of products available on the shop (read only)
+  - `taxonomies`: Advanced categories available on the shop (read only)
+  - `wishlists`: The anonymized wishlists of the customers (read only)
 
 ## Edit the Template File
 
