@@ -60,8 +60,9 @@ module.exports = {
       [ '/7-prestashop-cloudsync/', 'Integrating PrestaShop CloudSync'],
       [ '/8-apis/', 'APIs' ],
       [ '/9-submitting-your-module/', 'Submitting Your Module' ],
-      [ '/10-faq/', 'FAQ' ],
-      [ '/11-legacy-account-and-billing/', 'Legacy Procedure for Account and Billing' ]
+      [ '/10-validation-checklist/', 'Validation Checklist' ],
+      [ '/11-faq/', 'FAQ' ],
+      [ '/12-legacy-account-and-billing/', 'Legacy Procedure for Account and Billing' ]
     ]
   },
 

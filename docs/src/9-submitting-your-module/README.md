@@ -50,6 +50,10 @@ Before submitting your module for technical validation, make sure you have used 
 
 It runs several checks to make sure your module will run smoothly on PrestaShop. As it is not currently open source, see [this document](https://docs.google.com/document/d/1ti40qkdW0kKhSWTJX6lwH-485alLd21YX9VZnq-roZ8/edit?usp=sharing) to learn about the different checks it performs.
 
+### Look At the Validation Checklist
+
+Make sure your module is compliant with all the rules listed in the [validation checklist](../10-validation-checklist/README.md).
+
 ### Add Your Module Key
 
 After submitting your marketing information, follow this procedure to add your `module_key` to your module:
