@@ -36,7 +36,7 @@ class <module_name> extends Module
 
     public function install()
     {
-        Configuration::updateValue('ITNEVERWORKS_LIVE_MODE', false);
+        Configuration::updateValue('MODULE_NAME_LIVE_MODE', false);
 
         /* CloudSync */
         $moduleManager = ModuleManagerBuilder::getInstance()->build();
