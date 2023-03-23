@@ -6,7 +6,7 @@ title: Validation Checklist
 
 When a module is submitted for technical validation, it must first pass the [validator](https://validator.prestashop.com). Some issues will lead to an automatic rejection.
 
-Then, the the technical team will make sure the following rules have been followed.
+Then, the technical team will make sure the following rules have been followed.
 
 ## Common Rules
 
@@ -14,7 +14,7 @@ Then, the the technical team will make sure the following rules have been follow
 
 #### The Module Structure Is Followed
 
-The module respected the [expected structure](https://devdocs.prestashop-project.org/1.7/modules/creation/module-file-structure/).
+The module respected the [expected structure](https://devdocs.prestashop-project.org/8/modules/creation/module-file-structure/).
 
 #### The License Is Supported
 
@@ -43,13 +43,13 @@ Modifying core or other modules files is not allowed.
 
 Module may add/modify some files on the store. To avoid issues with file permissions, we recommend storing files in the `var/%env%` directory.
 
-#### Using iFrames Is Restricted to Highly Secure Websites
+#### Using iframes Is Restricted to Highly Secure Websites
 
-Although they are implemented in different parts of the core, as in [Payment Modules](https://github.com/PrestaShop/paymentexample/blob/master/paymentexample.php#L150), iFrames are highly discouraged for security reasons.
+Although they are implemented in different parts of the core, as in [Payment Modules](https://github.com/PrestaShop/paymentexample/blob/master/paymentexample.php#L150), iframes are highly discouraged for security reasons.
 
-With an iFrame, contents can be loaded from a site that is not controlled by the PrestaShop app. The same problem occurs when authorizing to load JavaScript files from an external source. If the source is hacked, the attacker can potentially exploit other vulnerabilities to take control of all the stores where the module is installed.
+With an iframe, contents can be loaded from a site that is not controlled by the PrestaShop app. The same problem occurs when authorizing to load JavaScript files from an external source. If the source is hacked, the attacker can potentially exploit other vulnerabilities to take control of all the stores where the module is installed.
 
-Therefore, the technical team will check your processes, to ensure the security of the contents that will be injected by this iFrame into the stores. They will check why an iFrame is needed for this use case and what measures were taken to prevent attacks.
+Therefore, the technical team will check your processes, to ensure the security of the contents that will be injected by this iframe into the stores. They will check why an iframe is needed for this use case and what measures were taken to prevent attacks.
 
 #### The Module Does Not Rely on External Assets
 
@@ -65,8 +65,8 @@ We examine every SQL request to make sure you cast your variables. Use `(int)` f
 
 More details:
 
-- [Using the DBQuery class](https://devdocs.prestashop-project.org/1.7/development/components/database/dbquery/)
-- [Executing your SQL requests](https://devdocs.prestashop-project.org/1.7/development/components/database/db/)
+- [Using the DBQuery class](https://devdocs.prestashop-project.org/8/development/components/database/dbquery/)
+- [Executing your SQL requests](https://devdocs.prestashop-project.org/8/development/components/database/db/)
 
 #### Calls from External Services Are Secured
 
@@ -84,13 +84,13 @@ Modules embedded in another one are difficult to review and cannot have their ow
 
 To prevent someone from reaching the content of a repository, an `index.php` file must be present in each folder.
 
-As we deal with [security risks](https://devdocs.prestashop-project.org/1.7/modules/creation/#keeping-things-secure) in some environments, we strongly recommend you comply with this rule. An ["autoindex" tool](https://github.com/jmcollin/autoindex) allows you to add one in each folder.
+As we deal with [security risks](https://devdocs.prestashop-project.org/8/modules/creation/#keeping-things-secure) in some environments, we strongly recommend you comply with this rule. An ["autoindex" tool](https://github.com/jmcollin/autoindex) allows you to add one in each folder.
 
 #### HTML Code Is Written in Templates
 
 Use Smarty/Twig templates to display HTML code to respect PrestaShop patterns (MVC architecture) and build a code that is easy to maintain.
 
-For more details on how to display contents, see [this page](https://devdocs.prestashop-project.org/1.7/modules/creation/displaying-content-in-front-office/).
+For more details on how to display contents, see [this page](https://devdocs.prestashop-project.org/8/modules/creation/displaying-content-in-front-office/).
 
 #### Code Is Written in English
 
@@ -133,7 +133,7 @@ AJAX and Cron scripts must be placed in a controller and not in a separate scrip
 
 For more details:
 
-* [Documentation](https://devdocs.prestashop-project.org/1.7/modules/concepts/controllers/front-controllers/#using-a-front-controller-as-a-cron-task)
+* [Documentation](https://devdocs.prestashop-project.org/8/modules/concepts/controllers/front-controllers/#using-a-front-controller-as-a-cron-task)
 * [Original issue leading to the use of ModuleFrontControllers](https://github.com/PrestaShop/PrestaShop/issues/14648)
 
 #### Code in Hooks Is Run Only When Needed
@@ -267,5 +267,5 @@ Note that there are some modules which create the Order with a pending order sta
     :::tip Note
     For security reasons, always proceed as explained.
     :::
-    
+
 - For (2), when receiving a call to process the payment, make sure you double check the source of the call using a signature or a token. Those values must not be known of all.
