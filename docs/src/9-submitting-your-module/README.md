@@ -86,6 +86,19 @@ After submitting your marketing information, follow this procedure to add your `
 
 :arrow_right: Your module key is now added to your module.
 
+:::warning PS Billings Live Mode
+If you are using the PS Billings component, it is necessary to activate the Live mode by changing the Sandbox argument to false, like in the code below.
+:::
+
+```yaml
+ps_billings.context_wrapper:
+    class: 'PrestaShopCorp\Billing\Wrappers\BillingContextWrapper'
+    arguments:
+    - '@ps_accounts.facade'
+    - '@<module_name>.context'
+    - false # if true, enables the sandbox mode, if false or empty, disables it
+```
+
 ### Upload Your Module
 
 Now that you have added the key, you can upload the module to your seller account. Proceed as follows:

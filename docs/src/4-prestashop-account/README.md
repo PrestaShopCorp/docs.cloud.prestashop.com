@@ -62,7 +62,10 @@ Integrating your module will require using [PHP](https://www.php.net/) for the b
       "config": {
         "preferred-install": "dist",
         "optimize-autoloader": true,
-        "prepend-autoloader": false
+        "prepend-autoloader": false,
+        "platform": {
+            "php": "7.1"
+        }
       },
       "require-dev": {
         "prestashop/php-dev-tools": "^4.2.1"
@@ -155,7 +158,7 @@ public function getContent()
     /**
      * If values have been submitted in the form, process.
      */
-    if (((bool)Tools::isSubmit('submitExampleaccountsModule')) == true) {
+    if (((bool)Tools::isSubmit('submit<module_name>Module')) == true) {
         $this->postProcess();
     }
 
