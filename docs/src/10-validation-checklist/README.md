@@ -61,10 +61,42 @@ When a module is published on the PrestaShop Marketplace, we provide a unique wa
 
 #### SQL Requests Variables Are Sanitized
 
-We examine every SQL request to make sure you cast your variables. Use `(int)` for integers and `pSQL()` for strings.
+We examine every SQL request to make sure you cast your variables.
+
+- Use `pSQL()` for strings.
+
+    Use this:
+    ```sql
+    $sql = 'SELECT * FROM ' . DB_PREFIX . 'webservice_account WHERE description = "' . pSQL($this->description). '"';
+    ```
+    instead of this:
+    ```sql
+    $sql = 'SELECT * FROM ' . DB_PREFIX . 'webservice_account WHERE description = "' . $this->description . '"';
+    ```
+
+- Use `(int)` for integers.
+
+    Use this:
+    ```sql
+    $sql = 'SELECT * FROM ' . DB_PREFIX . 'orders WHERE id_order = ' . int($this->order);
+    ```
+    instead of this:
+    ```sql
+    $sql = 'SELECT * FROM ' . DB_PREFIX . 'orders WHERE id_order = ' . $this->id_order ;
+    ```
+
+- Use `array_map` for arrays.
+
+    Use this:
+    ```sql
+    ($excluded_products ? (' AND p.id_product not in ('.join(',', implode(', ', array_map('intval', $excluded_products))).')') : '') .
+    ```
+    instead of this:
+    ```sql
+    ($excluded_products ? (' AND p.id_product not in ('.join(',', $excluded_products).')') : '') .
+    ```    
 
 More details:
-
 - [Using the DBQuery class](https://devdocs.prestashop-project.org/8/development/components/database/dbquery/)
 - [Executing your SQL requests](https://devdocs.prestashop-project.org/8/development/components/database/db/)
 

@@ -36,7 +36,6 @@ class <module_name> extends Module
 
     public function install()
     {
-
         /* CloudSync */
         $moduleManager = ModuleManagerBuilder::getInstance()->build();
 

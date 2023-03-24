@@ -4,25 +4,34 @@ title: PrestaShop Integration Framework APIs
 
 # :electric_plug: PrestaShop Integration Framework APIs
 
-<!--- Billing API Section to add when available --->
+## Overview
 
-## PrestaShop CloudSync APIs
+Through these various API routes, you can access and integrate PrestaShop store data into your modules and third party services. Here are some key considerations before using the PrestaShop Integration Framework APIs:
 
-Through these various CloudSync API routes, you can easily access and integrate PrestaShop store data into your modules and third party services. Here are some key considerations before using CloudSync APIs:
-
-- CloudSync APIs support REST.
-- CloudSync APIs are versioned and get regular updates. The documentation is always based on the latest production version.
+- The PrestaShop Integration Framework APIs support REST.
+- They are versioned and get regular updates. The documentation is always based on the latest production version.
 - You must be registered in our system to receive a valid token in order to query these routes.
-- The CloudSync APIs are fully documented in an OpenAPI 3.0 compliant doc.
+- The APIs are fully documented in an OpenAPI 3.0 compliant documentation.
 
 :::warning Contact Us
 Our team is here to help you get started with the implementation of PrestaShop CloudSync APIs. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.
 :::
 
+## PrestaShop Billing API
 
-### Building with the CloudSync APIs
+### Why Use It?
 
-Below is a non-exhaustive list of the possibilities offered by powering your modules and services with PrestaShop CloudSync:
+The PrestaShop Billing API provides a unique entry point to all the different Billing services. It is still under development. :construction:
+
+### Reference documentation
+
+The documentation for the Billing API is [available here](https://prestashop-billing.stoplight.io/docs/api-gateway/4edcc51b01cc4-api-gateway-billing).
+
+## PrestaShop CloudSync APIs
+
+### Why Use It?
+
+Below is a non-exhaustive list of the possibilities offered by powering your modules and services with the PrestaShop CloudSync APIs:
 
 - Read PrestaShop store information, including products, categories, carts, orders, carriers, prices, currencies, themes, and more.
 - Extend PrestaShop functionality with modules and services based on these data.
