@@ -69,7 +69,7 @@ We examine every SQL request to make sure you cast your variables.
     ```sql
     $sql = 'SELECT * FROM ' . DB_PREFIX . 'webservice_account WHERE description = "' . pSQL($this->description). '"';
     ```
-    to this:
+    instead of this:
     ```sql
     $sql = 'SELECT * FROM ' . DB_PREFIX . 'webservice_account WHERE description = "' . $this->description . '"';
     ```
