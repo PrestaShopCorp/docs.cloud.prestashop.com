@@ -19,7 +19,7 @@ Our team is here to help you get started with the implementation of PrestaShop C
 
 ## Getting an Access Token
 
-To query the PrestaShop Integration Framework APIs, you first need to receive a JWT from the Authorization Server.
+To query the PrestaShop Integration Framework APIs, you first need to receive a JWT from the Authorization Server. This JWT is issued following the [OAuth2 Standard Protocol](https://oauth.net/2/).
 
 1. Get in touch with PrestaShop Solution Engineers (partners-soleng@prestashop.com) to get your client credentials.
 
@@ -27,7 +27,7 @@ To query the PrestaShop Integration Framework APIs, you first need to receive a 
 
     **Authorization Server URL (production) :** [https://oauth.prestashop.com/](https://oauth.prestashop.com/) 
 
-    Below is an example of a request to the Authorization Server:
+    You can use the library you want for your favorite language. Here is a list of available code libraries at this [link](https://oauth.net/code/). If you want to make this with a curl, below is an example of a request to the Authorization Server:
 
     ```php
     curl --request POST \
@@ -38,7 +38,7 @@ To query the PrestaShop Integration Framework APIs, you first need to receive a 
       --data grant_type=client_credentials \
       --data 'audience=https://api.cloudsync.prestashop.com tech-vendor/softsprint' \ 
     ```
-
+The requested audience and scopes may differ depending on the resources you want to request.
 :::tip Note
 Access Token has a short life (about 1 hour). Refresh Token has a longer life (almost unlimited).
 :::
