@@ -17,6 +17,29 @@ Through these various API routes, you can access and integrate PrestaShop store 
 Our team is here to help you get started with the implementation of PrestaShop CloudSync APIs. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.
 :::
 
+## Getting an Access Token
+
+To query the PrestaShop Integration Framework APIs, you first need to receive a JWT from the Authorization Server. This JWT is issued following the [OAuth2 Standard Protocol](https://oauth.net/2/).
+
+1. Get in touch with PrestaShop Solution Engineers (partners-soleng@prestashop.com) to get your client credentials.
+
+2. Call the **Account Authorization Server** to get your JWT.
+
+    **Authorization Server URL (production) :** [https://oauth.prestashop.com/](https://oauth.prestashop.com/) 
+
+    You can use the library you want for your favorite language. Here is a list of available code libraries at this [link](https://oauth.net/code/). If you want to make this with a curl, below is an example of a request to the Authorization Server:
+
+    ```php
+    curl --request POST \
+      --url https://oauth.prestashop.com/oauth2/token \
+      --header 'Authorization: Basic cml2ZXJiYW5rLXRlc3QtbTJtOndZNnhtdGN3TW54UjNYWFNlcnJSTE5LdTI=' \
+      --header 'Content-Type: application/x-www-form-urlencoded' \
+      --data client_id=softsprint-s2s \
+      --data grant_type=client_credentials \
+      --data 'audience=https://api.cloudsync.prestashop.com tech-vendor/softsprint' \ 
+    ```
+The requested audience and scopes may differ depending on the resources you want to request.
+
 ## PrestaShop Billing API
 
 ### Why Use It?
