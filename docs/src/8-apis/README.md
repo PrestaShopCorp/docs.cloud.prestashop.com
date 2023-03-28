@@ -39,9 +39,6 @@ To query the PrestaShop Integration Framework APIs, you first need to receive a 
       --data 'audience=https://api.cloudsync.prestashop.com tech-vendor/softsprint' \ 
     ```
 The requested audience and scopes may differ depending on the resources you want to request.
-:::tip Note
-Access Token has a short life (about 1 hour). Refresh Token has a longer life (almost unlimited).
-:::
 
 ## PrestaShop Billing API
 
