@@ -14,7 +14,7 @@ Through these various API routes, you can access and integrate PrestaShop store 
 - The APIs are fully documented in an OpenAPI 3.0 compliant documentation.
 
 :::warning Contact Us
-Our team is here to help you get started with the implementation of PrestaShop CloudSync APIs. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.
+Our team is here to help you get started with the implementation of PrestaShop CloudSync and PrestaShop Billings APIs. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.
 :::
 
 ## Getting an Access Token
@@ -32,11 +32,11 @@ To query the PrestaShop Integration Framework APIs, you first need to receive a 
     ```php
     curl --request POST \
       --url https://oauth.prestashop.com/oauth2/token \
-      --header 'Authorization: Basic cml2ZXJiYW5rLXRlc3QtbTJtOndZNnhtdGN3TW54UjNYWFNlcnJSTE5LdTI=' \
+      --header 'Authorization: Basic ZGltaXRyaS5tb3VpbGxhcmRAcHJlc3Rhc2hvcC5jb206VW4gbW90IGRlIHBhc3NlIHRy6HMgY29tcGxpcXXpIDop' \
       --header 'Content-Type: application/x-www-form-urlencoded' \
-      --data client_id=softsprint-s2s \
+      --data client_id=provided-by-prestashop \
       --data grant_type=client_credentials \
-      --data 'audience=https://api.cloudsync.prestashop.com tech-vendor/softsprint' \ 
+      --data 'audience=https://api.cloudsync.prestashop.com tech-vendor/provided-by-prestashop' \ 
     ```
 The requested audience and scopes may differ depending on the resources you want to request.
 
