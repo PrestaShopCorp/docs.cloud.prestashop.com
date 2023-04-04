@@ -2,7 +2,7 @@
 title: Alert
 ---
 
-# Migration du composant alert
+# Migrating the Alert Component
 
 ## Sources
 
@@ -11,21 +11,21 @@ title: Alert
 - [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=3633-19061&t=u3AkIIfijk9Lr8dE-0)
 - [Zeroheight](https://zeroheight.com/47c0ab1be/p/818e69-alert-banner/b/28d7f7)
 
-## Bootstrap
+## PrestaShop UIKit
 
-Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/alerts/) :
+Original [bootstrap](https://getbootstrap.com/docs/4.0/components/alerts/) component used in the PrestaShop UIKit:
 
 ```html
 <div class="alert alert-primary" role="alert">
-  This is a primary alert—check it out!
+  This is a primary alert. Check it out!
 </div>
 ```
 
-## Puik
+## PUIK
 
-### Utilisation basique
+### Basic Use
 
-<br>
+For any `alert` component that you use, replace the structure above with the following structure:
 
 ```html
 <div
@@ -45,13 +45,13 @@ Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/alerts/) :
 
 ### Variants
 
-Il existe plusieurs variants :
+The following variants are available:
   - `success`
   - `warning`
   - `info`
   - `danger`
 
-Pour chaque variant, il suffit de reprendre la structure montrée précédement et de changer la classe sur la div racine : `puik-alert--${variant}` :
+For each variant, you can use the structure shown above, and change the root `div` class to `puik-alert--${variant}`:
 
 ```html
 <div
@@ -69,11 +69,13 @@ Pour chaque variant, il suffit de reprendre la structure montrée précédement 
 </div>
 ```
 
-Remarque : l'attribut `aria-live="polite"` est important, il permet d'indiquer aux lecteurs d'écran le comportement à suivre quand cette alerte apparaît. Dans le cas présent, la vocalisation du contenu de l'alerte se fera après la fin de la vocalisation qui serait déjà en cours.
+:::tip Note
+The `aria-live="polite"` attribute is important. It allows you to specify the behavior users should follow when this alert appears. In the example shown above, the alert content vocalization will happen after the end any vocalization currently in progress.
+:::
 
-#### Bordures
+#### Borders
 
-Il est possible de supprimer les bordures sur le composant alerte, pour cela, il suffit d'ajouter la classe `puik-alert--no-borders` sur la div racine : 
+You can remove borders from the `alert` component. To do so, add the `puik-alert--no-borders` class to the root `div`: 
 
 ```html
 <div
@@ -84,7 +86,7 @@ Il est possible de supprimer les bordures sur le composant alerte, pour cela, il
     <div class="puik-icon material-icons-round puik-alert__icon" style="font-size: 1.25rem;">check_circle</div>
     <div class="puik-alert__text">
       <p class="puik-alert__title">Title</p>
-      <span class="puik-alert__description">This is the description of the success alert.</span>
+      <span class="puik-alert__description">This is the description of the ${variant} alert.</span>
     </div>
   </div>
   <button class="puik-button puik-button--success puik-button--md puik-alert__button">Button</button>
