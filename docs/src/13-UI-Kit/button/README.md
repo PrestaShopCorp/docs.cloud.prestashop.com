@@ -8,7 +8,7 @@ title: Button
 
 - [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/button)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-button--default)
-- [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=3633-20995&t=9EjJ88PaDg6dpkhT-0)
+<!-- - [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=3633-20995&t=9EjJ88PaDg6dpkhT-0) -->
 - [Zeroheight](https://zeroheight.com/47c0ab1be/p/9052bc-buttons/b/27e71a)
 
 ## PrestaShop UIKit

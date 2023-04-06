@@ -8,7 +8,7 @@ title: Alert
 
 - [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/alert)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-alert--default)
-- [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=3633-19061&t=u3AkIIfijk9Lr8dE-0)
+<!-- - [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=3633-19061&t=u3AkIIfijk9Lr8dE-0) -->
 - [Zeroheight](https://zeroheight.com/47c0ab1be/p/818e69-alert-banner/b/28d7f7)
 
 ## PrestaShop UIKit
