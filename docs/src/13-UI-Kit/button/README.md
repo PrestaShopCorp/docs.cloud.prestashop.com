@@ -1,8 +1,8 @@
 ---
-title: Bouton
+title: Button
 ---
 
-# Migration du composant bouton
+# Migrating the Button Component
 
 ## Sources
 
@@ -11,29 +11,29 @@ title: Bouton
 - [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=3633-20995&t=9EjJ88PaDg6dpkhT-0)
 - [Zeroheight](https://zeroheight.com/47c0ab1be/p/9052bc-buttons/b/27e71a)
 
-## Bootstrap
+## PrestaShop UIKit
 
-Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/buttons/) : 
+Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/buttons/) used in the PrestaShop UIKit: 
 
 ```html
 <button type="button" class="btn btn-primary">Primary</button>
 ```
 
-## Puik
+## PUIK
 
-### Utilisation basique
+### Basic Use
 
-<br>
+For any `button` component that you use, replace the structure above with the following structure:
 
 ```html
 <button type="button" class="puik-button puik-button--primary puik-button--md">
-  Click
+  Click here
 </button>
 ```
 
 ### Variants
 
-Il existe plusieurs variants de bouton :
+The following button variants are available:
   - `primary`
   - `destructive`
   - `secondary`
@@ -44,25 +44,23 @@ Il existe plusieurs variants de bouton :
   - `warning`
   - `error`
 
-Pour chaque variant, il suffit d'ajouter sur le bouton la classe `puik-button--${variant}` :
+To use any of these variants, add the `puik-button--${variant}` class to the button:
 
-```html
+```html{1}
 <button type="button" class="puik-button puik-button--${variant} puik-button--md">
-  Click
+  Click here
 </button>
 ```
 
-#### Exemples
+#### Example: Tertiary Button
 
-##### tertiary :
-
-On passe donc d'un bouton de l'uikit v1 :
+Original structure from the PrestaShop UIKit:
 
 ```html
 <button type="button" class="btn btn-tertiary">Tertiary</button>
 ```
 
-à un bouton utilisant Puik :
+New structure using PUIK:
 
 ```html
 <button type="button" class="puik-button puik-button--tertiary puik-button--md">
@@ -70,50 +68,32 @@ On passe donc d'un bouton de l'uikit v1 :
 </button>
 ```
 
-##### text :
+### Size
 
-```html
-<button type="button" class="puik-button puik-button--text puik-button--md">
-  Text button
+Different sizes are available for each button:
+- `sm` (small)
+- `md` (medium)
+- `lg` (large)
+
+To use any of these sizes, add the `puik-button--${size}"` class to the button:
+
+```html{1}
+<button type="button" class="puik-button puik-button--primary puik-button--${size}">
+  Button of ${size} size
 </button>
 ```
 
-### Tailles
-
-Chaque bouton existe également en différentes tailles :
-- `sm`
-- `md`
-- `lg`
-
-Pour chaque taille, il suffit d'ajouter la classe `puik-button--${taille}"` :
-
-```html
-<button type="button" class="puik-button puik-button--primary puik-button--${taille}">
-  Text button
-</button>
-```
-
-#### Exemples
-
-##### sm :
+#### Example: Small Button
 
 ```html
 <button type="button" class="puik-button puik-button--primary puik-button--sm">
-  sm button
+  Small button
 </button>
 ```
 
-##### lg :
+### Width
 
-```html
-<button type="button" class="puik-button puik-button--primary puik-button--lg">
-  lg button
-</button>
-```
-
-### Largeur
-
-Par défaut, la largeur du bouton s'adaptera à son contenu, il est possible d'ajouter la classe `puik-button--fluid` pour que le bouton prenne toute la largeur disponible :
+By default, the button width will adapt to its contents. For the button to be as wide as possible, use the `puik-button--fluid` class:
 
 ```html
 <button type="button" class="puik-button puik-button--primary puik-button--md puik-button--fluid">
@@ -123,9 +103,9 @@ Par défaut, la largeur du bouton s'adaptera à son contenu, il est possible d'a
 
 ### Disabled
 
-Un bouton peut être mis en état désactivé en ajoutant l'attribut `disabled` et la classe `puik-button--disabled` :
+A button can be set as disabled by adding the `disabled` attribute and the `puik-button--disabled` class:
 
-```html
+```html{1}
 <button type="button" class="puik-button puik-button--primary puik-button--md puik-button--disabled" disabled>
   Disabled button
 </button>
@@ -133,11 +113,11 @@ Un bouton peut être mis en état désactivé en ajoutant l'attribut `disabled` 
 
 ### Icons
 
-Il est possible d'ajouter des icons à l'intérieur des boutons, que ce soit à droite ou à gauche du texte qu'il contient.
+You can add icons inside buttons, either on the left or on the right of the text.
 
-La liste des icons est disponible sur cette page [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=49-12965&t=nllH1z52Z4F1eE3k-0)
+The list of available icons can be found [here](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=49-12965&t=nllH1z52Z4F1eE3k-0).
 
-#### Icon à gauche :
+#### Icon on the left
 
 ```html
 <button type="button" class="puik-button puik-button--primary puik-button--md">
@@ -148,14 +128,14 @@ La liste des icons est disponible sur cette page [Figma](https://www.figma.com/f
     check
   </div>
 
-  Click
+  Click here
 </button>
 ```
-#### Icon à droite :
+#### Icon on the right
 
 ```html
 <button type="button" class="puik-button puik-button--primary puik-button--md">
-  Click
+  Click here
 
   <div
    class="puik-icon material-icons-round puik-button__right-icon"
@@ -166,9 +146,9 @@ La liste des icons est disponible sur cette page [Figma](https://www.figma.com/f
 </button>
 ```
 
-### Liens
+### Link
 
-Le visuel d'un bouton peut également être appliqué sur un lien, il suffit simplement de remplacer la balise `button` par une balise `a` :
+A button visual can also be added over a link. To do so, replace the `button` tag with an `a` tag:
 
 ```html
 <a
@@ -179,4 +159,6 @@ Le visuel d'un bouton peut également être appliqué sur un lien, il suffit sim
   </a>
 ```
 
-Toutes les classe vues options (variant, taille, désactivé, largeur) sont également applicables.
+:::tip Note
+All the options seen above (variant, size, width, disabled) can also be applied in this case.
+:::
