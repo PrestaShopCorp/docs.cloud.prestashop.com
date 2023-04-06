@@ -1,19 +1,19 @@
 ---
-title: Alert
+title: Card
 ---
 
-# Migration du composant alert
+# Card Component Migration
 
 ## Sources
 
 - [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/card)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-card--default)
-- [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=2565-15829&t=5pJry8GttTJVSJfC-0)
+<!-- - [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=2565-15829&t=5pJry8GttTJVSJfC-0) -->
 <!-- - [Zeroheight]() -->
 
-## Bootstrap
+## PrestaShop UIKit
 
-Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/card/) :
+Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/card/) used in the PrestaShop UIKit:
 
 ```html
 <div class="card" style="width: 18rem;">
@@ -26,11 +26,11 @@ Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/card/) :
 </div>
 ```
 
-## Puik
+## PUIK
 
-### Utilisation basique
+### Basic Use
 
-<br>
+For any card component that you use, replace the structure above with the following structure:
 
 ```html
 <div class="puik-card">
