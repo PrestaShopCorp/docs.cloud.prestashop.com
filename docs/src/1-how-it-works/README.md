@@ -35,21 +35,11 @@ Once a merchant has associated their account through the form, they will remain 
 
 ### Relationships
 
-For every merchant who has linked the ps account, an `ownerUuid`, an `ownerEmail` a `shopUuid` will be created. These values can be retrieved from the PrestaShop Account context.
+For every merchant who has linked the shop with ps account, an `ownerUuid` and a `shopUuid` will be accessible. These values can be retrieved from the PrestaShop Account context.
 
-`ownerEmail`: Email address of the SSO user from the [PrestaShop Marketplace](https://addons.prestashop.com/en/)
+- `ownerUuid`: Store owner User Id
 
-`ownerUuid`: ID of the SSO user
-
-`shopUuid`: ID of the PrestaShop store
-
-:::tip Updating ownerEmail
-There are two possibilities:
-
-- The owner **stays the same**: `ownerEmail` is updated, but `ownerUuid` stays the same.
-
-- The **owner changes**: The store's ownership changes, for example when a merchant sells their store to another merchant. In that case, `ownerEmail` and  `ownerUuid` both change.
-:::
+- `shopUuid`: Prestashop store Id
 
 ## PrestaShop Billing
 
