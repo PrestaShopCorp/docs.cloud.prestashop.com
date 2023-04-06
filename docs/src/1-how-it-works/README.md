@@ -35,7 +35,7 @@ Once a merchant has associated their account through the form, they will remain 
 
 ### Relationships
 
-For every merchant who has linked the shop with ps account, an `ownerUuid` and a `shopUuid` will be accessible. These values can be retrieved from the PrestaShop Account context.
+For every merchant who has linked their store with PrestaShop Account, an `ownerUuid` and a `shopUuid` will be accessible. These values can be retrieved from the PrestaShop Account context.
 
 - `ownerUuid`: Store owner User Id
 
