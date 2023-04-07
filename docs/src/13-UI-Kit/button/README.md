@@ -23,7 +23,7 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/butt
 
 ### Basic Use
 
-For any `button` component that you use, replace the structure above with the following structure:
+For any button component that you use, replace the structure above with the following structure:
 
 ```html
 <button type="button" class="puik-button puik-button--primary puik-button--md">
