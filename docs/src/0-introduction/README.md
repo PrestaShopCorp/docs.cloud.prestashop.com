@@ -4,6 +4,14 @@ title: introduction
 
 # :rocket: Introduction
 
+:::tip ✅ Contact Us
+You wish to generate recurring revenue thanks to the PrestaShop Integration Framework with the advice of your account manager? **Let's talk!**
+
+![Julia](/assets/images/contact-form/contact-form-julia.png)
+
+[📞 Book an appointment](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) 
+:::
+
 ## Who is this documentation for?
 
 This documentation is intended for partners, sellers, developers, and agencies who **create and distribute modules and/or themes** that will be added to the [PrestaShop Marketplace](https://addons.prestashop.com/en/).
