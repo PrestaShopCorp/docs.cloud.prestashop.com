@@ -85,7 +85,7 @@ PrestaShop also provides you with a range of tools and libraries to speed up the
 
 Postman collection dedicated to the Expose Raw API. Include pre-built and saved requests to ease the usage.
 
-<!--- Link to add when available --->
+[Expose Raw API Postman Collection link](https://storage.googleapis.com/psessentials-production-cloudsync-openapi-cdn/cloudsync-expose-raw-api-postman-collection.json)
 
 #### ![Postman Collection](/assets/images/cloudsync/cloudsync-postman-collection.png)&ensp;Reporting API Postman Collection
 
