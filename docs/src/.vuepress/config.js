@@ -72,5 +72,28 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-  ]
+  ],
+
+  markdown: {
+    extendMarkdown: md => {
+      md.renderer.rules.image = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]
+        const hrefIndex = token.attrIndex('src')
+        const src = token.attrs[hrefIndex][1]
+        const classesIndex = token.attrIndex('class')
+        const classes = classesIndex >= 0 ? token.attrs[classesIndex][1] : ''
+        if (classes.indexOf('book-meeting') >= 0) {
+          return `<a href="https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting" target="_blank"><img src="${src}" alt="Book an appointment"></a>`
+        } else {
+          return self.renderToken(tokens, idx, options)
+        }
+      },
+      md.use(require('markdown-it-attrs'), {
+        // optional, these are default options
+        leftDelimiter: '{',
+        rightDelimiter: '}',
+        allowedAttributes: []  // empty array = all attributes are allowed
+      })
+    }
+  }
 }
