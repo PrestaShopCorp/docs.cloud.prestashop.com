@@ -74,7 +74,7 @@ Different sizes are available for each button:
 - `md` (medium)
 - `lg` (large)
 
-To use any of these sizes, add the `puik-button--${size}"` class to the button:
+To use any of these sizes, add the `puik-button--${size}` class to the button:
 
 ```html{1}
 <button type="button" class="puik-button puik-button--primary puik-button--${size}">
