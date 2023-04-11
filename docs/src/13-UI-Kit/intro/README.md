@@ -22,8 +22,3 @@ Start by preparing your environment by following the installation documentation 
 
 Then, access the pages corresponding to the components you are currently using to know more on how to upgrade each of them.
 
-
-
-
-
-

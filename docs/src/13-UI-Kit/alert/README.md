@@ -8,7 +8,6 @@ title: Alert
 
 - [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/alert)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-alert--default)
-<!-- - [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=3633-19061&t=u3AkIIfijk9Lr8dE-0) -->
 - [Zeroheight](https://zeroheight.com/47c0ab1be/p/818e69-alert-banner/b/28d7f7)
 
 ## PrestaShop UIKit
@@ -70,7 +69,7 @@ For each variant, you can use the structure shown above, and change the root `di
 ```
 
 :::tip Note
-The `aria-live="polite"` attribute is important. It allows you to specify the behavior users should follow when this alert appears. In the example shown above, the alert content vocalization will happen after the end any vocalization currently in progress.
+The `aria-live="polite"` attribute is important. It allows you to specify the behavior users should follow when this alert content changes. In the example shown above, the alert content vocalization will happen after the end any vocalization currently in progress.
 :::
 
 ### Borders

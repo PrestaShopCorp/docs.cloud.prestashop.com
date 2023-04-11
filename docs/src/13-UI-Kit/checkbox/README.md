@@ -2,18 +2,17 @@
 title: Checkbox
 ---
 
-# Migration du composant Checkbox
+# Checkbox Component Migration
 
 ## Sources
 
 - [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/checkbox)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-checkbox--default)
-- [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=1837-12485&t=5pJry8GttTJVSJfC-0)
 - [Zeroheight](https://zeroheight.com/47c0ab1be/p/295481-form/b/0132a8)
 
-## Bootstrap
+## PrestaShop UIKit
 
-Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/forms/) :
+Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/forms/) used in the PrestaShop UIKit:
 
 ```html
 <div class="form-check">
@@ -24,11 +23,11 @@ Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/forms/) :
 </div>
 ```
 
-## Puik
+## PUIK
 
-### Utilisation basique
+### Basic Use
 
-<br>
+For any checkbox component that you use, replace the structure above with the following structure:
 
 ```html
 <div class="puik-checkbox">
@@ -39,7 +38,9 @@ Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/forms/) :
 
 ### Checked
 
-```html
+A checkbox can be set as checked by default by adding the `checked` attribute:
+
+```html{2}
 <div class="puik-checkbox">
   <input id="id" class="puik-checkbox__input" type="checkbox" checked>
   <label for="id" class="puik-checkbox__label">Label</label>
@@ -48,7 +49,9 @@ Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/forms/) :
 
 ### Indeterminate
 
-```html
+A checkbox can be set as indeterminate by default by adding the `indeterminate` attribute:
+
+```html{2}
 <div class="puik-checkbox">
   <input id="id" class="puik-checkbox__input" type="checkbox" indeterminate>
   <label for="id" class="puik-checkbox__label">Label</label>
@@ -57,7 +60,9 @@ Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/forms/) :
 
 ### Disabled
 
-```html
+A checkbox can be set as disabled by adding the `disabled` attribute:
+
+```html{2}
 <div class="puik-checkbox">
   <input id="id" class="puik-checkbox__input" type="checkbox" disabled>
   <label for="id" class="puik-checkbox__label">Label</label>

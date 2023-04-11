@@ -2,28 +2,26 @@
 title: Input
 ---
 
-# Migration du composant input
+# Migrating the Input Component
 
 ## Sources
 
 - [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/input)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-input--default)
-- [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=46-8792&t=5pJry8GttTJVSJfC-0)
-<!-- - [Zeroheight](https://zeroheight.com/47c0ab1be/p/818e69-alert-banner/b/28d7f7) -->
 
-## Bootstrap
+## PrestaShop UIKit
 
-Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/forms/) :
+Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/forms/) used in the PrestaShop UIKit:
 
 ```html
 <input class="form-control form-control-lg" type="text" placeholder="Placeholder">
 ```
 
-## Puik
+## PUIK
 
-### Utilisation basique
+### Basic Use
 
-<br>
+For any input component that you use, replace the structure above with the following structure:
 
 ```html
 <div class="puik-input">
@@ -33,11 +31,13 @@ Composant [bootstrap](https://getbootstrap.com/docs/4.0/components/forms/) :
 </div>
 ```
 
-### Paramètres
+### Parameters
 
-Il est possible d'utiliser les attributs standards que l'on retrouve habituellement sur une balise input (placeholder, disabled, type, min, max, step, etc.).
+You can use the usual attributes that can be found on an input tag (`placeholder`, `disabled`, `type`, `min`, `max`, `step`, etc.).
 
-### Type number
+### Number Type
+
+For a number input component, replace the structure above with the following structure:
 
 ```html
 <div class="puik-input">
@@ -55,18 +55,20 @@ Il est possible d'utiliser les attributs standards que l'on retrouve habituellem
 </div>
 ```
 
-Remarque: Les attributs `aria-label="Increase"` et `aria-label="Decrease"` sont importants car ils permettent de décrire la fonction du bouton aux utilisateurs de lecteur d'écran.
+:::tip Note
+The `aria-label="Increase"` and `aria-label="Decrease"` attributes are important, as they explain to the user what the buttons are for.
+:::
 
 ### Variants
 
-Il existe 2 variants pour le composant input :
+2 variants are available for the input component:
 
 - `success`
 - `error`
 
-Pour l'utiliser, il faut ajouter la classe ` puik-input__wrapper--${variant}` sur l'élément qui porte la classe `puik-input__wrapper`:
+To use any of them, add the ` puik-input__wrapper--${variant}` class to the element that contains the `puik-input__wrapper` class:
 
-```html
+```html{2}
 <div class="puik-input">
   <div class="puik-input__wrapper puik-input__wrapper--${variant}">
     <input class="puik-input__field" type="text">
@@ -74,7 +76,7 @@ Pour l'utiliser, il faut ajouter la classe ` puik-input__wrapper--${variant}` su
 </div>
 ```
 
-#### Sucess
+#### Example of Success Variant
 
 ```html
 <div class="puik-input">
@@ -84,7 +86,7 @@ Pour l'utiliser, il faut ajouter la classe ` puik-input__wrapper--${variant}` su
 </div>
 ```
 
-#### Error
+#### Example of Error Variant
 
 ```html
 <div class="puik-input">
@@ -96,9 +98,9 @@ Pour l'utiliser, il faut ajouter la classe ` puik-input__wrapper--${variant}` su
 
 ### Disabled
 
-Pour passer l'input en état disabled, il faut ajouter la classe ` puik-input__wrapper--disabled` sur l'élément qui porte la classe `puik-input__wrapper`:
+For the input to have the disabled state, add the ` puik-input__wrapper--disabled` class to the element that contains the `puik-input__wrapper` class:
 
-```html
+```html{2}
 <div class="puik-input">
   <div class="puik-input__wrapper puik-input__wrapper--disabled">
     <input class="puik-input__field" disabled type="text">
@@ -107,7 +109,8 @@ Pour passer l'input en état disabled, il faut ajouter la classe ` puik-input__w
 ```
 
 ### Hint
-Il est possible d'ajouter un texte de description sous l'input :
+
+You can add a description text under the input component:
 
 ```html
 <div class="puik-input">
@@ -115,14 +118,14 @@ Il est possible d'ajouter un texte de description sous l'input :
     <input class="puik-input__field" type="text">
   </div>
   <div class="puik-input__hint">
-    <span class="puik-input__hint__text">This is an hint</span>
+    <span class="puik-input__hint__text">This is a hint</span>
   </div>
 </div>
 ```
 
-### Append/preppend
+### Append/Preppend
 
-Il est possible d'ajouter du contenu avant et après le texte contenu dans l'input :
+You can add contents inside the input component, on the left/right of where the text will be entered:
 
 ```html
 <div class="puik-input">
@@ -134,9 +137,9 @@ Il est possible d'ajouter du contenu avant et après le texte contenu dans l'inp
 </div>
 ```
 
-### Exemples
+### Examples
 
-#### Type number, disabled, append, prepend
+#### Number Type, Disabled, Append, Prepend
 
 ```html
 <div class="puik-input">
@@ -156,7 +159,7 @@ Il est possible d'ajouter du contenu avant et après le texte contenu dans l'inp
 </div>
 ```
 
-#### Type password, hint
+#### Password Type, Hint
 
 ```html
 <div class="puik-input">
@@ -164,7 +167,7 @@ Il est possible d'ajouter du contenu avant et après le texte contenu dans l'inp
     <input id="id" class="puik-input__field" placeholder="Placeholder" type="password">
   </div>
   <div class="puik-input__hint">
-    <span class="puik-input__hint__text">This is an hint</span>
+    <span class="puik-input__hint__text">This is a hint</span>
   </div>
 </div>
 ```
