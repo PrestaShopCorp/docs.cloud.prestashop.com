@@ -1,5 +1,3 @@
-const { description } = require('../../package')
-
 module.exports = {
   title: 'Prestashop Integration Framework',
   description: '',
@@ -62,7 +60,21 @@ module.exports = {
       [ '/9-submitting-your-module/', 'Submitting Your Module' ],
       [ '/10-validation-checklist/', 'Validation Checklist' ],
       [ '/11-faq/', 'FAQ' ],
-      [ '/12-legacy-account-and-billing/', 'Legacy Procedure for Account and Billing' ]
+      [ '/12-legacy-account-and-billing/', 'Legacy Procedure for Account and Billing' ],
+      {
+        title: 'Migrating from the UIKit to PUIK',
+        link: '/13-UI-Kit/alert/',
+        sidebarDepth: 0,
+        collapsible: false,
+        children: [
+          [ '/13-UI-Kit/intro/', 'Introduction' ],
+          [ '/13-UI-Kit/alert/', 'Alert' ],
+          [ '/13-UI-Kit/button/', 'Button' ],
+          [ '/13-UI-Kit/card/', 'Card' ],
+          [ '/13-UI-Kit/checkbox/', 'Checkbox' ],
+          [ '/13-UI-Kit/input/', 'Input' ],
+        ]
+      }
     ]
   },
 
