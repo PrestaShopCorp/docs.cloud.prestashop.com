@@ -8,8 +8,6 @@ title: Card
 
 - [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/card)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-card--default)
-<!-- - [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=2565-15829&t=5pJry8GttTJVSJfC-0) -->
-<!-- - [Zeroheight]() -->
 
 ## PrestaShop UIKit
 
