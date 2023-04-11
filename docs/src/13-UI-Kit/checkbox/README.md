@@ -12,7 +12,7 @@ title: Checkbox
 
 ## PrestaShop UIKit
 
-Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/forms/) used in the PrestaShop UIKit:
+Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/forms/#checkboxes-and-radios used in the PrestaShop UIKit:
 
 ```html
 <div class="form-check">
