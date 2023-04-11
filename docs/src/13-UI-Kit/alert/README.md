@@ -69,7 +69,7 @@ For each variant, you can use the structure shown above, and change the root `di
 ```
 
 :::tip Note
-The `aria-live="polite"` attribute is important. It allows you to specify the behavior users should follow when this alert appears. In the example shown above, the alert content vocalization will happen after the end any vocalization currently in progress.
+The `aria-live="polite"` attribute is important. It allows you to specify the behavior users should follow when this alert content changes. In the example shown above, the alert content vocalization will happen after the end any vocalization currently in progress.
 :::
 
 ### Borders
