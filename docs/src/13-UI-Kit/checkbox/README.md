@@ -8,7 +8,6 @@ title: Checkbox
 
 - [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/checkbox)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-checkbox--default)
-<!-- - [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=1837-12485&t=5pJry8GttTJVSJfC-0) -->
 - [Zeroheight](https://zeroheight.com/47c0ab1be/p/295481-form/b/0132a8)
 
 ## PrestaShop UIKit

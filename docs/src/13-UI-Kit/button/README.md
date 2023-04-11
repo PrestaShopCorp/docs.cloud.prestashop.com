@@ -8,7 +8,6 @@ title: Button
 
 - [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/button)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-button--default)
-- [Figma](https://www.figma.com/file/CUc5n1r2UIH30Tqec5DOvN/PrestaShop-Design-Kit?node-id=3633-20995&t=9EjJ88PaDg6dpkhT-0)
 - [Zeroheight](https://zeroheight.com/47c0ab1be/p/9052bc-buttons/b/27e71a)
 
 ## PrestaShop UIKit
@@ -75,7 +74,7 @@ Different sizes are available for each button:
 - `md` (medium)
 - `lg` (large)
 
-To use any of these sizes, add the `puik-button--${size}"` class to the button:
+To use any of these sizes, add the `puik-button--${size}` class to the button:
 
 ```html{1}
 <button type="button" class="puik-button puik-button--primary puik-button--${size}">
