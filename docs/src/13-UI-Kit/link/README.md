@@ -21,6 +21,8 @@ Original [bootstrap component](https://getbootstrap.com/docs/5.0/helpers/colored
 
 ### Basic Use
 
+For any link component that you use, replace the structure above with the following structure:
+
 ```html
 <a
   href="#"
@@ -34,12 +36,12 @@ Original [bootstrap component](https://getbootstrap.com/docs/5.0/helpers/colored
 
 ### Size
 
-The link has different size :
+Different sizes are available for each link:
   - `sm` (small)
   - `md` (medium)
   - `lg` (large)
 
-For each size, you can add to the root element the class `puik-alert--${size}`:
+To use any of these sizes, add the `puik-alert--${size}` class to the root element:
 
 ```html{5}
 <a
@@ -54,43 +56,51 @@ For each size, you can add to the root element the class `puik-alert--${size}`:
 
 ### Target
 
-Target attribute define where the href will be displayed. Possible values :
+The target attribute defines where the href will be displayed. The following values are available:
   - `_self`
   - `_blank`
   - `_parent`
   - `_top`
 
-:::tip Note :
-For more information about target destination, see the [documentation](https://developer.mozilla.org/fr/docs/Web/HTML/Element/a)
+:::tip Note
+For more information about target destinations, see the [documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
 :::
 
 ### Title
 
-The title provide a tooltip on hover
+The title provides a tooltip on hover.
 
 :::tip Note
-L'interprétation de l'attribut `title` par les lecteurs d'écran peut varier selon le lecteur d'écran et la configuration de celui-ci.
+The way the `title` attribute is interpreted by screen readers may vary depending on its type and configuration.
 
-Si l'attribut `title` apporte une information supplémentaire par rapport au contenu de la balise `a`, il est alors préférable d'ajouter un aria-label qui porte l'intégralité des informations donnés dans la balise et dans le titre afin d'en garantir la restitution complète.
+While the `title` attribute adds extra information to the `a` tag contents, you should still add an `aria-label` attribute including all the information from the tag and the title to make sure everything is vocalized.
 
-```html
-<!--Mauvais exemple, l'attribut `title` porte une information qui est potentiellement non vocalisée par les lecteurs d'écran-->
-<a
-  href="#"
-  title="Visiter la page anglaise"
-  class="puik-link puik-link--md"
->
-  Visiter la page
-</a>
+- What you should **not** do:
 
-<!--Bon exemple, l'attribut `title` porte une information qui est potentiellement non vocalisée par les lecteurs d'écran mais restituée grâce à l'attribut aria-label-->
-<a
-  href="#"
-  title="Visiter la page anglaise"
-  aria-label="Visiter la page anglaise"
-  class="puik-link puik-link--md"
->
-  Visiter la page
-</a>
-```
+  The `title` attribute includes information that may not be vocalized by screen readers:
+
+  ```html
+  <a
+    href="#"
+    title="Go to the English page"
+    class="puik-link puik-link--md"
+  >
+    Go to the page
+  </a>
+  ```
+
+- What you should do:
+
+  The `title` attribute includes information that may not be vocalized by screen readers, but the `aria-label` attribute will ensure it is:
+  
+  ```html
+  <a
+    href="#"
+    title="Go to the English page"
+    aria-label="Go to the English page"
+    class="puik-link puik-link--md"
+  >
+    Go to the page
+  </a>
+  ```
 :::

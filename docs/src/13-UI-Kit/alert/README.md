@@ -24,7 +24,7 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/aler
 
 ### Basic Use
 
-For any `alert` component that you use, replace the structure above with the following structure:
+For any alert component that you use, replace the structure above with the following structure:
 
 ```html
 <div
@@ -69,12 +69,12 @@ For each variant, you can use the structure shown above, and change the root `di
 ```
 
 :::tip Note
-The `aria-live="polite"` attribute is important. It allows you to specify the behavior users should follow when this alert content changes. In the example shown above, the alert content vocalization will happen after the end any vocalization currently in progress.
+The `aria-live="polite"` attribute is important. It allows you to specify the behavior screen readers should follow when this alert content changes. In the example shown above, the alert content vocalization will happen after the end of any vocalization currently in progress.
 :::
 
 ### Borders
 
-You can remove borders from the `alert` component. To do so, add the `puik-alert--no-borders` class to the root `div`: 
+You can remove borders from the alert component. To do so, add the `puik-alert--no-borders` class to the root `div`: 
 
 ```html{2}
 <div
