@@ -23,6 +23,8 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/form
 
 ### Basic Use
 
+For any label component that you use, replace the structure above with the following structure:
+
 ```html
 <label
   class="puik-label"
@@ -33,12 +35,12 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/form
 ```
 
 :::tip Note
-The attribute `for` is used to specify which input the label refers, it is the input's id.
+The attribute `for` is used to specify the ID of the input the label refers to.
 :::
 
-### Optionnal
+### Optional Input
 
-You can add an optionnal text:
+To specify an input is optional, you can use the following structure:
 
 ```html
 <label
@@ -50,9 +52,9 @@ You can add an optionnal text:
 </label>
 ```
 
-### Required
+### Required Input
 
-You can add a required text :
+To specify an input is required, you can use the following structure:
 
 ```html
 <label
