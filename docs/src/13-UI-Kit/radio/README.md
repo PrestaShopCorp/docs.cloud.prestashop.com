@@ -26,7 +26,7 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/form
 
 ### Basic Use
 
-For single radio component that you use, replace the structure above with the following structure:
+For single radio button components, replace the structure above with the following structure:
 
 ```html
 <div class="puik-radio">
@@ -43,12 +43,12 @@ For single radio component that you use, replace the structure above with the fo
 </div>
 ```
 
-For multiple radio, use the followind structure :
+For multiple radio button components, replace the structure above with the following structure:
 
 ```html
 <fieldset>
   <legend>
-      This is the legend !
+      This is the legend.
   <legend>
 
   <div class="puik-radio">
@@ -81,7 +81,7 @@ For multiple radio, use the followind structure :
 
 ### Checked
 
-To make radio checked, add the attribute `checked`:
+To set a radio button as checked, add the `checked` attribute:
 
 ```html{8}
 <div class="puik-radio">
@@ -99,9 +99,9 @@ To make radio checked, add the attribute `checked`:
 </div>
 ```
 
-### Checked
+### Disabled
 
-To make radio disabled, add the attribute `disabled`:
+To set a radio button as disabled, add the `disabled` attribute:
 
 ```html{8}
 <div class="puik-radio">
