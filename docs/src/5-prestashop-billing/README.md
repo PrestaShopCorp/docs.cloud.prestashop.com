@@ -286,6 +286,26 @@ Each method will return a PHP array with the following format:
     </script>
     ```
 
+## (Optional) Display the Invoice Pane
+
+You can choose to add the following invoice pane at the location of your choice within your module:
+
+![PrestaShop Billing Invoice Pane](/assets/images/billing/ps_billing_invoice_pane.jpg)
+
+
+To do so:
+
+1. Access the file corresponding to the location where you want to display the pane (for example, a template file).
+
+2. Add the following code to display the pane:
+  ```js
+  <div id="ps-billing-invoice"></div>
+  ```
+3. Add the following code to load the JavaScript information:
+  ```js
+  window.psBilling.initializeInvoiceList(window.psBillingContext.context, '#ps-billing-invoice');
+  ```
+
 ## Test Your Module
 
 To test if PrestaShop Billing is loading successfully into your module:
@@ -298,6 +318,6 @@ To test if PrestaShop Billing is loading successfully into your module:
 
 4. Click **Configure** in the pop-up window that displays.
     
-    :arrow_right: Your module configuration page should contain the PrestaShop Billing plan selection and invoices panes under the PrestaShop Account one:
+    :arrow_right: Your module configuration page should contain the PrestaShop Billing plan selection pane under the PrestaShop Account one:
 
-    ![PrestaShop Account not linked](/assets/images/billing/ps_billing_plan_selection.png)
+    ![PrestaShop Billing Plan Selection](/assets/images/billing/ps_billing_plan_selection.png)
