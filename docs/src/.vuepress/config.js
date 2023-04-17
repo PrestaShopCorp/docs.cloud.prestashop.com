@@ -74,6 +74,7 @@ module.exports = {
           [ '/13-UI-Kit/checkbox/', 'Checkbox' ],
           [ '/13-UI-Kit/input/', 'Input' ],
           [ '/13-UI-Kit/link/', 'Link' ],
+          [ '/13-UI-Kit/radio/', 'Radio' ],
         ]
       }
     ]
