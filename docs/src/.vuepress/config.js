@@ -72,6 +72,7 @@ module.exports = {
           [ '/13-UI-Kit/button/', 'Button' ],
           [ '/13-UI-Kit/card/', 'Card' ],
           [ '/13-UI-Kit/checkbox/', 'Checkbox' ],
+          [ '/13-UI-Kit/icon/', 'Icon' ],
           [ '/13-UI-Kit/input/', 'Input' ],
           [ '/13-UI-Kit/label/', 'Label' ],
           [ '/13-UI-Kit/link/', 'Link' ],
