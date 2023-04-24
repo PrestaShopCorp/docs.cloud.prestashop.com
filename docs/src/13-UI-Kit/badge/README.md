@@ -24,6 +24,8 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/badg
 
 ### Basic Use
 
+For any badge component that you use, replace the structure above with the following structure:
+
 ```html
 <div class="puik-badge puik-badge--neutral">
   Badge
@@ -39,7 +41,9 @@ The following badge variants are available:
   - `info`
   - `danger`
 
-```html
+To use any of these variants, add the `puik-badge--${variant}` class to the badge:
+
+```html{1}
 <div class="puik-badge puik-badge--${variant}">
   Badge
 </div>
