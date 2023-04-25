@@ -78,6 +78,10 @@ For any modal component that you use, replace the structure above with the follo
 
 To make the modal appear, you can remvoe the class `puik-modal--invisible` which is on the root element, you can add it to make the modal disappear
 
+:::tip Note
+You have to manually move the focus inside the modal, also don't forget that the focus must remain inside the modal while opened.
+:::
+
 ### Variants
 
 The following modal variants are available:
