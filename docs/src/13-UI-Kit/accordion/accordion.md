@@ -38,7 +38,9 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/coll
 
 ### Basic Use
 
-Collapsed state:
+For any accordion component that you use, replace the structure above with the following structures.
+
+By default, an accordion is collapsed, and will look like this:
 
 ```html
 <div class="puik-accordion-group">
@@ -54,7 +56,7 @@ Collapsed state:
 </div>
 ```
 
-To make it Expanded, add the class `puik-accordion--expanded` on the accordion to expand. For accessibility reason, you must set the attribute `aria-expanded` to `true` when the accordion is expanded, `false` otherwise.
+To make an accordion expanded, add the `puik-accordion--expanded` class:
 
 ```html{2, 3}
 <div class="puik-accordion-group">
@@ -65,14 +67,17 @@ To make it Expanded, add the class `puik-accordion--expanded` on the accordion t
       </div>
       <div class="puik-icon material-icons-round puik-accordion__header__expand__icon" style="font-size: 24px;">keyboard_arrow_down</div>
     </button>
-    <div id="accordion-id" class="puik-accordion__content"> Content 1 </div>
+    <div id="accordion-id" class="puik-accordion__content"> Accordion content </div>
   </div>
 </div>
 ```
+:::tip Accessibility
+For accessibility reasons, you must set the `aria-expanded` attribute to `true` when the accordion is expanded, and to `false` when it is collapsed.
+:::
 
-### Multiple accordion
+### Multiple Accordions
 
-You can add multiple accoridon inside the wrapper ith the class `puik-accordion-group`:
+You can add multiple accordions inside the wrapper with the `puik-accordion-group` class:
 
 ```html
 <div class="puik-accordion-group">
@@ -108,9 +113,9 @@ You can add multiple accoridon inside the wrapper ith the class `puik-accordion-
 
 ### Contained
 
-Multiple accordions grouped together have spacing, you can remove that spacing by adding the class `puik-accordion-group--contained` the the wrapper
+Multiple accordions grouped together have spacing. You can remove that spacing by adding the `puik-accordion-group--contained` class to the wrapper:
 
-```html{2}
+```html{1}
 <div class="puik-accordion-group puik-accordion-group--contained">
   <div class="puik-accordion">
     <button aria-expanded="false" aria-controls="accordion-id-1" class="puik-accordion__header">
@@ -135,14 +140,14 @@ Multiple accordions grouped together have spacing, you can remove that spacing b
 
 ### Subtitle
 
-You can add a subtitle to each accordion : 
+You can add a subtitle to each accordion:
 
 ```html{5}
 <div class="puik-accordion">
   <button aria-expanded="false" aria-controls="accordion-id" class="puik-accordion__header">
     <div class="puik-accordion__header__content">
       <div class="puik-accordion__header__content__title">Title</div>
-      <div class="puik-accordion__header__content__sub-title"> Sub-title</div>
+      <div class="puik-accordion__header__content__sub-title">Sub-title</div>
     </div>
     <div class="puik-icon material-icons-round puik-accordion__header__expand__icon" style="font-size: 24px;">keyboard_arrow_down</div>
   </button>
@@ -152,7 +157,7 @@ You can add a subtitle to each accordion :
 
 ### Icon
 
-You can add an icon to each accordion : 
+You can add an icon to each accordion:
 
 ```html{7}
 <div class="puik-accordion">
@@ -169,7 +174,7 @@ You can add an icon to each accordion :
 
 ### Disabled
 
-You can set an accordion in a disabled state by adding the class `puik-accordion--disabled` and the attribute `disabled` to the button: 
+You can set an accordion as disabled by adding the `puik-accordion--disabled` class, and the `disabled` attribute to the button: 
 
 ```html{2, 3}
 <div class="puik-accordion-group">
