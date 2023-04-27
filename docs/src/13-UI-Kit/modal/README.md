@@ -54,7 +54,7 @@ For any modal component that you use, replace the structure above with the follo
         <div class="puik-icon material-icons-round puik-modal__dialogPanelContainer__dialogPanel__header__icon" style="font-size: 24px;">home</div>
         <div class="puik-tooltip puik-modal__dialogPanelContainer__dialogPanel__header__title" tabindex="0">
           <div class="puik-tooltip__wrapper">
-            <h2 class="title">The awesome title</h2>
+            <h2 class="title">An awesome title</h2>
           </div>
         </div>
       </header>
@@ -76,10 +76,10 @@ For any modal component that you use, replace the structure above with the follo
 </div>
 ```
 
-To make the modal appear, you can remvoe the class `puik-modal--invisible` which is on the root element, you can add it to make the modal disappear
+Remove the `puik-modal--invisible` class on the root element to make the modal appear, or add it to make the modal disappear.
 
 :::tip Note
-You have to manually move the focus inside the modal, also don't forget that the focus must remain inside the modal while opened.
+You have to manually move the focus into the modal. Also remember that the focus must remain inside the modal while opened.
 :::
 
 ### Variants
@@ -89,9 +89,9 @@ The following modal variants are available:
   - `feedback`
   - `dialog`
 
-For each variant, you can use the structure shown above, and add the class `puik-modal--${variant}` to root `div`:
+To use any of these variants, add the `puik-modal--${variant}` class to the root `div`:
 
-```html
+```html{2}
 <div
   class="puik-modal puik-modal--${variant} puik-modal--small"
   role="dialog"
@@ -103,7 +103,7 @@ For each variant, you can use the structure shown above, and add the class `puik
         <div class="puik-icon material-icons-round puik-modal__dialogPanelContainer__dialogPanel__header__icon" style="font-size: 24px;">home</div>
         <div class="puik-tooltip puik-modal__dialogPanelContainer__dialogPanel__header__title" tabindex="0">
           <div class="puik-tooltip__wrapper">
-            <h2 class="title">The awesome title</h2>
+            <h2 class="title">An awesome title</h2>
           </div>
         </div>
       </header>
@@ -132,9 +132,9 @@ The following modal sizes are available:
   - `medium`
   - `large`
 
-For each size, you can use the structure shown above, and add the class `puik-modal--${size}` to root `div`:
+To use any of these sizes, add the `puik-modal--${size}` class to the root `div`:
 
-```html
+```html{2}
 <div
   class="puik-modal puik-modal--dialog puik-modal--${size}"
   role="dialog"
@@ -146,7 +146,7 @@ For each size, you can use the structure shown above, and add the class `puik-mo
         <div class="puik-icon material-icons-round puik-modal__dialogPanelContainer__dialogPanel__header__icon" style="font-size: 24px;">home</div>
         <div class="puik-tooltip puik-modal__dialogPanelContainer__dialogPanel__header__title" tabindex="0">
           <div class="puik-tooltip__wrapper">
-            <h2 class="title">The awesome title</h2>
+            <h2 class="title">An awesome title</h2>
           </div>
         </div>
       </header>
@@ -168,9 +168,9 @@ For each size, you can use the structure shown above, and add the class `puik-mo
 </div>
 ```
 
-### Side button
+### Side Button
 
-You can add a side button in the footer for additionnal action :
+You can add a side button in the footer to allow an additionnal action:
 
 ```html{28,29,30,31}
 <div
