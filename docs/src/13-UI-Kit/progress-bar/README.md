@@ -6,9 +6,8 @@ title: Progress Bar
 
 ## Sources
 
-- [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/progressbar)
+- [Github](https://github.com/PrestaShopCorp/puik/tree/main/packages/components/progress-bar)
 - [Storybook](https://uikit.prestashop.com/?path=/story/components-progressbar--default)
-- [Zeroheight](no page yet?)
 
 ## PrestaShop UIKit
 
