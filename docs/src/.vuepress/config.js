@@ -78,6 +78,7 @@ module.exports = {
           [ '/13-UI-Kit/link/', 'Link' ],
           [ '/13-UI-Kit/radio/', 'Radio' ],
           [ '/13-UI-Kit/badge/', 'Badge' ],
+          [ '/13-UI-Kit/progress-bar/', 'Progress Bar' ],
         ]
       }
     ]
