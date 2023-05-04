@@ -177,23 +177,25 @@ class Rbm_example extends Module {
 
 You need to register PsAccount as Service. The `5.0` specified argument is the minimum required `ps_account` module version. You should modify it if you need another version.
 
+Replace the `<module_name>` by your module name in order to avoid conflicts.
+
 ```yaml
   # ...
 
   #####################
   # PS Account
 
-  ps_accounts.installer:
+  <module_name>.installer:
     class: 'PrestaShop\PsAccountsInstaller\Installer\Installer'
     public: true
     arguments:
       - "5.0"
 
-  ps_accounts.facade:
+  <module_name>.facade:
     class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
     public: true
     arguments:
-      - "@ps_accounts.installer"
+      - "@<module_name>.installer"
 
 ```
 

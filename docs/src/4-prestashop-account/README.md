@@ -36,15 +36,15 @@ Integrating your module will require using [PHP](https://www.php.net/) for the b
 
       #####################
       # PrestaShop Account
-      ps_accounts.installer:
+      <module_name>.installer:
         class: 'PrestaShop\PsAccountsInstaller\Installer\Installer'
         arguments:
           - '5.0'
 
-      ps_accounts.facade:
+      <module_name>.facade:
         class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
         arguments:
-          - '@ps_accounts.installer'
+          - '@<module_name>.installer'
     ```
 
     :::tip Note
