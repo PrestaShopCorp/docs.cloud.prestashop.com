@@ -195,7 +195,7 @@ Replace the `<module_name>` by your module name in order to avoid conflicts.
     class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
     public: true
     arguments:
-      - "@<module_name>.installer"
+      - "@<module_name>.ps_accounts_installer"
 
 ```
 
