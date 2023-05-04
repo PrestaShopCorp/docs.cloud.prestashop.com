@@ -191,7 +191,7 @@ Replace the `<module_name>` by your module name in order to avoid conflicts.
     arguments:
       - "5.0"
 
-  <module_name>.facade:
+  <module_name>.ps_accounts_facade:
     class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
     public: true
     arguments:
