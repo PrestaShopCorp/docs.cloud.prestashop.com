@@ -37,15 +37,15 @@ Our team is here to help you get started with the implementation of PrestaShop B
       #####################
       # PrestaShop Account
 
-      <module_name>.installer:
+      <module_name>.ps_accounts_installer:
         class: 'PrestaShop\PsAccountsInstaller\Installer\Installer'
         arguments:
           - '5.0'
 
-      <module_name>.facade:
+      <module_name>.ps_accounts_facade:
         class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
         arguments:
-          - '@<module_name>.installer'
+          - '@<module_name>.ps_accounts_installer'
 
       #####################
       # PrestaShop Billing
