@@ -185,7 +185,7 @@ Replace the `<module_name>` by your module name in order to avoid conflicts.
   #####################
   # PS Account
 
-  <module_name>.installer:
+  <module_name>.ps_accounts_installer:
     class: 'PrestaShop\PsAccountsInstaller\Installer\Installer'
     public: true
     arguments:
