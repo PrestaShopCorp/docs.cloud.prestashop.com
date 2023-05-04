@@ -1,6 +1,5 @@
 ---
 home: true
-heroImage: assets/images/common/homepage.png
 heroText: PrestaShop Integration Framework
 tagline: Learn how to build a module powered by the PrestaShop Integration Framework
 actionText: Get Started →
