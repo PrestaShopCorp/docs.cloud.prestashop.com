@@ -125,7 +125,7 @@ class <module_name> extends Module {
     {
         // Load the PrestaShop Account utility
         return parent::install() &&
-            $this->getService('ps_accounts.installer')->install();
+            $this->getService('<module_name>.ps_accounts_installer')->install();
     }
 
     // ...
@@ -171,12 +171,12 @@ public function getContent()
     $accountsService = null;
 
     try {
-        $accountsFacade = $this->getService('ps_accounts.facade');
+        $accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
         $accountsService = $accountsFacade->getPsAccountsService();
     } catch (\PrestaShop\PsAccountsInstaller\Installer\Exception\InstallerException $e) {
-        $accountsInstaller = $this->getService('ps_accounts.installer');
+        $accountsInstaller = $this->getService('<module_name>.ps_accounts_installer');
         $accountsInstaller->install();
-        $accountsFacade = $this->getService('ps_accounts.facade');
+        $accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
         $accountsService = $accountsFacade->getPsAccountsService();
     }
 

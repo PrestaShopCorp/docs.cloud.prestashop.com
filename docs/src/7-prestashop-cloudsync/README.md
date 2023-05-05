@@ -51,7 +51,7 @@ class <module_name> extends Module
         return parent::install() &&
             $this->registerHook('header') &&
             $this->registerHook('displayBackOfficeHeader') &&
-            $this->getService('ps_accounts.installer')->install();
+            $this->getService('<module_name>.ps_accounts_installer')->install();
 
     }
 ```
@@ -78,12 +78,12 @@ To allow the merchant to share their data with your services, you have to pair y
         $accountsService = null;
 
         try {
-            $accountsFacade = $this->getService('ps_accounts.facade');
+            $accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
             $accountsService = $accountsFacade->getPsAccountsService();
         } catch (\PrestaShop\PsAccountsInstaller\Installer\Exception\InstallerException $e) {
-            $accountsInstaller = $this->getService('ps_accounts.installer');
+            $accountsInstaller = $this->getService('<module_name>.ps_accounts_installer');
             $accountsInstaller->install();
-            $accountsFacade = $this->getService('ps_accounts.facade');
+            $accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
             $accountsService = $accountsFacade->getPsAccountsService();
         }
 
