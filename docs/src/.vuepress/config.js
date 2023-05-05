@@ -69,6 +69,7 @@ module.exports = {
         children: [
           [ '/13-UI-Kit/intro/', 'Introduction' ],
           [ '/13-UI-Kit/alert/', 'Alert' ],
+          [ '/13-UI-Kit/badge/', 'Badge' ],
           [ '/13-UI-Kit/button/', 'Button' ],
           [ '/13-UI-Kit/card/', 'Card' ],
           [ '/13-UI-Kit/checkbox/', 'Checkbox' ],
@@ -76,8 +77,8 @@ module.exports = {
           [ '/13-UI-Kit/input/', 'Input' ],
           [ '/13-UI-Kit/label/', 'Label' ],
           [ '/13-UI-Kit/link/', 'Link' ],
+          [ '/13-UI-Kit/modal/', 'Modal' ],
           [ '/13-UI-Kit/radio/', 'Radio' ],
-          [ '/13-UI-Kit/badge/', 'Badge' ],
         ]
       }
     ]
