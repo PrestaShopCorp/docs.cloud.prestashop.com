@@ -91,10 +91,10 @@ If you are using the PS Billings component, it is necessary to activate the Live
 :::
 
 ```yaml
-ps_billings.context_wrapper:
+<module_name>.ps_billings_context_wrapper:
     class: 'PrestaShopCorp\Billing\Wrappers\BillingContextWrapper'
     arguments:
-    - '@ps_accounts.facade'
+    - '@<module_name>.ps_accounts_facade'
     - '@<module_name>.context'
     - false # if true, enables the sandbox mode, if false or empty, disables it
 ```

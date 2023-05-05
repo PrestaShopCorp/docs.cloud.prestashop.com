@@ -63,14 +63,14 @@ You should register your module as a service.
 
 ```yaml
 services:
-  rbm_example.module:
-    class: Rbm_example
+  <module_name>.module:
+    class: <module_name>
     public: true
     factory: ['Module', 'getInstanceByName']
     arguments:
-      - 'rbm_example'
+      - '<module_name>'
 
-  rbm_example.context:
+  <module_name>.context:
     class: Context
     public: true
     factory: [ 'Context', 'getContext' ]
@@ -81,7 +81,7 @@ It will be useful for afterwards
 <Example>
 ```json{13,14}
 {
-    "name": "prestashop/rbm_example",
+    "name": "prestashop/<module_name>",
     "description": "",
     "config": {
         "preferred-install": "dist",
@@ -99,7 +99,7 @@ It will be useful for afterwards
     },
     "autoload": {
         "classmap": [
-            "rbm_example.php"
+            "<module_name>.php"
         ]
     },
     "author": "PrestaShop",
@@ -131,7 +131,7 @@ First you need to register PsAccount within your module. You should add a `getSe
 It will allow your module to automatically install PsAccount when not available, and let you use PsAccountService.
 
 ```php
-class Rbm_example extends Module {
+class <module_name> extends Module {
     /**
      * @var ServiceContainer
      */
@@ -154,7 +154,7 @@ class Rbm_example extends Module {
     {
         // Load PS Account utility
         return parent::install() &&
-            $this->getService('ps_accounts.installer')->install();
+            $this->getService('<module_name>.ps_accounts_installer')->install();
     }
 
     // ...
@@ -213,7 +213,7 @@ For a custom VueJS implementation, check [PsAccount vue component documentation]
 
 ```php
 // Account
-$accountsFacade = $this->getService('ps_accounts.facade');
+$accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
 $accountsService = $accountsFacade->getPsAccountsService();
 Media::addJsDef([
     'contextPsAccounts' => $accountsFacade->getPsAccountsPresenter()
@@ -230,7 +230,7 @@ You can know whether the shop has been successfully associated or not using `isA
 
 ```php
 // Account
-$accountsService = $this->getService('ps_accounts.facade')->getPsAccountsService();
+$accountsService = $this->getService('<module_name>.ps_accounts_facade')->getPsAccountsService();
 
 $accountsService->isAccountLinked();
 ```
@@ -239,13 +239,13 @@ $accountsService->isAccountLinked();
 
 You should register as a service the composer Billing lib in your SaaS App container.
 
-We use `rbm_example.module` and `rbm_example.context` to allow Billing lib to use your Module Instance and also PretaShop Context.
+We use `<module_name>.module` and `<module_name>.context` to allow Billing lib to use your Module Instance and also PretaShop Context.
 
 :::warning Sandbox mode
 During your development you should use the sandbox mode which allow you to use test card. You can use `4111 1111 1111 1111` as test card, or [see the official Chargebee documentation](https://www.chargebee.com/docs/2.0/chargebee-test-gateway.html#test-card-numbers).
 :::
 
-In order to activate the sandbox mode you shoudl specify a third arguments to `ps_billings.accounts_wrapper`. By default sandbox mode is turned off.
+In order to activate the sandbox mode you shoudl specify a third arguments to `<module_name>.ps_billings_accounts_wrapper`. By default sandbox mode is turned off.
 
 ```yaml
 services:
@@ -253,26 +253,26 @@ services:
 
   #####################
   # PS Billing
-  ps_billings.context_wrapper:
+  <module_name>.ps_billings_context_wrapper:
     class: 'PrestaShopCorp\Billing\Wrappers\BillingContextWrapper'
     arguments:
-      - '@ps_accounts.facade'
-      - '@rbm_example.context'
+      - '@<module_name>.ps_accounts_facade'
+      - '@<module_name>.context'
       - true # if true you are in sandbox mode, if false or empty not in sandbox
 
-  ps_billings.facade:
+  <module_name>.ps_billings_facade:
     class: 'PrestaShopCorp\Billing\Presenter\BillingPresenter'
     arguments:
-      - '@ps_billings.context_wrapper'
-      - '@rbm_example.module'
+      - '@<module_name>.ps_billings_context_wrapper'
+      - '@<module_name>.module'
 
   # Remove this if you don't need BillingService
-  ps_billings.service:
+  <module_name>.ps_billings_service:
     class: PrestaShopCorp\Billing\Services\BillingService
     public: true
     arguments:
-      - '@ps_billings.context_wrapper'
-      - '@rbm_example.module'
+      - '@<module_name>.ps_billings_context_wrapper'
+      - '@<module_name>.module'
 ```
 
 ##### Inject PsBilling context
@@ -296,7 +296,7 @@ During your development you should use the sandbox mode which allow you to use t
 In PHP, you need to pass it as Array
 ```php
 // Load context for PsBilling
-$billingFacade = $this->getService('ps_billings.facade');
+$billingFacade = $this->getService('<module_name>.ps_billings_facade');
 $partnerLogo = $this->getLocalPath() . ' views/img/partnerLogo.png';
 
 // Billing
@@ -314,19 +314,19 @@ Media::addJsDef($billingFacade->present([
 As seen in the PsBilling configuration, the PsBilling composer provide you a PsBillingService :
 
 ```yaml
-  ps_billings.service:
+  <module_name>.ps_billings_service:
     class: PrestaShopCorp\Billing\Services\BillingService
     public: true
     arguments:
-      - '@ps_billings.context_wrapper'
-      - '@rbm_example.module'
+      - '@<module_name>.ps_billings_context_wrapper'
+      - '@<module_name>.module'
 ```
 
 You can retrieve it the same way you retrieve the facade :
 
 ```php
 // Load service for PsBilling
-$billingService = $this->getService('ps_billings.service');
+$billingService = $this->getService('<module_name>.ps_billings_service');
 
 // Retrieve the customer
 $customer = $billingService->getCurrentCustomer();
@@ -354,8 +354,8 @@ You should load the bundle of the front JS app in the `getContent` hook of your 
 
 ```php
 // Update the path to have the proper path
-$this->context->smarty->assign('pathVendor', $this->getPathUri() . 'views/js/chunk-vendors-rbm_example.' . $this->version . '.js');
-$this->context->smarty->assign('pathApp', $this->getPathUri() . 'views/js/app-rbm_example.' . $this->version . '.js');
+$this->context->smarty->assign('pathVendor', $this->getPathUri() . 'views/js/chunk-vendors-<module_name>.' . $this->version . '.js');
+$this->context->smarty->assign('pathApp', $this->getPathUri() . 'views/js/app-<module_name>.' . $this->version . '.js');
 ```
 
 <Example>
@@ -368,7 +368,7 @@ if (!defined('_PS_VERSION_')) {
 
 require 'vendor/autoload.php';
 
-class Rbm_example extends Module
+class <module_name> extends Module
 {
     private $emailSupport;
 
@@ -379,7 +379,7 @@ class Rbm_example extends Module
 
     public function __construct()
     {
-        $this->name = 'rbm_example';
+        $this->name = '<module_name>';
         $this->tab = 'advertising_marketing';
         $this->version = '1.0.0';
         $this->author = 'Prestashop';
@@ -394,8 +394,8 @@ class Rbm_example extends Module
 
         parent::__construct();
 
-        $this->displayName = $this->l('RBM example');
-        $this->description = $this->l('This is a RBM example module.');
+        $this->displayName = $this->l('Module name');
+        $this->description = $this->l('This is a Module description.');
 
         $this->confirmUninstall = $this->l('Are you sure to uninstall this module?');
 
@@ -426,7 +426,7 @@ class Rbm_example extends Module
     public function install()
     {
         return parent::install() &&
-            $this->getService('ps_accounts.installer')->install();
+            $this->getService('<module_name>.ps_accounts_installer')->install();
     }
 
     public function uninstall()
@@ -479,12 +479,12 @@ class Rbm_example extends Module
     public function getContent()
     {
         // Allow to auto-install Account
-        $accountsInstaller = $this->getService('ps_accounts.installer');
+        $accountsInstaller = $this->getService('<module_name>.ps_accounts_installer');
         $accountsInstaller->install();
 
         try {
             // Account
-            $accountsFacade = $this->getService('ps_accounts.facade');
+            $accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
             $accountsService = $accountsFacade->getPsAccountsService();
             Media::addJsDef([
                 'contextPsAccounts' => $accountsFacade->getPsAccountsPresenter()
@@ -494,7 +494,7 @@ class Rbm_example extends Module
             // Retrieve Account CDN
             $this->context->smarty->assign('urlAccountsCdn', $accountsService->getAccountsCdn());
 
-            $billingFacade = $this->getService('ps_billings.facade');
+            $billingFacade = $this->getService('<module_name>.ps_billings_facade');
             $partnerLogo = $this->getLocalPath() . 'views/img/partnerLogo.png';
 
             // Billing

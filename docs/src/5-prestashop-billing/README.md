@@ -50,26 +50,26 @@ Our team is here to help you get started with the implementation of PrestaShop B
       #####################
       # PrestaShop Billing
 
-      ps_billings.context_wrapper:
+      <module_name>.ps_billings_context_wrapper:
         class: 'PrestaShopCorp\Billing\Wrappers\BillingContextWrapper'
         arguments:
-        - '@ps_accounts.facade'
+        - '@<module_name>.ps_accounts_facade'
         - '@<module_name>.context'
         - true # if true, enables the sandbox mode, if false or empty, disables it
 
-      ps_billings.facade:
+      <module_name>.ps_billings_facade:
         class: 'PrestaShopCorp\Billing\Presenter\BillingPresenter'
         public: true
         arguments:
-        - '@ps_billings.context_wrapper'
+        - '@<module_name>.ps_billings_context_wrapper'
         - '@<module_name>.module'
 
       # Remove this if you do not need BillingService
-      ps_billings.service:
+      <module_name>.ps_billings_service:
         class: 'PrestaShopCorp\Billing\Services\BillingService'
         public: true
         arguments:
-        - '@ps_billings.context_wrapper'
+        - '@<module_name>.ps_billings_context_wrapper'
         - '@<module_name>.module'
     ```
 
@@ -141,12 +141,12 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
             $accountsService = null;
 
             try {
-                $accountsFacade = $this->getService('ps_accounts.facade');
+                $accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
                 $accountsService = $accountsFacade->getPsAccountsService();
             } catch (\PrestaShop\PsAccountsInstaller\Installer\Exception\InstallerException $e) {
-                $accountsInstaller = $this->getService('ps_accounts.installer');
+                $accountsInstaller = $this->getService('<module_name>.ps_accounts_installer');
                 $accountsInstaller->install();
-                $accountsFacade = $this->getService('ps_accounts.facade');
+                $accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
                 $accountsService = $accountsFacade->getPsAccountsService();
             }
 
@@ -169,7 +169,7 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
              * *******************/
 
             // Load the context for PrestaShop Billing
-            $billingFacade = $this->getService('ps_billings.facade');
+            $billingFacade = $this->getService('<module_name>.ps_billings_facade');
             $partnerLogo = $this->getLocalPath() . ' views/img/partnerLogo.png';
 
             // PrestaShop Billing
@@ -201,19 +201,19 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
 As seen in the `services.yml` file, the PrestaShop Billing composer provides a BillingService:
 
 ```yaml
-  ps_billings.service:
+  <module_name>.ps_billings_service:
     class: PrestaShopCorp\Billing\Services\BillingService
     public: true
     arguments:
-      - '@ps_billings.context_wrapper'
-      - '@rbm_example.module'
+      - '@<module_name>.ps_billings_context_wrapper'
+      - '@<module_name>.module'
 ```
 
 If needed, you can retrieve this service and its data in the same way you retrieve the facade:
 
 ```php
 // Load the service for PrestaShop Billing
-$billingService = $this->getService('ps_billings.service');
+$billingService = $this->getService('<module_name>.ps_billings_service');
 
 // Retrieve the customer
 $customer = $billingService->getCurrentCustomer();
