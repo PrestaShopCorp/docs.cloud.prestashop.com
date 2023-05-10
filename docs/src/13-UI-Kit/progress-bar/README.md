@@ -38,9 +38,30 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/prog
 For any progress bar component that you use, replace the structure above with the following structure:
 
 ```html
-
-to do
-
+<div class="progress-bar__container">
+  <div class="progress-bar__content" style="width: 50%;"></div>
+</div>
 ```
 
-### Default/Minimum/Maximum Value
+### Percentage
+
+You can set the progression by changing the width of the element with the class `progress-bar__content`:
+
+
+```html
+<div class="progress-bar__container">
+  <div class="progress-bar__content" style="width: 0%;"></div>
+</div>
+
+<div class="progress-bar__container">
+  <div class="progress-bar__content" style="width: 25%;"></div>
+</div>
+
+<div class="progress-bar__container">
+  <div class="progress-bar__content" style="width: 50%;"></div>
+</div>
+
+<div class="progress-bar__container">
+  <div class="progress-bar__content" style="width: 100%;"></div>
+</div>
+```
