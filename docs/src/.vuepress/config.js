@@ -77,8 +77,9 @@ module.exports = {
           [ '/13-UI-Kit/input/', 'Input' ],
           [ '/13-UI-Kit/label/', 'Label' ],
           [ '/13-UI-Kit/link/', 'Link' ],
-          [ '/13-UI-Kit/radio/', 'Radio' ],
+          [ '/13-UI-Kit/modal/', 'Modal' ],
           [ '/13-UI-Kit/progress-bar/', 'Progress Bar' ],
+          [ '/13-UI-Kit/radio/', 'Radio' ],
         ]
       }
     ]
