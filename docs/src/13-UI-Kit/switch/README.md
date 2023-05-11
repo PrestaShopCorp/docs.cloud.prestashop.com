@@ -36,12 +36,12 @@ For any switch component that you use, replace the structure above with the foll
 ```
 
 :::tip Note
-For accessibility reason, once clicked, the aria-checked should set at `true`.
+For accessibility reason, once clicked, `aria-checked` should set to `true`.
 :::
 
 ### Disabled
 
-A switch can be disabled by adding the attribute `disabled` to the button :
+A switch can be disabled by adding the `disabled` attribute to the button:
 
 ```html
 <div class="puik-switch__group">
