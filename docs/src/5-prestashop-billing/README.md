@@ -170,7 +170,7 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
 
             // Load the context for PrestaShop Billing
             $billingFacade = $this->getService('<module_name>.ps_billings_facade');
-            $partnerLogo = $this->getLocalPath() . ' views/img/partnerLogo.png';
+            $partnerLogo = $this->getLocalPath() . 'views/img/partnerLogo.png';
 
             // PrestaShop Billing
             Media::addJsDef($billingFacade->present([
