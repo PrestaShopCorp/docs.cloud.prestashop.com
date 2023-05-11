@@ -27,21 +27,27 @@ Original [bootstrap component](https://getbootstrap.com/docs/5.1/forms/checks-ra
 For any alert component that you use, replace the structure above with the following structure:
 
 ```html
-<puik-switch v-model="firstSwitch">My Switch Label</puik-switch>
+<div class="puik-switch__group">
+  <label for="switch-id" id="label-id" class="puik-switch__label puik-switch__label--left">Label</label>
+  <button class="puik-switch" id="switch-id" role="switch" type="button" aria-checked="false" aria-labelledby="label-id">
+    <span class="puik-switch__toggle"></span>
+  </button>
+</div>
 ```
 
-### On/Off
+:::tip Note
+For accessibility reason, once clicked, the aria-checked should set at `true`.
+:::
 
-A switch is set as off by default. It can be set as on...
-```html
-to do
-```
+### Disabled
 
-### Enabled/Disabled
-
-A switch is set as enabled by default. It can be set as disabled by adding the `disabled` attribute:
+A switch can be disabled by adding the attribute `disabled` to the button :
 
 ```html
-<puik-switch v-model="thirdSwitch" disabled>Disabled On</puik-switch>
-<puik-switch v-model="lastSwitch" disabled>Disabled Off</puik-switch>
+<div class="puik-switch__group">
+  <label for="switch-id" id="label-id" class="puik-switch__label puik-switch__label--left">Label</label>
+  <button class="puik-switch" disable id="switch-id" role="switch" type="button" aria-checked="false" aria-labelledby="label-id">
+    <span class="puik-switch__toggle"></span>
+  </button>
+</div>
 ```
