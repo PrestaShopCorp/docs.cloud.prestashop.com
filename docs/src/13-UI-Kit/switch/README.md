@@ -36,17 +36,17 @@ For any switch component that you use, replace the structure above with the foll
 ```
 
 :::tip Note
-For accessibility reason, once clicked, `aria-checked` should set to `true`.
+For accessibility reasons, once clicked, `aria-checked` should set to `true`.
 :::
 
 ### Disabled
 
 A switch can be disabled by adding the `disabled` attribute to the button:
 
-```html
+```html{3}
 <div class="puik-switch__group">
   <label for="switch-id" id="label-id" class="puik-switch__label puik-switch__label--left">Label</label>
-  <button class="puik-switch" disable id="switch-id" role="switch" type="button" aria-checked="false" aria-labelledby="label-id">
+  <button class="puik-switch" disabled id="switch-id" role="switch" type="button" aria-checked="false" aria-labelledby="label-id">
     <span class="puik-switch__toggle"></span>
   </button>
 </div>
