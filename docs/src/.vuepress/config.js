@@ -68,6 +68,7 @@ module.exports = {
         collapsible: false,
         children: [
           [ '/13-UI-Kit/intro/', 'Introduction' ],
+          [ '/13-UI-Kit/accordion/', 'Accordion' ],
           [ '/13-UI-Kit/alert/', 'Alert' ],
           [ '/13-UI-Kit/badge/', 'Badge' ],
           [ '/13-UI-Kit/button/', 'Button' ],
@@ -79,7 +80,6 @@ module.exports = {
           [ '/13-UI-Kit/link/', 'Link' ],
           [ '/13-UI-Kit/modal/', 'Modal' ],
           [ '/13-UI-Kit/radio/', 'Radio' ],
-          [ '/13-UI-Kit/accordion/', 'Accordion' ],
           [ '/13-UI-Kit/switch/', 'Switch' ],
         ]
       }
