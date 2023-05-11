@@ -79,6 +79,7 @@ module.exports = {
           [ '/13-UI-Kit/link/', 'Link' ],
           [ '/13-UI-Kit/modal/', 'Modal' ],
           [ '/13-UI-Kit/radio/', 'Radio' ],
+          [ '/13-UI-Kit/accordion/', 'Accordion' ],
           [ '/13-UI-Kit/switch/', 'Switch' ],
         ]
       }
