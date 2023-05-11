@@ -306,6 +306,101 @@ To do so:
   window.psBilling.initializeInvoiceList(window.psBillingContext.context, '#ps-billing-invoice');
   ```
 
+## (Optional) Customized cancellation workflow
+
+Sometimes you want to get the reason of a cancellation, or offer your customer a voucher to avoid cancellation. For such case we provide a mechanism which allow you to customize the cancellation workflow.
+
+In this case this modal will not be displayed and you must provide your own modal.
+
+![PrestaShop Billing Cancel Modal](/assets/images/billing/ps_billing_cancel_modal.png)
+
+### Implementation
+
+In order to customize the cancel modal, and the cancellation workflow you must use the subscription management component instead of using the `window.psBilling.initialize` method.
+**`window.psBilling.initialize` is only a wrapper to simplify the implementation of your module**.
+
+Here is a working example. Please refer to the comment for more information.
+
+```javascript{2,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32}
+<script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
+<script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel=preload></script>
+
+<script>
+    /*********************
+    * PrestaShop Account *
+    * *******************/
+    window?.psaccountsVue?.init();
+
+    // Check if Account is associated before displaying Billing component
+    if(window.psaccountsVue.isOnboardingCompleted() == true)
+    {
+        /*********************
+        * PrestaShop Billing *
+        * *******************/
+        const onCloseModal = async (data) => {
+          // When a modal is closed we need to update the context
+          await Promise.all([currentModal.close(), updateCustomerProps(data)]);
+        };
+
+        // Open the proper modal
+        const onOpenModal = (type, data) => {
+          currentModal = new window.psBilling.ModalContainerComponent({
+            type,
+            context: {
+              ...context,
+              ...data,
+            },
+            onCloseModal,
+          });
+          currentModal.render('#ps-modal');
+        };
+
+        const updateCustomerProps = (data) => {
+          return customer.updateProps({
+            context: {
+              ...context,
+              ...data,
+            },
+          });
+        };
+
+        // Here is the method called when your customer hit the cancel button
+        const onCancelSubscription = async ({ currentSubscription }) => {
+          // Here you should replace by your own code. In this cas we just
+          // create an example with a "confirm" dialog
+          const cancel = confirm('Cancel ?');
+
+          // You can access to the currentSubscription if you need to display 
+          // information about the subscription: price, next billing date, etc.
+          if (cancel) {
+            try {
+              // Call customer.cancelSubscription() when you want to really cancel the subscription
+              await customer.cancelSubscription();
+              alert('Cancelled');
+            } catch {
+              alert('Error during cancellation')
+            }
+          } else {
+            alert('No cancelled')
+          }
+        }
+
+        let currentModal;
+
+        // Here we instantiate the subscription management component
+        const customer = new window.psBilling.CustomerComponent({
+          context,
+          hideInvoiceList: true,
+          onOpenModal,
+          // Specifying an onCancelSubscription method make this method override the default cancellation workflow
+          onCancelSubscription
+        });
+        // Render the subscription management
+        customer.render('#ps-billing');
+    } 
+</script>
+```
+
 ## Test Your Module
 
 To test if PrestaShop Billing is loading successfully into your module:
