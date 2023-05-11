@@ -2,7 +2,7 @@
 title: Switch
 ---
 
-# Migrating the Alert Component
+# Migrating the Switch Component
 
 ## Sources
 
@@ -24,7 +24,7 @@ Original [bootstrap component](https://getbootstrap.com/docs/5.1/forms/checks-ra
 
 ### Basic Use
 
-For any alert component that you use, replace the structure above with the following structure:
+For any switch component that you use, replace the structure above with the following structure:
 
 ```html
 <div class="puik-switch__group">
