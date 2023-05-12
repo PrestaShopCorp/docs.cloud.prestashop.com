@@ -259,7 +259,7 @@ Each method will return a PHP array with the following format:
         * *******************/
         window?.psaccountsVue?.init();
 
-        // Check if Account is associated before displaying Billing component
+        // Check if Account is associated before displaying the Billing component
         if(window.psaccountsVue.isOnboardingCompleted() == true)
         {
         	  /*********************
@@ -306,22 +306,25 @@ To do so:
   window.psBilling.initializeInvoiceList(window.psBillingContext.context, '#ps-billing-invoice');
   ```
 
-## (Optional) Customized cancellation workflow
+## (Optional) Customize the Cancellation Workflow
 
-Sometimes you want to get the reason of a cancellation, or offer your customer a voucher to avoid cancellation. For such case we provide a mechanism which allow you to customize the cancellation workflow.
+In some cases, you might want to understand the reason for a cancellation, or offer your customer a voucher to avoid it. We provide a mechanism which allows you to customize the cancellation workflow.
 
-In this case this modal will not be displayed and you must provide your own modal.
+If you do so, you need to provide your own modal, as this one will not be displayed:
 
 ![PrestaShop Billing Cancel Modal](/assets/images/billing/ps_billing_cancel_modal.png)
 
 ### Implementation
 
-In order to customize the cancel modal, and the cancellation workflow you must use the subscription management component instead of using the `window.psBilling.initialize` method.
-**`window.psBilling.initialize` is only a wrapper to simplify the implementation of your module**.
+To customize the cancel modal and the cancellation workflow, use the subscription management component instead of the `window.psBilling.initialize` method.
 
-Here is a working example. Please refer to the comment for more information.
+:::tip Note
+`window.psBilling.initialize` is only a wrapper to simplify the implementation of your module.
+:::
 
-```javascript{2,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32}
+Here is a working example. Refer to the comments for more information.
+
+```javascript
 <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
 <script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel=preload></script>
 
@@ -331,14 +334,14 @@ Here is a working example. Please refer to the comment for more information.
     * *******************/
     window?.psaccountsVue?.init();
 
-    // Check if Account is associated before displaying Billing component
+    // Check if Account is associated before displaying the Billing component
     if(window.psaccountsVue.isOnboardingCompleted() == true)
     {
         /*********************
         * PrestaShop Billing *
         * *******************/
         const onCloseModal = async (data) => {
-          // When a modal is closed we need to update the context
+          // When a modal is closed, we need to update the context
           await Promise.all([currentModal.close(), updateCustomerProps(data)]);
         };
 
@@ -364,14 +367,14 @@ Here is a working example. Please refer to the comment for more information.
           });
         };
 
-        // Here is the method called when your customer hit the cancel button
+        // Here is the method called when your customer hits the "Cancel" button
         const onCancelSubscription = async ({ currentSubscription }) => {
-          // Here you should replace by your own code. In this cas we just
-          // create an example with a "confirm" dialog
+          // You should replace this section with your own code. Here, we just
+          // created an example with a "Confirm" dialog
           const cancel = confirm('Cancel ?');
 
-          // You can access to the currentSubscription if you need to display 
-          // information about the subscription: price, next billing date, etc.
+          // You can access the currentSubscription if you need to display information
+          // about the subscription: price, next billing date, etc.
           if (cancel) {
             try {
               // Call customer.cancelSubscription() when you want to really cancel the subscription
@@ -392,7 +395,7 @@ Here is a working example. Please refer to the comment for more information.
           context,
           hideInvoiceList: true,
           onOpenModal,
-          // Specifying an onCancelSubscription method make this method override the default cancellation workflow
+          // When an onCancelSubscription method is specified, it overrides the default cancellation workflow
           onCancelSubscription
         });
         // Render the subscription management
