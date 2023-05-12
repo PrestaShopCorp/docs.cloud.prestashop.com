@@ -45,7 +45,7 @@ For any progress bar component that you use, replace the structure above with th
 
 ### Percentage
 
-You can set the progression by changing the width of the element with the class `progress-bar__content`:
+You can set the progression by changing the width of the progress bar using the `progress-bar__content` class:
 
 
 ```html
