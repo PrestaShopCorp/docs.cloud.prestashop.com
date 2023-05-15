@@ -1,8 +1,8 @@
 ---
-title: Dropdown
+title: Select
 ---
 
-# Migrating Dropdown Components
+# Migrating Select Components
 
 ## Sources
 
@@ -31,113 +31,237 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/drop
 
 ### Basic Use
 
-For any dropdown component that you use, replace the structure above with the following structure:
+For any select component that you use, replace the structure above with the following structure:
 
 ```html
 <div class="puik-select">
-      <div class="puik-select__wrapper">
-        <button
-          class="puik-select__button"
-          aria-haspopup="listbox"
-          aria-expanded="false"
-        >
-          <span class="puik-select__selected">
-            Select a value
-          </span>
-          <span class="puik-icon puik-select__icon"> unfold_more </span>
-        </button>
-        <div
-          class="puik-select__options"
-          tabindex="-1"
-          role="listbox"
-        >
-          <ul class="puik-select__options-list">
-            <li class="puik-option" role="option">
-              <span class="puik-option__label">Action</span>
-              <span class="puik-icon puik-option__selected-icon"> checked </span>
-            </li>
-            <li class="puik-option" role="option">
-              <span class="puik-option__label">Another action</span>
-              <span class="puik-icon puik-option__selected-icon"> checked </span>
-            </li>
-          </ul>
-        </div>
-      </div>
+  <div class="puik-select__wrapper">
+    <button
+      class="puik-select__button"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+    >
+      <span class="puik-select__selected">
+        Select a value
+      </span>
+      <span class="puik-icon puik-select__icon" aria-hidden="true"> unfold_more </span>
+    </button>
+
+    <div class="puik-select__options" role="listbox" style="display: none;">
+      <ul class="puik-select__options-list">
+        <li class="puik-option" role="option" aria-selected="false" tabindex="0">
+          <span class="puik-option__label">Option 1</span>
+        </li>
+        <li class="puik-option" role="option" aria-selected="false" tabindex="0">
+          <span class="puik-option__label">Option 2</span>
+        </li>
+        <li class="puik-option" role="option" aria-selected="false" tabindex="0">
+          <span class="puik-option__label">Option 3</span>
+        </li>
+      </ul>
     </div>
+  </div>
+</div>
+```
+
+### Menu visible
+
+You can make the menu visible by :
+
+- Removing the style `style="display: none;"`,
+- Setting the attribute `aria-expanded` to `true`.
+
+```html{6,14}
+<div class="puik-select">
+  <div class="puik-select__wrapper">
+    <button
+      class="puik-select__button"
+      aria-haspopup="listbox"
+      aria-expanded="true"
+    >
+      <span class="puik-select__selected">
+        Select a value
+      </span>
+      <span class="puik-icon puik-select__icon" aria-hidden="true"> unfold_more </span>
+    </button>
+
+    <div class="puik-select__options" role="listbox">
+      <ul class="puik-select__options-list">
+        <li class="puik-option" role="option" aria-selected="false" tabindex="0">
+          <span class="puik-option__label">Option 1</span>
+        </li>
+        <li class="puik-option" role="option" aria-selected="false" tabindex="0">
+          <span class="puik-option__label">Option 2</span>
+        </li>
+        <li class="puik-option" role="option" aria-selected="false" tabindex="0">
+          <span class="puik-option__label">Option 3</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+
+### Selected value
+
+You can set an option as selected by :
+- Adding the class `puik-option puik-option--selected` to the `li` tag
+- Set the attribute `aria-selected` to `true`
+- Set the content of the element with the class `puik-select__selected` to the value of the selected option
+- Add an icon - *optionnal*
+
+```html{16,18-19}
+<div class="puik-select">
+  <div class="puik-select__wrapper">
+    <button
+      class="puik-select__button"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+    >
+      <span class="puik-select__selected">
+        Option 1
+      </span>
+      <span class="puik-icon puik-select__icon" aria-hidden="true"> unfold_more </span>
+    </button>
+
+    <div class="puik-select__options" role="listbox">
+      <ul class="puik-select__options-list">
+        <li class="puik-option puik-option puik-option--selected" aria-selected="true" role="option" tabindex="0">
+          <span class="puik-option__label">Option 1</span>
+          <span class="puik-icon puik-option__selected-icon">
+            checked
+          </span>
+        </li>
+        <li class="puik-option" aria-selected="false" role="option" tabindex="0">
+          <span class="puik-option__label">Option 2</span>
+        </li>
+        <li class="puik-option" aria-selected="false" role="option" tabindex="0">
+          <span class="puik-option__label">Option 3</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 ```
 
 ### Disabled
 
-A dropdown can be set as disabled by adding the `disabled` class to the `button` tag:
+A select can be set as disabled by adding the `disabled` class to the `button` tag:
 
 ```html{7}
 <div class="puik-select">
-    <div class="puik-select__wrapper">
-        <button
-          class="puik-select__button"
-          aria-haspopup="listbox"
-          aria-expanded="false"
-          disabled
-        >
-          <span class="puik-select__selected">
-            Select a value
-          </span>
-          <span class="puik-icon puik-select__icon"> unfold_more </span>
-        </button>
-        <div
-          class="puik-select__options"
-          tabindex="-1"
-          role="listbox"
-        >
-          <ul class="puik-select__options-list">
-            <li class="puik-option" role="option">
-              <span class="puik-option__label">Action</span>
-              <span class="puik-icon puik-option__selected-icon"> checked </span>
-            </li>
-            <li class="puik-option" role="option">
-              <span class="puik-option__label">Another action</span>
-              <span class="puik-icon puik-option__selected-icon"> checked </span>
-            </li>
-          </ul>
-        </div>
-      </div>
+  <div class="puik-select__wrapper">
+    <button
+      class="puik-select__button"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      disabled
+    >
+      <span class="puik-select__selected">
+        Select a value
+      </span>
+      <span class="puik-icon puik-select__icon" aria-hidden="true"> unfold_more </span>
+    </button>
+
+    <div class="puik-select__options" role="listbox" style="display: none;">
+      <ul class="puik-select__options-list">
+        <li class="puik-option" role="option" aria-selected="false" tabindex="0">
+          <span class="puik-option__label">Option 1</span>
+        </li>
+        <li class="puik-option" role="option" aria-selected="false" tabindex="0">
+          <span class="puik-option__label">Option 2</span>
+        </li>
+        <li class="puik-option" role="option" aria-selected="false" tabindex="0">
+          <span class="puik-option__label">Option 3</span>
+        </li>
+      </ul>
     </div>
+  </div>
+</div>
 ```
 
-### Disabled Option
+### Disabled option
 
-To set one of the dropdown options as disabled, add the `puik-option--disabled` class to the `li` tag of the relevant option:
+To set one of the select options as disabled by:
+- Adding the `puik-option--disabled` class to the `li` tag of the relevant option,
+- Adding the attribute `aria-disabled` to `true` to the same li.
 
-```html{20}
+```html{22,25}
 <div class="puik-select">
-    <div class="puik-select__wrapper">
-        <button
-          class="puik-select__button"
-          aria-haspopup="listbox"
-          aria-expanded="false"
-          disabled
+  <div class="puik-select__wrapper">
+    <button
+      class="puik-select__button"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      disabled
+    >
+      <span class="puik-select__selected">
+        Select a value
+      </span>
+      <span class="puik-icon puik-select__icon" aria-hidden="true"> unfold_more </span>
+    </button>
+
+    <div
+      class="puik-select__options"
+      tabindex="-1"
+      role="listbox"
+    >
+      <ul class="puik-select__options-list">
+        <li
+          class="puik-option puik-option--disabled"
+          role="option"
+          aria-selected="false"
+          aria-disabled="true"
+          tabindex="0"
         >
-          <span class="puik-select__selected">
-            Select a value
-          </span>
-          <span class="puik-icon puik-select__icon"> unfold_more </span>
-        </button>
-        <div
-          class="puik-select__options"
-          tabindex="-1"
-          role="listbox"
-        >
-          <ul class="puik-select__options-list">
-            <li class="puik-option puik-option--disabled" role="option">
-              <span class="puik-option__label">Action</span>
-              <span class="puik-icon puik-option__selected-icon"> checked </span>
-            </li>
-            <li class="puik-option" role="option">
-              <span class="puik-option__label">Another action</span>
-              <span class="puik-icon puik-option__selected-icon"> checked </span>
-            </li>
-          </ul>
-        </div>
-      </div>
+          <span class="puik-option__label">Option 1</span>
+        </li>
+      </ul>
     </div>
+  </div>
+</div>
+```
+
+### Error
+
+You can put the select in an error state by :
+- Adding the class `puik-select__button--error`,
+- Adding an error message and an icon.
+
+```html{4,32-35}
+<div class="puik-select">
+  <div class="puik-select__wrapper">
+    <button
+      class="puik-select__button puik-select__button--error"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+    >
+      <span class="puik-select__selected">
+        Select a value
+      </span>
+      <span class="puik-icon puik-select__icon" aria-hidden="true"> unfold_more </span>
+    </button>
+
+    <div
+      class="puik-select__options"
+      tabindex="-1"
+      role="listbox"
+    >
+      <ul class="puik-select__options-list">
+        <li class="puik-option puik-option--disabled" role="option">
+          <span class="puik-option__label">Action</span>
+          <span class="puik-icon puik-option__selected-icon"> checked </span>
+        </li>
+        <li class="puik-option" role="option">
+          <span class="puik-option__label">Another action</span>
+          <span class="puik-icon puik-option__selected-icon"> checked </span>
+        </li>
+      </ul>
+    </div>
+    <div class="puik-select__error">
+      <div class="puik-icon material-icons-round puik-select__error__icon" aria-hidden="false" style="font-size: 1.25rem;">error</div>
+      <span class="puik-select__error__text">This is an error message</span>
+    </div>
+  </div>
+</div>
 ```
