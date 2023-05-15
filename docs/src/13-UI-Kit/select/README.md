@@ -12,18 +12,18 @@ title: Select
 
 ## PrestaShop UIKit
 
-Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/dropdowns/) used in the PrestaShop UIKit:
+Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/forms/#form-controls) used in the PrestaShop UIKit:
 
 ```html
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select a value
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
+<div class="form-group">
+  <label for="exampleFormControlSelect1">Example select</label>
+  <select class="form-control" id="exampleFormControlSelect1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
 </div>
 ```
 
