@@ -43,7 +43,7 @@ For any button group component that you use, replace the structure above with th
 ```
 
 :::tip Note
-  For accessibility reason, you may have to add an `aria-label` to each element to describe more it's purpose.
+  For accessibility reason, you may have to add an `aria-label` to each element to better describe its purpose.
 
   Change the class of a button from `puik-button--tertiary` to `puik-button--primary` to make a button visually selected.
 :::
