@@ -64,12 +64,12 @@ For any select component that you use, replace the structure above with the foll
 </div>
 ```
 
-### Menu visible
+### Visible Menu
 
-You can make the menu visible by :
+You can make the menu visible by:
 
-- Removing the style `style="display: none;"`,
-- Setting the attribute `aria-expanded` to `true`.
+- Removing the `style="display: none;"` style,
+- Setting the `aria-expanded` attribute to `true`.
 
 ```html{6,14}
 <div class="puik-select">
@@ -102,15 +102,15 @@ You can make the menu visible by :
 </div>
 ```
 
-### Selected value
+### Selected Value
 
-You can set an option as selected by :
-- Adding the class `puik-option puik-option--selected` to the `li` tag
-- Set the attribute `aria-selected` to `true`
-- Set the content of the element with the class `puik-select__selected` to the value of the selected option
-- Add an icon - *optionnal*
+You can set an option as selected by:
+- Adding the `puik-option puik-option--selected` class to the `li` tag,
+- Setting the `aria-selected` attribute to `true`,
+- Setting the contents of the element with the `puik-select__selected` class to the value of the selected option,
+- Adding an icon - *optional*.
 
-```html{16,18-19}
+```html{8,9,10,16,18-19}
 <div class="puik-select">
   <div class="puik-select__wrapper">
     <button
@@ -182,9 +182,9 @@ A select can be set as disabled by adding the `disabled` class to the `button` t
 
 ### Disabled option
 
-To set one of the select options as disabled by:
+You can set one of the select options as disabled by:
 - Adding the `puik-option--disabled` class to the `li` tag of the relevant option,
-- Adding the attribute `aria-disabled` to `true` to the same li.
+- Setting the `aria-disabled` attribute to `true` for the same `li` tag.
 
 ```html{22,25}
 <div class="puik-select">
@@ -224,11 +224,11 @@ To set one of the select options as disabled by:
 
 ### Error
 
-You can put the select in an error state by :
-- Adding the class `puik-select__button--error`,
+You can put the select in an error state by:
+- Adding the `puik-select__button--error` class,
 - Adding an error message and an icon.
 
-```html{4,32-35}
+```html{4,30-32}
 <div class="puik-select">
   <div class="puik-select__wrapper">
     <button
