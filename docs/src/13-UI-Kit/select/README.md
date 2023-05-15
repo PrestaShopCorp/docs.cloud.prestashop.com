@@ -105,7 +105,7 @@ You can make the menu visible by:
 ### Selected Value
 
 You can set an option as selected by:
-- Adding the `puik-option puik-option--selected` class to the `li` tag,
+- Adding the `puik-option--selected` class to the `li` tag,
 - Setting the `aria-selected` attribute to `true`,
 - Setting the contents of the element with the `puik-select__selected` class to the value of the selected option,
 - Adding an icon - *optional*.
@@ -228,7 +228,7 @@ You can put the select in an error state by:
 - Adding the `puik-select__button--error` class,
 - Adding an error message and an icon.
 
-```html{4,30-32}
+```html{4,25-28}
 <div class="puik-select">
   <div class="puik-select__wrapper">
     <button
@@ -247,19 +247,14 @@ You can put the select in an error state by:
       tabindex="-1"
       role="listbox"
     >
-      <ul class="puik-select__options-list">
+      <ul class="puik-select__options-list" style="display: none;">
         <li class="puik-option puik-option--disabled" role="option">
           <span class="puik-option__label">Action</span>
-          <span class="puik-icon puik-option__selected-icon"> checked </span>
-        </li>
-        <li class="puik-option" role="option">
-          <span class="puik-option__label">Another action</span>
-          <span class="puik-icon puik-option__selected-icon"> checked </span>
         </li>
       </ul>
     </div>
     <div class="puik-select__error">
-      <div class="puik-icon material-icons-round puik-select__error__icon" aria-hidden="false" style="font-size: 1.25rem;">error</div>
+      <div class="puik-icon material-icons-round puik-select__error__icon" aria-hidden="true" style="font-size: 1.25rem;">error</div>
       <span class="puik-select__error__text">This is an error message</span>
     </div>
   </div>
