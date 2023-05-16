@@ -83,6 +83,7 @@ module.exports = {
           [ '/13-UI-Kit/radio/', 'Radio' ],
           [ '/13-UI-Kit/select/', 'Select' ],
           [ '/13-UI-Kit/switch/', 'Switch' ],
+          [ '/13-UI-Kit/tooltip/', 'Tooltip' ],
         ]
       }
     ]
