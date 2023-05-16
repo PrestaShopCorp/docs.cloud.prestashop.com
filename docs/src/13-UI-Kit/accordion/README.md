@@ -58,7 +58,7 @@ By default, an accordion is collapsed, and will look like this:
 
 To make an accordion expanded, add the `puik-accordion--expanded` class:
 
-```html{2, 3}
+```html{2,3}
 <div class="puik-accordion-group">
   <div class="puik-accordion puik-accordion--expanded">
     <button aria-expanded="true" aria-controls="accordion-id" class="puik-accordion__header">
