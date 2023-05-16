@@ -306,6 +306,69 @@ To do so:
   window.psBilling.initializeInvoiceList(window.psBillingContext.context, '#ps-billing-invoice');
   ```
 
+
+## (Optional) Handle plan presentation
+
+The billing funnel can handle for you the plan selection, but sometimes you should prefer to present your plan by yourself to be more precise.
+
+In such case you should provide to the billing context the selected plan, and if applicable the quantity associated with.
+
+### Add plan presentation
+
+You should add your plan presentation in the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`).
+
+
+```html{5,6, 19, 20, 21}
+<prestashop-accounts></prestashop-accounts>
+<div id="ps-billing"></div>
+<div id="ps-modal"></div>
+<div id="ps-billing-invoice"></div>
+
+<!-- This is a simplified example, you should add the whole html to display your plans -->
+<!-- Use the proper id returned by the billing product API -->
+<button onclick="selectPlan('pricing-id')">Select this plan</button>
+
+<script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
+<script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel=preload></script>
+
+<script>
+    window?.psaccountsVue?.init();
+  
+    /*********************
+    * PrestaShop Billing *
+    * *******************/
+    function selectPlan(pricingId) {
+      var psBillingContext = {...window.psBillingContext.context};  // Create a deep copy of the context
+      psBillingContext.offerSelection.offerPricingId = pricingId;   // Set teh pricing selected in the context
+
+      window.psBilling.initialize(window.psBillingContext.context, '#ps-billing', '#ps-modal', (type, data) => {
+          // Event hook listener
+          switch (type) {
+              // Hook triggered when PrestaShop Billing is initialized
+              case window.psBilling.EVENT_HOOK_TYPE.BILLING_INITIALIZED:
+                  console.log('Billing initialized', data);
+                  break;
+              // Hook triggered when the subscription is created or updated
+              case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
+                  console.log('Sub updated', data);
+                  break;
+              // Hook triggered when the subscription is cancelled
+              case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CANCELLED:
+                  console.log('Sub cancelled', data);
+                  break;
+          }
+      });
+    }
+
+</script>
+```
+
+### Retrieve the pricing id (not available yet)
+
+Please use the Billing API, as described in the API OpenAPI documentation 
+
+<!-- TODO: add information about the plan-billing components -->
+
 ## Test Your Module
 
 To test if PrestaShop Billing is loading successfully into your module:
