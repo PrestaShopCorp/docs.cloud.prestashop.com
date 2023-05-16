@@ -81,6 +81,7 @@ module.exports = {
           [ '/13-UI-Kit/modal/', 'Modal' ],
           [ '/13-UI-Kit/progress-bar/', 'Progress Bar' ],
           [ '/13-UI-Kit/radio/', 'Radio' ],
+          [ '/13-UI-Kit/select/', 'Select' ],
           [ '/13-UI-Kit/switch/', 'Switch' ],
         ]
       }
