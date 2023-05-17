@@ -36,24 +36,106 @@ Original [bootstrap component](https://getbootstrap.com/docs/4.0/components/tool
 For any tooltip component that you use, replace the structure above with the following structure:
 
 ```html
-<puik-tooltip position="top">
-        <puik-icon font-size="1.25rem" icon="help_outline" />
-        <template #title>Title</template>
-        <template #description>This is a top tooltip</template>
-      </puik-tooltip>
-      <puik-tooltip position="bottom">
-        <puik-icon font-size="1.25rem" icon="help_outline" />
-        <template #title>Title</template>
-        <template #description>This is a bottom tooltip</template>
-      </puik-tooltip>
-      <puik-tooltip position="left">
-        <puik-icon font-size="1.25rem" icon="help_outline" />
-        <template #title>Title</template>
-        <template #description>This is a left tooltip</template>
-      </puik-tooltip>
-      <puik-tooltip position="right">
-        <puik-icon font-size="1.25rem" icon="help_outline" />
-        <template #title>Title</template>
-        <template #description>This is a right tooltip</template>
-      </puik-tooltip>
+<div class="puik-tooltip__wrapper">
+  <div class="puik-icon material-icons-round" style="font-size: 1.25rem;">help_outline</div>
+</div>
+
+<div
+  class="puik-tooltip__tip"
+  role="tooltip"
+  style="
+    z-index: 1000;
+    position: absolute;
+    inset: auto auto 0px 0px;
+    margin: 0px;
+    transform: translate(425px, -403px);
+    display: none;
+  "
+  data-popper-placement="top"
+>
+  <div class="puik-tooltip__tip__content">
+    <span class="puik-tooltip__tip__content__title">Title</span>
+    <span class="puik-tooltip__tip__content__description">This is a tooltip</span>
+  </div>
+
+  <div
+    class="puik-tooltip__tip__arrow"
+    style="position: absolute; left: 0px; transform: translate(52px, 0px);"
+  ></div>
+</div>
 ```
+
+### Visible
+
+To make the tooltip visible, you have to remove the `display: none;` style:
+
+```html{14}
+<div class="puik-tooltip__wrapper">
+  <div class="puik-icon material-icons-round" style="font-size: 1.25rem;">help_outline</div>
+</div>
+
+<div
+  class="puik-tooltip__tip"
+  role="tooltip"
+  style="
+    z-index: 1000;
+    position: absolute;
+    inset: auto auto 0px 0px;
+    margin: 0px;
+    transform: translate(425px, -403px);
+    display: none;
+  "
+  data-popper-placement="top"
+>
+  <div class="puik-tooltip__tip__content">
+    <span class="puik-tooltip__tip__content__title">Title</span>
+    <span class="puik-tooltip__tip__content__description">This is a tooltip</span>
+  </div>
+
+  <div
+    class="puik-tooltip__tip__arrow"
+    style="position: absolute; left: 0px; transform: translate(52px, 0px);"
+  ></div>
+</div>
+```
+
+### Position
+
+You have to place the tooltip by:
+
+- Setting it's x and y positions,
+- Setting the tooltip arrow position.
+
+```html{13,27}
+<div class="puik-tooltip__wrapper">
+  <div class="puik-icon material-icons-round" style="font-size: 1.25rem;">help_outline</div>
+</div>
+
+<div
+  class="puik-tooltip__tip"
+  role="tooltip"
+  style="
+    z-index: 1000;
+    position: absolute;
+    inset: auto auto 0px 0px;
+    margin: 0px;
+    transform: translate(${XPosition}, ${YPosition});
+    display: none;
+  "
+>
+  <div class="puik-tooltip__tip__content">
+    <span class="puik-tooltip__tip__content__title">Title</span>
+    <span class="puik-tooltip__tip__content__description">This is a tooltip</span>
+  </div>
+
+  <div
+    class="puik-tooltip__tip__arrow"
+    style="
+      position: absolute;
+      left: 0px;
+      transform: translate(52px, 0px);
+    "
+  ></div>
+</div>
+```
+
