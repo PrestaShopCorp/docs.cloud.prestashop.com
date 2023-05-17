@@ -176,7 +176,7 @@ You can add an icon to each accordion:
 
 You can set an accordion as disabled by adding the `puik-accordion--disabled` class, and the `disabled` attribute to the button: 
 
-```html{2, 3}
+```html{2,3}
 <div class="puik-accordion-group">
   <div class="puik-accordion puik-accordion--disabled">
     <button aria-expanded="false" aria-controls="accordion-id" class="puik-accordion__header" disabled>
