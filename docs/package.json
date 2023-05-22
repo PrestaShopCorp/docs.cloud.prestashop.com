@@ -9,7 +9,7 @@
   },
   "repository": "https://github.com/PrestaShopCorp/docs.cloud.prestashop.com/docs.cloud.prestashop.com",
   "scripts": {
-    "dev": "vuepress dev src",
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress dev src",
     "build": "vuepress build src"
   },
   "license": "MIT",
