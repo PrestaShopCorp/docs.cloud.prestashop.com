@@ -30,9 +30,9 @@ The interval between 2 subscription renewals. It defines when an invoice will be
 
 A shop is a PrestaShop store.
 
-## Customer
+## Organisation
 
-A customer is the person or the legal entity which owns the shop.
+An organization is the person or the legal entity which owns the shop.
 
 ## Payment Method
 
@@ -43,7 +43,7 @@ A payment method designates the way a payment can be collected. Currently, Prest
 Prestashop Billing currently supports two types of pricing models:
 
 - Flat-Fee
-- Stair-step
+- Stairstep
 
 ### Flat-Fee
 
@@ -57,7 +57,7 @@ Each plan has its own price point and contains a set of feature that do not chan
 
 ### Stair-step
 
-The price of each step is assigned to a range of units. Those units can be anything, but some valid examples are the average revenue of a shop, or a number of emails sent.
+The price of each step is assigned to a range of units. Those units can be anything, but some valid examples are the average revenue of a shop, or a number of products.
 
 | Step    | Range            | Price |
 | ------- | ---------------- | ----- |

@@ -113,6 +113,13 @@ During your development, you should set the sandbox mode to `true` (as shown in 
      "license": "MIT"
    }
    ```
+:::warning
+Make sure you use the correct version of `module-lib-billing` for your module. Here is the compatibility chart for it: 
+| Version | Status         | Packagist           -| Namespace    | Repo                | Docs                | PHP Version  |
+|---------|----------------|----------------------|--------------|---------------------|---------------------|--------------|
+| 1.x     | Security fixes | `module-lib-billing` | `PrestaShopCorp\Billing`     | [v1][lib-1-repo] | N/A                 | >=5.6        |
+| 2.x     | Latest         | `module-lib-billing` | `PrestaShopCorp\Billing` | [v2][lib-2-repo] | N/A                 | >=7.2.5   |
+:::
 
 4. Run the `composer install` command to implement the new dependency.
 
@@ -193,7 +200,7 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
    | ------------ | ------ | ------------------------------------------------------------------- |
    | logo         | string | Set your logo as a file (at the root of the module folder) or a URL |
    | tosLink      | string | Link to your terms & services (required)                            |
-   | privacyLink  | string | Link to your terms & services (required)                            |
+   | privacyLink  | string | Link to your privacy page (required)                                |
    | emailSupport | string | Email to your support (required)                                    |
 
 ## Edit the Template File
@@ -252,7 +259,7 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
    ```
 
    :::tip
-   In the snippet above, you can see three "hooks". They are events that you can 'hook' into to implement some custom logic on your side.
+   In the snippet above, you can see three "hooks". They are events that you can 'hook' into to implement some custom logic on your side. They are not linked to the webhook services we offer, which are the source of truth of your exchanges with Billing.
    :::
 
 ## Test Your Module
@@ -277,4 +284,3 @@ To test if PrestaShop Billing is loading successfully into your module:
 - [Explore advanced topics](../4-how-tos/README.md) such as:
   - [Implementing a Stair-step pricing model](../4-how-tos/README.md#implementing-a-stair-step-pricing-model)
   - [Display the Invoice Pane](../4-how-tos/README.md#display-the-invoice-pane)
-  - [Use BillingService to Retrieve Billing Data in PHP](../4-how-tos/README.md#use-billingservice-to-retrieve-billing-data-in-php)

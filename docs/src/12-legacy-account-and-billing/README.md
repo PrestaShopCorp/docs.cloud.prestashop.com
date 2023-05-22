@@ -27,9 +27,9 @@ Here is the step to create a SaaS App :
 SaaS App is compatible from PrestaShop 1.6.1.x and PHP 5.6
 :::
 
-</Block>
 
-<Block>
+
+
 
 ## Backend
 
@@ -37,9 +37,9 @@ SaaS App is compatible from PrestaShop 1.6.1.x and PHP 5.6
 The PsAccount module is a pre-requisite for every SaaS App module, it provides an SSO allowing to link the Addons market's accounts to the ones in the PrestaShop Core
 :::
 
-</Block>
 
-<Block>
+
+
 
 ### Composer
 
@@ -78,7 +78,7 @@ services:
 
 It will be useful for afterwards
 
-<Example>
+
 ```json{13,14}
 {
     "name": "prestashop/<module_name>",
@@ -107,11 +107,11 @@ It will be useful for afterwards
 }
 
 ```
-</Example>
 
-</Block>
 
-<Block>
+
+
+
 
 ### <module_name>.php
 
@@ -358,7 +358,7 @@ $this->context->smarty->assign('pathVendor', $this->getPathUri() . 'views/js/chu
 $this->context->smarty->assign('pathApp', $this->getPathUri() . 'views/js/app-<module_name>.' . $this->version . '.js');
 ```
 
-<Example>
+
 ```php
 <?php
 
@@ -517,11 +517,11 @@ class <module_name> extends Module
     }
 }
 ````
-</Example>
 
-</Block>
 
-<Block>
+
+
+
 
 #### Module template
 
@@ -535,7 +535,7 @@ This file will load the Vue app frontend and the chunk vendor js
 
 > The 3 variables `$urlAccountsCdn`, `$pathVendor` and `$pathApp` are prepared in the `getContent` hook.
 
-<Example>
+
 ```html
 <link href="{$pathVendor|escape:'htmlall':'UTF-8'}" rel=preload as=script>
 <link href="{$pathApp|escape:'htmlall':'UTF-8'}" rel=preload as=script>
@@ -548,11 +548,11 @@ This file will load the Vue app frontend and the chunk vendor js
 <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" type="text/javascript"></script>
 
 ````
-</Example>
 
-</Block>
 
-<Block>
+
+
+
 
 ## Frontend
 
@@ -571,18 +571,18 @@ Go to this folder then create a [VueJS project](https://cli.vuejs.org/guide/crea
 Feel free to organize your application in your own way
 :::
 
-<Example>
+
 ```bash
 # Create the Vue app
 cd _dev
 vue create <app's name>
 ````
 
-</Example>
 
-</Block>
 
-<Block>
+
+
+
 
 ### Compile your app
 
@@ -595,7 +595,7 @@ These file's names must match with the ones (`$pathVendor`, `$pathApp`
 ) used in the `getContent` hook and the version of this module php (cf composer.json) and the vue app (cf package.json) must be the same
 :::
 
-<Example>
+
 ```js
 const webpack = require("webpack");
 const path = require("path");
@@ -632,7 +632,7 @@ module.exports = {
     publicPath: "../modules/<module_name>/views/",
 };
 ```
-</Example>
+
 
 #### Add required dependencies
 
@@ -646,9 +646,9 @@ Optional see [PsAccount component fallback](#psaccount-component-fallback)
 yarn add prestashop_accounts_vue_components
 ```
 
-</Block>
 
-<Block>
+
+
 
 ### Use PsAccount
 
@@ -769,7 +769,7 @@ methods: {
 }
 ```
 
-<Example>
+
 ```html
 <template>
   <div>
@@ -859,7 +859,7 @@ methods: {
 </script>
 ```
 
-</Example>
+
 
 ### Use PsInvoiceList
 
@@ -935,9 +935,9 @@ The `options` prop in detail:
 | ------------------ | ----------- | ------------------------------------------------------- | ------------- |
 | pageSize           | **number**  | Set the number of invoices per page                     | 6             |
 
-</Block>
 
-<Block>
+
+
 #### Context in detail
 
 Below is the details of the attributes
@@ -961,9 +961,9 @@ Below is the details of the attributes
 | isSandbox          | **boolean** | Activate the sandbox mode (default: `false`)       |
 | refreshToken       | **string**  | Refresh token provided by PsAccount (**required**) |
 
-</Block>
 
-<Block>
+
+
 
 #### Modal detail
 
@@ -1019,9 +1019,9 @@ _closeBillingModal(data)_
 
 Data format: `{state, card, credit_notes, subscription, customer, invoice}` if the subscription flow has proceeded successfully
 
-</Block>
 
-<Block>
+
+
 #### Event hook
 
 The event hook system allows you to be notified in the front app when a subscription changes. There are 3 types of event:
@@ -1080,7 +1080,7 @@ import { EVENT_HOOK_TYPE } from '@prestashopcorp/billing-cdc/dist/bundle.umd';
     }
 ```
 
-<Example>
+
 ```html
 <template>
   <div>
@@ -1163,11 +1163,11 @@ import { EVENT_HOOK_TYPE } from '@prestashopcorp/billing-cdc/dist/bundle.umd';
 </script>
 ```
 
-</Example>
 
-</Block>
 
-<Block>
+
+
+
 #### Pass data through PsBilling
 
 The `PsBillingCustomer` component allows you to `emit` an event to initialize the billing customer in a specific state. **The most common use case for this emitter is when you have a free plan and want your customer to subscribe immediately to this free plan.**
@@ -1199,4 +1199,4 @@ export default {
 };
 ```
 
-</Block>
+

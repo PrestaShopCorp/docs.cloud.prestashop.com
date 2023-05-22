@@ -37,6 +37,14 @@ module.exports = {
     sidebarDepth: 1,
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Getting Started',
+        items: [
+          { text: 'Account', link: '/4-prestashop-account/' },
+          { text: 'Billing', link: '/5-prestashop-billing/1-overview/' },
+          { text: 'Billing Webhooks', link: '/6-billing-webhooks-events/' },
+          { text: 'CloudSync', link: '/7-prestashop-cloudsync/' },
+        ]
+      },
       {
         text: 'Standard Module Development References',
         ariaLabel: 'Standard Module Development References',
@@ -56,15 +64,14 @@ module.exports = {
       { title: 'Integrating PrestaShop Account', path: '/4-prestashop-account/'},
       {
         title: "PrestaShop Billing",
-        path: "/5-prestashop-billing/1-overview",
+        path: "/5-prestashop-billing/1-overview/",
         sidebarDepth: 0,
+        collapsable: false,
         initialOpenGroupIndex: 0,
         children: [
           {
             path: "/5-prestashop-billing/1-overview/",
-            collapsable: true,
             title: "Overview",
-            
           },
           "/5-prestashop-billing/2-concepts/",
           "/5-prestashop-billing/3-tutorial/",
@@ -83,12 +90,19 @@ module.exports = {
     ],
   },
 
-  /**
-   * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
-   */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
+    'code-switcher' ,
+    [
+      'vuepress-plugin-medium-zoom',
+      {
+        delay: 200,
+        options: {
+          background: '#888888',
+          margin: 24,
+          scrollOffset: 0,
+        },
+      },
+    ],
   ],
 
   markdown: {
