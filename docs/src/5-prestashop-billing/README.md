@@ -317,7 +317,7 @@ In such a case you should provide to the billing context the selected plan, and 
 
 You should add your plan presentation in the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`).
 
-This is a simple working example, if you need to implement it properly you will have more code to produce.
+This is a simple working example that is purposefully basic, you can make the code as complex as you need it to be to cover your needs as long as you follow the steps in this guide.
 
 1. First of all you should use the billing components instead of using 
 
