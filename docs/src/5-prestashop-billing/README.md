@@ -307,65 +307,159 @@ To do so:
   ```
 
 
-## (Optional) Handle plan presentation
+## (Optional) Handle plan selection by yourself
 
-The billing funnel can handle for you the plan selection, but sometimes you should prefer to present your plan by yourself to be more precise.
+The billing funnel can handle for you the plan selection, but sometimes you should prefer to present your plan by yourself to be more precise about your offer.
 
 In such case you should provide to the billing context the selected plan, and if applicable the quantity associated with.
 
-### Add plan presentation
+### Add plan selection
 
 You should add your plan presentation in the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`).
 
+This is a simple working example, if you need to implement it properly you will have more code to produce.
 
-```html{5,6, 19, 20, 21}
+
+```html{10, 11, 12, 13,  28, 29, 30}
 <prestashop-accounts></prestashop-accounts>
-<div id="ps-billing"></div>
-<div id="ps-modal"></div>
-<div id="ps-billing-invoice"></div>
 
-<!-- This is a simplified example, you should add the whole html to display your plans -->
-<!-- Use the proper id returned by the billing product API -->
-<button onclick="selectPlan('pricing-id')">Select this plan</button>
+<!-- You should use the billing plan library in order to display your plan -->
+<section id="billing-plan-selection" style="display:none">
+  <h2>Select your plan</h2>
+  <div style="width: 500px; display:flex">
+    <div style="border: 1px solid;padding: 2rem;text-align:center;">
+      <h3 style="font-weight: bold;margin-bottom: 1rem;">rbm free sandbox</h3>
+
+      <!-- Pricing information must be retrieved from billing API -->
+      <p style="margin-bottom: 1rem;">0€/month</p>
+      <!-- Pricing id must be retrieved from billing API -->
+      <button onclick="openCheckout('rbm-free')" style="background: black;color: white; padding: 0.5rem; font-weight: bold;">Select this offer</button>
+    </div>
+    <div style="border: 1px solid;margin-left:1rem;padding: 2rem;text-align:center;">
+      <h3 style="font-weight: bold;margin-bottom: 1rem;">rbm advanced sandbox</h3>
+      <p style="margin-bottom: 1rem;">10€/month</p>
+      <button onclick="openCheckout('rbm-advanced')" style="background: black;color: white; padding: 0.5rem; font-weight: bold;">Select this offer</button>
+    </div>
+    <div style="border: 1px solid;margin-left:1rem;padding: 2rem;text-align:center;">
+      <h3 style="font-weight: bold;margin-bottom: 1rem;">rbm ultimate sandbox</h3>
+      <p style="margin-bottom: 1rem;">30€/month</p>
+      <button onclick="openCheckout('rbm-ultimate')" style="background: black;color: white; padding: 0.5rem; font-weight: bold;">Select this offer</button>
+    </div>
+  </div>
+</section>
+
+<div id="ps-billing-wrapper" style="display:none">
+  <div id="ps-billing"></div>
+</div>
+<div id="ps-modal"></div>
+
 
 <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
 <script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel=preload></script>
 
-<script>
-    window?.psaccountsVue?.init();
-  
-    /*********************
-    * PrestaShop Billing *
-    * *******************/
-    function selectPlan(pricingId) {
-      var psBillingContext = {...window.psBillingContext.context};  // Create a deep copy of the context
-      psBillingContext.offerSelection.offerPricingId = pricingId;   // Set teh pricing selected in the context
 
-      window.psBilling.initialize(window.psBillingContext.context, '#ps-billing', '#ps-modal', (type, data) => {
-          // Event hook listener
-          switch (type) {
-              // Hook triggered when PrestaShop Billing is initialized
-              case window.psBilling.EVENT_HOOK_TYPE.BILLING_INITIALIZED:
-                  console.log('Billing initialized', data);
-                  break;
-              // Hook triggered when the subscription is created or updated
-              case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
-                  console.log('Sub updated', data);
-                  break;
-              // Hook triggered when the subscription is cancelled
-              case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CANCELLED:
-                  console.log('Sub cancelled', data);
-                  break;
-          }
+{literal}
+<script>
+    // This part could be externalized in a JS  file
+
+    window?.psaccountsVue?.init();
+
+
+    let billingContext = { ...window.psBillingContext.context }
+    let currentModal;
+    let customer;
+    let hasSubscription = false;
+
+    // If the shop is onboarded on account
+    if(window.psaccountsVue.isOnboardingCompleted() == true) {
+
+      // Then the plan selection should be displayed
+      updateBillingCustomerDisplay();
+
+      // A customer component should be instantiate, but in hidden state (see updateBillingCustomerDisplay() implementation)
+      customer = new window.psBilling.CustomerComponent({
+        context: billingContext,
+        hideInvoiceList: true,
+        onOpenModal,
+        onEventHook
       });
+      customer.render('#ps-billing');
     }
 
+    // Modal open / close management
+    async function onCloseModal(data) {
+      await Promise.all([currentModal.close(), updateCustomerProps(data)]);
+      updateBillingCustomerDisplay();
+    };
+
+    function onOpenModal(type, data) {
+      currentModal = new window.psBilling.ModalContainerComponent({
+        type,
+        context: {
+          ...billingContext,
+          ...data,
+        },
+        onCloseModal,
+        onEventHook
+      });
+      currentModal.render('#ps-modal');
+    };
+
+    function updateCustomerProps(data) {
+      return customer.updateProps({
+        context: {
+          ...billingContext,
+          ...data,
+        },
+      });
+    };
+
+    // Event hook management
+    function onEventHook(type, data) {
+      // Event hook listener
+      switch (type) {
+        case window.psBilling.EVENT_HOOK_TYPE.BILLING_INITIALIZED:
+          if(data.subscription) {
+            hasSubscription = true;
+          }
+          break;
+        case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
+          hasSubscription = true;
+          break;
+      }
+      updateBillingCustomerDisplay();
+    }
+
+    // Display plan selection or ps billing. In a real case you should do something more complexe to allow your user
+    // to change his plan which is not possible in this example.
+    function updateBillingCustomerDisplay() {
+      if(hasSubscription) {
+        document.getElementById('billing-plan-selection').style.display = 'none';
+        document.getElementById('ps-billing-wrapper').style.display = 'block';
+      } else {
+        document.getElementById('billing-plan-selection').style.display = 'block';
+        document.getElementById('ps-billing-wrapper').style.display = 'none';
+      }
+    };
+
+    // Open the checkout full screen modal
+    function openCheckout(pricingId) {
+      const offerSelection = {offerSelection: {offerPricingId: pricingId }};
+      onOpenModal(window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL, offerSelection);
+    };
 </script>
+{/literal}
 ```
 
-### Retrieve the pricing id (not available yet)
+### Retrieve the pricing and pricing id (not available yet)
 
 Please use the Billing API, as described in the API OpenAPI documentation 
+
+<!-- TODO: add information about the way to retrieve plans -->
+
+### Use billing plan library (not available yet)
+
+Please use the Billing Plan library, as described in the README of the lib
 
 <!-- TODO: add information about the plan-billing components -->
 
