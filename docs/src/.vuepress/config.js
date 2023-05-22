@@ -58,11 +58,13 @@ module.exports = {
         title: "PrestaShop Billing",
         path: "/5-prestashop-billing/1-overview",
         sidebarDepth: 0,
+        initialOpenGroupIndex: 0,
         children: [
           {
             path: "/5-prestashop-billing/1-overview/",
-            collapsible: true,
+            collapsable: true,
             title: "Overview",
+            
           },
           "/5-prestashop-billing/2-concepts/",
           "/5-prestashop-billing/3-tutorial/",
