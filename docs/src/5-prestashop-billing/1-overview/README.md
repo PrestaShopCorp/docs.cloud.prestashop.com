@@ -9,7 +9,7 @@ This section will rapidly bring you up to speed as to how you can integrate Pres
 ## Getting Started
 
 1. Integrate your module with [PrestaShop Account](../../4-prestashop-account/README.md).
-2. Make sure that your pricing model is compatible with [what we support](../2-concepts/README.md#pricing-models).
+2. Check if your pricing model is compatible with [what we support](../2-concepts/README.md#pricing-models) or ask us directly if in doubt, we'll be happy to help.  
 3. Familiarize yourself with our [key concepts](../2-concepts/README.md).
 4. Follow [our tutorial](#tutorial) for a step-by-step guide.
 5. Optionally take a look at how our [How-tos](../4-how-tos/README.md) that explore some advanced topics.
