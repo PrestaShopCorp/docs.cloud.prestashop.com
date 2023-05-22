@@ -137,7 +137,7 @@ $billingService = $this->getService('<module_name>.ps_billings_service');
 // Retrieve the customer
 $customer = $billingService->getCurrentCustomer();
 
-// Retrieve the subscritpion for this module
+// Retrieve the subscription for this module
 $subscription = $billingService->getCurrentSubscription();
 
 // Retrieve the list and description of module plans
