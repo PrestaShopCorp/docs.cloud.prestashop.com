@@ -320,7 +320,7 @@ You should add your plan presentation in the configuration page for your module 
 This is a simple working example, if you need to implement it properly you will have more code to produce.
 
 
-```html{10, 11, 12, 13,  28, 29, 30}
+```html{10, 11, 12, 13,  28, 29, 30, 123, 124, 125, 126}
 <prestashop-accounts></prestashop-accounts>
 
 <!-- You should use the billing plan library in order to display your plan -->
