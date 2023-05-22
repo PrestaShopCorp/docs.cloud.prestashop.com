@@ -72,7 +72,7 @@ module.exports = {
           [ '/13-UI-Kit/alert/', 'Alert' ],
           [ '/13-UI-Kit/badge/', 'Badge' ],
           [ '/13-UI-Kit/button/', 'Button' ],
-          [ '/13-UI-Kit/buttongroup/', 'Button group' ],
+          [ '/13-UI-Kit/button-group/', 'Button group' ],
           [ '/13-UI-Kit/card/', 'Card' ],
           [ '/13-UI-Kit/checkbox/', 'Checkbox' ],
           [ '/13-UI-Kit/icon/', 'Icon' ],
