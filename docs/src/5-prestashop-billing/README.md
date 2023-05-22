@@ -311,7 +311,7 @@ To do so:
 
 The billing funnel can handle for you the plan selection, but sometimes you may prefer to present your plan by yourself to be more precise about your offer.
 
-In such case you should provide to the billing context the selected plan, and if applicable the quantity associated with.
+In such a case you should provide to the billing context the selected plan, and if applicable the quantity associated with.
 
 ### Add plan selection
 
