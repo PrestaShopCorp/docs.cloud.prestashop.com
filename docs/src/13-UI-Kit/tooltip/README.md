@@ -67,7 +67,7 @@ For any tooltip component that you use, replace the structure above with the fol
 
 ### Visible
 
-To make the tooltip visible, you have to remove the `display: none;` style:
+To make the tooltip visible, remove the `display: none;` style:
 
 ```html{14}
 <div class="puik-tooltip__wrapper">
@@ -103,7 +103,7 @@ To make the tooltip visible, you have to remove the `display: none;` style:
 
 You have to place the tooltip by:
 
-- Setting it's x and y positions,
+- Setting its x and y positions,
 - Setting the tooltip arrow position.
 
 ```html{13,27}
