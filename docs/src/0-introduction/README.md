@@ -4,7 +4,7 @@ title: introduction
 
 # :rocket: Introduction
 
-![Contact Built For](/assets/images/contact/contact-built-for.png){.book-meeting}
+![Contact Built For](/assets/images/contact/contact-built-for.png){#.book-meeting#}
 
 ## Who is this documentation for?
 
