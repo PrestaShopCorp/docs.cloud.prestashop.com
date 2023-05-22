@@ -8,7 +8,7 @@ title: Concepts
 
 ## Context
 
-The context is a central piece of data in the Prestashop Billing integration. We mostly use it to gather several key information about your product. Most of it comes from the `module-lib-billing` php package, and you can even see more informations about how it's constructed by browsing its [source code](https://github.com/PrestaShopCorp/module-lib-billing/blob/main/src/Presenter/BillingPresenter.php). Make sure you understand well its implementation [here](#inject-the-prestashop-billing-context) and [here](#edit-the-template-file) and how they interact.
+The context is a central piece of data in the Prestashop Billing integration. We mostly use it to gather several key informations about your product, as well as the shop that uses it. Most of it comes from the `module-lib-billing` php package, and you can even see more informations about how it's constructed by browsing its [source code](https://github.com/PrestaShopCorp/module-lib-billing/blob/main/src/Presenter/BillingPresenter.php). Make sure you understand well its implementation [here](#inject-the-prestashop-billing-context) and [here](#edit-the-template-file) and how they interact.
 
 :::warning
 Do not modify data you do not know the use of, or the Prestashop Billing services could break.
