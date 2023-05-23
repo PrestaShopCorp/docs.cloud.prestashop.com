@@ -70,14 +70,17 @@ The following configuration is required to use the PrestaShop Integration Framew
 
 | PrestaShop platform | PHP          | PrestaShop Account    | PrestaShop Billing (components)    | PrestaShop Billing (PHP helper)    | PrestaShop CloudSync (EventBus)    |
 | ------------------- | ------------ | --------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| 8.0                 | 7.2 – 8.1    | 6.x                   | Yes                                | 2.x                                | 1.8.0                              |
-| 1.7.8               | 7.1 – 7.4    | 5.x                   | Yes                                | 1.x                                | 1.6.10 – 1.7.x                     |
-| 1.7.7               | 7.1 – 7.3    | 5.x                   | Yes                                | 1.x                                | 1.6.10 – 1.7.x                     |
-| 1.7.5 – 1.7.6       | 5.6 – 7.2    | 5.x                   | Yes                                | 1.x                                | 1.6.10 – 1.7.x                     |
-| 1.7.4               | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | 1.6.10 – 1.7.x                     |
-| 1.7.0 – 1.7.3       | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | 1.6.10 – 1.7.x                     |
-| 1.6.1.x             | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | 1.6.4 – 1.6.9                      |
+| 8.0                 | 7.2 – 8.1    | 6.x                   | Yes                                | 2.x                                | 2.0.x - PHP 7.1+                              |
+| 1.7.8               | 7.1 – 7.4    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
+| 1.7.7               | 7.1 – 7.3    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
+| 1.7.5 – 1.7.6       | 5.6 – 7.2    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
+| 1.7.4               | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
+| 1.7.0 – 1.7.3       | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
+| 1.6.1.x             | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
 
+:::warning Important
+PrestaShop eventbus module (CloudSync) does not support PHP 5.6. Compatibility starts with PHP 7.1.
+:::
 ### Supported languages
 
 To perform the integration of your module with the PrestaShop ecosystem, you need to use the following languages:
