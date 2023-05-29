@@ -64,6 +64,7 @@ module.exports = {
       { title: 'Integrating PrestaShop Account', path: '/4-prestashop-account/'},
       {
         title: "PrestaShop Billing",
+        path: "/5-prestashop-billing/1-overview/",
         sidebarDepth: 0,
         collapsable: false,
         initialOpenGroupIndex: 0,
