@@ -1,43 +1,32 @@
 ---
-title: PrestaShop Billing Webhooks & Events
+title: Webhooks
 ---
 
+[[toc]]
+
+# Webhooks
+
+## Authorization
+
+An Authorization header will be sent to the merchant's API to ensure security.
+
+```json
+{
+  headers: {
+    Authorization: Basic <token>
+  }
+}
+```
+A common use case is that the merchant will verify this token for each incoming webhook request to make sure that they are from the PrestaShop Webhook API.
+
+Please send your token to the following email address: squad-offre@prestashop.com
 
 
-# :bellhop_bell: PrestaShop Billing Webhooks & Events
 
-
-
-
-When a change happens on the PrestaShop Billing API, you will be notified by a [webhook system](https://en.wikipedia.org/wiki/Webhook).
-
-To start using these webhooks, you should:
-1. Create a POST endpoint which will be called every time an event is triggered.
-2. Configure the webhook in PrestaShop Billing. **This is done manually for now.**
-
-Your endpoint will return a 2xx HTTP status to indicate that an API call was successful. **If the HTTP status is not 2xx, the API call is retried at exponential time intervals until a 2xx HTTP response is received.**
-
-
-
-
-
-## Subscription lifecycle
-
-You can see here the lifecycle of a subscription for different use cases.
-
-Subscription with trial
-![lifecycle subscription with trial](/assets/images/3-webhook-events/lifecycle_subscription_with_trial.jpg)
-Subscription without trial
-![lifecycle subscription without trial](/assets/images/3-webhook-events/lifecycle_subscription_without_trial.jpg)
-Subscription during trial
-![lifecycle subscription during trial](/assets/images/3-webhook-events/lifecycle_cancellation_during_trial.jpg)
-Plan change
-![lifecycle plan change](/assets/images/3-webhook-events/lifecycle_plan_change.jpg)
-
-## Events
+## Overview
 
 ::: tip Timestamps
-Timestamp are UTC in seconds.
+Timestamps are UTC in seconds.
 ::: 
 
 Every events body follow this structure and contains `customer`:
@@ -51,13 +40,13 @@ Every events body follow this structure and contains `customer`:
 
 Here is an exhaustive list of events triggered.
 
-### Subscription
+## Subscription
 
 * `subscription.created` - Triggered when a subscription is created.
 * `subscription.updated` - Triggered when a subscription is updated. A plan upgrade will trigger this event.
 * `subscription.status-updated` - Triggered when a subscription's status changes.
 
-#### Difference between `subscription.updated` and `subscription.status-updated`
+### Difference between `subscription.updated` and `subscription.status-updated`
 
 If a status is **officially** changed, the `subscription.status-updated` event will be sent.
 
@@ -193,11 +182,7 @@ All the subscription event data have the following structure:
 }
 ```
 
-
-
-
-
-### Payment
+## Payment
 
 * `payment.failed`: Triggered when a payment fail
 * `payment.succeeded`: Triggered when a payment succeed
@@ -365,12 +350,7 @@ All the payment event data have the following structure:
 }
 ```
 
-
-
-
-
-
-### Customer
+## Customer
 
 * `customer.created`: Triggered when a customer is created, which happens only one time per store. You cannot expect to receive this event for your integrated module.
 * `customer.updated`: Triggered when a customer is updated.
@@ -463,11 +443,7 @@ All the customer event data have the following structure:
 }
 ```
 
-
-
-
-
-### Customer billing address
+## Customer billing address
 
 * `customer-billing-address.updated`: Triggered when a customer billing address is updated.
 
@@ -569,24 +545,3 @@ All the customer event data have the following structure:
   }
 }
 ```
-
-
-
-
-
-
-## Authorization
-
-An Authorization header will be sent to the merchant's API to ensure security.
-
-```json
-{
-  headers: {
-    Authorization: Basic <token>
-  }
-}
-```
-A common use case is that the merchant will verify this token for each incoming webhook request to make sure that they are from the PrestaShop Webhook API.
-
-Please send your token to the following email address: squad-offre@prestashop.com
-

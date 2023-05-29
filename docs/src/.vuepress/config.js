@@ -64,7 +64,6 @@ module.exports = {
       { title: 'Integrating PrestaShop Account', path: '/4-prestashop-account/'},
       {
         title: "PrestaShop Billing",
-        path: "/5-prestashop-billing/1-overview/",
         sidebarDepth: 0,
         collapsable: false,
         initialOpenGroupIndex: 0,
@@ -76,10 +75,17 @@ module.exports = {
           "/5-prestashop-billing/2-concepts/",
           "/5-prestashop-billing/3-tutorial/",
           "/5-prestashop-billing/4-how-tos/",
-          "/5-prestashop-billing/5-references/",
+          {
+            title: 'References',
+            sidebarDepth: 0,
+            collapsable: false,
+            children: [
+              '/5-prestashop-billing/5-references/1-webhook/',
+              '/5-prestashop-billing/5-references/2-billing-api/',
+            ]
+          }
         ],
       },
-      { title: 'PrestaShop Billing Webhook & Events', path: '/6-billing-webhooks-events/'},
       { title: 'Integrating PrestaShop CloudSync', path: '/7-prestashop-cloudsync/'},
       { title: 'APIs', path: '/8-apis/'},
       { title: 'Submitting Your Module', path: '/9-submitting-your-module/'},

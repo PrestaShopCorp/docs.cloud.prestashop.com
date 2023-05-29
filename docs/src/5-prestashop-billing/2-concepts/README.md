@@ -14,6 +14,26 @@ The context is a central piece of data in the Prestashop Billing integration. We
 If you're not sure about some piece of code, do not hesitate to contact our team directly, we're here to help.
 :::
 
+## Events
+
+### Webhook
+
+When a change happens on the PrestaShop Billing API, you will be notified via a [webhook system](https://en.wikipedia.org/wiki/Webhook).
+These events follow the subscription lifecycle below, and are detailed in our [reference](../5-references/1-webhook/README.md#).
+
+### Subscription lifecycle
+
+You can see here the lifecycle of a subscription for different use cases.
+
+Subscription with trial
+![lifecycle subscription with trial](/assets/images/3-webhook-events/lifecycle_subscription_with_trial.jpg)
+Subscription without trial
+![lifecycle subscription without trial](/assets/images/3-webhook-events/lifecycle_subscription_without_trial.jpg)
+Subscription during trial
+![lifecycle subscription during trial](/assets/images/3-webhook-events/lifecycle_cancellation_during_trial.jpg)
+Plan change
+![lifecycle plan change](/assets/images/3-webhook-events/lifecycle_plan_change.jpg)
+
 ## Subscription
 
 A subscription allows Prestashop Billing to collect periodically the payment of your customer. At each subscription renewal, an invoice is generated. A subscription is linked to your module, a shop and a customer. A shop can only have one subscription to your module.

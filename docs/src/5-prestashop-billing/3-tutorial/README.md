@@ -278,9 +278,30 @@ To test if PrestaShop Billing is loading successfully into your module:
 
    ![PrestaShop Billing Plan Selection](/assets/images/billing/ps_billing_plan_selection.png)
 
+
+## Responding to our webhooks
+
+:::tip
+For more details on our webhook system, you can see our [reference](../5-references/1-webhook/README.md) and [concept](../2-concepts/README.md#events) sections.
+:::
+
+The last step to start using billing is to have in your systems some way to process the events we send via webhook during the [subscription lifecycle](../2-concepts/README.md#subscription-lifecycle).
+
+In order to have everything running correctly, you must:
+- Communicate us your endpoint: we will send our events regularly to this URL.
+- Communicate us a `basic` token for us to add to every request we send to the aforementionned URL.
+  - This extra security is optional but recommended. It takes the form of an additional `Authorization` header added to our webhook event requests:
+  ```json
+  {
+    headers: {
+      Authorization: Basic <token>
+    }
+  }
+  ```
+- Have a way to process these events on your side.
+
 ## Next Steps
 
-- [Familiarize yourself with our webhook system](../../6-billing-webhooks-events/README.md)
 - [Explore advanced topics](../4-how-tos/README.md) such as:
   - [Implementing a Stair-step pricing model](../4-how-tos/README.md#implementing-a-stair-step-pricing-model)
   - [Display the Invoice Pane](../4-how-tos/README.md#display-the-invoice-pane)
