@@ -288,9 +288,9 @@ For more details on our webhook system, you can see our [reference](../5-referen
 The last step to start using billing is to have in your systems some way to process the events we send via webhook during the [subscription lifecycle](../2-concepts/README.md#subscription-lifecycle).
 
 In order to have everything running correctly, you must:
-- Communicate us your endpoint: we will send our events regularly to this URL.
-- Communicate us a `basic` token for us to add to every request we send to the aforementionned URL.
-  - This extra security is optional but recommended. It takes the form of an additional `Authorization` header added to our webhook event requests:
+- Create a `POST` endpoint and communicate it to us: we will send our events regularly to this URL.
+- Communicate us a `basic` token for us to add to every request we send to the aforementionned URL. This step and whitelisting our URL ensures that your integration with Billing is as secure as possible.
+  - It takes the form of an additional `Authorization` header added to our webhook event requests:
   ```json
   {
     headers: {
@@ -298,7 +298,13 @@ In order to have everything running correctly, you must:
     }
   }
   ```
+  - The IP address of the webhook system is `34.77.109.237`. You can protect your API by filtering calls which are not triggered from this IP address.
 - Have a way to process these events on your side.
+- Configure the webhook in PrestaShop Billing. **This is done manually for now.**
+
+:::warning
+Note that if your endpoint does not return a `2xx` HTTP status, our webhooks will be retried at exponential time intervals until a `2xx` HTTP response is received.
+:::
 
 ## Next Steps
 
