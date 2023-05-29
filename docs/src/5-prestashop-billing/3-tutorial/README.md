@@ -102,7 +102,7 @@ During your development, you should set the sandbox mode to `true` (as shown in 
        "php": ">=5.6",
        "prestashop/prestashop-accounts-installer": "^1.0",
        "prestashop/module-lib-service-container": "^1.4",
-       "prestashopcorp/module-lib-billing": "^1.3.1"
+       "prestashopcorp/module-lib-billing": "^2.0.0"
      },
      "autoload": {
        "classmap": [
