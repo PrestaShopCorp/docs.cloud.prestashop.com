@@ -2,7 +2,7 @@
 title: Button
 ---
 
-# Migrating the Button Component
+# Migrating Button Components
 
 ## Sources
 
@@ -94,7 +94,7 @@ To use any of these sizes, add the `puik-button--${size}` class to the button:
 
 By default, the button width will adapt to its contents. For the button to be as wide as possible, use the `puik-button--fluid` class:
 
-```html
+```html{1}
 <button type="button" class="puik-button puik-button--primary puik-button--md puik-button--fluid">
   Fluid button
 </button>
@@ -154,7 +154,7 @@ A button visual can also be added over a link. To do so, replace the `button` ta
   class="puik-button puik-button--primary puik-button--md"
   href="/"
 >
-    Lien
+    Link
   </a>
 ```
 

@@ -1,8 +1,8 @@
 ---
-title: Button-group
+title: Button Group
 ---
 
-# Migrating the Button-group Component
+# Migrating Button Group Components
 
 ## Sources
 

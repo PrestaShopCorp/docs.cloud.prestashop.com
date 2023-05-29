@@ -2,7 +2,7 @@
 title: Checkbox
 ---
 
-# Checkbox Component Migration
+# Migrating Checkbox Components
 
 ## Sources
 

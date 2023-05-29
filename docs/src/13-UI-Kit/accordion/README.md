@@ -147,7 +147,7 @@ You can add a subtitle to each accordion:
   <button aria-expanded="false" aria-controls="accordion-id" class="puik-accordion__header">
     <div class="puik-accordion__header__content">
       <div class="puik-accordion__header__content__title">Title</div>
-      <div class="puik-accordion__header__content__sub-title">Sub-title</div>
+      <div class="puik-accordion__header__content__sub-title">Subtitle</div>
     </div>
     <div class="puik-icon material-icons-round puik-accordion__header__expand__icon" style="font-size: 24px;">keyboard_arrow_down</div>
   </button>

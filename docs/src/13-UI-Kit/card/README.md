@@ -2,7 +2,7 @@
 title: Card
 ---
 
-# Card Component Migration
+# Migrating Card Components
 
 ## Sources
 

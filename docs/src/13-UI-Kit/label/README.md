@@ -2,7 +2,7 @@
 title: Label
 ---
 
-# Label Component Migration
+# Migrating Label Components
 
 ## Sources
 

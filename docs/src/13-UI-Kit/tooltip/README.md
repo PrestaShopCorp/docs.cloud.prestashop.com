@@ -2,7 +2,7 @@
 title: Tooltip
 ---
 
-# Migrating the Tooltip Component
+# Migrating Tooltip Components
 
 ## Sources
 
@@ -101,10 +101,10 @@ To make the tooltip visible, remove the `display: none;` style:
 
 ### Position
 
-You have to place the tooltip by:
+To place the tooltip:
 
-- Setting its x and y positions,
-- Setting the tooltip arrow position.
+- Set its x and y positions,
+- Set the tooltip arrow position.
 
 ```html{13,27}
 <div class="puik-tooltip__wrapper">

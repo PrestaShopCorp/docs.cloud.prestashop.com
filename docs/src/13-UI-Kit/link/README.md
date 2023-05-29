@@ -2,7 +2,7 @@
 title: Link
 ---
 
-# Link Component Migration
+# Migrating Link Components
 
 ## Sources
 

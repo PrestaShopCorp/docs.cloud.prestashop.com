@@ -2,7 +2,7 @@
 title: Progress Bar
 ---
 
-# Migrating the Progress Bar Component
+# Migrating Progress Bar Components
 
 ## Sources
 

@@ -2,7 +2,7 @@
 title: Icon
 ---
 
-# Migrating the Icon Component
+# Migrating Icon Components
 
 ## Sources
 
@@ -48,22 +48,6 @@ Any tag can be used as root element.
 <div class="puik-icon material-icons-round" style="font-size: 20px;">close</div>
 ```
 
-### Color
-
-The icon color can be changed by adding the corresponding CSS style to the root element:
-
-```html
-<span class="puik-icon material-icons-round" style="font-size: 20px; color: ${color};">check</span>
-```
-
-#### Example
-
-```html
-<span class="puik-icon material-icons-round" style="font-size: 20px; color: green;">check</span>
-<span class="puik-icon material-icons-round" style="font-size: 20px; color: rgb(90, 100, 255);">check</span>
-<span class="puik-icon material-icons-round" style="font-size: 20px; color: #1D1B1B;">check</span>
-```
-
 ### Size
 
 The icon size can be changed by adding the corresponding CSS style to the root input:
@@ -78,4 +62,20 @@ The icon size can be changed by adding the corresponding CSS style to the root i
 <span class="puik-icon material-icons-round" style="font-size: 20px;">check</span>
 <span class="puik-icon material-icons-round" style="font-size: 22px;">check</span>
 <span class="puik-icon material-icons-round" style="font-size: 24px;">check</span>
+```
+
+### Color
+
+The icon color can be changed by adding the corresponding CSS style to the root element:
+
+```html
+<span class="puik-icon material-icons-round" style="font-size: 20px; color: ${color};">check</span>
+```
+
+#### Example
+
+```html
+<span class="puik-icon material-icons-round" style="font-size: 20px; color: green;">check</span>
+<span class="puik-icon material-icons-round" style="font-size: 20px; color: rgb(90, 100, 255);">check</span>
+<span class="puik-icon material-icons-round" style="font-size: 20px; color: #1D1B1B;">check</span>
 ```

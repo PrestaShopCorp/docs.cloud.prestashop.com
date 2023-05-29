@@ -2,7 +2,7 @@
 title: Modal
 ---
 
-# Migrating the Modal Component
+# Migrating Modal Components
 
 ## Sources
 
@@ -54,7 +54,7 @@ For any modal component that you use, replace the structure above with the follo
         <div class="puik-icon material-icons-round puik-modal__dialogPanelContainer__dialogPanel__header__icon" style="font-size: 24px;">home</div>
         <div class="puik-tooltip puik-modal__dialogPanelContainer__dialogPanel__header__title" tabindex="0">
           <div class="puik-tooltip__wrapper">
-            <h2 class="title">An awesome title</h2>
+            <h2 class="title">Awesome title</h2>
           </div>
         </div>
       </header>
@@ -103,7 +103,7 @@ To use any of these variants, add the `puik-modal--${variant}` class to the root
         <div class="puik-icon material-icons-round puik-modal__dialogPanelContainer__dialogPanel__header__icon" style="font-size: 24px;">home</div>
         <div class="puik-tooltip puik-modal__dialogPanelContainer__dialogPanel__header__title" tabindex="0">
           <div class="puik-tooltip__wrapper">
-            <h2 class="title">An awesome title</h2>
+            <h2 class="title">Awesome title</h2>
           </div>
         </div>
       </header>
@@ -146,7 +146,7 @@ To use any of these sizes, add the `puik-modal--${size}` class to the root `div`
         <div class="puik-icon material-icons-round puik-modal__dialogPanelContainer__dialogPanel__header__icon" style="font-size: 24px;">home</div>
         <div class="puik-tooltip puik-modal__dialogPanelContainer__dialogPanel__header__title" tabindex="0">
           <div class="puik-tooltip__wrapper">
-            <h2 class="title">An awesome title</h2>
+            <h2 class="title">Awesome title</h2>
           </div>
         </div>
       </header>
@@ -184,7 +184,7 @@ You can add a side button in the footer to allow an additionnal action:
         <div class="puik-icon material-icons-round puik-modal__dialogPanelContainer__dialogPanel__header__icon" style="font-size: 24px;">home</div>
         <div class="puik-tooltip puik-modal__dialogPanelContainer__dialogPanel__header__title" tabindex="0">
           <div class="puik-tooltip__wrapper">
-            <h2 class="title">The awesome title</h2>
+            <h2 class="title">Awesome title</h2>
           </div>
         </div>
       </header>

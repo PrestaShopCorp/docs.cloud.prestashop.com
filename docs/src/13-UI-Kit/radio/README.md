@@ -2,7 +2,7 @@
 title: Radio
 ---
 
-# Radio Component Migration
+# Migrating Radio Components
 
 ## Sources
 

@@ -2,7 +2,7 @@
 title: Badge
 ---
 
-# Migrating the Badge Component
+# Migrating Badge Components
 
 ## Sources
 

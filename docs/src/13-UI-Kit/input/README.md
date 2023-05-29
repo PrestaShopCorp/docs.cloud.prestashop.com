@@ -2,7 +2,7 @@
 title: Input
 ---
 
-# Migrating the Input Component
+# Migrating Input Components
 
 ## Sources
 

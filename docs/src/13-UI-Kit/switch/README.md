@@ -2,7 +2,7 @@
 title: Switch
 ---
 
-# Migrating the Switch Component
+# Migrating Switch Components
 
 ## Sources
 

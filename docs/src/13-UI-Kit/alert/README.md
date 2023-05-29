@@ -2,7 +2,7 @@
 title: Alert
 ---
 
-# Migrating the Alert Component
+# Migrating Alert Components
 
 ## Sources
 
@@ -50,7 +50,7 @@ The following alert variants are available:
   - `info`
   - `danger`
 
-For each variant, you can use the structure shown above, and change the root `div` class to `puik-alert--${variant}`:
+For each variant, use the structure shown above, and change the root `div` class to `puik-alert--${variant}`:
 
 ```html{2,12}
 <div
