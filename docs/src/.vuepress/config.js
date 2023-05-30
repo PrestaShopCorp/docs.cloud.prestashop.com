@@ -54,7 +54,6 @@ module.exports = {
         ]
       },
       { text: 'PrestaShop Documentation', link: 'https://doc.prestashop.com/' },
-      { text: 'Sample Module Repository', link: 'https://github.com/PrestaShopCorp/partner-devtools.prestashop.com/tree/main/modules/rbm_example' }
     ],
     sidebar: [
       { title: 'Introduction', path: '0-introduction/'},
