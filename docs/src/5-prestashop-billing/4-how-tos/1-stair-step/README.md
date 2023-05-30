@@ -107,7 +107,7 @@ echo $response->getBody();
 
 
 :::tip
-You are not limited to using javascript of course. You can see a large selection of code snippet for this very same request [right here](https://prestashop-billing.stoplight.io/docs/api-gateway/533ffe47d3f3a-set-the-quantity-of-a-subscription-item) in the "Request Sample" box in the right column.
+You are not limited to using JavaScript of course. You can see a large selection of code snippets for this very same request [right here](https://prestashop-billing.stoplight.io/docs/api-gateway/533ffe47d3f3a-set-the-quantity-of-a-subscription-item) in the "Request Sample" box in the right column.
 :::
 Upon receiving a `200` response containing a body of the following snippet, the subscription will be updated, and the next invoice will reflect this new information.
 ```json
@@ -118,4 +118,4 @@ Upon receiving a `200` response containing a body of the following snippet, the 
 }
 ```
 
-For more informations, as well as mockups servers, sample response & request data, you can directly head to our API Reference which explores in great detail how to use the endpoint [here](https://prestashop-billing.stoplight.io/docs/api-gateway/533ffe47d3f3a-set-the-quantity-of-a-subscription-item) 
+For more information, as well as mockups servers, sample responses & request data, you can directly head to our API Reference which explores in great detail how to use the endpoint [here](https://prestashop-billing.stoplight.io/docs/api-gateway/533ffe47d3f3a-set-the-quantity-of-a-subscription-item) 
