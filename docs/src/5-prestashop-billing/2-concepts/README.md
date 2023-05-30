@@ -8,7 +8,7 @@ title: Concepts
 
 ## Context
 
-The context is a central piece of data in the Prestashop Billing integration. We mostly use it to gather several key informations about your product, as well as the shop that uses it. Most of it comes from the `module-lib-billing` php package, and you can even see more informations about how it's constructed by browsing its [source code](https://github.com/PrestaShopCorp/module-lib-billing/blob/main/src/Presenter/BillingPresenter.php). Make sure you understand well its implementation [here](../3-tutorial/README.md#inject-the-prestashop-billing-context) and [here](../3-tutorial/README.md#edit-the-template-file) and how they interact.
+The context is a central piece of data in the Prestashop Billing integration. We mostly use it to gather key information about your product, as well as the shop that uses it. Most of it comes from the `module-lib-billing` PHP package. To know more on how it's built, browse its [source code](https://github.com/PrestaShopCorp/module-lib-billing/blob/main/src/Presenter/BillingPresenter.php). Make sure you understand well its implementation [here](../3-tutorial/README.md#inject-the-prestashop-billing-context) and [here](../3-tutorial/README.md#edit-the-template-file) and how they interact.
 
 :::tip
 If you're not sure about some piece of code, do not hesitate to contact our team directly, we're here to help.
@@ -40,7 +40,7 @@ A subscription allows Prestashop Billing to collect periodically the payment of 
 
 ## Subscription Item
 
-The subscription items are the pricing applied to the subscription with sometimes another information about the usage or the quantity which allow us to calculate the amount of this subscription for a billing period. The subscription item id matches the pricing id.
+The subscription items are the pricing applied to the subscription with sometimes other information about the usage or the quantity which allow us to calculate the amount of this subscription for a billing period. The subscription item id matches the pricing id.
 
 ## Billing Period
 
@@ -67,7 +67,7 @@ Prestashop Billing currently supports two types of pricing models:
 
 ### Flat-Fee
 
-Each plan has its own price point and contains a set of feature that do not change.
+Each plan has its own price point and contains a set of features that do not change.
 
 | Plan  | Price |
 | ----- | ----- |

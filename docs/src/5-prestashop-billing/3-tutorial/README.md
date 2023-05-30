@@ -259,7 +259,7 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
    ```
 
    :::tip
-   In the snippet above, you can see three "hooks". They are events that you can 'hook' into to implement some custom logic on your side. They are not linked to the webhook services we offer, which are the source of truth of your exchanges with Billing.
+   In the snippet above, you can see three "hooks". They are events that you can 'hook' into to implement some custom logic on your side. They are not linked to the webhook services we offer, which are the source of truth of your exchanges with PrestaShop Billing.
    :::
 
 ## Test Your Module
@@ -285,7 +285,7 @@ To test if PrestaShop Billing is loading successfully into your module:
 For more details on our webhook system, you can see our [reference](../5-references/1-webhook/README.md) and [concept](../2-concepts/README.md#events) sections.
 :::
 
-The last step to start using billing is to have in your systems some way to process the events we send via webhook during the [subscription lifecycle](../2-concepts/README.md#subscription-lifecycle).
+The last step to start using PrestaShop Billing is to have in your systems some way to process the events we send via webhook during the [subscription lifecycle](../2-concepts/README.md#subscription-lifecycle).
 
 In order to have everything running correctly, you must:
 - Create a `POST` endpoint and communicate it to us: we will send our events regularly to this URL.
