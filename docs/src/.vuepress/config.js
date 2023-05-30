@@ -46,54 +46,93 @@ module.exports = {
         ]
       },
       { text: 'PrestaShop Documentation', link: 'https://doc.prestashop.com/' },
-      { text: 'Sample Module Repository', link: 'https://github.com/PrestaShopCorp/partner-devtools.prestashop.com/tree/main/modules/rbm_example' }
     ],
     sidebar: [
-      [ '/' ,'Home' ],
-      [ '/0-introduction/', 'Introduction' ],
-      [ '/1-how-it-works/', 'How It Works' ],
-      [ '/2-before-starting/', 'Before Starting' ],
-      [ '/3-preparing-your-environment/', 'Preparing Your Environment' ],
-      [ '/4-prestashop-account/', 'Integrating PrestaShop Account' ],
-      [ '/5-prestashop-billing/', 'Integrating PrestaShop Billing'],
-      [ '/6-billing-webhooks-events/', 'PrestaShop Billing Webhook & Events'],
-      [ '/7-prestashop-cloudsync/', 'Integrating PrestaShop CloudSync'],
-      [ '/8-apis/', 'APIs' ],
-      [ '/9-submitting-your-module/', 'Submitting Your Module' ],
-      [ '/10-validation-checklist/', 'Validation Checklist' ],
-      [ '/11-faq/', 'FAQ' ],
-      [ '/12-legacy-account-and-billing/', 'Legacy Procedure for Account and Billing' ]
-    ]
+      { title: 'Introduction', path: '0-introduction/'},
+      { title: 'How It Works', path: '/1-how-it-works/'},
+      { title: 'Before Starting', path: '/2-before-starting/'},
+      { title: 'Preparing Your Environment', path: '/3-preparing-your-environment/'},
+      { title: 'Integrating PrestaShop Account', path: '/4-prestashop-account/'},
+      {
+        title: "PrestaShop Billing",
+        sidebarDepth: 0,
+        collapsable: false,
+        initialOpenGroupIndex: 0,
+        children: [
+          {
+            path: "/5-prestashop-billing/1-overview/",
+            title: "Overview",
+          },
+          "/5-prestashop-billing/2-concepts/",
+          "/5-prestashop-billing/3-tutorial/",
+          {
+            title: "How-Tos",
+            sidebarDepth: 0,
+            collapsable: false,
+            children: [
+              '/5-prestashop-billing/4-how-tos/1-stair-step/',
+              '/5-prestashop-billing/4-how-tos/2-display-invoice-pane/',
+              '/5-prestashop-billing/4-how-tos/3-customize-cancellation/',
+              '/5-prestashop-billing/4-how-tos/4-handle-plan-selection/',
+            ],
+          },
+          {
+            title: 'References',
+            sidebarDepth: 0,
+            collapsable: false,
+            children: [
+              '/5-prestashop-billing/5-references/1-webhook/',
+              '/5-prestashop-billing/5-references/2-billing-api/',
+            ]
+          }
+        ],
+      },
+      { title: 'Integrating PrestaShop CloudSync', path: '/7-prestashop-cloudsync/'},
+      { title: 'APIs', path: '/8-apis/'},
+      { title: 'Submitting Your Module', path: '/9-submitting-your-module/'},
+      { title: 'Validation Checklist', path: '/10-validation-checklist/'},
+      { title: 'FAQ', path: '/11-faq/'},
+      { title: 'Legacy Procedure for Account and Billing', path: '/12-legacy-account-and-billing/'},
+
+    ],
   },
 
-  /**
-   * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
-   */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
+    'code-switcher' ,
+    [
+      'vuepress-plugin-medium-zoom',
+      {
+        delay: 200,
+        options: {
+          background: '#888888',
+          margin: 24,
+          scrollOffset: 0,
+        },
+      },
+    ],
   ],
 
   markdown: {
-    extendMarkdown: md => {
-      md.renderer.rules.image = (tokens, idx, options, env, self) => {
-        const token = tokens[idx]
-        const hrefIndex = token.attrIndex('src')
-        const src = token.attrs[hrefIndex][1]
-        const classesIndex = token.attrIndex('class')
-        const classes = classesIndex >= 0 ? token.attrs[classesIndex][1] : ''
-        if (classes.indexOf('book-meeting') >= 0) {
-          return `<a href="https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting" target="_blank"><img src="${src}" alt="Book an appointment"></a>`
+    lineNumbers: true,
+    extendMarkdown: (md) => {
+      (md.renderer.rules.image = (tokens, idx, options, env, self) => {
+        const token = tokens[idx];
+        const hrefIndex = token.attrIndex("src");
+        const src = token.attrs[hrefIndex][1];
+        const classesIndex = token.attrIndex("class");
+        const classes = classesIndex >= 0 ? token.attrs[classesIndex][1] : "";
+        if (classes.indexOf("book-meeting") >= 0) {
+          return `<a href="https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting" target="_blank"><img src="${src}" alt="Book an appointment"></a>`;
         } else {
-          return self.renderToken(tokens, idx, options)
+          return self.renderToken(tokens, idx, options);
         }
-      },
-      md.use(require('markdown-it-attrs'), {
-        // optional, these are default options
-        leftDelimiter: '{',
-        rightDelimiter: '}',
-        allowedAttributes: []  // empty array = all attributes are allowed
-      })
-    }
-  }
-}
+      }),
+        md.use(require("markdown-it-attrs"), {
+          // optional, these are default options
+          leftDelimiter: "{#",
+          rightDelimiter: "#}",
+          allowedAttributes: [], // empty array = all attributes are allowed
+        });
+    },
+  },
+};

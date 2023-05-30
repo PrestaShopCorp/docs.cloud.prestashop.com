@@ -3,20 +3,28 @@
   "version": "0.0.1",
   "description": "Tech vendor documentation for SaaS App",
   "main": "index.js",
+  "engines": {
+    "node": "16"
+  },
   "authors": {
     "name": "",
     "email": ""
   },
   "repository": "https://github.com/PrestaShopCorp/docs.cloud.prestashop.com/docs.cloud.prestashop.com",
   "scripts": {
-    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress dev src",
+    "dev": "vuepress dev src",
     "build": "vuepress build src"
   },
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.5.3"
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-medium-zoom": "^1.1.9"
   },
   "dependencies": {
-    "markdown-it-attrs": "^4.1.6"
-  }
+    "markdown-it-attrs": "^4.1.6",
+    "vuepress-plugin-code-switcher": "~1.0"
+  },
+  "bundleDependencies": [
+    "vuepress-plugin-code-switcher"
+  ]
 }

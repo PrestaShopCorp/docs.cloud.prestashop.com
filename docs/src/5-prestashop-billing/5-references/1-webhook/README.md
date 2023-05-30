@@ -1,84 +1,32 @@
 ---
-title: PrestaShop Billing Webhooks & Events
+title: Webhooks
 ---
 
-<Block>
+[[toc]]
 
-# :bellhop_bell: PrestaShop Billing Webhooks & Events
+# Webhooks
 
-</Block>
+## Authorization
 
-<Block>
-When a change happens on the PrestaShop Billing API, you will be notified by a [webhook system](https://en.wikipedia.org/wiki/Webhook).
+An Authorization header will be sent to the merchant's API to ensure security.
 
-To start using these webhooks, you should:
-1. Create a POST endpoint which will be called every time an event is triggered.
-2. Configure the webhook in PrestaShop Billing. **This is done manually for now.**
+```json
+{
+  headers: {
+    Authorization: Basic <token>
+  }
+}
+```
+A common use case is that the merchant will verify this token for each incoming webhook request to make sure that they are from the PrestaShop Webhook API.
 
-Your endpoint will return a 2xx HTTP status to indicate that an API call was successful. **If the HTTP status is not 2xx, the API call is retried at exponential time intervals until a 2xx HTTP response is received.**
-
-</Block>
-
-<Block>
-
-## Subscription lifecycle
-
-You can see here the lifecycle of a subscription for different use cases.
-
-<p style="text-align: center;">
-<img src="/assets/images/3-webhook-events/lifecycle_subscription_with_trial.jpg"
-     alt="Subscription with trial lifecycle"
-     style="max-width: 100%;max-height: 180px" />
-</br>
-<a href="/assets/images/3-webhook-events/lifecycle_subscription_with_trial.jpg" target="_blank">
-See image in full screen
-</a>
-</p>
+Please send your token to the following email address: squad-offre@prestashop.com
 
 
 
-<p style="text-align: center;">
-<img src="/assets/images/3-webhook-events/lifecycle_subscription_without_trial.jpg"
-     alt="Subscription without trial lifecycle"
-     style="max-width: 100%;max-height: 180px" />
-</br>
-<a href="/assets/images/3-webhook-events/lifecycle_subscription_without_trial.jpg" target="_blank">
-See image in full screen
-</a>
-</p>
-
-
-
-<p style="text-align: center;">
-<img src="/assets/images/3-webhook-events/lifecycle_cancellation_during_trial.jpg"
-     alt="Subscription cancellation during trial lifecycle"
-     style="max-width: 100%;max-height: 180px" />
-</br>
-<a href="/assets/images/3-webhook-events/lifecycle_cancellation_during_trial.jpg" target="_blank">
-See image in full screen
-</a>
-</p>
-
-
-
-<p style="text-align: center;">
-<img src="/assets/images/3-webhook-events/lifecycle_plan_change.jpg"
-     alt="Subscription plan change lifecycle"
-     style="max-width: 100%;max-height: 180px" />
-</br>
-<a href="/assets/images/3-webhook-events/lifecycle_plan_change.jpg" target="_blank">
-See image in full screen
-</a>
-</p>
-
-</Block>
-
-<Block>
-
-## Events
+## Overview
 
 ::: tip Timestamps
-Timestamp are UTC in seconds.
+Timestamps are UTC in seconds.
 ::: 
 
 Every events body follow this structure and contains `customer`:
@@ -92,13 +40,13 @@ Every events body follow this structure and contains `customer`:
 
 Here is an exhaustive list of events triggered.
 
-### Subscription
+## Subscription
 
 * `subscription.created` - Triggered when a subscription is created.
 * `subscription.updated` - Triggered when a subscription is updated. A plan upgrade will trigger this event.
 * `subscription.status-updated` - Triggered when a subscription's status changes.
 
-#### Difference between `subscription.updated` and `subscription.status-updated`
+### Difference between `subscription.updated` and `subscription.status-updated`
 
 If a status is **officially** changed, the `subscription.status-updated` event will be sent.
 
@@ -115,7 +63,7 @@ All the subscription event data have the following structure:
 | customer     | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes) | Customer for which the subscription has changed |
 | subscription | [Subscription](https://apidocs.chargebee.com/docs/api/subscriptions?prod_cat_ver=1#subscription_attributes) | The modified subscription |
 
-<Example>
+
 ```json
 {
   "eventType": "subscription.created",
@@ -233,12 +181,8 @@ All the subscription event data have the following structure:
   }
 }
 ```
-</Example>
 
-</Block>
-
-<Block>
-### Payment
+## Payment
 
 * `payment.failed`: Triggered when a payment fail
 * `payment.succeeded`: Triggered when a payment succeed
@@ -251,7 +195,7 @@ All the payment event data have the following structure:
 | subscription | [Subscription](https://apidocs.chargebee.com/docs/api/subscriptions?prod_cat_ver=1#subscription_attributes) | The modified subscription |
 | subscription | [Transaction](https://apidocs.chargebee.com/docs/api/transactions?prod_cat_ver=1#transaction_attributes) | The payment transaction |
 
-<Example>
+
 ```json
 {
   "eventType": "payment.failed",
@@ -405,13 +349,8 @@ All the payment event data have the following structure:
   }
 }
 ```
-</Example>
 
-</Block>
-
-
-<Block>
-### Customer
+## Customer
 
 * `customer.created`: Triggered when a customer is created, which happens only one time per store. You cannot expect to receive this event for your integrated module.
 * `customer.updated`: Triggered when a customer is updated.
@@ -422,7 +361,7 @@ All the customer event data have the following structure:
 | ------------ | ---- | ----------- |
 | customer     | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes) | Customer whose billing address has been changed |
 
-<Example>
+
 ```json
 {
   "eventType": "customer.updated",
@@ -503,12 +442,8 @@ All the customer event data have the following structure:
   }
 }
 ```
-</Example>
 
-</Block>
-
-<Block>
-### Customer billing address
+## Customer billing address
 
 * `customer-billing-address.updated`: Triggered when a customer billing address is updated.
 
@@ -520,7 +455,7 @@ All the customer event data have the following structure:
 | billingAddress | [BillingAddress](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_billing_address) | Billing address of the customer
 | vatNumber     | string | VAT number |
 
-<Example>
+
 ```json
 {
   "eventType": "customer-billing-address.updated",
@@ -610,25 +545,3 @@ All the customer event data have the following structure:
   }
 }
 ```
-</Example>
-
-</Block>
-
-<Block>
-
-## Authorization
-
-An Authorization header will be sent to the merchant's API to ensure security.
-
-```json
-{
-  headers: {
-    Authorization: Basic <token>
-  }
-}
-```
-A common use case is that the merchant will verify this token for each incoming webhook request to make sure that they are from the PrestaShop Webhook API.
-
-Please send your token to the following email address: squad-offre@prestashop.com
-
-</Block>

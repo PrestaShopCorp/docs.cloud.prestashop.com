@@ -1,15 +1,15 @@
 ---
 title: Routes
 ---
-<Block>
+
 
 # ![](/assets/images/common/logo-condensed-sm.png) About API routes
 
 This page introduces the available routes in order to communicate directly with the Billing API
 
-</Block>
 
-<Block>
+
+
 
 ## Authorization
 
@@ -25,9 +25,9 @@ If this is not specified or not a correct api key, `403 Forbidden` will be retur
 
 This API is protected by a rate limiter. Ask us for more information about the limit.
 
-</Block>
 
-<Block>
+
+
 
 ## Get subscription quantity
 
@@ -120,7 +120,7 @@ This API is protected by a rate limiter. Ask us for more information about the l
 ```
 
 
-</Block>
+
 
 ## Entities
 
