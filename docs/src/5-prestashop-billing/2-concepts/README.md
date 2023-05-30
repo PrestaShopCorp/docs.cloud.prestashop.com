@@ -50,7 +50,7 @@ The interval between 2 subscription renewals. It defines when an invoice will be
 
 A shop is a PrestaShop store.
 
-## Organisation
+## Organization
 
 An organization is the person or the legal entity which owns the shop.
 
