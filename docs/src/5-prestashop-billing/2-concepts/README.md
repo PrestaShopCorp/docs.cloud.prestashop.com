@@ -88,6 +88,6 @@ The price of each step is assigned to a range of units. Those units can be anyth
 
 The service tracks the range at which the customer currently is, and adjusts their plan accordingly, like so:
 
-![Stair Step Schema](/assets/images/billing/stair-step-explanation.png)
+![Stairstep Schema](/assets/images/billing/stair-step-explanation.png)
 
-Integrating Prestashop Billing with your Stair-step plans requires some extra steps that are detailed here.
+Integrating Prestashop Billing with your stairstep plans requires some extra steps that are detailed here.
