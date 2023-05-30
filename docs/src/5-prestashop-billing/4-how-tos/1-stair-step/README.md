@@ -1,14 +1,4 @@
----
-title: How-Tos
----
-
-[[toc]]
-
-# How-tos
-
-How tos are independant tutorials about some options and other implementations that the Prestashop Billing services offer.
-
-## Implementing a Stair-step pricing model
+# Implementing a Stair-step pricing model
 
 [Our main Tutorial](../3-tutorial/README.md) presented you with the required steps to implement any of our supported pricing models, but more informations are needed in the [context](#context) for a Stair-step pricing model, which will be explained by this tutorial.
 
@@ -16,7 +6,7 @@ How tos are independant tutorials about some options and other implementations t
 This tutorial assumes that you have already familiarized yourself with our [webhook system](../3-tutorial/README.md#responding-to-our-webhooks), which is necessary to implement the [second part](#second-step-updating-the-subscription-via-api) of this tutorial.
 :::
 
-### First step: Implementing it in the module
+## First step: Implementing it in the module
 As Stair-step requires a unit to operate, you should pass that information during the initialization of `window.psBilling`, like so:
 
 ```js
@@ -53,7 +43,7 @@ Here are two example of how this `unitDescription` property renders in Billing c
 
 The `id` property should have been communicated to you beforehand (as the [subscription item](../2-concepts/README.md#subscription-item) id, which can also be found in our webhook [subscription events.](../5-references/1-webhook/README.md#subscription))
 
-### Second step: Updating the subscription via API
+## Second step: Updating the subscription via API
 
 Since a Stair-Step pricing model requires the update of the unit per subscription before the renewal of said subscription, we provide an endpoint to do so:
 
@@ -129,127 +119,3 @@ Upon receiving a `200` response containing a body of the following snippet, the 
 ```
 
 For more informations, as well as mockups servers, sample response & request data, you can directly head to our API Reference which explores in great detail how to use the endpoint [here](https://prestashop-billing.stoplight.io/docs/api-gateway/533ffe47d3f3a-set-the-quantity-of-a-subscription-item) 
-
-## Display the Invoice Pane
-
-You can choose to add the following invoice pane at the location of your choice within your module:
-
-![PrestaShop Billing Invoice Pane](/assets/images/billing/ps_billing_invoice_pane.jpg)
-
-To do so:
-
-1. Access the file corresponding to the location where you want to display the pane (for example, a template file).
-
-2. Add the following code to display the pane:
-
-```js
-<div id="ps-billing-invoice"></div>
-```
-
-3. Add the following code to load the JavaScript information:
-
-```js
-window.psBilling.initializeInvoiceList(
-  window.psBillingContext.context,
-  "#ps-billing-invoice"
-);
-```
-
-## Customize the Cancellation Workflow
-
-In some cases, you might want to understand the reason for a cancellation, or offer your customer a voucher to avoid it. We provide a mechanism which allows you to customize the cancellation workflow.
-
-If you do so, you need to provide your own modal, as this one will not be displayed:
-
-![PrestaShop Billing Cancel Modal](/assets/images/billing/ps_billing_cancel_modal.png)
-
-### Implementation
-
-To customize the cancel modal and the cancellation workflow, use the subscription management component instead of the `window.psBilling.initialize` method.
-
-:::tip Note
-`window.psBilling.initialize` is only a wrapper to simplify the implementation of your module.
-:::
-
-Here is a working example. Refer to the comments for more information.
-
-```javascript
-<script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
-<script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel=preload></script>
-
-<script>
-    /*********************
-    * PrestaShop Account *
-    * *******************/
-    window?.psaccountsVue?.init();
-
-    // Check if Account is associated before displaying the Billing component
-    if(window.psaccountsVue.isOnboardingCompleted() == true)
-    {
-        /*********************
-        * PrestaShop Billing *
-        * *******************/
-        const onCloseModal = async (data) => {
-          // When a modal is closed, we need to update the context
-          await Promise.all([currentModal.close(), updateCustomerProps(data)]);
-        };
-
-        // Open the proper modal
-        const onOpenModal = (type, data) => {
-          currentModal = new window.psBilling.ModalContainerComponent({
-            type,
-            context: {
-              ...context,
-              ...data,
-            },
-            onCloseModal,
-          });
-          currentModal.render('#ps-modal');
-        };
-
-        const updateCustomerProps = (data) => {
-          return customer.updateProps({
-            context: {
-              ...context,
-              ...data,
-            },
-          });
-        };
-
-        // Here is the method called when your customer hits the "Cancel" button
-        const onCancelSubscription = async ({ currentSubscription }) => {
-          // You should replace this section with your own code. Here, we just
-          // created an example with a "Confirm" dialog
-          const cancel = confirm('Cancel ?');
-
-          // You can access the currentSubscription if you need to display information
-          // about the subscription: price, next billing date, etc.
-          if (cancel) {
-            try {
-              // Call customer.cancelSubscription() when you want to really cancel the subscription
-              await customer.cancelSubscription();
-              alert('Cancelled');
-            } catch {
-              alert('Error during cancellation')
-            }
-          } else {
-            alert('No cancelled')
-          }
-        }
-
-        let currentModal;
-
-        // Here we instantiate the subscription management component
-        const customer = new window.psBilling.CustomerComponent({
-          context,
-          hideInvoiceList: true,
-          onOpenModal,
-          // When an onCancelSubscription method is specified, it overrides the default cancellation workflow
-          onCancelSubscription
-        });
-        // Render the subscription management
-        customer.render('#ps-billing');
-    } 
-</script>
-```
-

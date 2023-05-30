@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Tech vendor documentation for SaaS App",
   "main": "index.js",
+  "engines": {
+    "node": "16"
+  },
   "authors": {
     "name": "",
     "email": ""

@@ -308,6 +308,6 @@ Note that if your endpoint does not return a `2xx` HTTP status, our webhooks wil
 
 ## Next Steps
 
-- [Explore advanced topics](../4-how-tos/README.md) such as:
-  - [Implementing a Stair-step pricing model](../4-how-tos/README.md#implementing-a-stair-step-pricing-model)
-  - [Display the Invoice Pane](../4-how-tos/README.md#display-the-invoice-pane)
+- Explore advanced topics such as:
+  - [Implementing a Stair-step pricing model](../4-how-tos/1-stair-step/README.md)
+  - [Display the Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md)

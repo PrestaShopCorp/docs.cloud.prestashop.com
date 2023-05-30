@@ -12,7 +12,7 @@ This section will rapidly bring you up to speed as to how you can integrate Pres
 2. Check if your pricing model is compatible with [what we support](../2-concepts/README.md#pricing-models) or ask us directly if in doubt, we'll be happy to help.  
 3. Familiarize yourself with our [key concepts](../2-concepts/README.md).
 4. Follow [our tutorial](../3-tutorial/README.md) for a step-by-step guide.
-5. Optionally take a look at how our [How-tos](../4-how-tos/README.md) that explore some advanced topics.
+5. Optionally take a look at how our "How-Tos" that explore some advanced topics.
 
 ## Documentation
 
@@ -20,7 +20,7 @@ This documentation is organized as follow:
 
 - [Concepts](../2-concepts/README.md) that help you understand how Prestashop Billing works.
 - [A main tutorial](../3-tutorial/README.md) that guides you through the implementation of Prestashop Billing with a basic example module and how to respond to our webhooks.
-- [Several "How-tos"](../4-how-tos/README.md) containing extra tutorials for advanced topics (like [displaying an Invoice Pane](../4-how-tos/README.md#display-the-invoice-pane), or [implementing a Stair-Step pricing model](../4-how-tos/README.md#implementing-a-stair-step-pricing-model))
+- Several "How-tos" containing extra tutorials for advanced topics (like [displaying an Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md), or [implementing a Stair-Step pricing model](../4-how-tos/1-stair-step/README.md))
 - Finally a section with all our detailed references.
 
 ## API reference

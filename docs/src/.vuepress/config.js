@@ -63,7 +63,6 @@ module.exports = {
       { title: 'Integrating PrestaShop Account', path: '/4-prestashop-account/'},
       {
         title: "PrestaShop Billing",
-        path: "/5-prestashop-billing/1-overview/",
         sidebarDepth: 0,
         collapsable: false,
         initialOpenGroupIndex: 0,
@@ -74,7 +73,17 @@ module.exports = {
           },
           "/5-prestashop-billing/2-concepts/",
           "/5-prestashop-billing/3-tutorial/",
-          "/5-prestashop-billing/4-how-tos/",
+          {
+            title: "How-Tos",
+            sidebarDepth: 0,
+            collapsable: false,
+            children: [
+              '/5-prestashop-billing/4-how-tos/1-stair-step/',
+              '/5-prestashop-billing/4-how-tos/2-display-invoice-pane/',
+              '/5-prestashop-billing/4-how-tos/3-customize-cancellation/',
+              '/5-prestashop-billing/4-how-tos/4-handle-plan-selection/',
+            ],
+          },
           {
             title: 'References',
             sidebarDepth: 0,
