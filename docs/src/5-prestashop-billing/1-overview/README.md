@@ -20,7 +20,7 @@ This documentation is organized as follow:
 
 - [Concepts](../2-concepts/README.md) that help you understand how Prestashop Billing works.
 - [A main tutorial](../3-tutorial/README.md) that guides you through the implementation of Prestashop Billing with a basic example module and how to respond to our webhooks.
-- Several "How-tos" containing extra tutorials for advanced topics (like [displaying an Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md), or [implementing a Stair-Step pricing model](../4-how-tos/1-stair-step/README.md))
+- Several "How-Tos" containing extra tutorials for advanced topics (like [displaying an Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md), or [implementing a Stair-Step pricing model](../4-how-tos/1-stair-step/README.md))
 - Finally a section with all our detailed references.
 
 ## API reference

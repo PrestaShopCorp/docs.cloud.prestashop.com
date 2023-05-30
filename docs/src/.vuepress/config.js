@@ -37,14 +37,6 @@ module.exports = {
     sidebarDepth: 1,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Getting Started',
-        items: [
-          { text: 'Account', link: '/4-prestashop-account/' },
-          { text: 'Billing', link: '/5-prestashop-billing/1-overview/' },
-          { text: 'Billing Webhooks', link: '/6-billing-webhooks-events/' },
-          { text: 'CloudSync', link: '/7-prestashop-cloudsync/' },
-        ]
-      },
       {
         text: 'Standard Module Development References',
         ariaLabel: 'Standard Module Development References',

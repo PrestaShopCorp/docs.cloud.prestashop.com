@@ -62,10 +62,10 @@ A payment method designates the way a payment can be collected. Currently, Prest
 
 Prestashop Billing currently supports two types of pricing models:
 
-- Flat-Fee
+- Flat fee
 - Stairstep
 
-### Flat-Fee
+### Flat fee
 
 Each plan has its own price point and contains a set of feature that do not change.
 
@@ -75,7 +75,7 @@ Each plan has its own price point and contains a set of feature that do not chan
 | Team  | 15€   |
 | Pro   | 20€   |
 
-### Stair-step
+### Stairstep
 
 The price of each step is assigned to a range of units. Those units can be anything, but some valid examples are the average revenue of a shop, or a number of products.
 
