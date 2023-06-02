@@ -102,7 +102,7 @@ During your development, you should set the sandbox mode to `true` (as shown in 
        "php": ">=5.6",
        "prestashop/prestashop-accounts-installer": "^1.0",
        "prestashop/module-lib-service-container": "^1.4",
-       "prestashopcorp/module-lib-billing": "^2.0.0"
+       "prestashopcorp/module-lib-billing": "^1.3.3"
      },
      "autoload": {
        "classmap": [
@@ -113,13 +113,6 @@ During your development, you should set the sandbox mode to `true` (as shown in 
      "license": "MIT"
    }
    ```
-:::warning
-Make sure you use the correct version of `module-lib-billing` for your module. Here is the compatibility chart for it: 
-| Version | Status         | Packagist           -| Namespace    | Repo                | Docs                | PHP Version  |
-|---------|----------------|----------------------|--------------|---------------------|---------------------|--------------|
-| 1.x     | Security fixes | `module-lib-billing` | `PrestaShopCorp\Billing`     | [v1][lib-1-repo] | N/A                 | >=5.6        |
-| 2.x     | Latest         | `module-lib-billing` | `PrestaShopCorp\Billing` | [v2][lib-2-repo] | N/A                 | >=7.2.5   |
-:::
 
 4. Run the `composer install` command to implement the new dependency.
 
