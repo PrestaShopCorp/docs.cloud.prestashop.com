@@ -102,7 +102,7 @@ During your development, you should set the sandbox mode to `true` (as shown in 
        "php": ">=5.6",
        "prestashop/prestashop-accounts-installer": "^1.0",
        "prestashop/module-lib-service-container": "^1.4",
-       "prestashopcorp/module-lib-billing": "^1.3.3"
+       "prestashopcorp/module-lib-billing": "^3.0.0"
      },
      "autoload": {
        "classmap": [
@@ -271,7 +271,6 @@ To test if PrestaShop Billing is loading successfully into your module:
 
    ![PrestaShop Billing Plan Selection](/assets/images/billing/ps_billing_plan_selection.png)
 
-
 ## Responding to our webhooks
 
 :::tip
@@ -281,6 +280,7 @@ For more details on our webhook system, you can see our [reference](../5-referen
 The last step to start using PrestaShop Billing is to have in your systems some way to process the events we send via webhook during the [subscription lifecycle](../2-concepts/README.md#subscription-lifecycle).
 
 In order to have everything running correctly, you must:
+
 - Create a `POST` endpoint and communicate it to us: we will send our events regularly to this URL.
 - Communicate us a `basic` token for us to add to every request we send to the aforementionned URL. This step and whitelisting our URL ensures that your integration with Billing is as secure as possible.
   - It takes the form of an additional `Authorization` header added to our webhook event requests:
