@@ -195,87 +195,87 @@ This is a simple working example that is purposefully basic, you can make the co
 5. Display the checkout modal when your user click on the plan selection button
 
    ```javascript{7,11,12,26,56,57,58,61,68-76,78-82}
-     window?.psaccountsVue?.init();
+    window?.psaccountsVue?.init();
 
-     let billingContext = { ...window.psBillingContext.context }
-     let currentModal;
-     let customer;
-     let hasSubscription = false;
+    let billingContext = { ...window.psBillingContext.context }
+    let currentModal;
+    let customer;
+    let hasSubscription = false;
 
-     if(window.psaccountsVue.isOnboardingCompleted() == true) {
+    if(window.psaccountsVue.isOnboardingCompleted() == true) {
 
-       // Then the plan selection should be displayed
-       updateBillingCustomerDisplay();
+      // Then the plan selection should be displayed
+      updateBillingCustomerDisplay();
 
-       customer = new window.psBilling.CustomerComponent({
-         context: billingContext,
-         hideInvoiceList: true,
-         onOpenModal,
-         onEventHook
-       });
-       customer.render('#ps-billing');
-     }
+      customer = new window.psBilling.CustomerComponent({
+        context: billingContext,
+        hideInvoiceList: true,
+        onOpenModal,
+        onEventHook
+      });
+      customer.render('#ps-billing');
+    }
 
-     // Modal open / close management
-     async function onCloseModal(data) {
-       await Promise.all([currentModal.close(), updateCustomerProps(data)]);
-       updateBillingCustomerDisplay();
+    // Modal open / close management
+    async function onCloseModal(data) {
+      await Promise.all([currentModal.close(), updateCustomerProps(data)]);
+      updateBillingCustomerDisplay();
+    };
+
+    function onOpenModal(type, data) {
+      currentModal = new window.psBilling.ModalContainerComponent({
+        type,
+        context: {
+          ...billingContext,
+          ...data,
+        },
+        onCloseModal,
+        onEventHook
+      });
+      currentModal.render('#ps-modal');
      };
 
-     function onOpenModal(type, data) {
-       currentModal = new window.psBilling.ModalContainerComponent({
-         type,
-         context: {
-           ...billingContext,
-           ...data,
-         },
-         onCloseModal,
-         onEventHook
-       });
-       currentModal.render('#ps-modal');
-     };
+    function updateCustomerProps(data) {
+      return customer.updateProps({
+        context: {
+          ...billingContext,
+          ...data,
+        },
+      });
+    };
 
-     function updateCustomerProps(data) {
-       return customer.updateProps({
-         context: {
-           ...billingContext,
-           ...data,
-         },
-       });
-     };
+    // Event hook management
+    function onEventHook(type, data) {
+      // Event hook listener
+      switch (type) {
+        case window.psBilling.EVENT_HOOK_TYPE.BILLING_INITIALIZED:
+          if(data.subscription) {
+            hasSubscription = true;
+          }
+          break;
+        case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
+          hasSubscription = true;
+          break;
+      }
+      updateBillingCustomerDisplay();
+    }
 
-     // Event hook management
-     function onEventHook(type, data) {
-       // Event hook listener
-       switch (type) {
-         case window.psBilling.EVENT_HOOK_TYPE.BILLING_INITIALIZED:
-           if(data.subscription) {
-             hasSubscription = true;
-           }
-           break;
-         case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
-           hasSubscription = true;
-           break;
-       }
-       updateBillingCustomerDisplay();
-     }
+    // Display plan selection or ps billing, based on the existence of a subscription or not
+    function updateBillingCustomerDisplay() {
+      if(hasSubscription) {
+        document.getElementById('billing-plan-selection').style.display = 'none';
+        document.getElementById('ps-billing-wrapper').style.display = 'block';
+      } else {
+        document.getElementById('billing-plan-selection').style.display = 'block';
+        document.getElementById('ps-billing-wrapper').style.display = 'none';
+      }
+    };
 
-     // Display plan selection or ps billing, based on the existence of a subscription or not
-     function updateBillingCustomerDisplay() {
-       if(hasSubscription) {
-         document.getElementById('billing-plan-selection').style.display = 'none';
-         document.getElementById('ps-billing-wrapper').style.display = 'block';
-       } else {
-         document.getElementById('billing-plan-selection').style.display = 'block';
-         document.getElementById('ps-billing-wrapper').style.display = 'none';
-       }
-     };
-
-     // Open the checkout full screen modal
-     function openCheckout(pricingId) {
-       const offerSelection = {offerSelection: {offerPricingId: pricingId }};
-       onOpenModal(window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL, offerSelection);
-     };
+    // Open the checkout full screen modal
+    function openCheckout(pricingId) {
+      const offerSelection = {offerSelection: {offerPricingId: pricingId }};
+      onOpenModal(window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL, offerSelection);
+    };
    ```
 
 <!-- ### Retrieve the pricing and pricing id (not available yet)
