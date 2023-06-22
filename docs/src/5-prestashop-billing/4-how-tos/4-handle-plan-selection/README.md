@@ -19,88 +19,43 @@ This is a simple working example that is purposefully basic, you can make the co
    ```php{43-56,77-78}
       public function getContent()
       {
-          /**
-          * If values have been submitted in the form, process.
-          */
-          if (((bool)Tools::isSubmit('submit<module_name>Module')) == true) {
-              $this->postProcess();
-          }
-
-          /*********************
-          * PrestaShop Account *
-          * *******************/
-          $accountsService = null;
-
-          try {
-              $accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
-              $accountsService = $accountsFacade->getPsAccountsService();
-          } catch (\PrestaShop\PsAccountsInstaller\Installer\Exception\InstallerException $e) {
-              $accountsInstaller = $this->getService('<module_name>.ps_accounts_installer');
-              $accountsInstaller->install();
-              $accountsFacade = $this->getService('<module_name>.ps_accounts_facade');
-              $accountsService = $accountsFacade->getPsAccountsService();
-          }
-
-          try {
-              Media::addJsDef([
-                  'contextPsAccounts' => $accountsFacade->getPsAccountsPresenter()
-                      ->present($this->name),
-              ]);
-
-              // Retrieve the PrestaShop Account CDN
-              $this->context->smarty->assign('urlAccountsCdn', $accountsService->getAccountsCdn());
-
-          } catch (Exception $e) {
-              $this->context->controller->errors[] = $e->getMessage();
-              return '';
-          }
-
-          /**********************
-           * PrestaShop Billing *
-           * *******************/
-          // Billing Service
-          $componentItems = [];
-          try {
-              // Load service for PrestaShop Billing
-              $billingService = $this->getService('<module_name>.ps_billings_service');
-              $productComponents = $billingService->getProductComponents();
-              if (!empty($productComponents['body']['items']))
-              {
-                  $componentItems = $productComponents['body']['items'];
-              }
-          } catch (Exception $e) {
-              $this->context->controller->errors[] = $e->getMessage();
-              return '';
-          }
-
-          // Billing Context
-          try {
-              $billingFacade = $this->getService('rbm_example.ps_billings_facade')
-              $partnerLogo = $this->getLocalPath() . 'views/img/partnerLogo.png';
-
-              Media::addJsDef($billingFacade->present([
-                  'logo' => $partnerLogo,
-                  'tosLink' => 'https://yoururl/',
-                  'privacyLink' => 'https://yoururl/',
-                  'emailSupport' => 'you@email',
-              ]));
-          }
-          catch (Exception $e) {
-              $this->context->controller->errors[] = $e->getMessage();
-              return '';
-          }
-
-          $this->context->smarty->assign([
-            'urlBilling' => "https://unpkg.com/@prestashopcorp/billing-cdc/dist/bundle.js",
-            'urlConfigureJs' => $this->getPathUri() . 'views/js/ configure.js',
-            'componentItems' => $componentItems,
-          ]);
-
-          return $this->display(__FILE__, 'views/templates/admin/configure.tpl');
+        // ...
+        $this->context->smarty->assign([
+          // ...
+          'urlConfigureJs' => $this->getPathUri() . 'views/js/ configure.js',
+        ]);
+        // ...
       }
    ```
 
-2. Inject this file as a script in `views/templates/admin/configure.tpl`
+2. Retrieve plan pricing from Billing API and inject it into your template
+
+   ```php{43-56,77-78}
+      public function getContent()
+      {
+        // ...
+
+        /**********************
+         * PrestaShop Billing *
+         * *******************/
+        // Billing Service
+        $componentItems = [];
+        $billingService = $this->getService('<module_name>.ps_billings_service');
+        $productComponents = $billingService->getProductComponents();
+        if (!empty($productComponents['body']['items']))
+        {
+          $componentItems = $productComponents['body']['items'];
+        }
+
+        $this->context->smarty->assign([
+          'componentItems' => $componentItems,
+        ]);
+
+        // ...
+      }
+   ```
+
+3. Inject this file as a script in `views/templates/admin/configure.tpl`
 
    ```html{7}
    <prestashop-accounts></prestashop-accounts>
@@ -112,7 +67,7 @@ This is a simple working example that is purposefully basic, you can make the co
    <script src="{$urlConfigureJs|escape:'htmlall':'UTF-8'}" rel=preload></script>
    ```
 
-3. Implement `views/js/configure.js` to make billing works with the component instead of the `initialize` method
+4. Implement `views/js/configure.js` to make billing works with the component instead of the `initialize` method
 
    ```javascript
    window?.psaccountsVue?.init();
@@ -163,7 +118,7 @@ This is a simple working example that is purposefully basic, you can make the co
    }
    ```
 
-4. Display your plan in your module and hide the subscription management in `views/templates/admin/configure.tpl`
+5. Display your plan in your module and hide the subscription management in `views/templates/admin/configure.tpl`
 
    ```html{4-23}
       <prestashop-accounts></prestashop-accounts>
@@ -192,7 +147,7 @@ This is a simple working example that is purposefully basic, you can make the co
       <div id="ps-modal"></div>
    ```
 
-5. Display the checkout modal when your user click on the plan selection button
+6. Display the checkout modal when your user click on the plan selection button
 
    ```javascript{7,11,12,26,56,57,58,61,68-76,78-82}
     window?.psaccountsVue?.init();
