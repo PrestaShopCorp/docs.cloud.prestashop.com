@@ -39,14 +39,34 @@ This is a simple working example that is purposefully basic, you can make the co
          * PrestaShop Billing *
          * *******************/
         // Billing Service
-        $componentItems = [];
+
+        // Load the service for PrestaShop Billing
         $billingService = $this->getService('<module_name>.ps_billings_service');
+
+        // Retrieve plans and addons for your module
+        /*
+        [
+          'success' => true|false,
+          'httpStatus' => 200|400|404,
+          'body' => {
+            'items': [
+              { .... },
+              { ....},
+            ],
+            'total': x
+          },
+        ]
+        */
         $productComponents = $billingService->getProductComponents();
+
+        $componentItems = [];
+        // Test on response to have an "item" element
         if (!empty($productComponents['body']['items']))
         {
           $componentItems = $productComponents['body']['items'];
         }
 
+        // Allow to use $componentItems in your tpl file
         $this->context->smarty->assign([
           'componentItems' => $componentItems,
         ]);
@@ -149,7 +169,7 @@ This is a simple working example that is purposefully basic, you can make the co
 
 6. Display the checkout modal when your user click on the plan selection button
 
-   ```javascript{7,11,12,26,56,57,58,61,68-76,78-82}
+   ```javascript{6,10-11,25,50-81}
     window?.psaccountsVue?.init();
 
     let billingContext = { ...window.psBillingContext.context }
@@ -232,15 +252,5 @@ This is a simple working example that is purposefully basic, you can make the co
       onOpenModal(window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL, offerSelection);
     };
    ```
-
-<!-- ### Retrieve the pricing and pricing id (not available yet)
-
-Please use the Billing API, as described in the API OpenAPI documentation
-
-<!-- TODO: add information about the way to retrieve plans -->
-
-<!-- ### Use billing plan library (not available yet)
-
-Please use the Billing Plan library, as described in the README of the lib
 
 <!-- TODO: add information about the plan-billing components -->
