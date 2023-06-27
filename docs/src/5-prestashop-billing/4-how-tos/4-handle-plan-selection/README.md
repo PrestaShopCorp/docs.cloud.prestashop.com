@@ -75,7 +75,41 @@ This is a simple working example that is purposefully basic, you can make the co
       }
    ```
 
-3. Inject this file as a script in `views/templates/admin/configure.tpl`
+3. Retrieve plan pricing from Billing API and inject it into your template
+
+   ```php{43-56,77-78}
+        // ...
+        if (!empty($productComponents['body']['items']))
+        {
+          // You need to retrieve plan information from your API or class of array like this
+          // For plan id, please get in touch with your Solution Engineer at PrestaShop.
+          $planInfos = [
+              [
+                  "id" => "<module_name>_free",
+                  "name" => '<module_name> Free',
+              ],
+              [
+                  "id" => "<module_name>_advanced",
+                  "name" => '<module_name> Advanced',
+              ],
+              [
+                  "id" => "<module_name>_ultimate",
+                  "name" => '<module_name> Ultimate',
+              ]
+          ];
+
+          // Sorts you plans informations and plans from Billing API
+          // to be sure to have the same order
+          array_multisort(array_column($planInfos, 'id'), SORT_ASC, $planInfos);
+          array_multisort(array_column($componentItems, 'id') , SORT_ASC, $componentItems);
+
+          // Merge plans from Billing API with your plans informations
+          $componentItems =  array_replace_recursive($planInfos, $componentItems);
+        }
+        // ...
+   ```
+
+4. Inject this file as a script in `views/templates/admin/configure.tpl`
 
    ```html{7}
    <prestashop-accounts></prestashop-accounts>
@@ -87,7 +121,7 @@ This is a simple working example that is purposefully basic, you can make the co
    <script src="{$urlConfigureJs|escape:'htmlall':'UTF-8'}" rel=preload></script>
    ```
 
-4. Implement `views/js/configure.js` to make billing works with the component instead of the `initialize` method
+5. Implement `views/js/configure.js` to make billing works with the component instead of the `initialize` method
 
    ```javascript
    window?.psaccountsVue?.init();
@@ -138,7 +172,7 @@ This is a simple working example that is purposefully basic, you can make the co
    }
    ```
 
-5. Display your plan in your module and hide the subscription management in `views/templates/admin/configure.tpl`
+6. Display your plan in your module and hide the subscription management in `views/templates/admin/configure.tpl`
 
    ```html{4-23}
       <prestashop-accounts></prestashop-accounts>
@@ -149,14 +183,27 @@ This is a simple working example that is purposefully basic, you can make the co
         <div style="width: 500px; display:flex">
           {foreach $componentItems as $item}
             <div style="border: 1px solid;padding: 2rem;text-align:center;margin-left:1rem;">
-              <h3 style="font-weight: bold;margin-bottom: 1rem;">{$item['id']}</h3>
+              <h3 style="font-weight: bold;margin-bottom: 1rem;">{$item['name']}</h3>
 
               <!-- Pricing information must be retrieved from billing API -->
               <p style="margin-bottom: 1rem;">{$item['price']/100}€/{$item['billingPeriodUnit']}</p>
               <!-- Pricing id must be retrieved from billing API -->
               <button onclick="openCheckout('{$item['id']}')"
-                style="background: black;color: white; padding: 0.5rem; font-weight: bold;">Select this offer</button>
-            </div>
+                style="background: black;color: white; padding: 0.5rem; font-weight: bold;margin-bottom: 1.5rem;">Select this
+                offer</button>
+
+              {if !empty($item['features'])}
+                <div class="billing-plan__feature-group">
+                  {foreach $item['features'] as $feature}
+                    <div style="display: flex; flex-direction: row;">
+                      <div style="display: flex; flex-direction: row; align-items: flex-start;">
+                        <div class="puik-icon material-icons-round" style="font-size: 1.25rem;">check</div>
+                        <div>{$feature}</div>
+                      </div>
+                    </div>
+                  {/foreach}
+                </div>
+              {/if}
           {/foreach}
         </div>
       </section>
@@ -167,7 +214,7 @@ This is a simple working example that is purposefully basic, you can make the co
       <div id="ps-modal"></div>
    ```
 
-6. Display the checkout modal when your user click on the plan selection button
+7. Display the checkout modal when your user click on the plan selection button
 
    ```javascript{6,10-11,25,50-81}
     window?.psaccountsVue?.init();
