@@ -44,19 +44,6 @@ This is a simple working example that is purposefully basic, you can make the co
         $billingService = $this->getService('<module_name>.ps_billings_service');
 
         // Retrieve plans and addons for your module
-        /*
-        [
-          'success' => true|false,
-          'httpStatus' => 200|400|404,
-          'body' => {
-            'items': [
-              { .... },
-              { ....},
-            ],
-            'total': x
-          },
-        ]
-        */
         $productComponents = $billingService->getProductComponents();
 
         $componentItems = [];
@@ -77,37 +64,43 @@ This is a simple working example that is purposefully basic, you can make the co
 
 3. Retrieve plan pricing from Billing API and inject it into your template
 
-   ```php{43-56,77-78}
-        // ...
-        if (!empty($productComponents['body']['items']))
-        {
-          // You need to retrieve plan information from your API or class of array like this
-          // For plan id, please get in touch with your Solution Engineer at PrestaShop.
-          $planInfos = [
-              [
-                  "id" => "<module_name>_free",
-                  "name" => '<module_name> Free',
-              ],
-              [
-                  "id" => "<module_name>_advanced",
-                  "name" => '<module_name> Advanced',
-              ],
-              [
-                  "id" => "<module_name>_ultimate",
-                  "name" => '<module_name> Ultimate',
-              ]
-          ];
+Billing will no longer manages the name of the plans and the list of features, so you must provide it to manage your display in your module
 
-          // Sorts you plans informations and plans from Billing API
-          // to be sure to have the same order
-          array_multisort(array_column($planInfos, 'id'), SORT_ASC, $planInfos);
-          array_multisort(array_column($componentItems, 'id') , SORT_ASC, $componentItems);
+:::tip Note
+For plan id, please get in touch with your Solution Engineer at PrestaShop.
+:::
 
-          // Merge plans from Billing API with your plans informations
-          $componentItems =  array_replace_recursive($planInfos, $componentItems);
-        }
-        // ...
-   ```
+```php{43-56,77-78}
+     // ...
+     if (!empty($productComponents['body']['items']))
+     {
+       // You need to retrieve plan information from your API or Class or Array like this
+       // For plan id, please get in touch with your Solution Engineer at PrestaShop.
+       $planInfos = [
+           [
+               "id" => "<module_name>_free",
+               "name" => '<module_name> Free',
+           ],
+           [
+               "id" => "<module_name>_advanced",
+               "name" => '<module_name> Advanced',
+           ],
+           [
+               "id" => "<module_name>_ultimate",
+               "name" => '<module_name> Ultimate',
+           ]
+       ];
+
+       // Sorts you plans informations and plans from Billing API
+       // to be sure to have the same order
+       array_multisort(array_column($planInfos, 'id'), SORT_ASC, $planInfos);
+       array_multisort(array_column($componentItems, 'id') , SORT_ASC, $componentItems);
+
+       // Merge plans from Billing API with your plans informations
+       $componentItems =  array_replace_recursive($planInfos, $componentItems);
+     }
+     // ...
+```
 
 4. Inject `views/js/configure.js` as a script in `views/templates/admin/configure.tpl`
 
