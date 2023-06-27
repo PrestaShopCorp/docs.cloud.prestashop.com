@@ -109,7 +109,7 @@ This is a simple working example that is purposefully basic, you can make the co
         // ...
    ```
 
-4. Inject this file as a script in `views/templates/admin/configure.tpl`
+4. Inject `views/js/configure.js` as a script in `views/templates/admin/configure.tpl`
 
    ```html{7}
    <prestashop-accounts></prestashop-accounts>
