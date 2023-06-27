@@ -64,7 +64,7 @@ This is a simple working example that is purposefully basic, you can make the co
 
 3. Retrieve plan pricing from Billing API and inject it into your template
 
-Billing will no longer manages the name of the plans and the list of features, so you must provide it to manage your display in your module
+Billing will no longer manage the name of the plans and the list of features, so you must provide it to manage your display in your module
 
 :::tip Note
 For plan id, please get in touch with your Solution Engineer at PrestaShop.
