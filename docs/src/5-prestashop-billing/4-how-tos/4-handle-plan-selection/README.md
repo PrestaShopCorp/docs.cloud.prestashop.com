@@ -66,7 +66,7 @@ This is a simple working example that is purposefully basic, you can make the co
           $componentItems = $productComponents['body']['items'];
         }
 
-        // Allow to use $componentItems in your tpl file
+        // Allow the use of $componentItems in your tpl file
         $this->context->smarty->assign([
           'componentItems' => $componentItems,
         ]);
