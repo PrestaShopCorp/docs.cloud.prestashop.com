@@ -60,7 +60,7 @@ This is a simple working example that is purposefully basic, you can make the co
         $productComponents = $billingService->getProductComponents();
 
         $componentItems = [];
-        // Test on response to have an "item" element
+        // We test here the presence of the items property in the response's body.
         if (!empty($productComponents['body']['items']))
         {
           $componentItems = $productComponents['body']['items'];
