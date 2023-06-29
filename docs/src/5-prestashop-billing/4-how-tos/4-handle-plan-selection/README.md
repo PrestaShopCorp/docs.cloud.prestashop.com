@@ -291,7 +291,7 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
 
 When your customer click on the **"Change Plan"** button, it opens the default plan selection, provided by billing, within the funnel. 
 
-In case you handle the plan selection by yourself, you don't want the default plan selection to be displayed when your customer want to change is plan.
+In case you handle the plan selection by yourself, you don't want the default plan selection to be displayed when your customer want to change their plan.
 
 1. Provide a `onOpenFunnel` function into the Customer context
 
