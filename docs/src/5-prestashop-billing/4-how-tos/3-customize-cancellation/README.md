@@ -60,7 +60,7 @@ Here is a working example. Refer to the comments for more information.
         };
 
         // Here is the method called when your customer hits the "Cancel" button
-        const onCancelSubscription = async ({ currentSubscription }) => {
+        const onCancelSubscription = async ({ subscription }) => {
           // You should replace this section with your own code. Here, we just
           // created an example with a "Confirm" dialog
           const cancel = confirm('Cancel ?');

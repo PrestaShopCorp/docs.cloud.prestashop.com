@@ -215,12 +215,10 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
     let billingContext = { ...window.psBillingContext.context }
     let currentModal;
     let customer;
-    let hasSubscription = false;
 
     if(window.psaccountsVue.isOnboardingCompleted() == true) {
 
-      // Then the plan selection should be displayed
-      updateBillingCustomerDisplay();
+      showBillingWrapper();
 
       customer = new window.psBilling.CustomerComponent({
         context: billingContext,
@@ -234,7 +232,6 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
     // Modal open / close management
     async function onCloseModal(data) {
       await Promise.all([currentModal.close(), updateCustomerProps(data)]);
-      updateBillingCustomerDisplay();
     };
 
     function onOpenModal(type, data) {
@@ -263,28 +260,21 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
     function onEventHook(type, data) {
       // Event hook listener
       switch (type) {
-        case window.psBilling.EVENT_HOOK_TYPE.BILLING_INITIALIZED:
-          if(data.subscription) {
-            hasSubscription = true;
-          }
-          break;
         case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
-          hasSubscription = true;
+          showBillingWrapper();
           break;
       }
-      updateBillingCustomerDisplay();
     }
 
-    // Display plan selection or ps billing, based on the existence of a subscription or not
-    function updateBillingCustomerDisplay() {
-      if(hasSubscription) {
-        document.getElementById('billing-plan-selection').style.display = 'none';
-        document.getElementById('ps-billing-wrapper').style.display = 'block';
-      } else {
-        document.getElementById('billing-plan-selection').style.display = 'block';
-        document.getElementById('ps-billing-wrapper').style.display = 'none';
-      }
-    };
+    function showPlanPresenter() {
+      document.getElementById('billing-plan-presenter').style.display = 'block';
+      document.getElementById('ps-billing-wrapper').style.display = 'none';
+    }
+
+    function showBillingWrapper() {
+      document.getElementById('billing-plan-presenter').style.display = 'none';
+      document.getElementById('ps-billing-wrapper').style.display = 'block';
+    }
 
     // Open the checkout full screen modal
     function openCheckout(pricingId) {
@@ -292,5 +282,37 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
       onOpenModal(window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL, offerSelection);
     };
    ```
-
 <!-- TODO: add information about the plan-billing components -->
+
+## Handle plan change / select button
+
+![PrestaShop Change Plan button](/assets/images/billing/change_plan_button.png)
+
+
+When your customer click on the **"Change Plan"** button, it opens the default plan selection, provided by billing, within the funnel. 
+
+In case you handle the plan selection by yourself, you don't want the default plan selection to be displayed when your customer want to change is plan.
+
+1. Provide a `onOpenFunnel` function into the Customer context
+
+   ```javascript{11,15-18}
+    if(window.psaccountsVue.isOnboardingCompleted() == true) {
+
+      // Then the plan selection should be displayed
+      showPlanPresenter();
+
+      customer = new window.psBilling.CustomerComponent({
+        context: billingContext,
+        hideInvoiceList: true,
+        onOpenModal,
+        onEventHook,
+        onOpenFunnel
+      });
+      customer.render('#ps-billing');
+    }
+    // Here is the method called when your customer hits the "Change Plan" button
+    function onOpenFunnel({ subscription }) {
+      showPlanPresenter();
+    }
+   ```      
+
