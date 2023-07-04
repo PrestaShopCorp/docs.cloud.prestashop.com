@@ -23,12 +23,10 @@ This documentation is organized as follow:
 - Several "How-Tos" containing extra tutorials for advanced topics (like [displaying an Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md), or [implementing a Stair-Step pricing model](../4-how-tos/1-stair-step/README.md))
 - Finally a section with all our detailed references.
 
-## API reference
+## References
 
-The [Billing API](../5-references/README.md#billing-api) currently supports one feature:
-
-- [Updating the quantity of a subscription for Stair-step plans](../4-how-tos/README.md#second-step-updating-the-subscription-via-api).
-
+* [Webhook](../5-references/1-webhook/README.md) 
+* [Billing API](../5-references/2-billing-api/README.md) 
 ## Examples
 
 You can follow our [step-by-step tutorial](../3-tutorial/README.md) to have everything setup the right way and get started as quickly as possible.
