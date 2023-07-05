@@ -108,6 +108,67 @@ If you used PHP files to handle ajax or external calls, make sure to secure them
 
 Using `serialize()` / `unserialize()` is forbidden, as they is a security risk if you do not control the data going through these methods. They may lead to remote code execution, so we recommend using `json_encode()` / `json_decode()` instead.
 
+#### An `.htaccess` File exists in the Root Folder of the Module
+
+To prevent someone from listing the files of the module, an `.htaccess` file must be present in the root folder.
+
+:::warning Important
+If you have some Ajax or CRON files, pay attention to exclude them.
+:::
+
+Example :
+ ```htaccess
+# Apache 2.2
+<IfModule !mod_authz_core.c>
+    <Files *.php>
+    order allow,deny
+    deny from all
+    </Files>
+</IfModule>
+
+# Apache 2.4
+<IfModule mod_authz_core.c>
+    <Files *.php>
+    order allow,deny
+    deny from all
+    </Files>
+</IfModule>
+```
+
+#### PHP files are executed in PrestaShop context
+
+To ensure that PHP files are executed in the PrestaShop context, you must add the following code to the beginning of all PHP files, with the exception of CRON or Ajax files.
+
+```php
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+```
+
+#### Smarty variables are escaped
+
+All the Smarty variables present in TPL files have to be escaped, to avoid malicious code to be displayed.
+
+Use this for HTML tag :
+```smarty
+{$variable|escape:'htmlall':'UTF-8'}
+```
+
+instead of this:
+```smarty
+{$variable}
+```
+
+Use this for inline Javascript :
+```smarty
+{$variable|escape:'javascript':'UTF-8'}
+```
+
+instead of this:
+```smarty
+{$variable}
+```
+
 #### The Archive Contains Only One Module
 
 Modules embedded in another one are difficult to review and cannot have their own release process. All modules must be uploaded to the PrestaShop Marketplace separately, even if they only work together.
