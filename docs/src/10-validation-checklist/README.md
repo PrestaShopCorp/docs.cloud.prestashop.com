@@ -108,9 +108,13 @@ If you used PHP files to handle ajax or external calls, make sure to secure them
 
 Using `serialize()` / `unserialize()` is forbidden, as they is a security risk if you do not control the data going through these methods. They may lead to remote code execution, so we recommend using `json_encode()` / `json_decode()` instead.
 
-#### An `.htaccess` File Exists in Each Folder
+#### An `.htaccess` File exists in the Root Folder of the Module
 
-To prevent someone from listing the content of a repository, an `.htaccess` file must be present in each folder.
+To prevent someone from listing the files of the module, an `.htaccess` file must be present in the root folder.
+
+:::warning Important
+If you have some Ajax or CRON files, pay attention to exclude them.
+:::
 
 Example :
  ```htaccess
