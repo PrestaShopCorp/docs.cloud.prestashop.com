@@ -50,7 +50,27 @@ module.exports = {
     sidebar: [
       { title: 'Introduction', path: '0-introduction/'},
       { title: 'How It Works', path: '/1-how-it-works/'},
-      { title: 'Before Starting', path: '/2-before-starting/'},
+      { 
+        title: 'Before Starting', 
+        //path: '/2-before-starting/',
+        sidebarDepth: 0,
+        collapsable: false,
+        initialOpenGroupIndex: 0,
+        children: [
+          {
+            path: "/2-before-starting/#available-tools",
+            title: "Available Tools"
+          },
+          {
+            path: "/2-before-starting/#preparing-for-technical-validation",
+            title: "Preparing for Technical Validation"
+          },
+          {
+            path: "https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting?utm_campaign=documentation&utm_source=sidebar&utm_medium=link",
+            title: "Plan my Built For PrestaShop development"
+          }
+        ],
+      },
       { title: 'Preparing Your Environment', path: '/3-preparing-your-environment/'},
       { title: 'Integrating PrestaShop Account', path: '/4-prestashop-account/'},
       {

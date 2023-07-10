@@ -6,6 +6,9 @@ title: Before Starting
 
 Before starting to develop your module, explore the different tools available, and learn about the rules and good practices you will need to follow to be able to pass our technical validation when you submit your module.
 
+
+![Onboarding flow for Built For PrestaShop](/assets/images/before-starting/onboarding-flow.png){#.book-meeting#}
+
 ##  Available Tools
 
 ### Module Generator
