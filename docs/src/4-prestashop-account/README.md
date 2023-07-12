@@ -12,6 +12,10 @@ To complete this procedure, you need to have at your disposal a running PrestaSh
 Integrating your module will require using [PHP](https://www.php.net/) for the backend. In the following procedure, we used [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) for the frontend, but you can also choose to use [Vue.js 3](https://vuejs.org/) or [React](https://fr.reactjs.org/), according to your preference.
 :::
 
+:::tip Example module
+An example module already integrating the components of the PrestaShop Integration Framework is available on [Github](https://github.com/PrestaShopCorp/builtforjsexample) to help you with development.
+:::
+
 ## Install PrestaShop Account
 
 1. To register your module and PrestaShop Account as services, create a `config\admin\services.yml` file with the following contents at the root of the module folder:

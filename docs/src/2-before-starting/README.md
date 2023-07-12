@@ -15,6 +15,10 @@ Before starting to develop your module, explore the different tools available, a
 
 The [Module Generator](https://validator.prestashop.com/generator) allows you to save time. Choose your module type and follow the instructions: a skeleton module is then automatically generated to help with the creation of your module.
 
+### Module Built For PrestaShop example
+
+An example module containing the 3 components of the PrestaShop Integration Framework is available on [Github](https://github.com/PrestaShopCorp/builtforjsexample) to help you with your developments.
+
 ### Method Search Engine
 
 A [Method Search Engine](https://validator.prestashop.com/guide/) is available within the Validator to help you work out which methods are available for the various versions of PrestaShop.

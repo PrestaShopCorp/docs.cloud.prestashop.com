@@ -42,7 +42,8 @@ module.exports = {
         ariaLabel: 'Standard Module Development References',
         items: [
           { text: 'Module Developer Guide', link: 'https://devdocs.prestashop-project.org/' },
-          { text: 'Module Generator', link: 'https://validator.prestashop.com/generator' }
+          { text: 'Module Generator', link: 'https://validator.prestashop.com/generator' },
+          { text: 'Built For module example', link: 'https://github.com/PrestaShopCorp/builtforjsexample'}
         ]
       },
       { text: 'PrestaShop Documentation', link: 'https://doc.prestashop.com/' },

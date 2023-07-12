@@ -27,3 +27,7 @@ Here are the most commonly asked questions about the PrestaShop Integration Fram
 #### Q: What is the IP address of the webhook system?
 
 **A:** The IP address of the webhook system is `34.77.109.237`. You can protect your API by filtering calls which are not triggered from this IP address.
+
+#### Q: Is there an example module integrating the components of the framework?
+
+**A:** Yes, there's a module on [Github](https://github.com/PrestaShopCorp/builtforjsexample) to help you.
