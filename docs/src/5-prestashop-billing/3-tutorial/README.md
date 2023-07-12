@@ -12,6 +12,10 @@ This tutorial will help you implement Prestashop Billing into your flat-fee pric
 If you're looking for the implementation of your stair-step plan, follow this tutorial and go to our ["Implementing a Stair-step pricing model"](../4-how-tos/README.md#implementing-a-stair-step-pricing-model) tutorial next.
 :::
 
+:::tip Example module
+An example module already integrating the components of the PrestaShop Integration Framework is available on [Github](https://github.com/PrestaShopCorp/builtforjsexample) to help you with development.
+:::
+
 ## Implementing the `module-lib-billing` package in your module
 
 `module-lib-billing` is an important part of the Prestashop Billing solution, as it helps you setup some needed information in a standardized format.

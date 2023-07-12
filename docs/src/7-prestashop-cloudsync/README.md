@@ -12,6 +12,10 @@ To complete this procedure, you need to have already integrated your module with
 Our team is here to help you get started with the implementation of PrestaShop CloudSync. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.
 :::
 
+:::tip Example module
+An example module already integrating the components of the PrestaShop Integration Framework is available on [Github](https://github.com/PrestaShopCorp/builtforjsexample) to help you with development.
+:::
+
 ## Edit the <module_name>.php File
 
 ### Install PrestaShop EventBus
