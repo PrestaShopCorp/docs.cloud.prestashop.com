@@ -72,7 +72,7 @@ This is a simple working example that is purposefully basic, you can make the co
       }
    ```
 
-3. Inject `views/js/configure.js` as a script and add in `views/templates/admin/configure.tpl`
+3. Inject `views/js/configure.js` as a script and add it in `views/templates/admin/configure.tpl`
 
    ```html{7}
    <prestashop-accounts></prestashop-accounts>
