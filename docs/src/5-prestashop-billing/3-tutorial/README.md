@@ -237,11 +237,11 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
    	        window.psBilling.initialize(window.psBillingContext.context, '#ps-billing', '#ps-modal', (type, data) => {
    	    	      // Event hook listener
    	    	      switch (type) {
-                   // Hook triggered when PrestaShop Billing is initialized
+                   // Hook triggered when the subscription is created
    	    	          case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED:
    	    	              console.log('subscription created', data);
    	    	              break;
-                   // Hook triggered when the subscription is created or updated
+                   // Hook when the subscription is updated
    	    	          case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
    	    	              console.log('subscription updated', data);
    		    	          break;
