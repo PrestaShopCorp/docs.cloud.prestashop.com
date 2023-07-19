@@ -1,4 +1,4 @@
-# Retrieve a subscription to change the display
+# Retrieve your customer subscription in PHP to change the display
 
 In some cases, you want to have more control over the display of your module to be more precise about your offer.
 
