@@ -90,7 +90,7 @@ This is a simple working example that is purposefully basic, you can make the co
    <script src="{$urlConfigureJs|escape:'htmlall':'UTF-8'}" rel=preload></script>
    ```
 
-4. Implement `views/js/configure.js` to make billing works with the component instead of the `initialize` method
+4. Implement `views/js/configure.js` to make billing work with the component instead of the `initialize` method
 
    ```javascript
    window?.psaccountsVue?.init();
