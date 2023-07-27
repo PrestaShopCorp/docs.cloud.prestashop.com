@@ -42,6 +42,10 @@ A subscription allows Prestashop Billing to collect periodically the payment of 
 
 The subscription items are the pricing applied to the subscription with sometimes other information about the usage or the quantity which allow us to calculate the amount of this subscription for a billing period. The subscription item id matches the pricing id.
 
+## Product
+
+A product is what is sold, it can be a Built For PrestaShop, the PrestaShop Edition, or any other service. A product is defined by a unique ID, a description, a list of offers (could be 1) and is owned by one or many PrestaShop account / Organization. 
+
 ## Billing Period
 
 The interval between 2 subscription renewals. It defines when an invoice will be generated. In our case it’s a month or a year.
