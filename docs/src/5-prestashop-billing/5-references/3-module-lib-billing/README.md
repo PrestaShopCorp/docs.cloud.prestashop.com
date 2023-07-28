@@ -17,7 +17,7 @@ $billingFacade->present([
 ]
 ```
 
-| Property             | Type    | Description                                            | Modifiable |
+| Property             | Type    | Description                                           | Modifiable |
 |----------------------|---------|-------------------------------------------------------|------------|
 | contextVersion       | number  | The version of the context                            | No         |
 | billingenv           | string  | Denotes the current environment of prestashop billing | No         |
@@ -28,7 +28,7 @@ $billingFacade->present([
 | shop.domain          | string  | The domain of the shop, for example sub.domain.ltd    | No         |
 | organization.uuid    | string  | The uuid of the organization                          | No         |
 | organization.email   | string  | The email of the organization                         | No         |
-| organization.logosrc | base64  | A base64 representation of the organization's logo    | Yes         |
+| organization.logosrc | base64  | A base64 representation of the organization's logo    | Yes        |
 | product.id           | string  | The technical name of the product                     | No         |
 | product.displayname  | string  | The human readable product's name                     | No         |
 | product.logosrc      | base64  | A base64 representation of the product's logo         | No         |
