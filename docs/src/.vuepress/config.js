@@ -121,7 +121,6 @@ module.exports = {
 
   plugins: [
     'code-switcher' ,
-    'vuepress-plugin-glossary',
     [
       'vuepress-plugin-medium-zoom',
       {
