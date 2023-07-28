@@ -104,6 +104,7 @@ module.exports = {
             children: [
               '/5-prestashop-billing/5-references/1-webhook/',
               '/5-prestashop-billing/5-references/2-billing-api/',
+              '/5-prestashop-billing/5-references/3-module-lib-billing/',
             ]
           }
         ],
@@ -120,6 +121,7 @@ module.exports = {
 
   plugins: [
     'code-switcher' ,
+    'vuepress-plugin-glossary',
     [
       'vuepress-plugin-medium-zoom',
       {
