@@ -1,13 +1,27 @@
 ---
-title: module-lib-billing
+title: Prestashop Billing CDC
 ---
 
-# module-lib-billing
+# Prestashop Billing CDC
 [[toc]]
 
-## Context
+## psBilling.initialize()
 
-Modifiable properties may be modified via the use of the `present` method of the `ps_billings_facade`.
+Initialize the Ps Billing CDC (cross-domain component). For your convenience, `module-lib-billing` creates the required `context` object (see the [tutorial](../../3-tutorial/README.md#inject-the-prestashop-billing-context) for further reading on how it is implemented).
+
+```typescript
+const initialize = (
+  context: Context,
+  domComponentSelector: string,
+  domModalSelector: string,
+  onEventHookCallback: (type: EVENT_HOOK_TYPE, data: unknown) => void,
+  hideInvoiceList = true
+)
+```
+
+- `context`: an object holding key informations about the shop and your module. For more information on all available properties, see [below](#context). 
+:::tip
+Modifiable properties may be modified via the use of the `present` method of the `ps_billings_facade` in `module-lib-billing`.
 
 ```php
 $billingFacade->present([
@@ -16,12 +30,26 @@ $billingFacade->present([
     'privacyUrl' => 'https://yoururl/',
 ]
 ```
+:::
+- `billingSelector`: the DOM element on which Ps Billing will be attached.
+- `modalSelector`: the DOM element on which the modals of Ps Billing will be attached.
+- `callback`: 
+- `hideInvoiceList`: whether to hide or show the invoice list.
+
+
+
+## Context
+
+:::tip
+Nested properties are noted with `.`
+For example `organization.uuid` translates to `{ organization: { uuid: '' } }`
+:::
 
 | Property             | Type    | Description                                           | Modifiable |
 |----------------------|---------|-------------------------------------------------------|------------|
 | contextVersion       | number  | The version of the context                            | No         |
 | billingenv           | string  | Denotes the current environment of prestashop billing | No         |
-| issandbox            | boolean | Sandbox mode                                          | No         |
+| isSandbox            | boolean | Sandbox mode                                          | No         |
 | i18n.isocode         | string  | The shop's language iso code                          | No         |
 | refreshtoken         | string  | This token identifies the shop                        | No         |
 | shop.uuid            | string  | The uuid of the shop                                  | No         |

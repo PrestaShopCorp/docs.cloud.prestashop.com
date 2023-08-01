@@ -64,5 +64,4 @@ typings/
 src/.vuepress/dist/
 
 # System 
-.DS_Store
-docs/.DS_Store
+**/.DS_Store
