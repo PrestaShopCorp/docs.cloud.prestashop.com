@@ -179,8 +179,9 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
            // PrestaShop Billing
            Media::addJsDef($billingFacade->present([
              'logo' => $partnerLogo,
-             'tosUrl' => 'https://yoururl/',
-             'privacyUrl' => 'https://yoururl/',
+             'tosLink' => 'https://yoururl/',
+             'privacyLink' => 'https://yoururl/',
+             'emailSupport' => 'you@email',
            ]));
 
            $this->context->smarty->assign('urlBilling', "https://unpkg.com/@prestashopcorp/billing-cdc/dist/bundle.js");
@@ -189,10 +190,6 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
            return $output;
        }
    ```
-
-   :::warning
-   Starting from version `3.1.0`, `module-lib-billing` underwent a few minor changes that **can** impact your implementation. `tosLink` and `privacyLink` have been changed to `tosUrl` and `privacyUrl` as shown in the code excerpt above.
-   ::: 
 
 2. The presenter will serve some context informations. Set the following parameters:
 
