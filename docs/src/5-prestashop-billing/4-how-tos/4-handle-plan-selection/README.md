@@ -266,6 +266,9 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
     function onEventHook(type, data) {
       // Event hook listener
       switch (type) {
+        case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED:
+          showBillingWrapper();
+          break;
         case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
           showBillingWrapper();
           break;
@@ -288,14 +291,14 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
       onOpenModal(window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL, offerSelection);
     };
    ```
-<!-- TODO: add information about the plan-billing components -->
+
+   <!-- TODO: add information about the plan-billing components -->
 
 ## Handle plan change / select button
 
 ![PrestaShop Change Plan button](/assets/images/billing/change_plan_button.png)
 
-
-When your customer click on the **"Change Plan"** button, it opens the default plan selection, provided by billing, within the funnel. 
+When your customer click on the **"Change Plan"** button, it opens the default plan selection, provided by billing, within the funnel.
 
 In case you handle the plan selection by yourself, you don't want the default plan selection to be displayed when your customer want to change their plan.
 
@@ -320,5 +323,4 @@ In case you handle the plan selection by yourself, you don't want the default pl
     function onOpenFunnel({ subscription }) {
       showPlanPresenter();
     }
-   ```      
-
+   ```
