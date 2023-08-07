@@ -134,3 +134,79 @@ Now that you have added the key, you can upload the module to your seller accoun
 :arrow_right: When you submit your zip, it will be automatically sent to the validator, then the technical team will test it and review the code.  It usually takes us **5 to 10 working days** to review the contents. Once your module has been verified, you will receive an e-mail informing you of its status (:heavy_check_mark:&nbsp;approved or :x:&nbsp;rejected). If there is any issue, you will get **detailed information on what to change** before resubmitting your module.
 
 :arrow_right: After technical validation, the marketing team will check the product page information provided in all selected languages within 10 working days. You will also be notified by e-mail of the validation status and of necessary changes, if any. Finally, your module will be made available to merchants on the PrestaShop Marketplace.
+
+## Create a demo shop for your module
+
+When you submit your product sheet, you can offer a demo shop for your module, so that merchants can test your module.
+
+### 1. Add a new profile
+
+To restrict use of the back office to configuring your module, you need to create a profile with limited rights.
+
+In your back office, go to the Advanced Parameters, Team section, then to the Profiles tab:
+
+![Add new profile](/assets/images/demo/demo-1a.png)
+
+Add a new profile: 
+
+![Add new profile](/assets/images/demo/demo-1b.png)
+
+### 2. Configure profile’s permissions
+
+In the Permissions tab, select the profile you have just created and grant it the rights below. In the right-hand column, choose your module, which has already been installed in your shop.
+
+![Configure permissions](/assets/images/demo/demo-2a.png)
+
+:::warning
+Please note that the module configuration will only work with the default form (submit*TechnicalName*). If your module contains several configuration forms, this will not work.
+:::
+
+### 3. Create a back office account
+
+You can now create an account to access the back office with the permissions you created earlier. 
+
+In general, the email to use is **demo@demo.com** and the password **demodemo**.
+
+![Create a user](/assets/images/demo/demo-3a.png)
+
+You need to set the default page to "Module Manager", the only one available with demo profile permissions.
+
+![Create a user](/assets/images/demo/demo-3b.png)
+
+:::warning For PrestaShop 8.x
+From PrestaShop 8, this password will be considered too simple, so you need to change the password policy in the security settings.
+:::
+
+![Security policy](/assets/images/demo/demo-3c.png)
+
+### 4. Add the demo shop url to your product sheet
+
+When you submit your product sheet, you can enter the information for your demo.
+
+![Submission demo](/assets/images/demo/demo-4a.png)
+
+### 5. Other information about demo shops
+
+#### Regular reset of demonstration instances
+ 
+Even with restricted rights in the back office, visitors of the demo will be able to modify the module's configuration.
+
+To ensure a consistent experience over time, we recommend that you reset the shop regularly (every night, for example) so that you return to a shop with the module's default settings. Or to just “reset” the module configuration itself.
+
+#### Cookie management for display in the Addons iframe
+
+The Addons marketplace displays demo shops via an iframe. The shop's cookie management must therefore be modified to allow this.
+
+You need to change this setting to able user to login in the back-office, in the Administration section.
+
+![Submission demo](/assets/images/demo/demo-5a.png)
+
+This allows cookies from a domain name other than that of the shop to be authorised. **To be used for demonstration purposes only.**
+
+You can also modify the **.htaccess** at the root of your shop to apply this rule to all cookies.
+
+```apache
+<ifmodule mod_headers.c>
+Header always edit Set-Cookie ^(.*)$ $1;SameSite=None;Secure
+</ifmodule> 
+```
