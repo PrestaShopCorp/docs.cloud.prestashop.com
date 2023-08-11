@@ -90,7 +90,11 @@ An example module already integrating the components of the PrestaShop Integrati
 
 4. Make sure you replace every occurrence of `<module_name>` with the actual name of your module.
 
-5. Run the `composer install` command to implement the new dependencies.
+5. Run the `composer install --no-dev -o` command to implement the new dependencies.
+
+:::warning Warning
+To reduce the final size of your module, we recommend using the `compose install --no-dev -o` command, to exclude development dependencies from the vendor folder.
+:::
 
 ## Edit the <module_name>.php File
 
@@ -105,7 +109,16 @@ Add the following highlighted contents to the `<module_name>.php` file.
 
 This will allow your module to automatically install PrestaShop Account when necessary, and allow you to use the PrestaShop Account service.
 
-```php{5,11,12,13,14,15,16,24,36,37,38,39,54,55,56,57,58}
+```php{5,6,7,14,20,21,22,23,24,25,33,45,46,47,48}
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
+$autoloadPath = __DIR__ . '/vendor/autoload.php';
+if (file_exists($autoloadPath)) {
+    require_once $autoloadPath;
+}
+
 class <module_name> extends Module {
     /**
      * @var ServiceContainer
@@ -147,6 +160,10 @@ class <module_name> extends Module {
     }
 }
 ```
+
+:::warning Warning
+It is important to load autoload.php manually, for open-source versions of PrestaShop that do not already have the libraries present in composer.json.
+:::
 
 ### Inject the Library and Context
 

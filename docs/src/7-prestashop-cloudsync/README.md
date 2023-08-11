@@ -24,7 +24,7 @@ There is no dependency to add in the composer of your module to support PrestaSh
 
 To download the PrestaShop EventBus module dependency, add the following highlighted contents to the `<module_name>.php` file:
     
-```php{4,16,17,18,19,20,21,22,23,24,25,26}
+```php{4,21,22,23,24,25,26,27,28,29,30,31}
 <?php
 // ...
 
@@ -32,6 +32,11 @@ use PrestaShop\PrestaShop\Core\Addon\Module\ModuleManagerBuilder;
 
 if (!defined('_PS_VERSION_')) {
     exit;
+}
+
+$autoloadPath = __DIR__ . '/vendor/autoload.php';
+if (file_exists($autoloadPath)) {
+    require_once $autoloadPath;
 }
 
 class <module_name> extends Module
