@@ -118,7 +118,7 @@ During your development, you should set the sandbox mode to `true` (as shown in 
    }
    ```
 
-4. Run the `composer install` command to implement the new dependency.
+4. Run the `composer install --no-dev -o` command to implement the new dependency.
 
 ## Inject the PrestaShop Billing Context
 

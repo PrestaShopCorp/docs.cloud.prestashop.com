@@ -93,7 +93,7 @@ An example module already integrating the components of the PrestaShop Integrati
 5. Run the `composer install --no-dev -o` command to implement the new dependencies.
 
 :::warning Warning
-To reduce the final size of your module, we recommend using the `compose install --no-dev -o` command, to exclude development dependencies from the vendor folder.
+To reduce the final size of your module, we recommend using the `composer install --no-dev -o` command, to exclude development dependencies from the vendor folder.
 :::
 
 ## Edit the <module_name>.php File
@@ -109,7 +109,7 @@ Add the following highlighted contents to the `<module_name>.php` file.
 
 This will allow your module to automatically install PrestaShop Account when necessary, and allow you to use the PrestaShop Account service.
 
-```php{5,6,7,14,20,21,22,23,24,25,33,45,46,47,48}
+```php{5,6,7,8,14,20,21,22,23,24,25,33,45,46,47,48}
 if (!defined('_PS_VERSION_')) {
     exit;
 }
