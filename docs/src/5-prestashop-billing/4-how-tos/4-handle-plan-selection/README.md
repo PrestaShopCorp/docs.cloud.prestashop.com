@@ -224,7 +224,7 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
 
     if(window.psaccountsVue.isOnboardingCompleted() == true) {
 
-      showPlanPresenter();
+      showPlanSelection();
 
       customer = new window.psBilling.CustomerComponent({
         context: billingContext,
@@ -272,7 +272,7 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
       }
     }
 
-    function showPlanPresenter() {
+    function showPlanSelection() {
       document.getElementById('billing-plan-selection').style.display = 'block';
       document.getElementById('ps-billing-wrapper').style.display = 'none';
     }
@@ -305,7 +305,7 @@ In case you handle the plan selection by yourself, you don't want the default pl
     if(window.psaccountsVue.isOnboardingCompleted() == true) {
 
       // Then the plan selection should be displayed
-      showPlanPresenter();
+      showPlanSelection();
 
       customer = new window.psBilling.CustomerComponent({
         context: billingContext,
@@ -318,7 +318,7 @@ In case you handle the plan selection by yourself, you don't want the default pl
     }
     // Here is the method called when your customer hits the "Change Plan" button
     function onOpenFunnel({ subscription }) {
-      showPlanPresenter();
+      showPlanSelection();
     }
    ```      
 
