@@ -51,8 +51,8 @@ module.exports = {
     sidebar: [
       { title: 'Introduction', path: '0-introduction/'},
       { title: 'How It Works', path: '/1-how-it-works/'},
-      { 
-        title: 'Before Starting', 
+      {
+        title: 'Before Starting',
         //path: '/2-before-starting/',
         sidebarDepth: 0,
         collapsable: false,
@@ -97,13 +97,14 @@ module.exports = {
               '/5-prestashop-billing/4-how-tos/4-handle-plan-selection/',
             ],
           },
+          "/5-prestashop-billing/5-use-cases/",
           {
             title: 'References',
             sidebarDepth: 0,
             collapsable: false,
             children: [
-              '/5-prestashop-billing/5-references/1-webhook/',
-              '/5-prestashop-billing/5-references/2-billing-api/',
+              '/5-prestashop-billing/6-references/1-webhook/',
+              '/5-prestashop-billing/6-references/2-billing-api/',
             ]
           }
         ],

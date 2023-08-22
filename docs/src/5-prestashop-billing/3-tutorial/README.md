@@ -278,7 +278,7 @@ To test if PrestaShop Billing is loading successfully into your module:
 ## Responding to our webhooks
 
 :::tip
-For more details on our webhook system, you can see our [reference](../5-references/1-webhook/README.md) and [concept](../2-concepts/README.md#events) sections.
+For more details on our webhook system, you can see our [reference](../6-references/1-webhook/README.md) and [concept](../2-concepts/README.md#events) sections.
 :::
 
 The last step to start using PrestaShop Billing is to have in your systems some way to process the events we send via webhook during the [subscription lifecycle](../2-concepts/README.md#subscription-lifecycle).

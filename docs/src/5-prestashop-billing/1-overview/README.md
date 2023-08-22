@@ -9,7 +9,7 @@ This section will rapidly bring you up to speed as to how you can integrate Pres
 ## Getting Started
 
 1. Integrate your module with [PrestaShop Account](../../4-prestashop-account/README.md).
-2. Check if your pricing model is compatible with [what we support](../2-concepts/README.md#pricing-models) or ask us directly if in doubt, we'll be happy to help.  
+2. Check if your pricing model is compatible with [what we support](../2-concepts/README.md#pricing-models) or ask us directly if in doubt, we'll be happy to help.
 3. Familiarize yourself with our [key concepts](../2-concepts/README.md).
 4. Follow [our tutorial](../3-tutorial/README.md) for a step-by-step guide.
 5. Optionally take a look at how our "How-Tos" that explore some advanced topics.
@@ -25,8 +25,9 @@ This documentation is organized as follow:
 
 ## References
 
-* [Webhook](../5-references/1-webhook/README.md) 
-* [Billing API](../5-references/2-billing-api/README.md) 
+- [Webhook](../6-references/1-webhook/README.md)
+- [Billing API](../6-references/2-billing-api/README.md)
+
 ## Examples
 
 You can follow our [step-by-step tutorial](../3-tutorial/README.md) to have everything setup the right way and get started as quickly as possible.
