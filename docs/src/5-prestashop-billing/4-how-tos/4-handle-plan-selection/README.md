@@ -267,7 +267,7 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
       // Event hook listener
       switch (type) {
         case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
-          showPlanPresenter();
+          showBillingWrapper();
           break;
       }
     }
