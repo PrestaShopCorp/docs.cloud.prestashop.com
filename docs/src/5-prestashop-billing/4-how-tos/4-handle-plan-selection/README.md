@@ -224,7 +224,7 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
 
     if(window.psaccountsVue.isOnboardingCompleted() == true) {
 
-      showBillingWrapper();
+      showPlanPresenter();
 
       customer = new window.psBilling.CustomerComponent({
         context: billingContext,
@@ -267,18 +267,18 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
       // Event hook listener
       switch (type) {
         case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
-          showBillingWrapper();
+          showPlanPresenter();
           break;
       }
     }
 
     function showPlanPresenter() {
-      document.getElementById('billing-plan-presenter').style.display = 'block';
+      document.getElementById('billing-plan-selection').style.display = 'block';
       document.getElementById('ps-billing-wrapper').style.display = 'none';
     }
 
     function showBillingWrapper() {
-      document.getElementById('billing-plan-presenter').style.display = 'none';
+      document.getElementById('billing-plan-selection').style.display = 'none';
       document.getElementById('ps-billing-wrapper').style.display = 'block';
     }
 
