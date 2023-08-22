@@ -35,6 +35,10 @@ In the usage-based pricing model, customers are charged based on their actual us
 **_Example:_**
 A video conferencing SaaS applies usage-based pricing for its business customers. They charge $0.05 per minute of video conferencing usage. If a customer conducts a 30-minute video conference, the cost would be 1.50€ (30 minutes \* 0.05€ per minute) invoiced at the end of the billing period.
 
+:::tip
+For more details on Usage-Based API is [available here](https://prestashop-billing.stoplight.io/docs/api-gateway/896ba54736b77-add-an-usage-to-a-subscription-item) (opens new window).
+:::
+
 ### Charge at Term
 
 The charge at term pricing model involves billing customers at fixed intervals, such as monthly or annually, regardless of their actual usage during that period. The pricing is usually based on a predefined set of features or service tiers offered by the SaaS provider. This model is suitable for SaaS that have many different prices such as parcel delivery services (which have variable prices depending on the weight, size and shipping address of the parcels)
