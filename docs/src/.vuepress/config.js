@@ -97,7 +97,18 @@ module.exports = {
               '/5-prestashop-billing/4-how-tos/4-handle-plan-selection/',
             ],
           },
-          "/5-prestashop-billing/5-use-cases/",
+          {
+            title: "Use Cases",
+            sidebarDepth: 0,
+            collapsable: false,
+            children: [
+              '/5-prestashop-billing/5-use-cases/1-flat-fee/',
+              '/5-prestashop-billing/5-use-cases/2-stair-step/',
+              '/5-prestashop-billing/5-use-cases/3-usage-based/',
+              '/5-prestashop-billing/5-use-cases/4-charge-at-term/',
+              '/5-prestashop-billing/5-use-cases/5-retrieve-subscription/',
+            ],
+          },
           {
             title: 'References',
             sidebarDepth: 0,
