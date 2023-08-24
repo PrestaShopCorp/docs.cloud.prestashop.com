@@ -27,6 +27,8 @@ This documentation is organized as follow:
 
 * [Webhook](../5-references/1-webhook/README.md) 
 * [Billing API](../5-references/2-billing-api/README.md) 
+* [module-lib-billing](../5-references/3-module-lib-billing/README.md) 
+
 ## Examples
 
 You can follow our [step-by-step tutorial](../3-tutorial/README.md) to have everything setup the right way and get started as quickly as possible.
