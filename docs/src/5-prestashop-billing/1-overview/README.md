@@ -27,7 +27,7 @@ This documentation is organized as follow:
 
 * [Webhook](../5-references/1-webhook/README.md) 
 * [Billing API](../5-references/2-billing-api/README.md) 
-* [module-lib-billing](../5-references/3-module-lib-billing/README.md) 
+* [billing-cdc](../5-references/3-billing-cdc/README.md) 
 
 ## Examples
 

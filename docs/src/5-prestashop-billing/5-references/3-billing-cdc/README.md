@@ -48,20 +48,20 @@ For example `organization.uuid` translates to `{ organization: { uuid: '' } }`
 | Property             | Type    | Description                                           | Modifiable |
 |----------------------|---------|-------------------------------------------------------|------------|
 | contextVersion       | number  | The version of the context                            | No         |
-| billingenv           | string  | Denotes the current environment of prestashop billing | No         |
+| billingEnv           | string  | Denotes the current environment of prestashop billing | No         |
 | isSandbox            | boolean | Sandbox mode                                          | No         |
-| i18n.isocode         | string  | The shop's language iso code                          | No         |
-| refreshtoken         | string  | This token identifies the shop                        | No         |
+| i18n.isoCode         | string  | The shop's language iso code                          | No         |
+| refreshToken         | string  | This token identifies the shop                        | No         |
 | shop.uuid            | string  | The uuid of the shop                                  | No         |
 | shop.domain          | string  | The domain of the shop, for example sub.domain.ltd    | No         |
 | organization.uuid    | string  | The uuid of the organization                          | No         |
 | organization.email   | string  | The email of the organization                         | No         |
-| organization.logosrc | base64  | A base64 representation of the organization's logo    | Yes        |
+| organization.logoSrc | base64  | A base64 representation of the organization's logo    | Yes        |
 | product.id           | string  | The technical name of the product                     | No         |
-| product.displayname  | string  | The human readable product's name                     | No         |
-| product.logosrc      | base64  | A base64 representation of the product's logo         | No         |
-| product.privacyurl   | string  | A link to the privacy rules partaining to the product | Yes        |
-| tosurl               | string  | A link to the tos partaining to the product           | Yes        |
+| product.displayName  | string  | The human readable product's name                     | No         |
+| product.logoSrc      | base64  | A base64 representation of the product's logo         | No         |
+| product.privacyUrl   | string  | A link to the privacy rules partaining to the product | Yes        |
+| product.tosUrl       | string  | A link to the tos partaining to the product           | Yes        |
 
 ## Changelog
 
