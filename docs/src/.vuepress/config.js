@@ -106,7 +106,6 @@ module.exports = {
               '/5-prestashop-billing/5-use-cases/2-stair-step/',
               '/5-prestashop-billing/5-use-cases/3-usage-based/',
               '/5-prestashop-billing/5-use-cases/4-charge-at-term/',
-              '/5-prestashop-billing/5-use-cases/5-retrieve-subscription/',
             ],
           },
           {
