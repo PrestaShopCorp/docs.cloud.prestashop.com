@@ -25,8 +25,9 @@ This documentation is organized as follow:
 
 ## References
 
-- [Webhook](../6-references/1-webhook/README.md)
-- [Billing API](../6-references/2-billing-api/README.md)
+* [Webhook](../6-references/1-webhook/README.md) 
+* [Billing API](../6-references/2-billing-api/README.md) 
+* [billing-cdc](../6-references/3-billing-cdc/README.md) 
 
 ## Examples
 
