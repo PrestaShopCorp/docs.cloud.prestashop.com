@@ -9,7 +9,7 @@ title: Tutorial
 This tutorial will help you implement Prestashop Billing into your flat-fee priced module.
 
 ::: tip
-If you're looking for the implementation of your stair-step plan, follow this tutorial and go to our ["Implementing a Stair-step pricing model"](../4-how-tos/1-stair-step/README.md) tutorial next.
+If you're looking for the implementation of your Stairstep plan, follow this tutorial and go to our ["Implementing a Stairstep pricing model"](../4-how-tos/1-stair-step/README.md) tutorial next.
 :::
 
 :::tip Example module
@@ -306,5 +306,5 @@ Note that if your endpoint does not return a `2xx` HTTP status, our webhooks wil
 ## Next Steps
 
 - Explore advanced topics such as:
-  - [Implementing a Stair-step pricing model](../4-how-tos/1-stair-step/README.md)
+  - [Implementing a Stairstep pricing model](../4-how-tos/1-stair-step/README.md)
   - [Display the Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md)

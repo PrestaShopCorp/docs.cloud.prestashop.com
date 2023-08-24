@@ -6,7 +6,7 @@ The charge at term pricing model involves billing customers at fixed intervals, 
 A shipping company applies charge at term pricing for its business customer. They got a lot of different pricing regarding the size or the weight of each package. If a customer send 4 packages during the month with different pricing (2 at 12€, 1 at 5$ and 1 at 35€), the cost would be 64€ invoiced at the end of the billing period.
 
 :::tip
-More details about Charge at Term API are [available here](https://prestashop-billing.stoplight.io/docs/api-gateway/0dec9ae31dd59-add-a-charge-at-term) (opens new window).
+More details about Charge at Term API are [available here](https://prestashop-billing.stoplight.io/docs/api-gateway/0dec9ae31dd59-add-a-charge-at-term).
 :::
 
 :::tip Note

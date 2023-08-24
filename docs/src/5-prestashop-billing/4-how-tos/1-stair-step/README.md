@@ -1,6 +1,6 @@
-# Implementing a Stair-step pricing model
+# Implementing a Stairstep pricing model
 
-[Our main Tutorial](../3-tutorial/README.md) presented you with the required steps to implement any of our supported pricing models, but more informations are needed in the [context](#context) for a Stair-step pricing model, which will be explained by this tutorial.
+[Our main Tutorial](../3-tutorial/README.md) presented you with the required steps to implement any of our supported pricing models, but more informations are needed in the [context](#context) for a Stairstep pricing model, which will be explained by this tutorial.
 
 :::warning
 This tutorial assumes that you have already familiarized yourself with our [webhook system](../3-tutorial/README.md#responding-to-our-webhooks), which is necessary to implement the [second part](#second-step-updating-the-subscription-via-api) of this tutorial.
@@ -8,7 +8,7 @@ This tutorial assumes that you have already familiarized yourself with our [webh
 
 ## First step: Implementing it in the module
 
-As Stair-step requires a unit to operate, you should pass that information during the initialization of `window.psBilling`, like so:
+As Stairstep requires a unit to operate, you should pass that information during the initialization of `window.psBilling`, like so:
 
 ```js
 <script>
@@ -47,7 +47,7 @@ The `id` property should have been communicated to you beforehand (as the [subsc
 
 ## Second step: Updating the subscription via API
 
-Since a Stair-Step pricing model requires the update of the unit per subscription before the renewal of said subscription, we provide an endpoint to do so:
+Since a Stairstep pricing model requires the update of the unit per subscription before the renewal of said subscription, we provide an endpoint to do so:
 
 `https://api.billing.prestashop.com/v1/subscriptions/{subscriptionId}/items/{subscriptionItemId}/quantity`
 
