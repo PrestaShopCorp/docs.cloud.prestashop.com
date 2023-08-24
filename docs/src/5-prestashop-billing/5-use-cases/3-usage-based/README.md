@@ -10,5 +10,5 @@ More details about Usage-Based API are [available here](https://prestashop-billi
 :::
 
 :::tip Note
-Charge at Term can also be use together with [flat fee](../1-flat-fee/README.md).
+Usage-Based can also be use together with [flat fee](../1-flat-fee/README.md).
 :::
