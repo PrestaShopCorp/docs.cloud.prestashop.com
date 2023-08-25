@@ -91,7 +91,7 @@ module.exports = {
             sidebarDepth: 0,
             collapsable: false,
             children: [
-              '/5-prestashop-billing/4-how-tos/1-stair-step/',
+              '/5-prestashop-billing/4-how-tos/1-stairstep/',
               '/5-prestashop-billing/4-how-tos/2-display-invoice-pane/',
               '/5-prestashop-billing/4-how-tos/3-customize-cancellation/',
               '/5-prestashop-billing/4-how-tos/4-handle-plan-selection/',
