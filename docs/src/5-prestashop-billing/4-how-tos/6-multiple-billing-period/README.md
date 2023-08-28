@@ -14,7 +14,7 @@ If you want to offer multiple billing periods you must [handle the plan selectio
 Solution Engineer at PrestaShop must enable enable multiple billing periods for product. So please get in touch with them before starting your module implementation.
 :::
 
-## Supported billing period 
+## Supported billing periods
 
 * monthly (`month`): your customer pay every month for your product, at each renewal a new invoice is generated.
 * yearly (`year`): your customer pay once a year for your product, at each renewal a new invoice is generated.
