@@ -10,6 +10,10 @@ You may want to provide different billing periods to your customers, for example
 If you want to offer multiple billing periods you must [handle the plan selection by yourself](../4-handle-plan-selection/README.md) as this configuration is not handled by our plan selection screen.
 :::
 
+:::warning Attention
+Solution Engineer at PrestaShop must enable enable multiple billing periods for product. So please get in touch with them before starting your module implementation.
+:::
+
 ## Add radio button to choose the billing period
 
 ### 1. Add Puik to your UI.
