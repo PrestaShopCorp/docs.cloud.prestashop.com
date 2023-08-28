@@ -4,7 +4,7 @@ title: Multiple billing periods
 
 # Multiple billing periods
 
-You may want to provide different billing periods to your customers, for example, to offer a discount for a yearly basis subscription to increase your customer commitment. 
+You may want to provide different billing periods to your customers, for example, to offer a discount for a yearly basis subscription to increase your customer commitment.
 
 :::warning Attention
 If you want to offer multiple billing periods you must [handle the plan selection by yourself](../4-handle-plan-selection/README.md) as this configuration is not handled by our plan selection screen.
@@ -12,6 +12,15 @@ If you want to offer multiple billing periods you must [handle the plan selectio
 
 :::warning Attention
 Solution Engineer at PrestaShop must enable enable multiple billing periods for product. So please get in touch with them before starting your module implementation.
+:::
+
+## Supported billing period 
+
+* monthly (`month`): your customer pay every month for your product, at each renewal a new invoice is generated.
+* yearly (`year`): your customer pay once a year for your product, at each renewal a new invoice is generated.
+
+:::tip Note
+Currently, it's not possible to charge your customer on a monthly basis with a annual commitment.
 :::
 
 ## Add radio button to choose the billing period
