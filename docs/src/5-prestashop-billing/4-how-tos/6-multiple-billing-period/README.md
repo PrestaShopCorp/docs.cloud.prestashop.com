@@ -20,7 +20,7 @@ Solution Engineer at PrestaShop must enable enable multiple billing periods for 
 * yearly (`year`): your customer pay once a year for your product, at each renewal a new invoice is generated.
 
 :::tip Note
-Currently, it's not possible to charge your customer on a monthly basis with a annual commitment.
+Currently, it's not possible to charge your customer on a monthly basis with annual commitment.
 :::
 
 ## Add radio button to choose the billing period
