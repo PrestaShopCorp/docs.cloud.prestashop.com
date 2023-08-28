@@ -11,7 +11,7 @@ The billing funnel can handle for you the plan selection, but sometimes you may 
 In such a case you should provide to the billing context the selected plan, and if applicable the quantity associated with.
 
 :::warning Attention
-When you handle the plan selection by yourself, we recommend you to retrieve the [subscription in PHP](../5-retrieve-subscription/README.md) to know if you must displayed the plan selection or the subscription during billing-cdc bootstrap.
+When you handle the plan selection by yourself, we recommend you to retrieve the [subscription in PHP](../5-retrieve-subscription/README.md) to know if you must display the plan selection or the subscription during billing-cdc bootstrap.
 :::
 
 ## Add plan selection
@@ -40,10 +40,10 @@ This is a simple working example that is purposefully basic, you can make the co
 
 2. Retrieve plan pricing from Billing API and inject it into your template
 
-Billing will not provide the name of the plans and the list of features, it'so you must provide it to manage your display in your module
+Billing will not provide the name of the plans and the list of features, you must provide it to manage your display in your module
 
 :::tip Note
-For plan id, please get in touch with your Solution Engineer at PrestaShop.
+For plan ID, please get in touch with your Solution Engineer at PrestaShop.
 :::
 
 

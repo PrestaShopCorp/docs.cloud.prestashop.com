@@ -1,23 +1,23 @@
 ---
-title: Multiple billing period
+title: Multiple billing periods
 ---
 
-# Multiple billing period
+# Multiple billing periods
 
-You may want to provide different billing period to your customer, in order to offer a discount for yearly basis subscription. 
+You may want to provide different billing periods to your customers, for example, to offer a discount for a yearly basis subscription to increase your customer commitment. 
 
 :::warning Attention
-If you want to offer multiple billing period you must [handle the plan selection by yourself](../4-handle-plan-selection/README.md) as this configuration is not handled by our plan selection screen.
+If you want to offer multiple billing periods you must [handle the plan selection by yourself](../4-handle-plan-selection/README.md) as this configuration is not handled by our plan selection screen.
 :::
 
 ## Add radio button to choose the billing period
 
 ### 1. Add Puik to your UI.
 
-In order to follow the PrestaShop design guideline, you should import [Puik](https://www.npmjs.com/package/@prestashopcorp/puik) to your module. 
+To follow the PrestaShop design guideline, you should import [Puik](https://www.npmjs.com/package/@prestashopcorp/puik) to your module. 
 
 :::tip Note
-In this guide we will use the CSS version of the library, but you're allowed to use the Vue version.
+In this guide, we will use the CSS version of the library, but you're allowed to use the Vue version.
 :::
 
 Import the CSS in `views/templates/admin/configure.tpl`
@@ -32,12 +32,12 @@ Import the CSS in `views/templates/admin/configure.tpl`
 
 ### 2. Add Monthly / Yearly radio buttons
 
-First of all you should add the radio button in the HTML
+First of all, you should add the radio button in the HTML
 
    ```html{6-15}
       <prestashop-accounts></prestashop-accounts>
 
-      <!-- You should use the billing plan library in order to display your plan -->
+      <!-- You should use the billing plan library to display your plan -->
       <section id="billing-plan-selection" style="display:none">
         <h2>Select your plan</h2>
         <fieldset>
@@ -59,7 +59,7 @@ First of all you should add the radio button in the HTML
 
 ### 3. Filter plans by billing period
 
-In order to only display plan with the selected billing period, you may use CSS filters. Add a css class containing the billing period in the name, and hide yearly components.
+As you will now retrieve monthly and yearly plans, you should want to only display plans with the selected billing period. We recommend to use CSS filters. Add a CSS class containing the billing period in the name, and hide yearly components.
 
    ```html{71,72}
       <!-- You should use the billing plan library in order to display your plan -->
@@ -98,7 +98,7 @@ In order to only display plan with the selected billing period, you may use CSS 
 
 ### 4. React when billing period changes
 
-You should react when your customer click on billing period selection and hide the component which does not match the selected billing period.
+You should react when your customer clicks on billing period selection and hide the component which does not match the selected billing period.
 
    ```html{113n124}
       <fieldset>
@@ -128,7 +128,7 @@ You should react when your customer click on billing period selection and hide t
       </fieldset>
   ```
 
-Here is en example of `changeBillingPeriod` implementation to display the plans according to the billing period. You should add this method in `views/js/configure.js`.
+Here is an example of `changeBillingPeriod` implementation to display the plans according to the billing period. You should add this method in `views/js/configure.js`.
 
    ```javascript
     /**
