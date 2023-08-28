@@ -10,6 +10,10 @@ The billing funnel can handle for you the plan selection, but sometimes you may 
 
 In such a case you should provide to the billing context the selected plan, and if applicable the quantity associated with.
 
+:::warning Attention
+When you handle the plan selection by yourself, we recommend you to retrieve the [subscription in PHP](../5-retrieve-subscription/README.md) to know if you must displayed the plan selection or the subscription during billing-cdc bootstrap.
+:::
+
 ## Add plan selection
 
 You should add your plan presentation in the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`). In order to handle plan selection by yourself, you must use the subscription management component and the checkout modal instead of the `window.psBilling.initialize` method.
@@ -22,13 +26,13 @@ This is a simple working example that is purposefully basic, you can make the co
 
 1. Create a JS file in your module: `views/js/configure.js` and inject it into `<module_name>.php` file.
 
-   ```php{43-56,77-78}
+   ```php{6}
       public function getContent()
       {
         // ...
         $this->context->smarty->assign([
           // ...
-          'urlConfigureJs' => $this->getPathUri() . 'views/js/ configure.js',
+          'urlConfigureJs' => $this->getPathUri() . 'views/js/configure.js',
         ]);
         // ...
       }
@@ -36,7 +40,14 @@ This is a simple working example that is purposefully basic, you can make the co
 
 2. Retrieve plan pricing from Billing API and inject it into your template
 
-   ```php{43-56,77-78}
+Billing will not provide the name of the plans and the list of features, it'so you must provide it to manage your display in your module
+
+:::tip Note
+For plan id, please get in touch with your Solution Engineer at PrestaShop.
+:::
+
+
+   ```php{13-49}
       public function getContent()
       {
         // ...
@@ -56,7 +67,33 @@ This is a simple working example that is purposefully basic, you can make the co
         // We test here the presence of the items property in the response's body.
         if (!empty($productComponents['body']['items']))
         {
-          $componentItems = $productComponents['body']['items'];
+          // You need to retrieve plan information from your API or Class or Array like this
+          // For plan id, please get in touch with your Solution Engineer at PrestaShop.
+          $planInfos = [
+              [
+                  "id" => "<module_name>_free",
+                  "name" => '<module_name> Free',
+                  "features" => [],
+              ],
+              [
+                  "id" => "<module_name>_advanced",
+                  "name" => '<module_name> Advanced',
+                  "features" => [],
+              ],
+              [
+                  "id" => "<module_name>_ultimate",
+                  "name" => '<module_name> Ultimate',
+                  "features" => [],
+              ]
+          ];
+
+          // Sorts you plans informations and plans from Billing API
+          // to be sure to have the same order
+          array_multisort(array_column($planInfos, 'id'), SORT_ASC, $planInfos);
+          array_multisort(array_column($componentItems, 'id') , SORT_ASC, $componentItems);
+
+          // Merge plans from Billing API with your plans informations
+          $componentItems =  array_replace_recursive($planInfos, $componentItems);
         }
 
         // Allow the use of $componentItems in your tpl file
@@ -68,47 +105,8 @@ This is a simple working example that is purposefully basic, you can make the co
       }
    ```
 
-3. Retrieve plan pricing from Billing API and inject it into your template
 
-Billing will no longer manage the name of the plans and the list of features, so you must provide it to manage your display in your module
-
-:::tip Note
-For plan id, please get in touch with your Solution Engineer at PrestaShop.
-:::
-
-```php{43-56,77-78}
-     // ...
-     if (!empty($productComponents['body']['items']))
-     {
-       // You need to retrieve plan information from your API or Class or Array like this
-       // For plan id, please get in touch with your Solution Engineer at PrestaShop.
-       $planInfos = [
-           [
-               "id" => "<module_name>_free",
-               "name" => '<module_name> Free',
-           ],
-           [
-               "id" => "<module_name>_advanced",
-               "name" => '<module_name> Advanced',
-           ],
-           [
-               "id" => "<module_name>_ultimate",
-               "name" => '<module_name> Ultimate',
-           ]
-       ];
-
-       // Sorts you plans informations and plans from Billing API
-       // to be sure to have the same order
-       array_multisort(array_column($planInfos, 'id'), SORT_ASC, $planInfos);
-       array_multisort(array_column($componentItems, 'id') , SORT_ASC, $componentItems);
-
-       // Merge plans from Billing API with your plans informations
-       $componentItems =  array_replace_recursive($planInfos, $componentItems);
-     }
-     // ...
-```
-
-4. Inject `views/js/configure.js` as a script in `views/templates/admin/configure.tpl`
+3. Inject `views/js/configure.js` as a script in `views/templates/admin/configure.tpl`
 
    ```html{7}
    <prestashop-accounts></prestashop-accounts>
@@ -122,7 +120,7 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
 
 5. Implement `views/js/configure.js` to make billing works with the component instead of the `initialize` method
 
-   ```javascript
+   ```javascript{8-14,18-20,22-33,35-42}
    window?.psaccountsVue?.init();
 
    let billingContext = { ...window.psBillingContext.context };
@@ -173,7 +171,7 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
 
 6. Display your plan in your module and hide the subscription management in `views/templates/admin/configure.tpl`
 
-   ```html{4-23}
+   ```html{4-32}
       <prestashop-accounts></prestashop-accounts>
 
       <!-- You should use the billing plan library in order to display your plan -->
@@ -215,7 +213,7 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
 
 7. Display the checkout modal when your user click on the plan selection button
 
-   ```javascript{6,10-11,25,50-81}
+   ```javascript{14,52,55,60-74}
     window?.psaccountsVue?.init();
 
     let billingContext = { ...window.psBillingContext.context }
@@ -293,6 +291,8 @@ For plan id, please get in touch with your Solution Engineer at PrestaShop.
    ```
 
    <!-- TODO: add information about the plan-billing components -->
+
+
 
 ## Handle plan change / select button
 
