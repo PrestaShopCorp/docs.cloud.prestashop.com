@@ -12,7 +12,7 @@ title: Stairstep pricing model
 This tutorial assumes that you have already familiarized yourself with our [webhook system](../3-tutorial/README.md#responding-to-our-webhooks), which is necessary to implement the [second part](#second-step-updating-the-subscription-via-api) of this tutorial.
 :::
 
-## Provide the unit of each steps
+## Provide steps quantity unit
 
 As stairstep plan requires a unit to operate, you should pass that information during the initialization of `window.psBilling`, like so:
 

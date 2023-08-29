@@ -33,13 +33,17 @@ To follow the PrestaShop design guideline, you should import [Puik](https://www.
 In this guide, we will use the CSS version of the library, but you're allowed to use the Vue version.
 :::
 
+:::tip Note
+Puik is not mandatory, but you must follow the PrestaShop's design system. Puik will help you to achieve that.
+:::
+
 Import the CSS in `views/templates/admin/configure.tpl`
 
 ```html{4}
   <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
   <script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel=preload></script>
   <script src="{$urlConfigureJs|escape:'htmlall':'UTF-8'}" rel=preload></script>
-  <link src="https://unpkg.com/@prestashopcorp/puik/dist/index.css" rel=preload as="style"/>
+  <link rel="stylesheet" href="https://unpkg.com/@prestashopcorp/puik/dist/index.css" />
 ```
 
 
@@ -53,14 +57,14 @@ First of all, you should add the radio button in the HTML
   <!-- You should use the billing plan library to display your plan -->
   <section id="billing-plan-selection" style="display:none">
     <h2>Select your plan</h2>
-    <fieldset>
-      <div class="puik-radio__group">
+    <fieldset style="display:flex;gap:16px;justify-content:center;margin-bottom:16px;">
+      <div class="puik-radio">
         <input class="puik-radio__input" type="radio" id="monthly" name="billingPeriod" value="monthly" checked />
-        <label for="monthly">Monthly</label>
+        <label class="puik-radio__label" for="billing-period-unit-month" >Monthly</label>
       </div>
-      <div class="puik-radio__group">
+      <div class="puik-radio">
         <input class="puik-radio__input" type="radio" id="yearly" name="billingPeriod" value="yearly" />
-        <label for="yearly">Yearly</label>
+        <label class="puik-radio__label" for="billing-period-unit-year">Yearly</label>
       </div>
     </fieldset>
     <div style="width: 500px; display:flex">
@@ -74,7 +78,7 @@ First of all, you should add the radio button in the HTML
 
 As you will now retrieve monthly and yearly plans, you should want to only display plans with the selected billing period. We recommend to use CSS filters. Add a CSS class containing the billing period in the name, and hide yearly components.
 
-```html{71,72}
+```html{7-8}
 <!-- You should use the billing plan library in order to display your plan -->
 <section id="billing-plan-selection" style="display:none">
   <h2>Select your plan</h2>
@@ -82,7 +86,8 @@ As you will now retrieve monthly and yearly plans, you should want to only displ
     {foreach $componentItems as $item}
       <div 
         class="billing-plan--{$item['billingPeriodUnit']}" 
-        style="border: 1px solid;padding: 2rem;text-align:center;margin-left:1rem;{if $item['billingPeriodUnit'] == 'year'}display:none;{/if}">
+        style="border: 1px solid;padding: 2rem;text-align:center;margin-left:1rem;{if $item['billingPeriodUnit'] == 'year'}display:none;{/if}"
+      >
         <h3 style="font-weight: bold;margin-bottom: 1rem;">{$item['name']}</h3>
 
         <!-- Pricing information must be retrieved from billing API -->
@@ -113,22 +118,22 @@ As you will now retrieve monthly and yearly plans, you should want to only displ
 
 You should react when your customer clicks on billing period selection and hide the component which does not match the selected billing period.
 
-```html{113n124}
-<fieldset>
-  <div class="puik-radio__group">
-    <input 
+```html{10,21}
+<fieldset style="display:flex;gap:16px;justify-content:center;margin-bottom:16px;">
+  <div class="puik-radio" style="gap:4px;">
+    <input
       class="puik-radio__input"
-      type="radio" 
-      id="billing-period-unit-month" 
-      name="billing-period-unit" 
-      value="month" 
-      checked 
+      type="radio"
+      id="billing-period-unit-month"
+      name="billing-period-unit"
+      value="month"
+      checked
       onclick="changeBillingPeriod('month')"
     />
-    <label for="monthly">Monthly</label>
+    <label class="puik-radio__label" for="billing-period-unit-month" >Monthly</label>
   </div>
-  <div class="puik-radio__group">
-    <input 
+  <div class="puik-radio" style="gap:4px;">
+    <input
       class="puik-radio__input"
       type="radio"
       id="billing-period-unit-year"
@@ -136,7 +141,7 @@ You should react when your customer clicks on billing period selection and hide 
       value="year"
       onclick="changeBillingPeriod('year')"
     />
-    <label for="yearly">Yearly</label>
+    <label class="puik-radio__label" for="billing-period-unit-year">Yearly</label>
   </div>
 </fieldset>
 ```
@@ -150,12 +155,12 @@ Here is an example of `changeBillingPeriod` implementation to display the plans 
 function changeBillingPeriod(period) {
   switch (period) {
     case 'year':
-      changeDisplayForAllElements('billing-plan--month', 'none');
-      changeDisplayForAllElements('billing-plan--year', 'block');
+      changeDisplayForAllElements('.billing-plan--month', 'none');
+      changeDisplayForAllElements('.billing-plan--year', 'block');
       break
     case 'month':
-      changeDisplayForAllElements('billing-plan--year', 'none');
-      changeDisplayForAllElements('billing-plan--month', 'block');
+      changeDisplayForAllElements('.billing-plan--year', 'none');
+      changeDisplayForAllElements('.billing-plan--month', 'block');
       break;
     default:
       console.error(`The selected period (period=${period}) can't be handled.`);

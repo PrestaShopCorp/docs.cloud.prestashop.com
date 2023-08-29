@@ -79,7 +79,7 @@ Here is a working example. Refer to the comments for more information.
 </script>
 ```
 
-## Implement your cancellation method
+## Implement cancellation method
 
 Once you have switched from `window.psBilling.initialize` method to the subscription management component, you should implement your own cancellation method. Here is a simple example that use the `confirm()` method of JavaScript. In your case you should use your own modal system.
 
