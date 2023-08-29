@@ -47,7 +47,7 @@ For plan ID, please get in touch with your Solution Engineer at PrestaShop.
 :::
 
 
-   ```php{13-49}
+   ```php{13-59}
       public function getContent()
       {
         // ...
