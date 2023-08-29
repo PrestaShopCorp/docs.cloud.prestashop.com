@@ -10,7 +10,7 @@ The billing funnel can handle for you the plan selection, but sometimes you may 
 
 In such a case you should provide to the billing context the selected plan, and if applicable the quantity associated with.
 
-:::warning Attention
+:::warning Warning
 When you handle the plan selection by yourself, we recommend you to retrieve the [subscription in PHP](../5-retrieve-subscription/README.md) to know if you must display the plan selection or the subscription during billing-cdc bootstrap.
 :::
 

@@ -1,10 +1,10 @@
 ---
-title:  Retrieve your customer subscription
+title: Retrieve customer's subscription
 ---
 
 [[toc]]
 
-# Retrieve your customer subscription
+# Retrieve customer's subscription
 
 In case you want to have a specific display when your customer already has a subscription or you handle the plan selection by yourself, you need to know if the customer already has a subscription. You can achieve this with our PHP library [`module-lib-billing`](https://packagist.org/packages/prestashopcorp/module-lib-billing).
 
