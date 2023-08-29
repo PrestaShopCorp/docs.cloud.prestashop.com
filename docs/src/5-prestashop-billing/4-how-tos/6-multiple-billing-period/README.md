@@ -13,7 +13,7 @@ If you want to offer multiple billing periods you must [handle the plan selectio
 :::
 
 :::warning Attention
-Solution Engineer at PrestaShop must enable enable multiple billing periods for product. So please get in touch with them before starting your module implementation.
+Solution Engineers at PrestaShop must enable multiple billing periods for your product. So please get in touch with them before starting your module implementation.
 :::
 
 ## Supported billing periods
