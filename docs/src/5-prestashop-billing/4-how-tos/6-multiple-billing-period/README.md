@@ -169,7 +169,7 @@ function changeBillingPeriod(period) {
 
 /**
  * @param {string} cssSelector - CSS selector to select the elements to hide
- * @param {("block"|"none")} displayValue - Value to set in style.display, we only mention "block" and "none", but all valid value are allowed
+ * @param {("block"|"none")} displayValue - Value to set in style.display, we only mention "block" and "none", but all valid CSS values are allowed
  */
 function changeDisplayForAllElements(cssSelector, displayValue) {
   const elements = document.querySelectorAll(cssSelector)
