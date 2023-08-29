@@ -1,16 +1,22 @@
-# Implementing a Stairstep pricing model
+---
+title: Stairstep pricing model
+---
 
-[Our main Tutorial](../3-tutorial/README.md) presented you with the required steps to implement any of our supported pricing models, but more informations are needed in the [context](#context) for a Stairstep pricing model, which will be explained by this tutorial.
+[[toc]]
+
+# Stairstep pricing model
+
+[Our main Tutorial](../3-tutorial/README.md) presented you with the required steps to implement any of our supported pricing models, but more informations are needed in the [context](#context) for a stairstep pricing model, which will be explained by this tutorial.
 
 :::warning
 This tutorial assumes that you have already familiarized yourself with our [webhook system](../3-tutorial/README.md#responding-to-our-webhooks), which is necessary to implement the [second part](#second-step-updating-the-subscription-via-api) of this tutorial.
 :::
 
-## First step: Implementing it in the module
+## Provide the unit of each steps
 
-As Stairstep requires a unit to operate, you should pass that information during the initialization of `window.psBilling`, like so:
+As stairstep plan requires a unit to operate, you should pass that information during the initialization of `window.psBilling`, like so:
 
-```js
+```html{2-7}
 <script>
   const context = { ...window.psBillingContext.context, product: { components: [
     {
@@ -21,18 +27,7 @@ As Stairstep requires a unit to operate, you should pass that information during
   window.psBilling.initialize(context, '#ps-billing', '#ps-modal', (type, data) => {
       // Event hook listener
       switch (type) {
-        // Hook triggered when the subscription is created
-          case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED:
-              console.log('subscription created', data);
-              break;
-        // Hook when the subscription is updated
-          case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
-              console.log('subscription updated', data);
-            break;
-        // Hook triggered when the subscription is cancelled
-          case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CANCELLED:
-              console.log('subscription cancelled', data);
-              break;
+        // ...
       }
   });
 </script>
@@ -45,9 +40,9 @@ Here are two example of how this `unitDescription` property renders in Billing c
 
 The `id` property should have been communicated to you beforehand (as the [subscription item](../2-concepts/README.md#subscription-item) id, which can also be found in our webhook [subscription events.](../6-references/1-webhook/README.md#subscription))
 
-## Second step: Updating the subscription via API
+## Update the quantity using Billing API
 
-Since a Stairstep pricing model requires the update of the unit per subscription before the renewal of said subscription, we provide an endpoint to do so:
+Since a stairstep pricing model requires the update of the unit per subscription before the renewal of said subscription, we provide an endpoint to do so:
 
 `https://api.billing.prestashop.com/v1/subscriptions/{subscriptionId}/items/{subscriptionItemId}/quantity`
 
@@ -61,7 +56,7 @@ A typical request could look like this:
 <CodeSwitcher :languages="{js:'JavaScript',php:'Php'}">
 <template v-slot:js>
 
-```js
+```javascript
 // Replace {subscriptionId} and {subscriptionItemId}
 const url =
   "https://api.billing.prestashop.com/v1/subscriptions/{subscriptionId}/items/{subscriptionItemId}/quantity";
