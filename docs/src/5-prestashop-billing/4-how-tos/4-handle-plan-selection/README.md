@@ -64,36 +64,48 @@ For plan ID, please get in touch with your Solution Engineer at PrestaShop.
         $productComponents = $billingService->getProductComponents();
 
         $componentItems = [];
-        // We test here the presence of the items property in the response's body.
         if (!empty($productComponents['body']['items']))
         {
+          $componentItemsTmp = $productComponents['body']['items'];
           // You need to retrieve plan information from your API or Class or Array like this
           // For plan id, please get in touch with your Solution Engineer at PrestaShop.
+          // Values "moduleid-plana" and "moduleid-planb" must be replaced by the component id
+          // returned by $billingService->getProductComponents();
           $planInfos = [
               [
-                  "id" => "<module_name>_free",
-                  "name" => '<module_name> Free',
-                  "features" => [],
+                "component_ids" => ["moduleid-plana-EUR-Monthly", "moduleid-plana-EUR-Yearly"],
+                "name" => "Plan A",
+                "features" => [
+                  "Plan A Feature 1",
+                  "Plan A Feature 2",
+                  "Plan A Feature 3"
+                ]
               ],
               [
-                  "id" => "<module_name>_advanced",
-                  "name" => '<module_name> Advanced',
-                  "features" => [],
-              ],
-              [
-                  "id" => "<module_name>_ultimate",
-                  "name" => '<module_name> Ultimate',
-                  "features" => [],
+                  "component_ids" => ["moduleid-planb-EUR-Monthly", "moduleid-planb-EUR-Yearly"],
+                  "name" => "Ultimate",
+                  "features" => [
+                    "All features from Plan A, plus...",
+                    "Plan B Feature 1",
+                    "Plan B Feature 2"
+                  ]
               ]
           ];
 
-          // Sorts you plans informations and plans from Billing API
-          // to be sure to have the same order
-          array_multisort(array_column($planInfos, 'id'), SORT_ASC, $planInfos);
-          array_multisort(array_column($componentItems, 'id') , SORT_ASC, $componentItems);
+          foreach($planInfos as $planInfo) {
+            foreach($planInfo["component_ids"] as $component_id) {
+              $componentItemIndex = array_search($component_id, array_column($componentItemsTmp, 'id'));
+              if($componentItemIndex !== false) {
+                $componentItemsTmp[$componentItemIndex]['details'] = [
+                  "features" => $planInfo['features'],
+                  "name" => $planInfo['name'],
+                ];
 
-          // Merge plans from Billing API with your plans informations
-          $componentItems =  array_replace_recursive($planInfos, $componentItems);
+                // We store only components that are referenced in $planInfos, and keep the order from $planInfos
+                array_push($componentItems, $componentItemsTmp[$componentItemIndex]);
+              }
+            }
+          }
         }
 
         // Allow the use of $componentItems in your tpl file
