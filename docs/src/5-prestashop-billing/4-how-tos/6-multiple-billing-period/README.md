@@ -16,6 +16,10 @@ If you want to offer multiple billing periods you must [handle the plan selectio
 Solution Engineers at PrestaShop must enable multiple billing periods for your product. So please get in touch with them before starting your module implementation.
 :::
 
+:::warning Warning
+PrestaShop billing doesn't support a plan change and a billing period change at the same time. Your interface should take care of this. This documentation doesn't provide a working example of that.
+:::
+
 ## Supported billing periods
 
 * monthly (`month`): your customer pay every month for your product, at each renewal a new invoice is generated.
@@ -47,7 +51,7 @@ Import the CSS in `views/templates/admin/configure.tpl`
 ```
 
 
-## Add Monthly / Yearly radio buttons
+## Add monthly / yearly selector
 
 First of all, you should add the radio button in the HTML
 
