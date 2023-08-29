@@ -21,7 +21,7 @@ If you're not sure about some piece of code, do not hesitate to contact our team
 ### Webhook
 
 When a change happens on the PrestaShop Billing API, you will be notified via a [webhook system](https://en.wikipedia.org/wiki/Webhook).
-These events follow the subscription lifecycle below, and are detailed in our [reference](../5-references/1-webhook/README.md#).
+These events follow the subscription lifecycle below, and are detailed in our [reference](../6-references/1-webhook/README.md#).
 
 ### Subscription lifecycle
 
@@ -46,7 +46,7 @@ The subscription items are the pricing applied to the subscription with sometime
 
 ## Product
 
-A product is what is sold, it can be a Built For PrestaShop, the PrestaShop Edition, or any other service. A product is defined by a unique ID, a description, a list of offers (could be 1) and is owned by one or many PrestaShop account / Organization. 
+A product is what is sold, it can be a Built For PrestaShop, the PrestaShop Edition, or any other service. A product is defined by a unique ID, a description, a list of offers (could be 1) and is owned by one or many PrestaShop account / Organization.
 
 ## Billing Period
 
