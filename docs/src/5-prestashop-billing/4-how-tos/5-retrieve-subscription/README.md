@@ -1,6 +1,12 @@
-# Retrieve your customer subscription in PHP to change the display
+---
+title: Retrieve customer's subscription
+---
 
-In some cases, you want to have more control over the display of your module to be more precise about your offer.
+[[toc]]
+
+# Retrieve customer's subscription
+
+In case you want to have a specific display when your customer already has a subscription or you handle the plan selection by yourself, you need to know if the customer already has a subscription. You can achieve this with our PHP library [`module-lib-billing`](https://packagist.org/packages/prestashopcorp/module-lib-billing).
 
 ## Add retrieve subscription
 

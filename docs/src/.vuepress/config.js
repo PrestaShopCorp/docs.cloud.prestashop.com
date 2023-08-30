@@ -95,6 +95,8 @@ module.exports = {
               '/5-prestashop-billing/4-how-tos/2-display-invoice-pane/',
               '/5-prestashop-billing/4-how-tos/3-customize-cancellation/',
               '/5-prestashop-billing/4-how-tos/4-handle-plan-selection/',
+              '/5-prestashop-billing/4-how-tos/5-retrieve-subscription/',
+              '/5-prestashop-billing/4-how-tos/6-multiple-billing-period/',
             ],
           },
           {

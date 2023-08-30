@@ -1,22 +1,28 @@
-# Display the Invoice Pane
+---
+title: Invoice pane
+---
+
+[[toc]]
+
+# Invoice pane
 
 You can choose to add the following invoice pane at the location of your choice within your module:
 
 ![PrestaShop Billing Invoice Pane](/assets/images/billing/ps_billing_invoice_pane.jpg)
 
-To do so:
+## Add in your DOM the invoice pane locator
 
-1. Access the file corresponding to the location where you want to display the pane (for example, a template file).
+Access the file corresponding to the location where you want to display the pane (for example, a template file), then add the following code to display the pane.
 
-2. Add the following code to display the pane:
-
-```js
+```javascript
 <div id="ps-billing-invoice"></div>
 ```
 
-3. Add the following code to load the JavaScript information:
+## Initialize the invoice component 
 
-```js
+Add the following code to load the component.
+
+```javascript
 window.psBilling.initializeInvoiceList(
   window.psBillingContext.context,
   "#ps-billing-invoice"

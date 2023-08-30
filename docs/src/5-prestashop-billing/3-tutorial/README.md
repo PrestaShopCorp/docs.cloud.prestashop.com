@@ -309,5 +309,9 @@ Note that if your endpoint does not return a `2xx` HTTP status, our webhooks wil
 ## Next Steps
 
 - Explore advanced topics such as:
-  - [Implementing a Stairstep pricing model](../4-how-tos/1-stairstep/README.md)
-  - [Display the Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md)
+  - [Stairstep pricing model](../4-how-tos/1-stairstep/README.md)
+  - [Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md)
+  - [Cancellation workflow](../4-how-tos/3-customize-cancellation/README.md)
+  - [Handle plan selection by yourself](../4-how-tos/4-handle-plan-selection/README.md)
+  - [Retrieve customer's subscription](../4-how-tos/5-retrieve-subscription/README.md)
+  - [Multiple billing periods](../4-how-tos/6-multiple-billing-period/README.md)
