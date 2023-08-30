@@ -41,13 +41,10 @@ In this guide, we will use the CSS version of the library, but you're allowed to
 Puik is not mandatory, but you must follow the PrestaShop's design system. Puik will help you to achieve that.
 :::
 
-Import the CSS in `views/templates/admin/configure.tpl`
+Import the CSS in `<module_name>.php`.
 
-```html{4}
-  <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
-  <script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel=preload></script>
-  <script src="{$urlConfigureJs|escape:'htmlall':'UTF-8'}" rel=preload></script>
-  <link rel="stylesheet" href="https://unpkg.com/@prestashopcorp/puik/dist/index.css" />
+```php{1}
+    $this->context->controller->addCSS('https://unpkg.com/@prestashopcorp/puik/dist/index.css', 'all');
 ```
 
 
