@@ -192,10 +192,6 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
        }
    ```
 
-   :::warning
-   Starting from version `3.1.0`, `module-lib-billing` underwent a few minor changes that **can** impact your implementation. `tosLink` and `privacyLink` have been changed to `tosUrl` and `privacyUrl` as shown in the code excerpt above.
-   :::
-
 2. The presenter will serve some context informations. Set the following parameters:
 
    | Attribute    | Type   | Description                                                         |
