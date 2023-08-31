@@ -26,8 +26,10 @@ Modifiable properties may be modified via the use of the `present` method of the
 ```php
 $billingFacade->present([
     'logo' => $partnerLogo,
-    'tosUrl' => 'https://yoururl/',
-    'privacyUrl' => 'https://yoururl/',
+    'tosLink' => 'https://yoururl/',
+    'privacyLink' => 'https://yoururl/',
+    // This field is deprecated, but must be provided to ensure backward compatibility
+    'emailSupport' => ''
 ]
 ```
 :::
@@ -63,38 +65,3 @@ For example `organization.uuid` translates to `{ organization: { uuid: '' } }`
 | product.privacyUrl   | string  | A link to the privacy rules partaining to the product | Yes        |
 | product.tosUrl       | string  | A link to the tos partaining to the product           | Yes        |
 
-## Changelog
-
-:::tip
-**Version `3.1.0`**
-
-Introduces breaking changes to the context.
-
-For modifiable properties: 
-- `tosLink` becomes `tosUrl`.
-- `privacyLink` becomes `privacyUrl`.
-- `emailSupport` is removed.
-
-If you used properties of the context for your implementation, you should check against the full table [below](#context) before updating to this new version.
-
-Now:
-```php{4-5}
-// PrestaShop Billing
-Media::addJsDef($billingFacade->present([
-    'logo' => $partnerLogo,
-    'tosUrl' => 'https://yoururl/',
-    'privacyUrl' => 'https://yoururl/',
-]));
-```
-
-Before:
-```php{4-5}
-// PrestaShop Billing
-Media::addJsDef($billingFacade->present([
-    'logo' => $partnerLogo,
-    'tosLink' => 'https://yoururl/',
-    'privacyLink' => 'https://yoururl/',
-]));
-```
-See [the tutorial](../../3-tutorial/README.md#inject-the-prestashop-billing-context) to see the changes in context.
-:::

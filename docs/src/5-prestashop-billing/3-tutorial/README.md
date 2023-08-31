@@ -179,8 +179,10 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
            // PrestaShop Billing
            Media::addJsDef($billingFacade->present([
              'logo' => $partnerLogo,
-             'tosUrl' => 'https://yoururl/',
-             'privacyUrl' => 'https://yoururl/',
+             'tosLink' => 'https://yoururl/',
+             'privacyLink' => 'https://yoururl/',
+             // This field is deprecated, but must be provided to ensure backward compatibility
+             'emailSupport' => ''
            ]));
 
            $this->context->smarty->assign('urlBilling', "https://unpkg.com/@prestashopcorp/billing-cdc/dist/bundle.js");
