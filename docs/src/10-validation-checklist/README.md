@@ -39,7 +39,7 @@ If you want to add columns to an existing table, the workaround is to create a n
 
 Modifying core or other modules files is not allowed.
 
-#### Files are stored in the proper directory
+#### :up: Files are stored in the proper directory
 
 Module may add/modify some files on the store. To avoid issues with file permissions, we recommend storing files in the `var/%env%` directory. If you want to store files in the module folder, you must ensure that the rights are correct, and inform the merchants if this is not the case, so that they can make the necessary arrangements.
 
@@ -85,7 +85,7 @@ We examine every SQL request to make sure you cast your variables.
     $sql = 'SELECT * FROM ' . DB_PREFIX . 'orders WHERE id_order = ' . $this->id_order ;
     ```
 
-- Use `array_map` for arrays.
+- :new: Use `array_map` for arrays.
 
     Use this:
     ```sql
@@ -108,12 +108,12 @@ If you used PHP files to handle ajax or external calls, make sure to secure them
 
 Using `serialize()` / `unserialize()` is forbidden, as they is a security risk if you do not control the data going through these methods. They may lead to remote code execution, so we recommend using `json_encode()` / `json_decode()` instead.
 
-#### An `.htaccess` file exists in the root folder of the module
+#### :new: An `.htaccess` file exists in the root folder of the module
 
-To prevent someone from listing the files of the module, an `.htaccess` file must be present in the root folder.
+To prevent someone from listing the files of the module, and direct execution of PHP files, an `.htaccess` file must be present in the root folder.
 
-:::warning Important
-If you use cron.php or ajax.php files in your module, you should use a front controller to manage this instead: [see documentation here](https://devdocs.prestashop-project.org/8/modules/concepts/controllers/front-controllers/#using-a-front-controller-as-a-cron-task).
+:::warning IMPORTANT
+:warning: If you use cron.php or ajax.php files in your module, you should use a front controller to manage this instead: [see documentation here](https://devdocs.prestashop-project.org/8/modules/concepts/controllers/front-controllers/#using-a-front-controller-as-a-cron-task).
 :::
 
 Example :
@@ -149,7 +149,7 @@ if (!defined('_PS_VERSION_')) {
 }
 ```
 
-#### Smarty variables are escaped
+#### :up: Smarty variables are escaped
 
 All the Smarty variables present in TPL files have to be escaped, to avoid malicious code to be displayed.
 
@@ -173,6 +173,10 @@ instead of this:
 {$variable}
 ```
 
+::: warning
+:warning: In some cases, you will have to use `|nofilter` to escape your variables. This is strongly discouraged, and will be analysed on a case-by-case basis by our teams. This may pose security problems (XSS vulnerability).
+:::
+
 #### The archive contains only one module
 
 Modules embedded in another one are difficult to review and cannot have their own release process. All modules must be uploaded to the PrestaShop Marketplace separately, even if they only work together.
@@ -184,7 +188,7 @@ To prevent someone from reaching the content of a repository, an `index.php` fil
 As we deal with [security risks](https://devdocs.prestashop-project.org/8/modules/creation/#keeping-things-secure) in some environments, we strongly recommend you comply with this rule. An ["autoindex" tool](https://github.com/jmcollin/autoindex) allows you to add one in each folder.
 
 :::tip Note
-This rule does not apply to the vendor/ folder and its subfolders, which are managed by composer.
+:new: This rule does not apply to the vendor/ folder and its subfolders, which are managed by composer.
 :::
 
 #### HTML code ss Written in templates files
@@ -344,7 +348,7 @@ Generated files such as log files, invoice or other documents in PDFs etc. shoul
 * are not needed to run the module,
 * could contain personal information.
 
-#### Deleting a file when updating a module
+#### :new: Deleting a file when updating a module
 
 If, during an update of the module, a file is no longer required and is therefore deleted, PrestaShop will not do this automatically. You must anticipate this by using the `unlink()` function in the update file. See documentation [here](https://devdocs.prestashop-project.org/8/modules/creation/enabling-auto-update/) about modules update.
 
