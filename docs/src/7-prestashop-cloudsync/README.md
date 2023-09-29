@@ -139,10 +139,12 @@ To allow the merchant to share their data with your services, you have to pair y
   - `categories`: The list of product categories of the shop (read only)
   - `currencies`: The list of currencies available in the shop (read only)
   - `customers`: The anonymized list of the shop customers (read only)
+  - `manufacturers`: The list of the shop brands (read only)
   - `orders`: Information about orders placed on the shop (read only)
   - `products`: The list of products available on the shop (read only)
   - `stocks`: The list of stocks and associated movements on the shop (read only)
-  - `stores`: The list of stores on the shop (read only)
+  - `stores`: The list of stores available on the shop (read only)
+  - `suppliers`: The list of suppliers available on the shop (read only)
   - `taxonomies`: Advanced categories available on the shop (read only)
   - `wishlists`: The anonymized wishlists of the customers (read only)
 
