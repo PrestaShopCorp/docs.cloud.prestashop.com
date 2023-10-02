@@ -43,7 +43,7 @@ This is a simple working example that is purposefully basic, you can make the co
 Billing will not provide the name of the plans and the list of features, you must provide it to manage your display in your module
 
 :::tip Note
-For plan ID, please get in touch with your Solution Engineer at PrestaShop.
+For component group id, please get in touch with your Solution Engineer at PrestaShop.
 :::
 
 
@@ -73,7 +73,7 @@ For plan ID, please get in touch with your Solution Engineer at PrestaShop.
           // returned by $billingService->getProductComponents();
           $planInfos = [
               [
-                "component_ids" => ["moduleid-plana-EUR-Monthly", "moduleid-plana-EUR-Yearly"],
+                "component_group_id" => "moduleid-plana",
                 "name" => "Plan A",
                 "features" => [
                   "Plan A Feature 1",
@@ -82,7 +82,7 @@ For plan ID, please get in touch with your Solution Engineer at PrestaShop.
                 ]
               ],
               [
-                  "component_ids" => ["moduleid-planb-EUR-Monthly", "moduleid-planb-EUR-Yearly"],
+                  "component_group_id" => "moduleid-planb",
                   "name" => "Ultimate",
                   "features" => [
                     "All features from Plan A, plus...",
@@ -92,18 +92,15 @@ For plan ID, please get in touch with your Solution Engineer at PrestaShop.
               ]
           ];
 
-          foreach($planInfos as $planInfo) {
-            foreach($planInfo["component_ids"] as $component_id) {
-              $componentItemIndex = array_search($component_id, array_column($componentItemsTmp, 'id'));
-              if($componentItemIndex !== false) {
-                $componentItemsTmp[$componentItemIndex]['details'] = [
-                  "features" => $planInfo['features'],
-                  "name" => $planInfo['name'],
-                ];
-
-                // We store only components that are referenced in $planInfos, and keep the order from $planInfos
-                array_push($componentItems, $componentItemsTmp[$componentItemIndex]);
-              }
+          foreach($componentItemsTmp as $componentItemTmp) {
+            // Filter to retrieve only plans
+            if($componentItemTmp['componentType'] == 'plan') {
+              $planInfoIndex = array_search($componentItemTmp['componentGroupId'], array_column($planInfos, 'component_group_id'));
+              $componentItemTmp['details'] = [
+                "features" => $planInfos[$planInfoIndex]['features'],
+                "name" => $planInfos[$planInfoIndex]['name'],
+              ];
+              array_push($componentItems, $componentItemTmp);
             }
           }
         }
