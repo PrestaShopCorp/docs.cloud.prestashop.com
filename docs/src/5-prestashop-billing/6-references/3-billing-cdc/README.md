@@ -6,6 +6,10 @@ title: Prestashop Billing CDC
 
 [[toc]]
 
+## Technical documentation
+
+The documentation for the Billing CDC is [available here](https://unpkg.com/@prestashopcorp/billing-cdc/dist/docs/index.html).
+
 ## psBilling.initialize()
 
 Initialize the Ps Billing CDC (cross-domain component). For your convenience, `module-lib-billing` creates the required `context` object (see the [tutorial](../../3-tutorial/README.md#inject-the-prestashop-billing-context) for further reading on how it is implemented).
