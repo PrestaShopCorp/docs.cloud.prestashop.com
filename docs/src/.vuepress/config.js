@@ -51,8 +51,8 @@ module.exports = {
     sidebar: [
       { title: 'Introduction', path: '0-introduction/'},
       { title: 'How It Works', path: '/1-how-it-works/'},
-      { 
-        title: 'Before Starting', 
+      {
+        title: 'Before Starting',
         //path: '/2-before-starting/',
         sidebarDepth: 0,
         collapsable: false,
@@ -91,10 +91,23 @@ module.exports = {
             sidebarDepth: 0,
             collapsable: false,
             children: [
-              '/5-prestashop-billing/4-how-tos/1-stair-step/',
+              '/5-prestashop-billing/4-how-tos/1-stairstep/',
               '/5-prestashop-billing/4-how-tos/2-display-invoice-pane/',
               '/5-prestashop-billing/4-how-tos/3-customize-cancellation/',
               '/5-prestashop-billing/4-how-tos/4-handle-plan-selection/',
+              '/5-prestashop-billing/4-how-tos/5-retrieve-subscription/',
+              '/5-prestashop-billing/4-how-tos/6-multiple-billing-period/',
+            ],
+          },
+          {
+            title: "Use Cases",
+            sidebarDepth: 0,
+            collapsable: false,
+            children: [
+              '/5-prestashop-billing/5-use-cases/1-flat-fee/',
+              '/5-prestashop-billing/5-use-cases/2-stair-step/',
+              '/5-prestashop-billing/5-use-cases/3-usage-based/',
+              '/5-prestashop-billing/5-use-cases/4-charge-at-term/',
             ],
           },
           {
@@ -102,9 +115,9 @@ module.exports = {
             sidebarDepth: 0,
             collapsable: false,
             children: [
-              '/5-prestashop-billing/5-references/1-webhook/',
-              '/5-prestashop-billing/5-references/2-billing-api/',
-              '/5-prestashop-billing/5-references/3-billing-cdc/',
+              '/5-prestashop-billing/6-references/1-webhook/',
+              '/5-prestashop-billing/6-references/2-billing-api/',
+              '/5-prestashop-billing/6-references/3-billing-cdc/',
             ]
           }
         ],

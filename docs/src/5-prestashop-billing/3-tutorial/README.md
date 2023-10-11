@@ -9,7 +9,7 @@ title: Tutorial
 This tutorial will help you implement Prestashop Billing into your flat-fee priced module.
 
 ::: tip
-If you're looking for the implementation of your stair-step plan, follow this tutorial and go to our ["Implementing a Stair-step pricing model"](../4-how-tos/README.md#implementing-a-stair-step-pricing-model) tutorial next.
+If you're looking for the implementation of your Stairstep plan, follow this tutorial and go to our ["Implementing a Stairstep pricing model"](../4-how-tos/1-stairstep/README.md) tutorial next.
 :::
 
 :::tip Example module
@@ -179,8 +179,10 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
            // PrestaShop Billing
            Media::addJsDef($billingFacade->present([
              'logo' => $partnerLogo,
-             'tosUrl' => 'https://yoururl/',
-             'privacyUrl' => 'https://yoururl/',
+             'tosLink' => 'https://yoururl/',
+             'privacyLink' => 'https://yoururl/',
+             // This field is deprecated, but must be provided to ensure backward compatibility
+             'emailSupport' => ''
            ]));
 
            $this->context->smarty->assign('urlBilling', "https://unpkg.com/@prestashopcorp/billing-cdc/dist/bundle.js");
@@ -189,10 +191,6 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
            return $output;
        }
    ```
-
-   :::warning
-   Starting from version `3.1.0`, `module-lib-billing` underwent a few minor changes that **can** impact your implementation. `tosLink` and `privacyLink` have been changed to `tosUrl` and `privacyUrl` as shown in the code excerpt above.
-   ::: 
 
 2. The presenter will serve some context informations. Set the following parameters:
 
@@ -281,7 +279,7 @@ To test if PrestaShop Billing is loading successfully into your module:
 ## Responding to our webhooks
 
 :::tip
-For more details on our webhook system, you can see our [reference](../5-references/1-webhook/README.md) and [concept](../2-concepts/README.md#events) sections.
+For more details on our webhook system, you can see our [reference](../6-references/1-webhook/README.md) and [concept](../2-concepts/README.md#events) sections.
 :::
 
 The last step to start using PrestaShop Billing is to have in your systems some way to process the events we send via webhook during the [subscription lifecycle](../2-concepts/README.md#subscription-lifecycle).
@@ -309,5 +307,9 @@ Note that if your endpoint does not return a `2xx` HTTP status, our webhooks wil
 ## Next Steps
 
 - Explore advanced topics such as:
-  - [Implementing a Stair-step pricing model](../4-how-tos/1-stair-step/README.md)
-  - [Display the Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md)
+  - [Stairstep pricing model](../4-how-tos/1-stairstep/README.md)
+  - [Invoice Pane](../4-how-tos/2-display-invoice-pane/README.md)
+  - [Cancellation workflow](../4-how-tos/3-customize-cancellation/README.md)
+  - [Handle plan selection by yourself](../4-how-tos/4-handle-plan-selection/README.md)
+  - [Retrieve customer's subscription](../4-how-tos/5-retrieve-subscription/README.md)
+  - [Multiple billing periods](../4-how-tos/6-multiple-billing-period/README.md)

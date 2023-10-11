@@ -12,11 +12,11 @@ Then, the technical team will make sure the following rules have been followed.
 
 ### Code Review
 
-#### The Module Structure Is Followed
+#### The module structure is followed
 
 The module respected the [expected structure](https://devdocs.prestashop-project.org/8/modules/creation/module-file-structure/).
 
-#### The License Is Supported
+#### The license is supported
 
 A module and its dependencies must be compatible with the OSL (core) and AFL (modules and themes) licenses used to manage and distribute the PrestaShop open source project. Supported licences are:
 
@@ -29,21 +29,21 @@ A module and its dependencies must be compatible with the OSL (core) and AFL (mo
 
 Additionally, distribution licenses like CC-0 or CC-by-sa are appropriate for artwork (e.g: icons, pictures, fonts, but not only).
 
-#### Core Tables Are Untouched
+#### Core tables are untouched
 
 Module may create all the tables they need in the database. However, altering a core table is forbidden.
 
 If you want to add columns to an existing table, the workaround is to create a new table with a foreign key targetting the primary key of the core table.
 
-#### Other Modules Are Not Altered
+#### Other modules are not altered
 
 Modifying core or other modules files is not allowed.
 
-#### Files Are Stored in the Proper Directory
+#### :up: Files are stored in the proper directory
 
-Module may add/modify some files on the store. To avoid issues with file permissions, we recommend storing files in the `var/%env%` directory.
+Module may add/modify some files on the store. To avoid issues with file permissions, we recommend storing files in the `var/%env%` directory. If you want to store files in the module folder, you must ensure that the rights are correct, and inform the merchants if this is not the case, so that they can make the necessary arrangements.
 
-#### Using iframes Is Restricted to Highly Secure Websites
+#### Using iframes is restricted to highly secure websites
 
 Although they are implemented in different parts of the core, as in [Payment Modules](https://github.com/PrestaShop/paymentexample/blob/master/paymentexample.php#L150), iframes are highly discouraged for security reasons.
 
@@ -51,15 +51,15 @@ With an iframe, contents can be loaded from a site that is not controlled by the
 
 Therefore, the technical team will check your processes, to ensure the security of the contents that will be injected by this iframe into the stores. They will check why an iframe is needed for this use case and what measures were taken to prevent attacks.
 
-#### The Module Does Not Rely on External Assets
+#### The module does not rely on external assets
 
 The zipped module you submitted must be totally self-sufficient. All the contents needed by the module to work properly must be present in the archive. No external contents should be downloaded by the module after installation.
 
-#### Support Is Provided Through the PrestaShop Marketplace
+#### Support is provided through the PrestaShop Marketplace
 
-When a module is published on the PrestaShop Marketplace, we provide a unique way for all customers to get updates and support. Inserting links to an external platform might make things easier for sellers, but it would prevent us from helping customers and/or sellers in case of dispute.
+When a module is published on the PrestaShop Marketplace, we provide a unique way for all customers to get updates and support. Inserting links to an external platform might make things easier for sellers, but it would prevent us from helping customers and/or sellers in case of dispute. This only applies to paid modules.
 
-#### SQL Requests Variables Are Sanitized
+#### SQL requests variables are sanitized
 
 We examine every SQL request to make sure you cast your variables.
 
@@ -85,7 +85,7 @@ We examine every SQL request to make sure you cast your variables.
     $sql = 'SELECT * FROM ' . DB_PREFIX . 'orders WHERE id_order = ' . $this->id_order ;
     ```
 
-- Use `array_map` for arrays.
+- :new: Use `array_map` for arrays.
 
     Use this:
     ```sql
@@ -100,20 +100,20 @@ More details:
 - [Using the DBQuery class](https://devdocs.prestashop-project.org/8/development/components/database/dbquery/)
 - [Executing your SQL requests](https://devdocs.prestashop-project.org/8/development/components/database/db/)
 
-#### Calls from External Services Are Secured
+#### Calls from external services are secured
 
 If you used PHP files to handle ajax or external calls, make sure to secure them. To do so, create a unique token during the module installation and use it during the call verification.
 
-#### No Unsafe Methods Are Used
+#### No unsafe methods are used
 
 Using `serialize()` / `unserialize()` is forbidden, as they is a security risk if you do not control the data going through these methods. They may lead to remote code execution, so we recommend using `json_encode()` / `json_decode()` instead.
 
-#### An `.htaccess` File exists in the Root Folder of the Module
+#### :new: An `.htaccess` file exists in the root folder of the module
 
-To prevent someone from listing the files of the module, an `.htaccess` file must be present in the root folder.
+To prevent someone from listing the files of the module, and direct execution of PHP files, an `.htaccess` file must be present in the root folder.
 
-:::warning Important
-If you have some Ajax or CRON files, pay attention to exclude them.
+:::warning IMPORTANT
+:warning: If you use cron.php or ajax.php files in your module, you should use a front controller to manage this instead: [see documentation here](https://devdocs.prestashop-project.org/8/modules/concepts/controllers/front-controllers/#using-a-front-controller-as-a-cron-task).
 :::
 
 Example :
@@ -135,6 +135,10 @@ Example :
 </IfModule>
 ```
 
+:::tip Note
+If your module creates log or debug files, you must also prevent them from being accessed from the internet by creating a rule in the .htaccess file. You can load them from a back-office page by loading them in PHP, or the merchant can retrieve them from their FTP.
+:::
+
 #### PHP files are executed in PrestaShop context
 
 To ensure that PHP files are executed in the PrestaShop context, you must add the following code to the beginning of all PHP files, with the exception of CRON or Ajax files.
@@ -145,7 +149,7 @@ if (!defined('_PS_VERSION_')) {
 }
 ```
 
-#### Smarty variables are escaped
+#### :up: Smarty variables are escaped
 
 All the Smarty variables present in TPL files have to be escaped, to avoid malicious code to be displayed.
 
@@ -169,29 +173,37 @@ instead of this:
 {$variable}
 ```
 
-#### The Archive Contains Only One Module
+::: warning
+:warning: In some cases, you will have to use `|nofilter` to escape your variables. This is strongly discouraged, and will be analysed on a case-by-case basis by our teams. This may pose security problems (XSS vulnerability).
+:::
+
+#### The archive contains only one module
 
 Modules embedded in another one are difficult to review and cannot have their own release process. All modules must be uploaded to the PrestaShop Marketplace separately, even if they only work together.
 
-#### An `index.php` File Exists in Each Folder
+#### An `index.php` file exists in each folder
 
 To prevent someone from reaching the content of a repository, an `index.php` file must be present in each folder.
 
 As we deal with [security risks](https://devdocs.prestashop-project.org/8/modules/creation/#keeping-things-secure) in some environments, we strongly recommend you comply with this rule. An ["autoindex" tool](https://github.com/jmcollin/autoindex) allows you to add one in each folder.
 
-#### HTML Code Is Written in Templates
+:::tip Note
+:new: This rule does not apply to the vendor/ folder and its subfolders, which are managed by composer.
+:::
+
+#### HTML code ss Written in templates files
 
 Use Smarty/Twig templates to display HTML code to respect PrestaShop patterns (MVC architecture) and build a code that is easy to maintain.
 
 For more details on how to display contents, see [this page](https://devdocs.prestashop-project.org/8/modules/creation/displaying-content-in-front-office/).
 
-#### Code Is Written in English
+#### Code is written in english
 
 PrestaShop provides e-commerce software ready use in many languages. The code and displayed texts are written in English, then translated if the user switches to another language.
 
 In the same way, the code submitted to the PrestaShop Marketplace has to be written in English, even if the only user of this code is likely to come from only one country or speak one language. A lang unknown by the reviewer will make validation impossible.
 
-#### The Risk of Conflicts Between Modules Is Low
+#### The risk of conflicts between modules is low
 
 ##### Configuration keys
 
@@ -218,7 +230,7 @@ Configuration::updateValue('PAYMENT_METHODS_ORDER', [...]);
 This also applies to classes defined outside a namespace.
 Having the module name as a prefix will reduce the risk of colision between classes.
 
-#### AJAX/Cron Tasks Are Secured and In A Controller
+#### AJAX/Cron Tasks are secured and in A Controller
 
 All the AJAX and Cron files must be protected with a unique and secured token to avoid any security issues (outside attacks,...). Even front controllers must be secured with a token when you use AJAX in them.
 
@@ -229,7 +241,7 @@ For more details:
 * [Documentation](https://devdocs.prestashop-project.org/8/modules/concepts/controllers/front-controllers/#using-a-front-controller-as-a-cron-task)
 * [Original issue leading to the use of ModuleFrontControllers](https://github.com/PrestaShop/PrestaShop/issues/14648)
 
-#### Code in Hooks Is Run Only When Needed
+#### Code in hooks is run only when needed
 
 Several hooks are called on all pages of the back office or front office. When a module is registered on one of them, it may impact the page performance on low-end servers if it runs too much code.
 
@@ -274,13 +286,13 @@ Examples:
         }
     ```
 
-#### Debug Statements Have Been Cleaned
+#### Debug statements have been cleaned
 
 All the debug tests have to be removed.
 
 Example: `var_dump($a)`, `dump($a)`, `console.log(‘a’)`...
 
-#### Commented Code Has Been Removed
+#### Commented code has been removed
 
 For the code to be easier to maintain/review, you must remove the commented lines of code. Code comments are welcome of course!
 
@@ -326,7 +338,7 @@ Encouraged code comments:
     }
 ```
 
-#### Empty and Generated Files Have Been Removed
+#### Empty and generated files have been removed
 
 As they have no consequences in the module execution, empty files can be removed before submission.
 Generated files such as log files, invoice or other documents in PDFs etc. should be removed as well, as they:
@@ -336,13 +348,17 @@ Generated files such as log files, invoice or other documents in PDFs etc. shoul
 * are not needed to run the module,
 * could contain personal information.
 
-#### Documentation Is Provided
+#### :new: Deleting a file when updating a module
+
+If, during an update of the module, a file is no longer required and is therefore deleted, PrestaShop will not do this automatically. You must anticipate this by using the `unlink()` function in the update file. See documentation [here](https://devdocs.prestashop-project.org/8/modules/creation/enabling-auto-update/) about modules update.
+
+#### Documentation is provided
 
 Documentation is found in the `docs/` folder of the module, and in a format widly used (PDF is recommended, avoid ZIP files which need an additional process of extraction).
 
-### Functional Review
+### Functional review
 
-#### No PHP Errors Are Thrown in Debug Mode
+#### No PHP errors are thrown in debug mode
 
 A module must be tested on a Prestashop store with debug mode enabled in order to spot the slightest error.
 Validation teams always have this mode enabled and if an alert is raised, the module will be rejected.
