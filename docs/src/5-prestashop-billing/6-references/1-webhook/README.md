@@ -11,37 +11,18 @@ title: Webhooks
 We are rolling out a new webhook system that will facilitate the configuration, testing and debugging of the webhooks that Prestashop Billing put at your disposal, with a brand new interface that will centralize and streamline our previous workflows.
 
 :::warning
-While the system is in beta, please note that the workflows and the documentation may evolve.
+While the system is in beta, please note that the workflows and the documentation will evolve.
+At the current time, the interface is not yet available.
 :::
 
 If you already receive webhooks using our [Legacy webhook](#legacy-webhook-system) and you are interested in switching to our new system, please get in touch with your solution engineer.
 
-### Login to your Application Portal
-
-Upon creation of your application in our webhook system, your solution engineer will share your `APPLICATION_ID` and your `AUTH_TOKEN` with you.
-
-:::warning
-Make sure both are safely stored, as they can be used to access everything on your Application Portal.
-:::
-
-To login to your Application Portal, you will have to generate a **single-use** URL using this cURL command:
-
-```bash
-curl -X POST "https://api.svix.com/api/v1/auth/app-portal-access/APPLICATION_ID/" \
-    -H  "Accept: application/json" \
-    -H  "Authorization:  Bearer AUTH_TOKEN" \
-    -H 'Content-Type: application/json' \
-    -d '{}'
-```
-
 ### Start receiving webhooks
 
-Since Prestashop Billing uses Svix underneath, their ["receiving webhooks" documentation](https://docs.svix.com/receiving/introduction) is the best place for you to start working with our webhooks.
+At the current time, you will have to work closely with your solution engineer to setup your application on our new system. The workflow is fairly similar to our [Legacy webhook](#legacy-webhook-system), with the difference that a `signing secret` will be shared with you. This token will help you enhance the security of the webhooks and ensure that you are their sole authorized recipient.
 
-:::warning
-Make sure not to forget the ["Veryfying Webhooks"](https://docs.svix.com/receiving/verifying-payloads/why) section of the documentation, which will further secure your endpoint with minimal work.
+To implement this security and start receiving webhooks, please referer to the ["Veryfying Webhooks"](https://docs.svix.com/receiving/verifying-payloads/why) section of the documentation.
 We also encourage you to whitelist [these IPs ("EU")](https://docs.svix.com/receiving/source-ips).
-:::
 
 ### Events
 
