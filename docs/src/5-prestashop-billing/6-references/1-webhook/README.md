@@ -22,7 +22,7 @@ If you already receive webhooks using our [Legacy webhook](#legacy-webhook-syste
 At the current time, you will have to work closely with your solution engineer to setup your application on our new system. The workflow is fairly similar to our [Legacy webhook](#legacy-webhook-system), with the difference that a `signing secret` will be shared with you. This token will help you enhance the security of the webhooks and ensure that you are their sole authorized recipient.
 
 To implement this security and start receiving webhooks, please referer to the ["Veryfying Webhooks"](https://docs.svix.com/receiving/verifying-payloads/why) section of the documentation.
-We also encourage you to whitelist [these IPs ("EU")](https://docs.svix.com/receiving/source-ips).
+We also encourage you to whitelist [these IPs ("EU")](https://docs.svix.com/receiving/source-ips). Please note that even if you're not based in the EU, you should still whitelist the EU IPs, and not the others.
 
 ### Events
 
