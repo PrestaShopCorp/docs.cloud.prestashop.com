@@ -66,35 +66,51 @@ We examine every SQL request to make sure you cast your variables.
 - Use `pSQL()` for strings.
 
     Use this:
-    ```sql
+    ```php
     $sql = 'SELECT * FROM ' . DB_PREFIX . 'webservice_account WHERE description = "' . pSQL($this->description). '"';
     ```
     instead of this:
-    ```sql
+    ```php
     $sql = 'SELECT * FROM ' . DB_PREFIX . 'webservice_account WHERE description = "' . $this->description . '"';
     ```
 
 - Use `(int)` for integers.
 
     Use this:
-    ```sql
-    $sql = 'SELECT * FROM ' . DB_PREFIX . 'orders WHERE id_order = ' . int($this->order);
+    ```php
+    $sql = 'SELECT * FROM ' . DB_PREFIX . 'orders WHERE id_order = ' . (int)$this->order;
     ```
     instead of this:
-    ```sql
+    ```php
     $sql = 'SELECT * FROM ' . DB_PREFIX . 'orders WHERE id_order = ' . $this->id_order ;
     ```
 
 - :new: Use `array_map` for arrays.
 
     Use this:
-    ```sql
+    ```php
     ($excluded_products ? (' AND p.id_product not in ('.join(',', implode(', ', array_map('intval', $excluded_products))).')') : '') .
     ```
     instead of this:
-    ```sql
+    ```php
     ($excluded_products ? (' AND p.id_product not in ('.join(',', $excluded_products).')') : '') .
-    ```    
+    ```   
+
+    If the list of values is a list of strings, don't forget to implode it with quote or double quote, like this
+    ```php
+    IN ('" . implode("','", array_map('pSQL', explode(',', $arrayOfStrings )).'")
+    ``` 
+
+- :new: Use `bqSQL()` for table's name or field's name.
+
+    Use this:
+    ```php
+    $sql = 'SELECT * FROM `' . DB_PREFIX . bqSQL($table).'`';
+    ```
+    instead of this:
+    ```php
+    $sql = 'SELECT * FROM `' . DB_PREFIX . $table.'`';
+    ``` 
 
 More details:
 - [Using the DBQuery class](https://devdocs.prestashop-project.org/8/development/components/database/dbquery/)
@@ -149,6 +165,26 @@ if (!defined('_PS_VERSION_')) {
 }
 ```
 
+#### :new: PrestaShop version Compliancy is declared
+
+You have to declare the compliancy of your module with PrestaShop versions in the __construct function of your module.
+```php
+public function __construct()
+    {
+        $this->name = '<modulename>';
+        $this->tab = 'administration';
+        $this->version = '1.0.0';
+        $this->author = 'PrestaShop';
+
+        ...
+
+        $this->displayName = $this->l('Example Module Name');
+        $this->description = $this->l('Example Module Description');
+
+        $this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
+    }
+```
+
 #### :up: Smarty variables are escaped
 
 All the Smarty variables present in TPL files have to be escaped, to avoid malicious code to be displayed.
@@ -191,7 +227,7 @@ As we deal with [security risks](https://devdocs.prestashop-project.org/8/module
 :new: This rule does not apply to the vendor/ folder and its subfolders, which are managed by composer.
 :::
 
-#### HTML code ss Written in templates files
+#### HTML code is Written in templates files
 
 Use Smarty/Twig templates to display HTML code to respect PrestaShop patterns (MVC architecture) and build a code that is easy to maintain.
 
