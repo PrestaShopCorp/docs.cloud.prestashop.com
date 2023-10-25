@@ -24,6 +24,10 @@ if (!defined('_PS_VERSION_')) {
 }
 ```
 
+:::tip Note
+To ensure that your module passes automatic validation, please follow the syntax above.
+:::
+
 ### :new: PrestaShop version Compliancy is declared
 
 You have to declare the compliancy of your module with PrestaShop versions in the __construct function of your module.
