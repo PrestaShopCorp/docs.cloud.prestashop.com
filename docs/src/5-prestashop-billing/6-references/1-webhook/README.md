@@ -6,7 +6,31 @@ title: Webhooks
 
 # Webhooks
 
-## Authorization
+## Beta: New webhook system
+
+We are rolling out a new webhook system that will facilitate the configuration, testing and debugging of the webhooks that Prestashop Billing put at your disposal, with a brand new interface that will centralize and streamline our previous workflows.
+
+:::warning
+While the system is in beta, please note that the workflows and the documentation will evolve.
+At the current time, the interface is not yet available.
+:::
+
+If you already receive webhooks using our [Legacy webhook](#legacy-webhook-system) and you are interested in switching to our new system, please get in touch with your solution engineer.
+
+### Start receiving webhooks
+
+At the current time, you will have to work closely with your solution engineer to setup your application on our new system. The workflow is fairly similar to our [Legacy webhook](#legacy-webhook-system), with the difference that a `signing secret` will be shared with you. This token will help you enhance the security of the webhooks and ensure that you are their sole authorized recipient.
+
+To implement this security and start receiving webhooks, please referer to the ["Veryfying Webhooks"](https://docs.svix.com/receiving/verifying-payloads/why) section of the documentation.
+We also encourage you to whitelist [these IPs ("EU")](https://docs.svix.com/receiving/source-ips). Please note that even if you're not based in the EU, you should still whitelist the EU IPs, and not the others.
+
+### Events
+
+The precise payloads available will soon be available on your Application Portal, but in the meantime please refer to the [Legacy webhook](#legacy-webhook-system) system documentation for the exact payload formats.
+
+## Legacy webhook system
+
+### Authorization
 
 An Authorization header will be sent to the merchant's API to ensure security.
 
@@ -17,17 +41,16 @@ An Authorization header will be sent to the merchant's API to ensure security.
   }
 }
 ```
+
 A common use case is that the merchant will verify this token for each incoming webhook request to make sure that they are from the PrestaShop Webhook API.
 
 Please send your token to the following email address: squad-offre@prestashop.com
 
-
-
-## Overview
+### Overview
 
 ::: tip Timestamps
 Timestamps are UTC in seconds.
-::: 
+:::
 
 Every events body follow this structure and contains `customer`:
 
@@ -40,13 +63,13 @@ Every events body follow this structure and contains `customer`:
 
 Here is an exhaustive list of events triggered.
 
-## Subscription
+### Subscription
 
-* `subscription.created` - Triggered when a subscription is created.
-* `subscription.updated` - Triggered when a subscription is updated. A plan upgrade will trigger this event.
-* `subscription.status-updated` - Triggered when a subscription's status changes.
+- `subscription.created` - Triggered when a subscription is created.
+- `subscription.updated` - Triggered when a subscription is updated. A plan upgrade will trigger this event.
+- `subscription.status-updated` - Triggered when a subscription's status changes.
 
-### Difference between `subscription.updated` and `subscription.status-updated`
+#### Difference between `subscription.updated` and `subscription.status-updated`
 
 If a status is **officially** changed, the `subscription.status-updated` event will be sent.
 
@@ -58,16 +81,15 @@ To track the subscription status changes, use `subscription.status-updated`, and
 
 All the subscription event data have the following structure:
 
-| Value        | Type | Description |
-| ------------ | ---- | ----------- |
-| customer     | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes) | Customer for which the subscription has changed |
-| subscription | [Subscription](https://apidocs.chargebee.com/docs/api/subscriptions?prod_cat_ver=1#subscription_attributes) | The modified subscription |
-
+| Value        | Type                                                                                                        | Description                                     |
+| ------------ | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| customer     | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes)             | Customer for which the subscription has changed |
+| subscription | [Subscription](https://apidocs.chargebee.com/docs/api/subscriptions?prod_cat_ver=1#subscription_attributes) | The modified subscription                       |
 
 ```json
 {
   "eventType": "subscription.created",
-  "data": {
+  "data": {
     "shopId": "d673f3d0-86b1-4193-a714-dc9c487ec767",
     "chargebeeCustomerId": "d673f3d0-86b1-4193-a714-dc9c487ec767",
     "customer": {
@@ -182,19 +204,18 @@ All the subscription event data have the following structure:
 }
 ```
 
-## Payment
+### Payment
 
-* `payment.failed`: Triggered when a payment fail
-* `payment.succeeded`: Triggered when a payment succeed
+- `payment.failed`: Triggered when a payment fail
+- `payment.succeeded`: Triggered when a payment succeed
 
 All the payment event data have the following structure:
 
-| Value        | Type | Description |
-| ------------ | ---- | ----------- |
-| customer     | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes) | Customer for which the subscription has changed |
-| subscription | [Subscription](https://apidocs.chargebee.com/docs/api/subscriptions?prod_cat_ver=1#subscription_attributes) | The modified subscription |
-| subscription | [Transaction](https://apidocs.chargebee.com/docs/api/transactions?prod_cat_ver=1#transaction_attributes) | The payment transaction |
-
+| Value        | Type                                                                                                        | Description                                     |
+| ------------ | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| customer     | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes)             | Customer for which the subscription has changed |
+| subscription | [Subscription](https://apidocs.chargebee.com/docs/api/subscriptions?prod_cat_ver=1#subscription_attributes) | The modified subscription                       |
+| subscription | [Transaction](https://apidocs.chargebee.com/docs/api/transactions?prod_cat_ver=1#transaction_attributes)    | The payment transaction                         |
 
 ```json
 {
@@ -350,22 +371,21 @@ All the payment event data have the following structure:
 }
 ```
 
-## Customer
+### Customer
 
-* `customer.created`: Triggered when a customer is created, which happens only one time per store. You cannot expect to receive this event for your integrated module.
-* `customer.updated`: Triggered when a customer is updated.
+- `customer.created`: Triggered when a customer is created, which happens only one time per store. You cannot expect to receive this event for your integrated module.
+- `customer.updated`: Triggered when a customer is updated.
 
 All the customer event data have the following structure:
 
-| Value        | Type | Description |
-| ------------ | ---- | ----------- |
-| customer     | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes) | Customer whose billing address has been changed |
-
+| Value    | Type                                                                                            | Description                                     |
+| -------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| customer | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes) | Customer whose billing address has been changed |
 
 ```json
 {
   "eventType": "customer.updated",
-  "data": {
+  "data": {
     "customer": {
       "id": "b2581e4b-0030-4fc8-9bf2-7f01c550a946",
       "email": "john.doe@prestashop.com",
@@ -443,18 +463,17 @@ All the customer event data have the following structure:
 }
 ```
 
-## Customer billing address
+### Customer billing address
 
-* `customer-billing-address.updated`: Triggered when a customer billing address is updated.
+- `customer-billing-address.updated`: Triggered when a customer billing address is updated.
 
 All the customer event data have the following structure:
 
-| Value        | Type | Description |
-| ------------ | ---- | ----------- |
-| customer | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes) | Customer concerned by this event
-| billingAddress | [BillingAddress](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_billing_address) | Billing address of the customer
-| vatNumber     | string | VAT number |
-
+| Value          | Type                                                                                                       | Description                      |
+| -------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| customer       | [Customer](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_attributes)            | Customer concerned by this event |
+| billingAddress | [BillingAddress](https://apidocs.chargebee.com/docs/api/customers?prod_cat_ver=1#customer_billing_address) | Billing address of the customer  |
+| vatNumber      | string                                                                                                     | VAT number                       |
 
 ```json
 {
