@@ -263,7 +263,7 @@ instead of this:
 ```
 
 ::: warning
-:warning: In some cases, you will have to use `|nofilter` to escape your variables. This is strongly discouraged, and will be analysed on a case-by-case basis by our teams. This may pose security problems (XSS vulnerability).
+:warning: In some cases, you will have to use `{$var nofilter}` to escape your variables. See [Smarty documentation](https://www.smarty.net/docs/en/variable.escape.html.tpl). This is strongly discouraged, and will be analysed on a case-by-case basis by our teams. This may pose security problems (XSS vulnerability).
 :::
 
 ### An `index.php` file exists in each folder
