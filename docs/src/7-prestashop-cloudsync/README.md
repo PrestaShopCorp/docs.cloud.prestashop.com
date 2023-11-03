@@ -65,9 +65,9 @@ class <module_name> extends Module
     }
 ```
 
-### Add context for the CDC
+### Add context for the Merchant Sharing Consent CDC
 
-To allow the merchant to share their data with your services, you have to pair your module with a Cross Domain Component (CDC). To do so, you need to expose some context to your configuration page using the `PresenterService` of PrestaShop EventBus.
+To allow the merchant to share their data with your services, you have to pair your module with the Merchant Sharing Consent Cross Domain Component (CDC). To do so, you need to expose some context to your configuration page using the `PresenterService` of PrestaShop EventBus.
 
 1. Add the following highlighted contents to the `<module_name>.php` file:
 
@@ -132,8 +132,8 @@ To allow the merchant to share their data with your services, you have to pair y
 2. Edit the required consents according to your needs. You can use:
 
   - `info` (mandatory): The shop technical data such as the version of PrestaShop or PHP (read only)
-  - `modules` (mandatory): The list of modules installed on the shop (read only)
-  - `themes` (mandatory): The list of themes installed on the shop (read only)
+  - `modules` : The list of modules installed on the shop (read only)
+  - `themes` : The list of themes installed on the shop (read only)
   - `carts`: Information about the shopping carts of the shop (read only)
   - `carriers`: The characteristics of the carriers available on the shop (read only)
   - `categories`: The list of product categories of the shop (read only)
