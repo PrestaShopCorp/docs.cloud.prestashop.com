@@ -228,8 +228,7 @@ Example :
 # Apache 2.4
 <IfModule mod_authz_core.c>
     <Files *.php>
-    order allow,deny
-    deny from all
+    Require all denied
     </Files>
 </IfModule>
 ```
