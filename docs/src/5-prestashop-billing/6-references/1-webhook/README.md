@@ -17,6 +17,8 @@ At the current time, the interface is not yet available.
 
 If you already receive webhooks using our [Legacy webhook](#legacy-webhook-system) and you are interested in switching to our new system, please get in touch with your solution engineer.
 
+You can access the catalog of our webhooks via this [link](https://www.svix.com/event-types/eu/org_2NupQWCc2oQGmgtYUgU7vEc3SoV/).
+
 ### Start receiving webhooks
 
 At the current time, you will have to work closely with your solution engineer to setup your application on our new system. The workflow is fairly similar to our [Legacy webhook](#legacy-webhook-system), with the difference that a `signing secret` will be shared with you. This token will help you enhance the security of the webhooks and ensure that you are their sole authorized recipient.
