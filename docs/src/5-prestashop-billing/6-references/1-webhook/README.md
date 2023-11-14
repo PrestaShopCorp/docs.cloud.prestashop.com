@@ -17,7 +17,7 @@ At the current time, the interface is not yet available.
 
 If you already receive webhooks using our [Legacy webhook](#legacy-webhook-system) and you are interested in switching to our new system, please get in touch with your solution engineer.
 
-You can access the catalog of our webhooks on this [link](https://www.svix.com/event-types/eu/org_2NupQWCc2oQGmgtYUgU7vEc3SoV/).
+You can access the catalog of our webhooks via this [link](https://www.svix.com/event-types/eu/org_2NupQWCc2oQGmgtYUgU7vEc3SoV/).
 
 ### Start receiving webhooks
 
