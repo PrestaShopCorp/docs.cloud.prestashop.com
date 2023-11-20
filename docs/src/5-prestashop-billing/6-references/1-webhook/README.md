@@ -87,6 +87,8 @@ To track the subscription status changes, use `subscription.status-updated`, and
 
 You can listen to `subscription.updated` to get the date of the next invoice since this event is triggered when a subscription is renewed.
 
+You can find next invoice date in `data.subscription.next_billing_at`
+
 :::tip
 It's useful for stairstep, usage-based and charge at term pricing models
 :::
