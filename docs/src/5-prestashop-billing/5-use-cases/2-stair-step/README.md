@@ -8,3 +8,7 @@ An email marketing SaaS offers a stairstep pricing model with three tiers. The f
 :::tip
 If you're looking for the implementation of your Stairstep, follow this [tutorial](../../4-how-tos/1-stairstep/README.md).
 :::
+
+:::tip
+If you're looking for getting the date of the next invoice it's useful to listen to [webhooks](../../6-references/1-webhook/README.md#subscription).
+:::

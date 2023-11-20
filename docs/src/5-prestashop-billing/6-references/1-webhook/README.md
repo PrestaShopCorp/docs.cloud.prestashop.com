@@ -68,7 +68,9 @@ Here is an exhaustive list of events triggered.
 ### Subscription
 
 - `subscription.created` - Triggered when a subscription is created.
-- `subscription.updated` - Triggered when a subscription is updated. A plan upgrade will trigger this event.
+- `subscription.updated` - Triggered when a subscription is updated.\
+  A plan upgrade will trigger this event.\
+  A subscription renew will trigger this event.
 - `subscription.status-updated` - Triggered when a subscription's status changes.
 
 #### Difference between `subscription.updated` and `subscription.status-updated`
@@ -79,6 +81,14 @@ If a subscription is changed, the `subscription.updated` event will be sent but 
 
 :::warning
 To track the subscription status changes, use `subscription.status-updated`, and not `subscription.updated`.
+:::
+
+#### Next invoice
+
+You can listen to `subscription.updated` to get the date of the next invoice since this event is triggered when a subscription is renewed.
+
+:::tip
+It's useful for stairstep, usage-based and charge at term pricing models
 :::
 
 All the subscription event data have the following structure:
