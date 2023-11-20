@@ -148,6 +148,26 @@ To allow the merchant to share their data with your services, you have to pair y
   - `taxonomies`: Advanced categories available on the shop (read only)
   - `wishlists`: The anonymized wishlists of the customers (read only)
 
+3. There is a lighter version of the consent component, if you want to use it, please adapt your `<module_name>.php` file.
+
+```php{3,8}
+class <module_name> extends Module {
+
+    public $useLightMode;
+    //...
+
+    public function __construct() {
+        //...
+        $this->useLightMode = true;
+        //...
+    }
+}
+```
+
+You should get the light consent component:
+
+![PrestaShop CloudSync light pane](/assets/images/cloudsync/cloudsync-share-my-data-light.png)
+
 ## Edit the Template File
 
 1. Access the template file allowing you to render the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`).
