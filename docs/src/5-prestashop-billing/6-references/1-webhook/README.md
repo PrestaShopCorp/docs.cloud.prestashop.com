@@ -70,7 +70,7 @@ Here is an exhaustive list of events triggered.
 - `subscription.created` - Triggered when a subscription is created.
 - `subscription.updated` - Triggered when a subscription is updated.\
   A plan upgrade will trigger this event.\
-  A subscription renew will trigger this event.
+  A subscription renewal will trigger this event
 - `subscription.status-updated` - Triggered when a subscription's status changes.
 
 #### Difference between `subscription.updated` and `subscription.status-updated`
