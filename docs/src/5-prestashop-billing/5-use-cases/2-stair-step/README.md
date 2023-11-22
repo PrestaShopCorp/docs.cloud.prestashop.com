@@ -10,5 +10,5 @@ If you're looking for the implementation of your Stairstep, follow this [tutoria
 :::
 
 :::tip
-If you're looking for getting the date of the next invoice it's useful to listen to [webhooks](../../6-references/1-webhook/README.md#subscription).
+To get the date of the next invoice please refer to the [webhooks documentation](../../6-references/1-webhook/README.md#subscription).
 :::
