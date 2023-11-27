@@ -18,17 +18,17 @@ As stairstep plan requires a unit to operate, you should pass that information d
 
 ```html{2-7}
 <script>
-  const context = {
-    ...window.psBillingContext.context,
-    product: {
-      ...window.psBillingContext.context.product,
-      components: [{
+  // This method is a helper exported by our library to help you easily override the context
+  const context = window.psBilling.overrideContext(
+    window.psBillingContext.context,
+    ['product', 'components'],
+    [
+      {
         id: 'my-price-EUR-monthly', // This is an exemple and should be replaced with your id
         unitDescription: 'user' // This is an exemple and should be replaced with your unit description
-      }]
-    }
-  };
-
+      }
+    ],
+  );
   window.psBilling.initialize(context, '#ps-billing', '#ps-modal', (type, data) => {
       // Event hook listener
       switch (type) {
