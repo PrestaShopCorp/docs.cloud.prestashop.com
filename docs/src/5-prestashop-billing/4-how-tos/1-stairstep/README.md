@@ -18,7 +18,7 @@ As stairstep plan requires a unit to operate, you should pass that information d
 
 ```html{2-7}
 <script>
-  // This method is a helper exported by our library to help you easily override the context
+  // This method is a helper exported by our library to help you easily override the context, see [the documentation](../6-references/3-billing-cdc/README.md#psBilling.overrideContext())
   const context = window.psBilling.overrideContext(
     window.psBillingContext.context,
     ['product', 'components'],
