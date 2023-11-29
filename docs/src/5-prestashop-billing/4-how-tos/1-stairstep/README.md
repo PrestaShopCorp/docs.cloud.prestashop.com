@@ -37,7 +37,7 @@ As stairstep plan requires a unit to operate, you should pass that information d
 </script>
 ```
 :::tip
-  The `window.psBilling.overrideContext()` method is a helper exported by our library to help you easily override the context, see [the documentation](../6-references/3-billing-cdc/README.md#psBilling.overrideContext())
+  The `window.psBilling.overrideContext()` method is a helper exported by our library to help you easily override the context, see [the documentation](../6-references/3-billing-cdc/README.md#psbilling-overridecontext)
 :::
 
 Here are two example of how this `unitDescription` property renders in Billing component:
