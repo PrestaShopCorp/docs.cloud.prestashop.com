@@ -6,10 +6,10 @@ title: Stairstep pricing model
 
 # Stairstep pricing model
 
-[Our main Tutorial](../3-tutorial/README.md) presented you with the required steps to implement any of our supported pricing models, but more informations are needed in the [context](#context) for a stairstep pricing model, which will be explained by this tutorial.
+[Our main Tutorial](../../3-tutorial/README.md) presented you with the required steps to implement any of our supported pricing models, but more informations are needed in the [context](#context) for a stairstep pricing model, which will be explained by this tutorial.
 
 :::warning
-This tutorial assumes that you have already familiarized yourself with our [webhook system](../3-tutorial/README.md#responding-to-our-webhooks), which is necessary to implement the [second part](#second-step-updating-the-subscription-via-api) of this tutorial.
+This tutorial assumes that you have already familiarized yourself with our [webhook system](../../3-tutorial/README.md#responding-to-our-webhooks), which is necessary to implement the [second part](#second-step-updating-the-subscription-via-api) of this tutorial.
 :::
 
 ## Provide steps quantity unit
@@ -18,17 +18,16 @@ As stairstep plan requires a unit to operate, you should pass that information d
 
 ```html{2-7}
 <script>
-  const context = {
-    ...window.psBillingContext.context,
-    product: {
-      ...window.psBillingContext.context.product,
-      components: [{
+  const context = window.psBilling.overrideContext(
+    window.psBillingContext.context,
+    ['product', 'components'],
+    [
+      {
         id: 'my-price-EUR-monthly', // This is an exemple and should be replaced with your id
         unitDescription: 'user' // This is an exemple and should be replaced with your unit description
-      }]
-    }
-  };
-
+      }
+    ],
+  );
   window.psBilling.initialize(context, '#ps-billing', '#ps-modal', (type, data) => {
       // Event hook listener
       switch (type) {
@@ -38,12 +37,16 @@ As stairstep plan requires a unit to operate, you should pass that information d
 </script>
 ```
 
+:::tip
+The `window.psBilling.overrideContext()` method is a helper exported by our library to help you easily override the context, see [the documentation](../../6-references/3-billing-cdc/README.md#psbilling-overridecontext).
+:::
+
 Here are two example of how this `unitDescription` property renders in Billing component:
 
 ![unitDescription screenshot 1](/assets/images/billing/unit-description-screenshot-1.png)
 ![unitDescription screenshot 2](/assets/images/billing/unit-description-screenshot-2.png)
 
-The `id` property should have been communicated to you beforehand (as the [subscription item](../2-concepts/README.md#subscription-item) id, which can also be found in our webhook [subscription events.](../6-references/1-webhook/README.md#subscription))
+The `id` property should have been communicated to you beforehand (as the [subscription item](../../2-concepts/README.md#subscription-item) id, which can also be found in our webhook [subscription events.](../../6-references/1-webhook/README.md#subscription))
 
 ## Update the quantity using Billing API
 
@@ -53,8 +56,8 @@ Since a stairstep pricing model requires the update of the unit per subscription
 
 You can find both path parameters in the events sent by our webhooks:
 
-- `subscriptionId` can be found as `data.subscription.id` in the payload of all [subscription events.](../6-references/1-webhook/README.md#subscription)
-- `subscriptionItemId` can be found as `data.subscription.subscription_items[0].item_price_id` in the payload of all [subscription events.](../6-references/1-webhook/README.md#subscription)
+- `subscriptionId` can be found as `data.subscription.id` in the payload of all [subscription events.](../../6-references/1-webhook/README.md#subscription)
+- `subscriptionItemId` can be found as `data.subscription.subscription_items[0].item_price_id` in the payload of all [subscription events.](../../6-references/1-webhook/README.md#subscription)
 
 A typical request could look like this:
 
