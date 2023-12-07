@@ -9,6 +9,10 @@ A video conferencing SaaS applies usage-based pricing for its business customers
 More details about Usage-Based API are [available here](https://prestashop-billing.stoplight.io/docs/api-gateway/896ba54736b77-add-an-usage-to-a-subscription-item).
 :::
 
+:::tip
+To get the date of the next invoice please refer to the [webhooks documentation](../../6-references/1-webhook/README.md#subscription).
+:::
+
 :::tip Note
 Usage-Based can also be use together with [flat fee](../1-flat-fee/README.md).
 :::

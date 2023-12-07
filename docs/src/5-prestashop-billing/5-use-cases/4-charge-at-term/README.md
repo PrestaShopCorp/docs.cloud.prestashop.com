@@ -9,6 +9,10 @@ A shipping company applies charge at term pricing for its business customer. The
 More details about Charge at Term API are [available here](https://prestashop-billing.stoplight.io/docs/api-gateway/0dec9ae31dd59-add-a-charge-at-term).
 :::
 
+:::tip
+To get the date of the next invoice please refer to the [webhooks documentation](../../6-references/1-webhook/README.md#subscription).
+:::
+
 :::tip Note
 Charge at Term can also be use together with [flat fee](../1-flat-fee/README.md).
 :::
