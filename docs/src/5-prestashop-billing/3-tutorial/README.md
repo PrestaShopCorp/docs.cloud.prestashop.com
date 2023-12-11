@@ -260,6 +260,10 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
    In the snippet above, you can see three "hooks". They are events that you can 'hook' into to implement some custom logic on your side. They are not linked to the webhook services we offer, which are the source of truth of your exchanges with PrestaShop Billing.
    :::
 
+   :::warning
+   In case of a CSP (Content Security Policy) error in console, please refer to our dedicated section in the [FAQ](../7-faq/README.md)
+   :::
+
 ## Test Your Module
 
 To test if PrestaShop Billing is loading successfully into your module:
