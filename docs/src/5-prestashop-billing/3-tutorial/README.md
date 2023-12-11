@@ -261,7 +261,7 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
    :::
 
    :::warning
-   In case of a CSP (Content Security Policy) error in console, please refer to our dedicated section in the [FAQ](../7-faq/README.md)
+   In case of a CSP (Content Security Policy) error in console for merchants installing your Built for Prestashop module, or even your own developments, please refer to our dedicated section in the [FAQ](../7-faq/README.md)
    :::
 
 ## Test Your Module
