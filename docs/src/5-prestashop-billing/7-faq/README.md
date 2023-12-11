@@ -1,8 +1,8 @@
 ---
-title: FAQs
+title: FAQ
 ---
 
-# FAQs
+# FAQ
 
 You can find frequently asked questions and their answers here.
 
