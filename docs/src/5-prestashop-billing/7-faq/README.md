@@ -9,6 +9,7 @@ You can find frequently asked questions and their answers here.
 **A Merchant is contacting me with a problem of CSP (Content Security Policy) and the Prestashop Billing frontend component does not load. What can I tell them ?**
 
 Here is an example:
+
 ![an image representing the CSP error in console](/assets/images/billing/csp-error-in-console-example.png)
 
 Note that the Prestashop Billing frontend component is a "Cross Domain Component", which means that it will be loaded in the merchant's browser as a secure Iframe referencing our domain `prestashop.net` (or `prestashop.com`).
