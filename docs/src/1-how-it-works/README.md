@@ -131,6 +131,10 @@ A UI component library, allowing merchants to consent to the data sharing betwee
 
 ![Merchant Sharing Consent UI](/assets/images/cloudsync/cloudsync-consent-ui.png)
 
+A lighter version of this consent component is also available:
+
+![PrestaShop CloudSync light pane](/assets/images/cloudsync/cloudsync-share-my-data-light.png)
+
 ##### PrestaShop Tech Vendor Boilerplate
 
 The [PrestaShop Tech Vendor Boilerplate](https://github.com/PrestaShopCorp/ps_tech_vendor_boilerplate) is a sample module helping you integrate PrestaShop EventBus and Merchant Sharing Consent UI into your modules or services.
