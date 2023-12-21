@@ -6,7 +6,7 @@ title: Tutorial
 
 # Tutorial
 
-This tutorial will help you implement Prestashop Billing into your flat-fee priced module.
+This tutorial will help you implement PrestaShop Billing into your flat-fee priced module.
 
 ::: tip
 If you're looking for the implementation of your Stairstep plan, follow this tutorial and go to our ["Implementing a Stairstep pricing model"](../4-how-tos/1-stairstep/README.md) tutorial next.
@@ -18,7 +18,7 @@ An example module already integrating the components of the PrestaShop Integrati
 
 ## Implementing the `module-lib-billing` package in your module
 
-`module-lib-billing` is an important part of the Prestashop Billing solution, as it helps you setup some needed information in a standardized format.
+`module-lib-billing` is an important part of the PrestaShop Billing solution, as it helps you setup some needed information in a standardized format.
 
 1. Edit the `config\admin\services.yml` file to include the following highlighted contents:
 
@@ -261,7 +261,7 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
    :::
 
    :::warning
-   In case of a CSP (Content Security Policy) error in console for merchants installing your Built for Prestashop module, or even your own developments, please refer to our dedicated section in the [FAQ](../7-faq/README.md)
+   In case of a CSP (Content Security Policy) error in console for merchants installing your Built for PrestaShop module, or even your own developments, please refer to our dedicated section in the [FAQ](../7-faq/README.md)
    :::
 
 ## Test Your Module

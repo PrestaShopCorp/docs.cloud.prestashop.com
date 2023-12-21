@@ -8,7 +8,7 @@ title: Webhooks
 
 ## Beta: New webhook system
 
-We are rolling out a new webhook system that will facilitate the configuration, testing and debugging of the webhooks that Prestashop Billing put at your disposal, with a brand new interface that will centralize and streamline our previous workflows.
+We are rolling out a new webhook system that will facilitate the configuration, testing and debugging of the webhooks that PrestaShop Billing put at your disposal, with a brand new interface that will centralize and streamline our previous workflows.
 
 :::warning
 While the system is in beta, please note that the workflows and the documentation will evolve.

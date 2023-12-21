@@ -8,7 +8,7 @@ title: Concepts
 
 ## Context
 
-The context is a central piece of data in the Prestashop Billing integration. We mostly use it to gather key information about your product, as well as the shop that uses it. Most of it comes from the `module-lib-billing` PHP package. To know more on how it's built, browse its [source code](https://github.com/PrestaShopCorp/module-lib-billing/blob/main/src/Presenter/BillingPresenter.php). Make sure you understand well its implementation [here](../3-tutorial/README.md#inject-the-prestashop-billing-context) and [here](../3-tutorial/README.md#edit-the-template-file) and how they interact.
+The context is a central piece of data in the PrestaShop Billing integration. We mostly use it to gather key information about your product, as well as the shop that uses it. Most of it comes from the `module-lib-billing` PHP package. To know more on how it's built, browse its [source code](https://github.com/PrestaShopCorp/module-lib-billing/blob/main/src/Presenter/BillingPresenter.php). Make sure you understand well its implementation [here](../3-tutorial/README.md#inject-the-prestashop-billing-context) and [here](../3-tutorial/README.md#edit-the-template-file) and how they interact.
 
 For a complete breakdown of the context, see our [reference page](../5-references/3-billing-cdc/README.md#context).
 
@@ -38,7 +38,7 @@ Plan change
 
 ## Subscription
 
-A subscription allows Prestashop Billing to collect periodically the payment of your customer. At each subscription renewal, an invoice is generated. A subscription is linked to your module, a shop and a customer. A shop can only have one subscription to your module.
+A subscription allows PrestaShop Billing to collect periodically the payment of your customer. At each subscription renewal, an invoice is generated. A subscription is linked to your module, a shop and a customer. A shop can only have one subscription to your module.
 
 ## Subscription Item
 
@@ -62,11 +62,11 @@ An organization is the person or the legal entity which owns the shop.
 
 ## Payment Method
 
-A payment method designates the way a payment can be collected. Currently, Prestashop Billing offers payment via Credit Card or Paypal.
+A payment method designates the way a payment can be collected. Currently, PrestaShop Billing offers payment via Credit Card or Paypal.
 
 ## Pricing models
 
-Prestashop Billing currently supports two types of pricing models:
+PrestaShop Billing currently supports two types of pricing models:
 
 - Flat fee
 - Stairstep
@@ -96,4 +96,4 @@ The service tracks the range at which the customer currently is, and adjusts the
 
 ![Stairstep Schema](/assets/images/billing/stair-step-explanation.png)
 
-Integrating Prestashop Billing with your stairstep plans requires some extra steps that are detailed here.
+Integrating PrestaShop Billing with your stairstep plans requires some extra steps that are detailed here.
