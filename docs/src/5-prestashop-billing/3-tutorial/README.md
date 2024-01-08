@@ -181,8 +181,8 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
              'logo' => $partnerLogo,
              'tosLink' => 'https://yoururl/',
              'privacyLink' => 'https://yoururl/',
-             // This field is deprecated, but must be provided to ensure backward compatibility
-             'emailSupport' => ''
+             // This field is deprecated but a valid email must be provided to ensure backward compatibility
+             'emailSupport' => 'some@email.com'
            ]));
 
            $this->context->smarty->assign('urlBilling', "https://unpkg.com/@prestashopcorp/billing-cdc/dist/bundle.js");
