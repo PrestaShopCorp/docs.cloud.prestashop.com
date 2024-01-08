@@ -129,23 +129,26 @@ To allow the merchant to share their data with your services, you have to pair y
     }
   ```
 
-2. Edit the required consents according to your needs. You can use:
+2. Edit the required consents according to your needs (line 48 in the code above). You can use the follwing consents:
 
-  - `info` (mandatory): The shop technical data such as the version of PrestaShop or PHP (read only)
-  - `modules` : The list of modules installed on the shop (read only)
-  - `themes` : The list of themes installed on the shop (read only)
-  - `carts`: Information about the shopping carts of the shop (read only)
-  - `carriers`: The characteristics of the carriers available on the shop (read only)
-  - `categories`: The list of product categories of the shop (read only)
-  - `currencies`: The list of currencies available in the shop (read only)
-  - `customers`: The anonymized list of the shop customers (read only)
-  - `manufacturers`: The list of the shop brands (read only)
-  - `orders`: Information about orders placed on the shop (read only)
-  - `products`: The list of products available on the shop (read only)
-  - `stocks`: The list of stocks and associated movements on the shop (read only)
-  - `stores`: The list of stores available on the shop (read only)
-  - `suppliers`: The list of suppliers available on the shop (read only)
-  - `taxonomies`: Advanced categories available on the shop (read only)
+  - `info` (mandatory): The store technical data such as the version of PrestaShop or PHP (read only)
+  - `modules` : The list of modules installed on the store (read only)
+  - `themes` : The list of themes installed on the store (read only)
+  - `carts`: Information about the shopping carts of the store (read only)
+  - `carriers`: The characteristics of the carriers available on the store (read only)
+  - `categories`: The list of product categories of the store (read only)
+  - `currencies`: The list of currencies available in the store (read only)
+  - `customers`: The anonymized list of the store customers (read only)
+  - `employees`: The anonymized list of the store employees (read only)
+  - `images`: The list of the store images (read only)
+  - `manufacturers`: The list of the store brands (read only)
+  - `orders`: Information about orders placed on the store (read only)
+  - `products`: The list of products available on the store (read only)
+  - `stocks`: The list of stocks and associated movements on the store (read only)
+  - `stores`: The list of stores available on the store (read only)
+  - `suppliers`: The list of suppliers available on the store (read only)
+  - `taxonomies`: Advanced categories available on the store (read only)
+  - `translations`: The list of translations in the store (read only)
   - `wishlists`: The anonymized wishlists of the customers (read only)
 
 3. There is a lighter version of the consent component, if you want to use it, please adapt your `<module_name>.php` file.
