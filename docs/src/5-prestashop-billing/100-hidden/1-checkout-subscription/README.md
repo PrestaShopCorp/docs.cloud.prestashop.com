@@ -132,14 +132,8 @@ Please do not use the event hook to register the fact a customer has subscribe t
 #### Vue 3
 
 ```vue
-<template>
-  <SubscriptionCheckout
-    :context="billingContext"
-    :on-event-hook="eventHookHandler"
-  />
-</template>
-
 <script setup lang="ts">
+// Add import of EVENT_HOOK_TYPE
 import { SubscriptionCheckoutComponent, EVENT_HOOK_TYPE } from '@prestashopcorp/billing-cdc';
 
 //...
@@ -182,7 +176,7 @@ function onEventHook(type, data) {
 
 ### Partner account
 
-Partner account monetization is quite specific because the subscription belongs to a user instead of a shop. In order to handle the specificity the context should be updated.
+The fact that the subscription is owned by a user rather than a shop, makes integration within the partner account quite particular. The context has to be modified, as below, to handle the specificity.
 
 ```javascript
 const billingContext = {
