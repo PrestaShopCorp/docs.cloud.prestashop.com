@@ -8,7 +8,7 @@ title: Checkout Subscription
 
 ## Use case
 
-Some of our user don't want to use the whole funnel, because it doesn't fit very well with the onboarding flow. We provide a checkout only component, which handle only the the payment method, billing address and the subscription CTA.
+Some of our users don't want to use the whole funnel, because it doesn't fit very well with the onboarding flow. We provide a checkout only component, which handle only the payment method, billing address and the subscription CTA.
 
 This component can be imported in any layout: a page, a modal, a fullscreen modal...
 
@@ -29,7 +29,7 @@ First of all you need to add `@prestashopcorp/billing-cdc` to your project.
 npm add @prestashopcorp/billing-cdc
 ```
 
-`@prestashopcorp/billing-cdc` provide the component `SubscriptionCheckoutComponent`. Depending on your project setup, the way you will use this component will change.
+`@prestashopcorp/billing-cdc` provides the component `SubscriptionCheckoutComponent`. Depending on your project setup, the way you will use this component will change.
 
 #### Vue 3
 
@@ -63,7 +63,7 @@ const SubscriptionCheckout = await SubscriptionCheckoutComponent.driver('vue3');
 
 #### Vanilla JS
 
-You need to instantiate the component in the JS part, then attache the component to a div with the method `render(selectorCss: string)`.
+You need to instantiate the component in the JS part, then attach the component to a div with the method `render(selectorCss: string)`.
 
 ```html
 <body>
