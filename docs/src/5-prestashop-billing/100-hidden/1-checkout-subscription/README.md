@@ -8,7 +8,9 @@ title: Checkout Subscription
 
 ## Use case
 
-Some of you don't want to use the whole funnel, because it doesn't fit very well with your onboarding flow. In this case we provide a checkout only component, which handle only the the payment method, billing address and the CTA to subscribe.
+Some of our user don't want to use the whole funnel, because it doesn't fit very well with the onboarding flow. We provide a checkout only component, which handle only the the payment method, billing address and the subscription CTA.
+
+This component can be imported in any layout: a page, a modal, a fullscreen modal...
 
 
 ![Checkout Subscription component](/assets/images/billing/checkout-subscription.png)
@@ -17,7 +19,7 @@ Some of you don't want to use the whole funnel, because it doesn't fit very well
 
 ### Add the component in your page
 
-First of all you need to import `@prestashopcorp/billing-cdc` in your project. 
+First of all you need to add `@prestashopcorp/billing-cdc` to your project. 
 
 ```
 # Import from CDN
@@ -32,6 +34,10 @@ npm add @prestashopcorp/billing-cdc
 #### Vue 3
 
 You need to instantiate the component in the JS part, then use it in your Vue template.
+
+::: warning
+[Vite](https://vitejs.dev/) user should get an error `Uncaught TypeError: Expected string or element selector to be passed`. You must add vue in alias `defineViteConfig({ resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } } })`.
+:::
 
 ```vue
 <template>
@@ -72,7 +78,7 @@ You need to instantiate the component in the JS part, then attache the component
 
 ### Build the context
 
-We provide a PHP lib which create the billingContext for you, but if you want to display the checkout outside of a shop, you need to build it manually. Here is an example of the context. Please find more information about the context [in PrestaShop Billing CDC page](http://localhost:8080/5-prestashop-billing/6-references/3-billing-cdc/#context).
+We provide a PHP lib which create the billingContext for you, but if you want to display the checkout outside of a PrestaShop shop, you need to build it manually. Here is an example of the context. Please find more information about the context [in PrestaShop Billing CDC page](http://localhost:8080/5-prestashop-billing/6-references/3-billing-cdc/#context).
 
 :::tip Note
 The `contextType` set to shop means that you want to attach the subscription to a shop.
@@ -132,5 +138,35 @@ function onEventHook(type, data) {
       // Do something
       break;
   }
+}
+```
+
+## Specific use case
+
+### Partner account
+
+Partner account monetization is quite specific because the subscription belongs to a user instead of a shop. In order to handle the specificity the context should be updated.
+
+```javascript
+const billingContext = {
+  contextType: 'user',
+  contextVersion: 2,
+  billingEnv: 'production', // could be 'preprod' depending on your authentication configuration
+  isSandbox: true, 
+  accessToken: 't0K3N',     // the authentication token of your user, it should contain the scope "subscription.write"
+  i18n: {
+    isoCode: 'en',          // two-letter format
+  },
+  organization: {
+    uuid: '<sub_in_access_token>',
+    email: 'john.doe@prestashop.com'
+  },
+  product: {
+    id: 'partner_account',
+  },
+  offerSelection: {
+    offerPricingId: 'partner_account-standard',
+    singleSubscriptionIdentifier: '<addons_product_id>', // Required to allow multiple subscription for the same billing product
+  },
 }
 ```
