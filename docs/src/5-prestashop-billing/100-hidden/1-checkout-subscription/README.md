@@ -36,7 +36,9 @@ npm add @prestashopcorp/billing-cdc
 You need to instantiate the component in the JS part, then use it in your Vue template.
 
 ::: warning
-[Vite](https://vitejs.dev/) user should get an error `Uncaught TypeError: Expected string or element selector to be passed`. You must add vue in alias `defineViteConfig({ resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } } })`.
+[Vite](https://vitejs.dev/) user can get this error `Uncaught TypeError: Expected string or element selector to be passed`. 
+
+In this cas an alias should be added in vite.config.js: `defineViteConfig({ resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } } })`.
 :::
 
 ```vue
@@ -124,8 +126,41 @@ Please ask us to know the value to provide as `product.id` and `offerSelection.o
 The event hook allows you to update your UI, when an important event occurs, like the creation of a subscription.
 
 :::warning 
-Please do not use the event hook to register the fact a customer has subscribe to your product. It's not safe. Prefer the webhook mechanism.
+Please do not use the event hook to register the fact a customer has subscribe to your product. It's not safe. Prefer the [webhook mechanism](../../6-references/1-webhook/).
 :::
+
+#### Vue 3
+
+```vue
+<template>
+  <SubscriptionCheckout
+    :context="billingContext"
+    :on-event-hook="eventHookHandler"
+  />
+</template>
+
+<script setup lang="ts">
+import { SubscriptionCheckoutComponent, EVENT_HOOK_TYPE } from '@prestashopcorp/billing-cdc';
+
+//...
+
+const onEventHook = (type, data) => {
+  // Event hook listener
+  switch (type) {
+    case EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED:
+      // Do something
+      break;
+    case EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
+      // Do something
+      break;
+  }
+}
+</script>
+```
+
+
+#### Vanilla JS
+
 
 ```javascript
 function onEventHook(type, data) {
@@ -140,6 +175,8 @@ function onEventHook(type, data) {
   }
 }
 ```
+
+
 
 ## Specific use case
 
