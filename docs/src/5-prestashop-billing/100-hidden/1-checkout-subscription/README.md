@@ -38,7 +38,7 @@ You need to instantiate the component in the JS part, then use it in your Vue te
 ::: warning
 [Vite](https://vitejs.dev/) user can get this error `Uncaught TypeError: Expected string or element selector to be passed`. 
 
-In this cas an alias should be added in vite.config.js: `defineViteConfig({ resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } } })`.
+In this case an alias should be added in vite.config.js: `defineViteConfig({ resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } } })`.
 :::
 
 ```vue
