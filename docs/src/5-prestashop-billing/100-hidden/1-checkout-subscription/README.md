@@ -119,7 +119,7 @@ const billingContext = {
 }
 ```
 
-Please ask us to know the value to provide as `product.id` and `offerSelection.offerPricingId`.
+If you do not know what value to provide for the `product.id` and the`offerSelection.offerPricingId`, don't hesitate to ask us.
 
 ### React to the event hook
 
