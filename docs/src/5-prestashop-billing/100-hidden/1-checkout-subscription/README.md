@@ -126,7 +126,7 @@ If you do not know what value to provide for the `product.id` and the`offerSelec
 The event hook allows you to update your UI, when an important event occurs, like the creation of a subscription.
 
 :::warning 
-Please do not use the event hook to register the fact a customer has subscribe to your product. It's not safe. Prefer the [webhook mechanism](../../6-references/1-webhook/).
+Please do not use the event hook to register the fact a customer has subscribed to your product. It's not safe. Prefer the [webhook mechanism](../../6-references/1-webhook/).
 :::
 
 #### Vue 3
