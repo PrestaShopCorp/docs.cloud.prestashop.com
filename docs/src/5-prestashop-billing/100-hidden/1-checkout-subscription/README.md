@@ -41,7 +41,7 @@ You need to instantiate the component in the JS part, then use it in your Vue te
 In this case an alias should be added in vite.config.js: `defineViteConfig({ resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } } })`.
 :::
 
-```vue
+```html
 <template>
   <SubscriptionCheckout
     :context="billingContext"
@@ -131,7 +131,15 @@ Please do not use the event hook to register the fact a customer has subscribed 
 
 #### Vue 3
 
-```vue
+
+```html{4,10,14-23}
+<template>
+  <SubscriptionCheckout
+    :context="billingContext"
+    :on-event-hook="eventHookHandler"
+  />
+</template>
+
 <script setup lang="ts">
 // Add import of EVENT_HOOK_TYPE
 import { SubscriptionCheckoutComponent, EVENT_HOOK_TYPE } from '@prestashopcorp/billing-cdc';
@@ -156,18 +164,31 @@ const onEventHook = (type, data) => {
 #### Vanilla JS
 
 
-```javascript
-function onEventHook(type, data) {
-  // Event hook listener
-  switch (type) {
-    case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED:
-      // Do something
-      break;
-    case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
-      // Do something
-      break;
-  }
-}
+```html{6,11-21}
+<body>
+  <div id="ps-billing">
+  <script>
+    const subscription = new window.psBilling.SubscriptionCheckoutComponent({
+      context: billingContext,
+      onEventHook: eventHookHandler
+    });
+    customer.render('#ps-billing');
+
+
+    const onEventHook = (type, data) => {
+      // Event hook listener
+      switch (type) {
+        case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED:
+          // Do something
+          break;
+        case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
+          // Do something
+          break;
+      }
+    }
+  </script>
+</body>
+
 ```
 
 
@@ -178,7 +199,7 @@ function onEventHook(type, data) {
 
 The fact that the subscription is owned by a user rather than a shop, makes integration within the partner account quite particular. The context has to be modified, as below, to handle the specificity.
 
-```javascript
+```javascript{19}
 const billingContext = {
   contextType: 'user',
   contextVersion: 2,
