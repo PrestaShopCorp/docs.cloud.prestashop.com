@@ -98,7 +98,7 @@ const billingContext = {
     isoCode: 'en',          // two-letter format
   },
   organization: {
-    uuid: 'authenticated_user_uUiD',
+    uuid: 'authenticated_user_uuid',
     email: 'john.doe@prestashop.com'
   },
   // This shop part is not required it the context you use is not "shop"
