@@ -28,13 +28,13 @@ These events follow the subscription lifecycle below, and are detailed in our [r
 You can see here the lifecycle of a subscription for different use cases.
 
 Subscription with trial
-![lifecycle subscription with trial](/assets/images/3-webhook-events/lifecycle_subscription_with_trial.jpg)
+![lifecycle subscription with trial](/assets/images/billing/3-webhook-events/lifecycle_subscription_with_trial.jpg)
 Subscription without trial
-![lifecycle subscription without trial](/assets/images/3-webhook-events/lifecycle_subscription_without_trial.jpg)
+![lifecycle subscription without trial](/assets/images/billing/3-webhook-events/lifecycle_subscription_without_trial.jpg)
 Subscription during trial
-![lifecycle subscription during trial](/assets/images/3-webhook-events/lifecycle_cancellation_during_trial.jpg)
+![lifecycle subscription during trial](/assets/images/billing/3-webhook-events/lifecycle_cancellation_during_trial.jpg)
 Plan change
-![lifecycle plan change](/assets/images/3-webhook-events/lifecycle_plan_change.jpg)
+![lifecycle plan change](/assets/images/billing/3-webhook-events/lifecycle_plan_change.jpg)
 
 ## Subscription
 
