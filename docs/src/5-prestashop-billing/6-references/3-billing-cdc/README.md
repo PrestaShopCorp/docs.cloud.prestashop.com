@@ -1,8 +1,8 @@
 ---
-title: Prestashop Billing CDC
+title: PrestaShop Billing CDC
 ---
 
-# Prestashop Billing CDC
+# PrestaShop Billing CDC
 
 [[toc]]
 
