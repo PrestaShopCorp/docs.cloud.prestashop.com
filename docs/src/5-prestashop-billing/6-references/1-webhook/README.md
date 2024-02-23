@@ -6,18 +6,15 @@ title: Webhooks
 
 # Webhooks
 
-## Beta: New webhook system
+## New webhook system
 
-We are rolling out a new webhook system that will facilitate the configuration, testing and debugging of the webhooks that PrestaShop Billing put at your disposal, with a brand new interface that will centralize and streamline our previous workflows.
+We have rolling out a new webhook system that will facilitate the configuration, testing and debugging of the webhooks that PrestaShop Billing put at your disposal, with a brand new interface that will centralize and streamline our previous workflows.
 
 :::warning
-While the system is in beta, please note that the workflows and the documentation will evolve.
 At the current time, the interface is not yet available.
 :::
 
 If you already receive webhooks using our [Legacy webhook](#legacy-webhook-system) and you are interested in switching to our new system, please get in touch with your solution engineer.
-
-You can access the catalog of our webhooks via this [link](https://www.svix.com/event-types/eu/org_2NupQWCc2oQGmgtYUgU7vEc3SoV/).
 
 ### Start receiving webhooks
 
@@ -28,7 +25,26 @@ We also encourage you to whitelist [these IPs ("EU")](https://docs.svix.com/rece
 
 ### Events
 
-The precise payloads available will soon be available on your Application Portal, but in the meantime please refer to the [Legacy webhook](#legacy-webhook-system) system documentation for the exact payload formats.
+You can access the catalog of our webhooks via this [link](https://www.svix.com/event-types/eu/org_2NupQWCc2oQGmgtYUgU7vEc3SoV/).
+
+### Retry and optimistic concurrency control
+
+Communication issues, such as network latency or outages, might occasionally arise between your API and our webhook system. When your API doesn't return a 2xx HTTP status, then our webhook system will begin attempting to make the request again. Here is the schedule.
+
+- Immediately
+- 5 seconds
+- 5 minutes
+- 30 minutes
+- 2 hours
+- 5 hours
+- 10 hours
+- 10 hours (in addition to the previous)
+
+One crucial issue to deal with when utilizing event-driven architecture is the possibility of events being received out of order.
+
+![Event received in the wrong order](/assets/images/billing/concurrency_control.jpg)
+
+Hopefully, we provide, in every entity, `resource_version` which can be used to detect out of order event. You should store the `resource_version` in your system, and when you receive à webhook, compare the value in your system with the value received from the webhook.
 
 ## Legacy webhook system
 
