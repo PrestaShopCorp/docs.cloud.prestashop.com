@@ -28,7 +28,7 @@ if (!defined('_PS_VERSION_')) {
 To ensure that your module passes automatic validation, please follow the syntax above.
 :::
 
-### :new: PrestaShop version Compliancy is declared
+### PrestaShop version Compliancy is declared
 
 You have to declare the compliancy of your module with PrestaShop versions in the __construct function of your module.
 ```php
@@ -172,7 +172,7 @@ We examine every SQL request to make sure you cast your variables.
     $sql = 'SELECT * FROM ' . DB_PREFIX . 'orders WHERE id_order = ' . $this->id_order ;
     ```
 
-- :new: Use `array_map` for arrays.
+- Use `array_map` for arrays.
 
     Use this:
     ```php
@@ -188,7 +188,7 @@ We examine every SQL request to make sure you cast your variables.
     IN ('" . implode("','", array_map('pSQL', explode(',', $arrayOfStrings )).'")
     ``` 
 
-- :new: Use `bqSQL()` for table's name or field's name.
+- Use `bqSQL()` for table's name or field's name.
 
     Use this:
     ```php
@@ -207,7 +207,7 @@ More details:
 
 Using `serialize()` / `unserialize()` is forbidden, as they is a security risk if you do not control the data going through these methods. They may lead to remote code execution, so we recommend using `json_encode()` / `json_decode()` instead.
 
-### :new: An `.htaccess` file exists in the root folder of the module
+### An `.htaccess` file exists in the root folder of the module
 
 To prevent someone from listing the files of the module, and direct execution of PHP files, an `.htaccess` file must be present in the root folder.
 
@@ -237,7 +237,7 @@ Example :
 If your module creates log or debug files, you must also prevent them from being accessed from the internet by creating a rule in the .htaccess file. You can load them from a back-office page by loading them in PHP, or the merchant can retrieve them from their FTP.
 :::
 
-### :up: Smarty variables are escaped
+### Smarty variables are escaped
 
 All the Smarty variables present in TPL files have to be escaped, to avoid malicious code to be displayed.
 
@@ -272,13 +272,18 @@ To prevent someone from reaching the content of a repository, an `index.php` fil
 As we deal with [security risks](https://devdocs.prestashop-project.org/8/modules/creation/#keeping-things-secure) in some environments, we strongly recommend you comply with this rule. An ["autoindex" tool](https://github.com/jmcollin/autoindex) allows you to add one in each folder.
 
 :::tip Note
-:new: This rule does not apply to the vendor/ folder and its subfolders, which are managed by composer.
+This rule does not apply to the vendor/ folder and its subfolders, which are managed by composer.
 :::
 
-### :new: Deleting a file when updating a module
+### Deleting a file when updating a module
 
 If, during an update of the module, a file is no longer required and is therefore deleted, PrestaShop will not do this automatically. You must anticipate this by using the `unlink()` function in the update file. See documentation [here](https://devdocs.prestashop-project.org/8/modules/creation/enabling-auto-update/) about modules update.
 
+### :new: Header CSP declaration
+If your service uses external dependencies, we recommend that you declare the domains of these dependencies in a `header_csp.txt` file, separating the different domains declared by semicolons (` ; `). This file is necessary to ensure enhanced security on the servers of the merchants who will be using your module, by enabling effective CSP headers to be set up by the hosting and facilities management services.
+```text
+domaine-1.com;www.domaine-2.fr;domaine-3.net
+```
 
 ## Best practices
 
@@ -295,7 +300,7 @@ A module and its dependencies must be compatible with the OSL (core) and AFL (mo
 
 Additionally, distribution licenses like CC-0 or CC-by-sa are appropriate for artwork (e.g: icons, pictures, fonts, but not only).
 
-### :up: Files are stored in the proper directory
+### Files are stored in the proper directory
 
 Module may add/modify some files on the store. To avoid issues with file permissions, we recommend storing files in the `var/%env%` directory. If you want to store files in the module folder, you must ensure that the rights are correct, and inform the merchants if this is not the case, so that they can make the necessary arrangements.
 
