@@ -6,7 +6,7 @@ In the usage-based pricing model, customers are charged based on their actual us
 A video conferencing SaaS applies usage-based pricing for its business customers. They charge $0.05 per minute of video conferencing usage. If a customer conducts a 30-minute video conference, the cost would be 1.50€ (30 minutes \* 0.05€ per minute) invoiced at the end of the billing period.
 
 :::tip
-More details about Usage-Based API are [available here](https://prestashop-billing.stoplight.io/docs/api-gateway/896ba54736b77-add-an-usage-to-a-subscription-item).
+More details about Usage-Based API are [available here](https://prestashop-billing.stoplight.io/docs/api-gateway/d21615d4db0c8-add-an-usage-to-a-subscription-item).
 :::
 
 :::tip
