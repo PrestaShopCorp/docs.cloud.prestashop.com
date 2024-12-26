@@ -35,7 +35,7 @@ $billingFacade->present([
     'privacyLink' => 'https://yoururl/',
     // This field is deprecated, but must be provided to ensure backward compatibility
     'emailSupport' => ''
-]
+]);
 ```
 
 :::
@@ -111,3 +111,38 @@ console.log(updatedObject.level1.level2.level3.value); // 99
 - `baseObject` A base context object of undefined depth.
 - `propertyPath` An array of strings of undefined length, representing from left to right the property you want to override by accessing each preceding node in the object.
 - `overrideValue` The value that will override the rightmost string in propertyPath.
+
+## psBilling.initializeAddress()
+
+Initialize the address CDC (cross-domain component). For your convenience, `module-lib-billing` creates the required `context` object (see the [tutorial](../../3-tutorial/README.md#inject-the-prestashop-billing-context) for further reading on how it is implemented).
+
+```typescript
+function initializeAddress(
+  context: Context,
+  domComponentSelector: string,
+  domModalSelector: string,
+  onEventHookCallback: (type: EVENT_HOOK_TYPE, data: unknown) => void,
+);
+```
+
+- `context`: an object holding key informations about the shop and your module. For more information on all available properties, see [below](#context).
+  :::tip
+  Modifiable properties may be modified via the use of the `present` method of the `ps_billings_facade` in `module-lib-billing`.
+
+```php
+$billingFacade->present([
+    'logo' => $partnerLogo,
+    'tosLink' => 'https://yoururl/',
+    'privacyLink' => 'https://yoururl/',
+    // This field is deprecated, but must be provided to ensure backward compatibility
+    'emailSupport' => ''
+]);
+```
+
+- `billingSelector`: the DOM element on which address component will be attached.
+- `modalSelector`: the DOM element on which the modals of Ps Billing will be attached.
+- `callback`:
+
+:::tip
+See how to use address component using this [tutorial](../../4-how-tos/7-display-address-pane/README.md)
+:::
