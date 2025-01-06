@@ -6,7 +6,7 @@ title: Address pane
 
 # Address pane
 
-You can choose to add the following address pane at the location of your choice within your module:
+Add the following address pane wherever you want within your module:
 
 ![PrestaShop Billing Address Pane](/assets/images/billing/ps_billing_address_pane.png)
 
