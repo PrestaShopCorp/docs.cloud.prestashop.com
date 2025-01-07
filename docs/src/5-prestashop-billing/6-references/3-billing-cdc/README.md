@@ -25,8 +25,10 @@ function initialize(
 ```
 
 - `context`: an object holding key informations about the shop and your module. For more information on all available properties, see [below](#context).
-  :::tip
+
+:::tip
   Modifiable properties may be modified via the use of the `present` method of the `ps_billings_facade` in `module-lib-billing`.
+:::
 
 ```php
 $billingFacade->present([
@@ -37,8 +39,6 @@ $billingFacade->present([
     'emailSupport' => ''
 ]);
 ```
-
-:::
 
 - `billingSelector`: the DOM element on which Ps Billing will be attached.
 - `modalSelector`: the DOM element on which the modals of Ps Billing will be attached.
@@ -126,8 +126,10 @@ function initializeAddress(
 ```
 
 - `context`: an object holding key informations about the shop and your module. For more information on all available properties, see [below](#context).
-  :::tip
-  Modifiable properties may be modified via the use of the `present` method of the `ps_billings_facade` in `module-lib-billing`.
+
+:::tip
+Modifiable properties may be modified via the use of the `present` method of the `ps_billings_facade` in `module-lib-billing`.
+:::
 
 ```php
 $billingFacade->present([
@@ -141,7 +143,6 @@ $billingFacade->present([
 
 - `billingSelector`: the DOM element on which address component will be attached.
 - `modalSelector`: the DOM element on which the modals of Ps Billing will be attached.
-- `callback`:
 
 :::tip
 See how to use address component using this [tutorial](../../4-how-tos/7-display-address-pane/README.md)
