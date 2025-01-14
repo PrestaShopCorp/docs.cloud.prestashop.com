@@ -118,13 +118,13 @@ Event hooks can be triggered by two of our cross-domain components: `ModalCompon
 
 The table below lists the available event hooks, their corresponding constants, descriptions, and the components that can trigger them:
 
-| Value                                | Constant                                     | Description                                                                                                            | Component                                     |
-| ------------------------------------ | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| `billing:subscription_created`       | `EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED`       | Triggered when a subscription is created.                                                                              | ModalComponent, SubscriptionCheckoutComponent |
-| `billing:subscription_updated`       | `EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED`       | Triggered when a subscription is updated.                                                                              | ModalComponent, SubscriptionCheckoutComponent |
-| `billing:subscription_cancelled`     | `EVENT_HOOK_TYPE.SUBSCRIPTION_CANCELLED`     | Triggered when a subscription is cancelled.                                                                            | ModalComponent                                |
-| `billing:subscription_reactivated`   | `EVENT_HOOK_TYPE.SUBSCRIPTION_REACTIVATED`   | Triggered when a subscription is reactivated after cancellation.                                                       | ModalComponent                                |
-| `billing:subscription_funnel_closed` | `EVENT_HOOK_TYPE.SUBSCRIPTION_FUNNEL_CLOSED` | Triggered when the checkout funnel is closed, either by clicking the continue button or closing the full-screen modal. | ModalComponent                                |
+| Value / Constant                                                                        | Description                                                                                                            | Component                                     |
+| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `billing:subscription_created` <br/> `EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED`             | Triggered when a subscription is created.                                                                              | ModalComponent, SubscriptionCheckoutComponent |
+| `billing:subscription_updated` <br/> `EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED`             | Triggered when a subscription is updated.                                                                              | ModalComponent, SubscriptionCheckoutComponent |
+| `billing:subscription_cancelled` <br/> `EVENT_HOOK_TYPE.SUBSCRIPTION_CANCELLED`         | Triggered when a subscription is cancelled.                                                                            | ModalComponent                                |
+| `billing:subscription_reactivated` <br/>`EVENT_HOOK_TYPE.SUBSCRIPTION_REACTIVATED`      | Triggered when a subscription is reactivated after cancellation.                                                       | ModalComponent                                |
+| `billing:subscription_funnel_closed` <br/> `EVENT_HOOK_TYPE.SUBSCRIPTION_FUNNEL_CLOSED` | Triggered when the checkout funnel is closed, either by clicking the continue button or closing the full-screen modal. | ModalComponent                                |
 
 ### Deprecated Hooks
 
