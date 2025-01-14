@@ -4,7 +4,7 @@ title: Payment Method
 
 [[toc]]
 
-# Address
+# Payment Method
 
 ## Use case
 
