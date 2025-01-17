@@ -6,6 +6,14 @@ title: Handle plan selection by yourself
 
 # Handle plan selection by yourself
 
+The billing funnel can handle for you the plan selection, but sometimes you may prefer to present your plan by yourself to be more precise about your offer.
+
+In such a case you should provide to the billing context the selected plan, and if applicable the quantity associated with.
+
+:::warning Warning
+When you handle the plan selection by yourself, we recommend you to retrieve the [subscription in PHP](../5-retrieve-subscription/README.md) to know if you must display the plan selection or the subscription during billing-cdc bootstrap.
+:::
+
 ## Add plan selection
 
 You should add your plan presentation in the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`). In order to handle plan selection by yourself, you must use the subscription management component and the checkout modal instead of the `window.psBilling.initialize` method.
@@ -140,9 +148,9 @@ For component group id, please get in touch with your Solution Engineer at Prest
    <div id="ps-billing"></div>
    <div id="ps-modal"></div>
 
-   <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel=preload></script>
-   <script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel=preload></script>
-   <script src="{$urlConfigureJs|escape:'htmlall':'UTF-8'}" rel=preload></script>
+   <script src="{$urlAccountsCdn|escape:'htmlall':'UTF-8'}" rel="preload"></script>
+   <script src="{$urlBilling|escape:'htmlall':'UTF-8'}" rel="preload"></script>
+   <script src="{$urlConfigureJs|escape:'htmlall':'UTF-8'}" rel="preload"></script>
    ```
 
 4. Implement `views/js/configure.js` to make billing works with the component instead of the `initialize` method
@@ -161,7 +169,7 @@ For component group id, please get in touch with your Solution Engineer at Prest
        onOpenModal,
        onEventHook,
      });
-     customer.render("#ps-billing");
+     customer.render('#ps-billing');
    }
 
    // Modal open / close management
@@ -179,7 +187,7 @@ For component group id, please get in touch with your Solution Engineer at Prest
        onCloseModal,
        onEventHook,
      });
-     currentModal.render("#ps-modal");
+     currentModal.render('#ps-modal');
    }
 
    function updateCustomerProps(data) {
@@ -241,80 +249,79 @@ For component group id, please get in touch with your Solution Engineer at Prest
 6. Display the checkout modal when your user click on the plan selection button
 
    ```javascript
-    window?.psaccountsVue?.init();
+   window?.psaccountsVue?.init();
 
-    let billingContext = { ...window.psBillingContext.context }
-    let currentModal;
-    let customer;
+   let billingContext = { ...window.psBillingContext.context };
+   let currentModal;
+   let customer;
 
-    if(window.psaccountsVue.isOnboardingCompleted() == true) {
+   if (window.psaccountsVue.isOnboardingCompleted() == true) {
+     showPlanSelection();
 
-      showPlanSelection();
+     customer = new window.psBilling.CustomerComponent({
+       context: billingContext,
+       hideInvoiceList: true,
+       onOpenModal,
+       onEventHook,
+     });
+     customer.render('#ps-billing');
+   }
 
-      customer = new window.psBilling.CustomerComponent({
-        context: billingContext,
-        hideInvoiceList: true,
-        onOpenModal,
-        onEventHook
-      });
-      customer.render('#ps-billing');
-    }
+   // Modal open / close management
+   async function onCloseModal(data) {
+     await Promise.all([currentModal.close(), updateCustomerProps(data)]);
+   }
 
-    // Modal open / close management
-    async function onCloseModal(data) {
-      await Promise.all([currentModal.close(), updateCustomerProps(data)]);
-    };
+   function onOpenModal(type, data) {
+     currentModal = new window.psBilling.ModalContainerComponent({
+       type,
+       context: {
+         ...billingContext,
+         ...data,
+       },
+       onCloseModal,
+       onEventHook,
+     });
+     currentModal.render('#ps-modal');
+   }
 
-    function onOpenModal(type, data) {
-      currentModal = new window.psBilling.ModalContainerComponent({
-        type,
-        context: {
-          ...billingContext,
-          ...data,
-        },
-        onCloseModal,
-        onEventHook
-      });
-      currentModal.render('#ps-modal');
-     };
+   function updateCustomerProps(data) {
+     return customer.updateProps({
+       context: {
+         ...billingContext,
+         ...data,
+       },
+     });
+   }
 
-    function updateCustomerProps(data) {
-      return customer.updateProps({
-        context: {
-          ...billingContext,
-          ...data,
-        },
-      });
-    };
+   // Event hook management
+   function onEventHook(type, data) {
+     // Event hook listener
+     switch (type) {
+       case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED:
+         showBillingWrapper();
+         break;
+       case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
+         showBillingWrapper();
+         break;
+     }
+   }
 
-    // Event hook management
-    function onEventHook(type, data) {
-      // Event hook listener
-      switch (type) {
-        case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED:
-          showBillingWrapper();
-          break;
-        case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
-          showBillingWrapper();
-          break;
-      }
-    }
+   function showPlanSelection() {
+     document.getElementById('billing-plan-selection').style.display = 'block';
+     document.getElementById('ps-billing-wrapper').style.display = 'none';
+   }
 
-    function showPlanSelection() {
-      document.getElementById('billing-plan-selection').style.display = 'block';
-      document.getElementById('ps-billing-wrapper').style.display = 'none';
-    }
+   function showBillingWrapper() {
+     document.getElementById('billing-plan-selection').style.display = 'none';
+     document.getElementById('ps-billing-wrapper').style.display = 'block';
+   }
 
-    function showBillingWrapper() {
-      document.getElementById('billing-plan-selection').style.display = 'none';
-      document.getElementById('ps-billing-wrapper').style.display = 'block';
-    }
-
-    // Open the checkout full screen modal
-    function openCheckout(pricingId) {
-      const offerSelection = {offerSelection: {offerPricingId: pricingId }};
-      onOpenModal(window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL, offerSelection);
-    };
+   // Open the checkout full screen modal
+   function openCheckout(pricingId) {
+     const offerSelection = { offerSelection: { offerPricingId: pricingId } };
+     onOpenModal(window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL, offerSelection);
+   }
    ```
 
    <!-- TODO: add information about the plan-billing components -->
@@ -354,14 +361,6 @@ In case you handle the plan selection by yourself, you don't want the default pl
 
 ::: warning
 This document has been **deprecated**. While the information below remains valid for historical purposes, we recommend referring to the updated documentation for the latest guidance.
-:::
-
-The billing funnel can handle for you the plan selection, but sometimes you may prefer to present your plan by yourself to be more precise about your offer.
-
-In such a case you should provide to the billing context the selected plan, and if applicable the quantity associated with.
-
-:::warning Warning
-When you handle the plan selection by yourself, we recommend you to retrieve the [subscription in PHP](../5-retrieve-subscription/README.md) to know if you must display the plan selection or the subscription during billing-cdc bootstrap.
 :::
 
 ### Add plan selection
