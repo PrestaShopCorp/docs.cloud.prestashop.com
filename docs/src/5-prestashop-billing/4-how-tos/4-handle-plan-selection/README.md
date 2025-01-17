@@ -4,7 +4,9 @@ title: Handle plan selection by yourself
 
 [[toc]]
 
-### Add plan selection
+# Handle plan selection by yourself
+
+## Add plan selection
 
 You should add your plan presentation in the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`). In order to handle plan selection by yourself, you must use the subscription management component and the checkout modal instead of the `window.psBilling.initialize` method.
 
@@ -317,7 +319,7 @@ For component group id, please get in touch with your Solution Engineer at Prest
 
    <!-- TODO: add information about the plan-billing components -->
 
-### Handle plan change / select button
+## Handle plan change / select button
 
 ![PrestaShop Change Plan button](/assets/images/billing/change_plan_button.png)
 
