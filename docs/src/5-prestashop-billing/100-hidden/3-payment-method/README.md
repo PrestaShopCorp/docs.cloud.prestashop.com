@@ -45,7 +45,7 @@ const billingContext = {
   contextVersion: 2,
   billingEnv: 'production', // could be 'preprod' depending on your authentication configuration
   isSandbox: true,
-  accessToken: 't0K3N',     // the authentication token of your user, it should contain the scope "subscription.write"
+  accessToken: 't0K3N',
   i18n: {
     isoCode: 'en',          // two-letter format
   },
@@ -68,12 +68,13 @@ In this case an alias should be added in vite.config.js: `defineViteConfig({ res
 
 ```html
 <template>
-  <UserPaymentMethodManagementComponent
+  <UserPaymentMethodManagement
     :context="billingContext"
     :onOpenModal="openBillingModal"
   />
 
   <PsBillingModal
+    v-if="modalType !== ''
     :context="billingContext"
     :type="modalType"
     :on-close-modal="closeBillingModal"
@@ -94,6 +95,7 @@ const billingContext = {
   billingEnv: 'production', // could be 'preprod' depending on your authentication configurationOFF-1282/feat/standalone-address-component
     isoCode: 'en',          // two-letter format
   },
+   accessToken: 't0K3N',
   organization: {
     uuid: '<sub_in_access_token>',
     email: 'john.doe@prestashop.com'
