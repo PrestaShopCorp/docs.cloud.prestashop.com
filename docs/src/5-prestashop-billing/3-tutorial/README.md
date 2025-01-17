@@ -105,8 +105,8 @@ During your development, you should set the sandbox mode to `true` (as shown in 
      "require": {
        "php": ">=5.6",
        "prestashop/prestashop-accounts-installer": "^1.0",
-       "prestashop/module-lib-service-container": "^1.4", // use version "^2.0" for PS 9
-       "prestashopcorp/module-lib-billing": "^4.0.0"
+       "prestashop/module-lib-service-container": "^1.4", // "^2.0" for v9 compatibility
+       "prestashopcorp/module-lib-billing": "^3.0.0"
      },
      "autoload": {
        "classmap": [
@@ -117,6 +117,9 @@ During your development, you should set the sandbox mode to `true` (as shown in 
      "license": "MIT"
    }
    ```
+:::warning PrestaShop 9 Compatibility
+You must use `"prestashop/module-lib-service-container": "^2.0"` instead of `"^1.4"`
+:::
 
 4. Run the `composer install --no-dev -o` command to implement the new dependency.
 
