@@ -105,8 +105,8 @@ During your development, you should set the sandbox mode to `true` (as shown in 
      "require": {
        "php": ">=5.6",
        "prestashop/prestashop-accounts-installer": "^1.0",
-       "prestashop/module-lib-service-container": "^1.4",
-       "prestashopcorp/module-lib-billing": "^3.0.0"
+       "prestashop/module-lib-service-container": "^1.4", // use version "^2.0" for PS 9
+       "prestashopcorp/module-lib-billing": "^4.0.0"
      },
      "autoload": {
        "classmap": [
