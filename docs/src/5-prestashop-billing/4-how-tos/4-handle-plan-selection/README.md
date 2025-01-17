@@ -70,7 +70,7 @@ Billing will not provide the name of the plans and the list of features, you mus
 For component group id, please get in touch with your Solution Engineer at PrestaShop.
 :::
 
-```php{13-59}
+```php
    public function getContent()
    {
      // ...
@@ -135,7 +135,7 @@ For component group id, please get in touch with your Solution Engineer at Prest
 
 3. Inject `views/js/configure.js` as a script in `views/templates/admin/configure.tpl`
 
-   ```html{7}
+   ```html
    <prestashop-accounts></prestashop-accounts>
    <div id="ps-billing"></div>
    <div id="ps-modal"></div>
@@ -147,7 +147,7 @@ For component group id, please get in touch with your Solution Engineer at Prest
 
 4. Implement `views/js/configure.js` to make billing works with the component instead of the `initialize` method
 
-   ```javascript{8-14,18-20,22-33,35-42}
+   ```javascript
    window?.psaccountsVue?.init();
 
    let billingContext = { ...window.psBillingContext.context };
@@ -198,7 +198,7 @@ For component group id, please get in touch with your Solution Engineer at Prest
 
 5. Display your plan in your module and hide the subscription management in `views/templates/admin/configure.tpl`
 
-   ```html{4-32}
+   ```html
       <prestashop-accounts></prestashop-accounts>
 
       <!-- You should use the billing plan library in order to display your plan -->
@@ -240,7 +240,7 @@ For component group id, please get in touch with your Solution Engineer at Prest
 
 6. Display the checkout modal when your user click on the plan selection button
 
-   ```javascript{14,52,55,60-74}
+   ```javascript
     window?.psaccountsVue?.init();
 
     let billingContext = { ...window.psBillingContext.context }
