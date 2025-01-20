@@ -4,11 +4,93 @@ title: Retrieve customer's subscription
 
 [[toc]]
 
-# Retrieve customer's subscription
+You should be able to retrieve a subscription on the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`).
 
-In case you want to have a specific display when your customer already has a subscription or you handle the plan selection by yourself, you need to know if the customer already has a subscription. You can achieve this with our PHP library [`module-lib-billing`](https://packagist.org/packages/prestashopcorp/module-lib-billing).
+This is a simple working example that is purposefully basic. You can make the code as complex as you need to cover your specific requirements, as long as you follow the steps in this guide.
 
-## Add retrieve subscription
+1. **Create the BillingAdapter class:**
+
+   Implement the `BillingAdapter` to handle API interactions with the Billing service.
+
+   ```php
+   class BillingAdapter
+   {
+       private const BILLING_URL = 'https://billing-api.distribution.prestashop.net/v1/';
+
+       private $jwt;
+
+       public function __construct($jwt)
+       {
+           $this->jwt = $jwt;
+       }
+
+       public function getCurrentSubscription($shopId, $productId)
+       {
+           // Use Symfony client or create your own HTTP client based on curl
+           $httpClient = new HttpClient(self::BILLING_URL);
+           $httpClient->setHeaders([
+               'Accept: application/json',
+               'Authorization: Bearer ' . $this->jwt,
+               'Content-Type: application/json',
+               'User-Agent: module-lib-billing (' . $productId . ')',
+           ]);
+
+           return $httpClient->get('/customers/' . $shopId . '/subscriptions/' . $productId);
+       }
+   }
+   ```
+
+2. **Retrieve current subscription using the BillingAdapter:**
+
+   Replace the `billingService` with the `BillingAdapter` to retrieve the subscription data.
+
+   ```php
+   public function getContent()
+   {
+       //...
+
+       // Load the BillingAdapter with the JWT token
+       $jwt = $psAccountsService->getOrRefreshToken();
+       $billingAdapter = new BillingAdapter($jwt);
+
+       // Retrieve current subscription
+       $shopId = $psAccountsService->getShopUuidV4();
+       $currentSubscription = $billingAdapter->getCurrentSubscription($shopId, $this->module->name);
+
+       $subscription = [];
+       if (!empty($currentSubscription['success'])) {
+           $subscription = $currentSubscription['body'];
+       }
+
+       $this->context->smarty->assign([
+           'subscription' => $subscription,
+           'hasSubscription' => !empty($subscription),
+       ]);
+
+       // ...
+   }
+   ```
+
+3. **Conditional display based on the subscription:** Add the following in `views/templates/admin/configure.tpl`.
+
+   ```html
+   <section id="billing-plan-selection" {if $hasSubscription}class="hide"{/if}>
+       <!-- Display your plan and a call to action to the subscription funnel -->
+   </section>
+
+   <div id="ps-billing-wrapper" {if !$hasSubscription}class="hide"{/if}>
+       <div id="ps-billing"></div>
+       <div id="ps-billing-invoice"></div>
+   </div>
+
+   <div id="ps-modal"></div>
+   ```
+
+## Deprecated
+
+::: warning
+This document has been **deprecated**. While the information below remains valid for historical purposes, we recommend referring to the updated documentation for the latest guidance.
+:::
 
 You should be able to retrieve subscription in the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`).
 
@@ -113,14 +195,11 @@ This is a simple working example that is purposefully basic, you can make the co
        onEventHook,
        onOpenFunnel,
      });
-     customer.render("#ps-billing");
+     customer.render('#ps-billing');
 
      // Initialize invoice list only if we have subscription
      if (hasSubscription) {
-       window.psBilling.initializeInvoiceList(
-         billingContext,
-         "#ps-billing-invoice"
-       );
+       window.psBilling.initializeInvoiceList(billingContext, '#ps-billing-invoice');
      }
    }
 
@@ -139,7 +218,7 @@ This is a simple working example that is purposefully basic, you can make the co
        onCloseModal,
        onEventHook,
      });
-     currentModal.render("#ps-modal");
+     currentModal.render('#ps-modal');
    }
 
    function updateCustomerProps(data) {
@@ -152,33 +231,30 @@ This is a simple working example that is purposefully basic, you can make the co
    }
 
    function showBillingInvoiceWrapper() {
-     document.getElementById("ps-billing-invoice").innerHTML = "";
-     window.psBilling.initializeInvoiceList(
-       billingContext,
-       "#ps-billing-invoice"
-     );
+     document.getElementById('ps-billing-invoice').innerHTML = '';
+     window.psBilling.initializeInvoiceList(billingContext, '#ps-billing-invoice');
    }
 
    function showPlanPresenter() {
-     document.getElementById("billing-plan-presenter").classList.remove("hide");
-     document.getElementById("ps-billing-wrapper").classList.add("hide");
+     document.getElementById('billing-plan-presenter').classList.remove('hide');
+     document.getElementById('ps-billing-wrapper').classList.add('hide');
    }
 
    function showBillingWrapper() {
-     document.getElementById("billing-plan-presenter").classList.add("hide");
-     document.getElementById("ps-billing-wrapper").classList.remove("hide");
+     document.getElementById('billing-plan-presenter').classList.add('hide');
+     document.getElementById('ps-billing-wrapper').classList.remove('hide');
    }
 
    function onEventHook(type, data) {
      // Event hook listener
      switch (type) {
        case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_CREATED:
-         console.log("subscription created");
+         console.log('subscription created');
          showBillingWrapper();
          showBillingInvoiceWrapper();
          break;
        case window.psBilling.EVENT_HOOK_TYPE.SUBSCRIPTION_UPDATED:
-         console.log("subscription updated");
+         console.log('subscription updated');
          showBillingWrapper();
          showBillingInvoiceWrapper();
          break;
@@ -192,10 +268,7 @@ This is a simple working example that is purposefully basic, you can make the co
    // Open the checkout full screen modal
    function openCheckout(pricingId) {
      const offerSelection = { offerSelection: { offerPricingId: pricingId } };
-     onOpenModal(
-       window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL,
-       offerSelection
-     );
+     onOpenModal(window.psBilling.MODAL_TYPE.SUBSCRIPTION_FUNNEL, offerSelection);
    }
    ```
 
