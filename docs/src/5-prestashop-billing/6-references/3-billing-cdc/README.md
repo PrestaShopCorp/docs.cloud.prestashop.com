@@ -50,8 +50,10 @@ function initialize(
 ```
 
 - `context`: an object holding key informations about the shop and your module. For more information on all available properties, see [below](#context).
-  :::tip
+
+:::tip
   Modifiable properties may be modified via the use of the `present` method of the `ps_billings_facade` in `module-lib-billing`.
+:::
 
 ```php
 $billingFacade->present([
@@ -60,10 +62,8 @@ $billingFacade->present([
     'privacyLink' => 'https://yoururl/',
     // This field is deprecated, but must be provided to ensure backward compatibility
     'emailSupport' => ''
-]
+]);
 ```
-
-:::
 
 - `billingSelector`: the DOM element on which Ps Billing will be attached.
 - `modalSelector`: the DOM element on which the modals of Ps Billing will be attached.
