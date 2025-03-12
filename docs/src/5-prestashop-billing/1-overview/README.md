@@ -33,7 +33,3 @@ This documentation is organized as follow:
 ## Examples
 
 You can follow our [step-by-step tutorial](../3-tutorial/README.md) to have everything setup the right way and get started as quickly as possible.
-
-## Support
-
-Our team is here to help you get started with the implementation of PrestaShop Billing. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.

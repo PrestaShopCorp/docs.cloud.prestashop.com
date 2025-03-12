@@ -9,7 +9,7 @@ title: Integrating a Module with PrestaShop CloudSync
 To complete this procedure, you need to have already integrated your module with [PrestaShop Account](../3-prestashop-account/README.md).
 
 :::warning Contact Us
-Our team is here to help you get started with the implementation of PrestaShop CloudSync. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.
+Our team is here to help you get started with the implementation of PrestaShop CloudSync.
 :::
 
 :::tip Example module
