@@ -96,27 +96,7 @@ module.exports = {
     sidebar: [
       { title: 'Introduction', path: '0-introduction/' },
       { title: 'How It Works', path: '/1-how-it-works/' },
-      {
-        title: 'Before Starting',
-        //path: '/2-before-starting/',
-        sidebarDepth: 0,
-        collapsable: false,
-        initialOpenGroupIndex: 0,
-        children: [
-          {
-            path: '/2-before-starting/#available-tools',
-            title: 'Available Tools',
-          },
-          {
-            path: '/2-before-starting/#preparing-for-technical-validation',
-            title: 'Preparing for Technical Validation',
-          },
-          {
-            path: 'https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting?utm_campaign=documentation&utm_source=sidebar&utm_medium=link',
-            title: 'Plan my Built For PrestaShop development',
-          },
-        ],
-      },
+      { title: 'Before Starting', path: '/2-before-starting/' },
       {
         title: 'Preparing Your Environment',
         path: '/3-preparing-your-environment/',
@@ -202,29 +182,5 @@ module.exports = {
         },
       },
     ],
-  ],
-
-  markdown: {
-    lineNumbers: true,
-    extendMarkdown: (md) => {
-      (md.renderer.rules.image = (tokens, idx, options, env, self) => {
-        const token = tokens[idx];
-        const hrefIndex = token.attrIndex('src');
-        const src = token.attrs[hrefIndex][1];
-        const classesIndex = token.attrIndex('class');
-        const classes = classesIndex >= 0 ? token.attrs[classesIndex][1] : '';
-        if (classes.indexOf('book-meeting') >= 0) {
-          return `<a href="https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting" target="_blank"><img src="${src}" alt="Book an appointment"></a>`;
-        } else {
-          return self.renderToken(tokens, idx, options);
-        }
-      }),
-        md.use(require('markdown-it-attrs'), {
-          // optional, these are default options
-          leftDelimiter: '{#',
-          rightDelimiter: '#}',
-          allowedAttributes: [], // empty array = all attributes are allowed
-        });
-    },
-  },
+  ]
 };

@@ -14,7 +14,7 @@ Through these various API routes, you can access and integrate PrestaShop store 
 - The APIs are fully documented in an OpenAPI 3.0 compliant documentation.
 
 :::warning Contact Us
-Our team is here to help you get started with the implementation of PrestaShop CloudSync and PrestaShop Billing APIs. Please [click here](https://meetings.hubspot.com/esteban-martin3/prestashop-new-framework-integration-meeting) to set up a meeting with us before proceeding with the integration of your module.
+Our team is here to help you get started with the implementation of PrestaShop CloudSync and PrestaShop Billing APIs.
 :::
 
 ## Getting an Access Token
