@@ -52,12 +52,12 @@ PrestaShop Billing allows the PrestaShop billing system to deal with the **manag
 
 ### :cloud: PrestaShop CloudSync
 
-At the core of PrestaShop, CloudSync allows you to **duplicate and synchronize merchant store data on PrestaShop cloud servers** (carriers, carts, orders, products and more) so you can access and integrate comprehensive data into your modules or services to offer merchants the most optimized experience.
+At the core of PrestaShop, CloudSync allows you to **duplicate and synchronize merchant store data on PrestaShop cloud servers** (carriers, carts, orders, products, and more) so you can access and integrate comprehensive data into your modules or services to offer merchants the most optimized experience.
 
 #### Why Use It?
 - Capture comprehensive merchant store data into the cloud
 - Access reliable, structured, and fresh data in just a few clicks
-- Easily integrate PrestaShop data in your modules or services: CloudSync handles the support of all versions of PrestaShop, and standardize data models across PrestaShop versions
+- Integrate PrestaShop data in your modules or services: CloudSync handles the support of all versions of PrestaShop, and standardize data models across PrestaShop versions
 - Get a better understanding of your modules or services usage through data monitoring
 
 ## Prerequisites
@@ -66,19 +66,16 @@ At the core of PrestaShop, CloudSync allows you to **duplicate and synchronize m
 
 The following configuration is required to use the PrestaShop Integration Framework:
 
-| PrestaShop platform | PHP          | PrestaShop Account    | PrestaShop Billing (components)    | PrestaShop Billing (PHP helper)    | PrestaShop CloudSync (EventBus)    |
-| ------------------- | ------------ | --------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| 8.0                 | 7.2 – 8.1    | 6.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
-| 1.7.8               | 7.1 – 7.4    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
-| 1.7.7               | 7.1 – 7.3    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
-| 1.7.5 – 1.7.6       | 5.6 – 7.2    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
-| 1.7.4               | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
-| 1.7.0 – 1.7.3       | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | 2.0.x - PHP 7.1+                              |
-| 1.6.1.x             | 5.6 – 7.1    | 5.x                   | Yes                                | 1.x                                | No                              |
+| PrestaShop platform | PHP       | PrestaShop Account | PrestaShop Billing (components) | PrestaShop Billing (PHP helper) | PrestaShop CloudSync (EventBus)         |
+|---------------------|-----------|--------------------|---------------------------------|---------------------------------|-----------------------------------------|
+| 8.0                 | 7.2 – 8.1 | 6.x                | Yes                             | 1.x                             | 2.0.x - PHP 7.1+                        |
+| 1.7.8               | 7.1 – 7.4 | 5.x                | Yes                             | 1.x                             | 2.0.x - PHP 7.1+                        |
+| 1.7.7               | 7.1 – 7.3 | 5.x                | Yes                             | 1.x                             | 2.0.x - PHP 7.1+                        |
+| 1.7.5 – 1.7.6       | 5.6 – 7.2 | 5.x                | Yes                             | 1.x                             | 2.0.x - PHP 7.1+                        |
+| 1.7.4               | 5.6 – 7.1 | 5.x                | Yes                             | 1.x                             | 2.0.x - PHP 7.1+                        |
+| 1.7.0 – 1.7.3       | 5.6 – 7.1 | 5.x                | Yes                             | 1.x                             | 2.0.x - PHP 7.1+                        |
+| 1.6.1.x             | 5.6 – 7.1 | 5.x                | Yes                             | 1.x                             | 4.0.x - PHP 7.1+ (PrestaShop 1.6.1.11+) |
 
-:::warning Important
-PrestaShop eventbus module (CloudSync) does not support PHP 5.6. Compatibility starts with PHP 7.1.
-:::
 ### Supported languages
 
 To perform the integration of your module with the PrestaShop ecosystem, you need to use the following languages:
