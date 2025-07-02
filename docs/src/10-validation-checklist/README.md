@@ -121,6 +121,14 @@ Examples:
 
 Documentation is found in the `docs/` folder of the module, and in a format widly used (PDF is recommended, avoid ZIP files which need an additional process of extraction).
 
+### :new: No external links
+
+Don't insert external links into your module code or module documentation.
+
+### :new: No obfuscated code
+
+You should not obfuscate your module because our teams must be able to verify all the sources present in the module.
+
 ### Functional review
 
 #### No PHP errors are thrown in debug mode
