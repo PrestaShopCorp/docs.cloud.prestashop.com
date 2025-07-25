@@ -7,7 +7,7 @@ title: Before Starting
 Before starting to develop your module, explore the different tools available, and learn about the rules and good practices you will need to follow to be able to pass our technical validation when you submit your module.
 
 
-![Onboarding flow for Built For PrestaShop](/assets/images/before-starting/onboarding-flow.png)
+![Onboarding flow for PrestaShop Integration Framework](/assets/images/before-starting/onboarding-flow.png)
 
 ##  Available Tools
 
@@ -15,9 +15,90 @@ Before starting to develop your module, explore the different tools available, a
 
 The [Module Generator](https://validator.prestashop.com/generator) allows you to save time. Choose your module type and follow the instructions: a skeleton module is then automatically generated to help with the creation of your module.
 
-### Module Built For PrestaShop example
+### Module example
 
 An example module containing the 3 components of the PrestaShop Integration Framework is available on [Github](https://github.com/PrestaShopCorp/builtforjsexample) to help you with your developments.
+
+### Dependencies manager
+1. Add a module_dependencies.json file
+
+```json
+    {
+        "dependencies": [
+          {
+            "name" : "ps_accounts"
+          },
+          {
+            "name" : "ps_eventbus"
+          }
+        ]
+    }
+```
+
+2. In composer.json, replace the old version by "prestashop/module-lib-mbo-installer": "^3.0"
+```json{17}
+    {
+      "name": "prestashop/builtforjsexample",
+      "description": "",
+      "config": {
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "prepend-autoloader": false,
+        "platform": {
+          "php": "7.2"
+        }
+      },
+      "require": {
+        "php": ">=7.2",
+        "prestashop/prestashop-accounts-installer": "^1.0",
+        "prestashop/module-lib-service-container": "^1.4",
+        "prestashopcorp/module-lib-billing": "^3",
+        "prestashop/module-lib-mbo-installer": "^3.0"
+      },
+      "autoload": {
+        "classmap": [
+          "builtforjsexample.php"
+        ]
+      },
+      "author": "PrestaShop",
+      "license": "MIT"
+    }
+```
+
+3. In the main PHP file, you should load the dependencies manager
+```php
+$mboInstaller = new \Prestashop\ModuleLibMboInstaller\DependencyBuilder($this);
+if( !$mboInstaller->areDependenciesMet() )
+{
+    $dependencies = $mboInstaller->handleDependencies();
+    $this->smarty->assign('dependencies', $dependencies);
+    return $this->display(__FILE__, 'views/templates/admin/dependency_builder.tpl');
+}
+```
+
+4. Add the template file 'views/templates/admin/dependency_builder.tpl'
+```smarty
+<!-- Load cdc library -->
+<script src="https://assets.prestashop3.com/dst/mbo/v1/mbo-cdc-dependencies-resolver.umd.js"></script>
+
+<!-- cdc container -->
+<div id="cdc-container"></div>
+
+<script defer>
+  const renderMboCdcDependencyResolver = window.mboCdcDependencyResolver.render
+  const context = {
+    ...{$dependencies|json_encode},
+    onDependenciesResolved: () => location.reload(),
+    onDependencyResolved: (dependencyData) => console.log('Dependency installed', dependencyData), // name, displayName, version
+    onDependencyFailed: (dependencyData) => console.log('Failed to install dependency', dependencyData),
+    onDependenciesFailed: () => console.log('There are some errors'),
+  }
+  renderMboCdcDependencyResolver(context, '#cdc-container')
+</script>
+```
+
+You can use the example module to extract the lines of code and files needed for integration.
+
 
 ### Method Search Engine
 
