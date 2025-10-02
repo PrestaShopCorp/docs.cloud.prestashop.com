@@ -29,7 +29,7 @@ Your product name is the first impression merchants have:
 - Optimal: 45-60 characters
 - Must be unique across the marketplace
 
-⚠️ Please note that the product name you will choose will be used to generate your addons module’s link. Each time you’ll make a change in your product name it will create a new link and an automated redirection that might affect Google’s understanding and hence your SEO. We strongly recommend to avoid changing your product name.
+⚠️ *Please note that the product name you will choose will be used to generate your addons module’s link. Each time you’ll make a change in your product name it will create a new link and an automated redirection that might affect Google’s understanding and hence your SEO. **We strongly recommend to avoid changing your product name**.*
 
 ## Description and Benefits
 
@@ -183,6 +183,7 @@ Each feature must be specific and measurable:
 ## **⚠️** Demo Guidelines
 
 **Having a Demo is Highly Recommended (Soon Mandatory)**
+
 Products with demos convert 2x better than those without
 
 ### ✅ Video Demo recommendations

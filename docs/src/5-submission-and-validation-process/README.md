@@ -2,7 +2,7 @@
 
 ## Pre-Submission Preparation
 
-Before submitting your module or theme, ensure you have met **all mandatory requirements** outlined in the [Technical Development Standards](/2-technical-development-standards/) and [Content & Marketing Standards](/3-content-and-marketing-standards/) sections above.
+Before submitting your module or theme, ensure you have met **all mandatory requirements** outlined in the [Technical Development Standards](/2-technical-development-standards/) and [Content & Marketing Standards](/3-content-and-marketing-standards/) sections.
 
 **Your submission will be automatically rejected if any mandatory (🚨) rules are not followed.**
 

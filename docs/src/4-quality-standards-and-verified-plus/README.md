@@ -32,7 +32,7 @@ The **Verified+** badge represents the highest quality standard on the PrestaSho
 
 ### When can you obtain the Verified + Badge ?
 
-You do not need to request the badge. The PrestaShop Validation team assigns the badge during the standard validation process (described in the Validation workflow section).
+You do not need to request the badge. The PrestaShop Validation team assigns the badge during the standard validation process (described in the [Validation Workflow](/5-submission-and-validation-process/#validation-workflow) section).
 
 For a given submission, if your module covers all the Verified + requirements then it will obtain the badge.
 

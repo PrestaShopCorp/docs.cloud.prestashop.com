@@ -95,7 +95,7 @@ Setting up Stripe for automated payments is **mandatory for long-term marketplac
 - Automatic monthly disbursement on the 1st of each month
 - 2-3 business days for bank transfer completion
 
-If you need assistance at this stage please get in touch with us (help centre link in here)
+For more detailed informationn about Settlements, Stripe account and more go to our [Partners Helpcenter](https://helpcenter-partners.prestashop.com/hc/en-us/sections/24993652751762-Partners-settlement)
 
 ## Marketplace Categories
 

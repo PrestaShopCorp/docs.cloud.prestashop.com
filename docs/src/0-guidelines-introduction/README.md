@@ -27,4 +27,4 @@ Across these guidelines, you will find the following tolerance levels from Prest
 
 ✅ **Best Practice**: Guidelines that are **recommended for optimal performance, and that are suitable to achieve PrestaShop’s recommended quality standards**, but not mandatory, due to some technical limitations or high complexity.
 
-*PrestaShop reserves the right to take actions against sellers who do not comply with these Guidelines. (more details in [this section](/6-legal-and-compliance))*
+*PrestaShop reserves the right to take actions against sellers who do not comply with these Guidelines. (more details in [Compliance & Legal Obligations](/7-legal-and-compliance/#consequences-of-non-compliance-of-prestashop-marketplace-guidelines) section)*
