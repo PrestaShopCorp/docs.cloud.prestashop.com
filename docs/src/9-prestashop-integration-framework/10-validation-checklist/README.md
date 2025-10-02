@@ -189,12 +189,12 @@ We examine every SQL request to make sure you cast your variables.
     instead of this:
     ```php
     ($excluded_products ? (' AND p.id_product not in ('.join(',', $excluded_products).')') : '') .
-    ```   
+    ```
 
     If the list of values is a list of strings, don't forget to implode it with quote or double quote, like this
     ```php
     IN ('" . implode("','", array_map('pSQL', explode(',', $arrayOfStrings )).'")
-    ``` 
+    ```
 
 - Use `bqSQL()` for table's name or field's name.
 
@@ -205,7 +205,7 @@ We examine every SQL request to make sure you cast your variables.
     instead of this:
     ```php
     $sql = 'SELECT * FROM `' . DB_PREFIX . $table.'`';
-    ``` 
+    ```
 
 More details:
 - [Using the DBQuery class](https://devdocs.prestashop-project.org/8/development/components/database/dbquery/)
