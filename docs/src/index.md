@@ -1,5 +1,6 @@
 ---
 home: true
+title: PrestaShop Addons Marketplace Guidelines
 heroImage: assets/images/common/logo_marketplace_guidlelines.svg
 heroText: PrestaShop Marketplace Seller & Developer Guidelines
 tagline: Welcome to the official PrestaShop recommendations and best practices for developing and selling in Addons Marketplace

@@ -1,7 +1,7 @@
 const { description } = require('../../package');
 
 module.exports = {
-  // We're leaving 'title' commented out so the logo can display
+  title: 'PrestaShop Marketplace Guidelines',
   description: '',
   theme: '',
   head: [
