@@ -86,7 +86,7 @@ Each feature must be specific and measurable:
 
 ## Product Icon Requirements
 
-#### 🚨 Format specifications####
+#### 🚨 Format specifications
 
 - **Size:** Exactly 256x256 pixels
 - **Format:** JPG, or PNG

@@ -21,10 +21,10 @@ PrestaShop's marketplace strategy focuses on **product quality over quantity**. 
 
 Across these guidelines, you will find the following tolerance levels from PrestaShop when it comes to accepting products in the Marketplace:
 
-🚨 **Mandatory**: Guidelines that must be **strictly adhered to**. If not met the product could be rejected by PrestaShop teams.
+🚨 **Mandatory**: Guidelines that must be **strictly adhered to**. If not met the product will be rejected by PrestaShop teams.
 
 ⚠️ **Strongly Recommended**: Guidelines that should be **followed most of the time** due to their significant benefits and impact. They might become mandatory in the near future.
 
-✅ **Best Practice**: Guidelines that are **recommended for optimal performance, and that are suitable to achieve PrestaShop’s recommended quality standards**, but not mandatory, due to some technical limitations or high complexity.
+✅ **Best Practice**: Guidelines that are **recommended for optimal performance, and that are suitable to achieve PrestaShop’s recommended quality standards**, but not mandatory.
 
 *PrestaShop reserves the right to take actions against sellers who do not comply with these Guidelines. (more details in [Compliance & Legal Obligations](/7-legal-and-compliance/#consequences-of-non-compliance-of-prestashop-marketplace-guidelines) section)*
