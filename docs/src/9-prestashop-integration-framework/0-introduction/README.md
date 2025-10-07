@@ -2,18 +2,7 @@
 title: introduction
 ---
 
-# :rocket: Introduction
-
-## Who is this documentation for?
-
-This documentation is intended for partners, sellers, developers, and agencies who **create and distribute modules and/or themes** that will be added to the [PrestaShop Marketplace](https://addons.prestashop.com/en/).
-
-## Why read this?
-
-PrestaShop is an extremely customizable e-commerce platform that was designed so that third-party modules could easily build upon its foundations.
-
-The goal of this documentation is to help you **take advantage of the PrestaShop Integration Framework to connect your modules to the PrestaShop ecosystem** so you can optimize development and usability.
-
+# PrestaShop Integration Framework
 ## What is the PrestaShop Integration Framework?
 
 Previously known as "SaaS App", the PrestaShop Integration Framework includes several different services that you can select according to your needs. It improves merchant experience and streamlines the development of commonly used features such as billing and data synchronization.

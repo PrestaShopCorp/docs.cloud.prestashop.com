@@ -15,12 +15,12 @@ $textColor ?= $black
 
 $codeBlockBgColor ?= #282c34
 
-$border-color ?= #78C4D8
-$divider-color ?= #78C4D8
+$border-color ?= #5C92AA
+$divider-color ?= #5C92AA
 
-$link-color ?= #78C4D8
+$link-color ?= #5C92AA
 $link-decoration ?= none
-$link-hover-color ?= #78C4D8
+$link-hover-color ?= #5C92AA
 $link-hover-decoration ?= none
 
 $mediumZoomZIndex = 10000
@@ -50,33 +50,98 @@ $container-max-widths = {
 }
 
 .nav-item > a:not(.external):hover, .nav-item > a:not(.external).router-link-active{
-  border-bottom: 2px solid #78C4D8;
+  border-bottom: 2px solid #5C92AA;
 }
 
 a.sidebar-link.active, a.sidebar-link:hover{
-  color: #78C4D8;
-  border-left-color: #78C4D8;
+  color: #5C92AA;
+  border-left-color: #5C92AA;
 }
 
 a {
     font-weight: 500;
-    color: #78C4D8;
+    color: #5C92AA;
     text-decoration: none;
 }
 
 .home .hero .action-button{
-  background-color: #78C4D8;
+  background-color: black;
   border-bottom: 1px solid #000000;
+  border-radius: 0;
 }
 
 .home .hero .action-button:hover{
-  background-color: #E4F4F8;
+  background-color: black;
   border-bottom: 1px solid #000000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
 }
 
 h2 {
   color: #000000!important;
 }
+
+.navbar .site-name {
+  color: #000000!important;
+}
+
+// =========================================================================
+// FINAL NAVIGATION AND COLOR FIXES
+// =========================================================================
+
+.navbar {
+  background-color: black;
+}
+
+// 1. Force the color of ALL top-level nav links to WHITE. This uses maximum specificity.
+.nav-links .nav-item > a {
+    color: white !important;
+}
+// 1. Force the color of the DROPDOWN TITLE (e.g., "Developer Resources") to white
+// This uses the highest specificity selector to override the theme's default dark color.
+.nav-links .dropdown-wrapper .dropdown-title {
+  color: white !important;
+}
+
+// 2. Ensure the text inside the deployed dropdown menu (the sub-links) is BLACK
+.nav-dropdown a {
+  color: #000000 !important;
+}
+
+
+// 3. Force the external link icon (SVG) on the top nav to WHITE
+.nav-links .nav-item a.external svg {
+    fill: white !important;
+}
+
+// 4. Layout Fixes (Push search and links right)
+.navbar .links {
+  background-color: transparent;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.search-box {
+    order: 2;
+    border-radius: 0 !important;
+    border: none !important; /* Ensure no border is showing */
+    margin-left: 1rem;
+}
+
+.search-box input {
+    border-radius: 0 !important;
+}
+
+.nav-links {
+    order: 1;
+}
+
+// Reduce the logo height
+.navbar .logo {
+  height: 40px;
+}
+
+// Old rules cleaned up below
 
 .nav-link.external {
   color: #000000!important;
@@ -86,6 +151,43 @@ h2 {
   color: #000000!important;
 }
 
-.navbar .site-name {
-  color: #000000!important;
+.home .hero .description {
+    max-width: 35rem;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    color: black;
+}
+
+// Responsive fix for the feature blocks
+@media (max-width: 768px) {
+  // Change the container to stack items vertically
+  .features-list {
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  // Make each feature take up the full width
+  .features-list .feature {
+    flex-basis: 100%;
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+}
+// --- HOMEPAGE LAYOUT AND COLOR FIXES ---
+
+// 1. Force feature detail text (p) to be black
+.features-list .feature p {
+  color: black;
+}
+
+// 2. Reduce space between Title (h3) and Details (p)
+.features-list .feature h3 {
+  margin-bottom: 0.5rem;
+}
+
+// 3. Reduce space between the first row and the second row
+.features-list + .features-list {
+  margin-top: 1rem;
+  padding-top: 1rem;
 }

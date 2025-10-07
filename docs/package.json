@@ -10,17 +10,14 @@
     "format": "prettier --write src"
   },
   "dependencies": {
-    "markdown-it-attrs": "^4.3.1",
-    "vuepress-plugin-code-switcher": "~2.0"
+    "markdown-it-attrs": "^4.3.1"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
     "vuepress": "^1.9.10",
     "vuepress-plugin-medium-zoom": "^1.1.9"
   },
-  "bundleDependencies": [
-    "vuepress-plugin-code-switcher"
-  ],
+  "bundleDependencies": [],
   "license": "MIT",
   "engines": {
     "node": "22",

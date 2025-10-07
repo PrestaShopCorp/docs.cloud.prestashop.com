@@ -1,15 +1,9 @@
 const { description } = require('../../package');
 
 module.exports = {
-  title: 'Prestashop Integration Framework',
+  title: 'PrestaShop Marketplace Guidelines',
   description: '',
   theme: '',
-
-  /**
-   * Extra tags to be injected to the page HTML `<head>`
-   *
-   * ref：https://v1.vuepress.vuejs.org/config/#head
-   */
   head: [
     [
       'link',
@@ -40,29 +34,17 @@ module.exports = {
     ['link', { rel: 'manifest', href: '/assets/images/favicons/site.webmanifest' }],
     [
       'link',
-      {
-        rel: 'mask-icon',
-        href: '/assets/images/favicons/safari-pinned-tab.svg',
-        color: '#3a0839',
-      },
+      { rel: 'mask-icon', href: '/assets/images/favicons/safari-pinned-tab.svg', color: '#3a0839' },
     ],
     ['link', { rel: 'shortcut icon', href: '/assets/images/favicons/favicon.ico' }],
     ['meta', { name: 'msapplication-TileColor', content: '#011638' }],
     [
       'meta',
-      {
-        name: 'msapplication-config',
-        content: '/assets/images/favicons/browserconfig.xml',
-      },
+      { name: 'msapplication-config', content: '/assets/images/favicons/browserconfig.xml' },
     ],
     ['meta', { name: 'theme-color', content: '#011638' }],
   ],
 
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
   themeConfig: {
     repo: '',
     editLinks: false,
@@ -71,116 +53,110 @@ module.exports = {
     lastUpdated: false,
     displayAllHeaders: true,
     sidebarDepth: 1,
+    activeHeaderLinks: false,
+
+    // --- ADD THIS SECTION TO EXCLUDE FILES ---
+    searchExclude: [
+      '/guide/', // Excludes all files inside the /guide/ folder
+      '/internal-billing-api/', // Excludes all files inside the /internal-billing-api/ folder
+      '/config.js', // Excludes the specific config file if it's being indexed
+      '/internal-billing-api/README.md', // Specific file exclusion
+      '/9-prestashop-integration-framework/', //exclude all files of old content from search
+    ],
+    // ------------------------------------------
+
+    // Logo is now correctly positioned in themeConfig
+    logo: '/assets/images/common/logo-prestashop-w.CL9Kv5AS.svg',
+
+    // Corrected NAV structure to properly display dropdown
     nav: [
-      { text: 'Home', link: '/' },
       {
-        text: 'Standard Module Development References',
-        ariaLabel: 'Standard Module Development References',
+        text: 'PrestaShop Marketplace Guidelines', // This is the title you click to open the dropdown
+        ariaLabel: 'Developer Resources Menu',
         items: [
+          { text: 'Marketplace Guidelines Introduction', link: '/0-guidelines-introduction/' },
+          { text: 'Getting started', link: '/1-getting-started/' },
+          { text: 'Technical Development Standards', link: '/2-technical-development-standards/' },
+          { text: 'Content & Marketing Standards', link: '/3-content-and-marketing-standards/' },
           {
-            text: 'Module Developer Guide',
-            link: 'https://devdocs.prestashop-project.org/',
+            text: 'PrestaShop recommended Quality Standards',
+            link: '/4-quality-standards-and-verified-plus/',
           },
           {
-            text: 'Module Generator',
-            link: 'https://validator.prestashop.com/generator',
+            text: 'Submission & Validation Process',
+            link: '/5-submission-and-validation-process/',
           },
-          {
-            text: 'Built For module example',
-            link: 'https://github.com/PrestaShopCorp/builtforjsexample',
-          },
+          { text: 'Post-Launch Management', link: '/6-post-launch-management/' },
+          { text: 'Compliance & Legal Obligations', link: '/7-legal-and-compliance/' },
+          { text: 'Useful Resources', link: '/8-other-resources/' },
         ],
       },
-      { text: 'PrestaShop Documentation', link: 'https://doc.prestashop.com/' },
     ],
-    sidebar: [
-      { title: 'Introduction', path: '0-introduction/' },
-      { title: 'How It Works', path: '/1-how-it-works/' },
-      { title: 'Before Starting', path: '/2-before-starting/' },
-      {
-        title: 'Preparing Your Environment',
-        path: '/3-preparing-your-environment/',
-      },
-      {
-        title: 'Integrating PrestaShop Account',
-        path: '/4-prestashop-account/',
-      },
-      {
-        title: 'PrestaShop Billing',
-        sidebarDepth: 0,
-        collapsable: false,
-        initialOpenGroupIndex: 0,
-        children: [
-          {
-            path: '/5-prestashop-billing/1-overview/',
-            title: 'Overview',
-          },
-          '/5-prestashop-billing/2-concepts/',
-          '/5-prestashop-billing/3-tutorial/',
-          {
-            title: 'How-Tos',
-            sidebarDepth: 0,
-            collapsable: false,
-            children: [
-              '/5-prestashop-billing/4-how-tos/1-stairstep/',
-              '/5-prestashop-billing/4-how-tos/2-display-invoice-pane/',
-              '/5-prestashop-billing/4-how-tos/3-customize-cancellation/',
-              '/5-prestashop-billing/4-how-tos/4-handle-plan-selection/',
-              '/5-prestashop-billing/4-how-tos/5-retrieve-subscription/',
-              '/5-prestashop-billing/4-how-tos/6-multiple-billing-period/',
-            ],
-          },
-          {
-            title: 'Use Cases',
-            sidebarDepth: 0,
-            collapsable: false,
-            children: [
-              '/5-prestashop-billing/5-use-cases/1-flat-fee/',
-              '/5-prestashop-billing/5-use-cases/2-stair-step/',
-              '/5-prestashop-billing/5-use-cases/3-usage-based/',
-              '/5-prestashop-billing/5-use-cases/4-charge-at-term/',
-            ],
-          },
-          {
-            title: 'References',
-            sidebarDepth: 0,
-            collapsable: false,
-            children: [
-              '/5-prestashop-billing/6-references/1-webhook/',
-              '/5-prestashop-billing/6-references/2-billing-api/',
-              '/5-prestashop-billing/6-references/3-billing-cdc/',
-            ],
-          },
-          '/5-prestashop-billing/7-faq/',
-        ],
-      },
-      {
-        title: 'Integrating PrestaShop CloudSync',
-        path: '/7-prestashop-cloudsync/',
-      },
-      { title: 'APIs', path: '/8-apis/' },
-      { title: 'Submitting Your Module', path: '/9-submitting-your-module/' },
-      { title: 'Validation Checklist', path: '/10-validation-checklist/' },
-      { title: 'FAQ', path: '/11-faq/' },
-      {
-        title: 'Legacy Procedure for Account and Billing',
-        path: '/12-legacy-account-and-billing/',
-      },
-    ],
+
+    // Sidebar with specific path configurations
+    sidebar: {
+      '/9-prestashop-integration-framework/': [
+        {
+          title: 'PrestaShop Integration Framework',
+          collapsable: true, // Ensured this is true for collapsible functionality
+          children: [
+            '/9-prestashop-integration-framework/0-introduction/',
+            '/9-prestashop-integration-framework/1-how-it-works/',
+            '/9-prestashop-integration-framework/2-before-starting/',
+            '/9-prestashop-integration-framework/3-preparing-your-environment/',
+            '/9-prestashop-integration-framework/4-prestashop-account/',
+            {
+              title: 'PrestaShop Billing',
+              // path is not required here, children link to it
+              collapsable: true, // Make sure this nested section is collapsible
+              children: [
+                '/9-prestashop-integration-framework/5-prestashop-billing/1-overview/',
+                '/9-prestashop-integration-framework/5-prestashop-billing/2-concepts/',
+                '/9-prestashop-integration-framework/5-prestashop-billing/3-tutorial/',
+                '/9-prestashop-integration-framework/5-prestashop-billing/100-hidden/1-checkout-subscription/',
+                '/9-prestashop-integration-framework/5-prestashop-billing/100-hidden/2-address/',
+                '/9-prestashop-integration-framework/5-prestashop-billing/100-hidden/3-payment-method/',
+              ],
+            },
+            '/9-prestashop-integration-framework/7-prestashop-cloudsync/',
+            '/9-prestashop-integration-framework/8-apis/',
+            '/9-prestashop-integration-framework/9-submitting-your-module/',
+            '/9-prestashop-integration-framework/10-validation-checklist/',
+            '/9-prestashop-integration-framework/11-faq/',
+            '/9-prestashop-integration-framework/12-legacy-account-and-billing/',
+          ],
+        },
+      ],
+      '/': [
+        // Sidebar for all other pages (Marketplace Guidelines)
+        { title: 'Marketplace Guidelines Introduction', path: '/0-guidelines-introduction/' },
+        { title: 'Getting started', path: '/1-getting-started/' },
+        { title: 'Technical Development Standards', path: '/2-technical-development-standards/' },
+        { title: 'Content & Marketing Standards', path: '/3-content-and-marketing-standards/' },
+        {
+          title: 'PrestaShop recommended Quality Standards',
+          path: '/4-quality-standards-and-verified-plus/',
+        },
+        { title: 'Submission & Validation Process', path: '/5-submission-and-validation-process/' },
+        { title: 'Post-Launch Management', path: '/6-post-launch-management/' },
+        { title: 'Compliance & Legal Obligations', path: '/7-legal-and-compliance/' },
+        { title: 'Useful Resources', path: '/8-other-resources/' },
+      ],
+    },
   },
 
   plugins: [
-    'code-switcher',
-    [
-      'vuepress-plugin-medium-zoom',
-      {
-        delay: 200,
-        options: {
-          background: '#888888',
-          margin: 24,
-          scrollOffset: 0,
-        },
-      },
-    ],
-  ]
+    // 'code-switcher', // <-- Comment this out
+    // [
+    //   'vuepress-plugin-medium-zoom', // <-- Comment this out
+    //   {
+    //     delay: 200,
+    //     options: {
+    //       background: '#888888',
+    //       margin: 24,
+    //       scrollOffset: 0,
+    //     },
+    //   },
+    // ],
+  ],
 };
