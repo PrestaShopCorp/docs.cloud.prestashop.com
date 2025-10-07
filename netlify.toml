@@ -50,3 +50,162 @@
   to = "https://docs.cloud.prestashop.com"
   status = 301
   force = true
+
+# =======================================================
+# 301 REDIRECTS FOR MOVED INTEGRATION FRAMEWORK CONTENT
+# =======================================================
+
+[[redirects]]
+  from = "/0-introduction/"
+  to = "/9-prestashop-integration-framework/0-introduction/"
+  status = 301
+
+[[redirects]]
+  from = "/1-how-it-works/"
+  to = "/9-prestashop-integration-framework/1-how-it-works/"
+  status = 301
+
+[[redirects]]
+  from = "/2-before-starting/"
+  to = "/9-prestashop-integration-framework/2-before-starting/"
+  status = 301
+
+[[redirects]]
+  from = "/3-preparing-your-environment/"
+  to = "/9-prestashop-integration-framework/3-preparing-your-environment/"
+  status = 301
+
+[[redirects]]
+  from = "/4-prestashop-account/"
+  to = "/9-prestashop-integration-framework/4-prestashop-account/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/1-overview/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/1-overview/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/2-concepts/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/2-concepts/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/3-tutorial/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/3-tutorial/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/4-how-tos/1-stairstep/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/1-stairstep/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/4-how-tos/2-display-invoice-pane/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/2-display-invoice-pane/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/4-how-tos/3-customize-cancellation/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/3-customize-cancellation/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/4-how-tos/4-handle-plan-selection/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/4-handle-plan-selection/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/4-how-tos/5-retrieve-subscription/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/5-retrieve-subscription/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/4-how-tos/6-multiple-billing-period/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/6-multiple-billing-period/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/5-use-cases/1-flat-fee/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/5-use-cases/1-flat-fee/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/5-use-cases/2-stair-step/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/5-use-cases/2-stair-step/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/5-use-cases/3-usage-based/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/5-use-cases/3-usage-based/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/5-use-cases/4-charge-at-term/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/5-use-cases/4-charge-at-term/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/6-references/1-webhook/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/6-references/1-webhook/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/6-references/2-billing-api/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/6-references/1-webhook/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/6-references/3-billing-cdc/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/6-references/1-webhook/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/7-faq/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/7-faq/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/100-hidden/1-checkout-subscription/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/2-concepts/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/100-hidden/2-address/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/100-hidden/2-address/"
+  status = 301
+
+[[redirects]]
+  from = "/5-prestashop-billing/100-hidden/3-payment-method/"
+  to = "/9-prestashop-integration-framework/5-prestashop-billing/100-hidden/3-payment-method/"
+  status = 301
+
+[[redirects]]
+  from = "/7-prestashop-cloudsync/"
+  to = "/9-prestashop-integration-framework/7-prestashop-cloudsync/"
+  status = 301
+
+[[redirects]]
+  from = "/8-apis/"
+  to = "/9-prestashop-integration-framework/8-apis/"
+  status = 301
+
+[[redirects]]
+  from = "/9-submitting-your-module/"
+  to = "/9-prestashop-integration-framework/9-submitting-your-module/"
+  status = 301
+
+[[redirects]]
+  from = "/10-validation-checklist/"
+  to = "/9-prestashop-integration-framework/10-validation-checklist/"
+  status = 301
+
+[[redirects]]
+  from = "/11-faq/"
+  to = "/9-prestashop-integration-framework/11-faq/"
+  status = 301
+
+[[redirects]]
+  from = "/12-legacy-account-and-billing/"
+  to = "/9-prestashop-integration-framework/12-legacy-account-and-billing/"
+  status = 301
