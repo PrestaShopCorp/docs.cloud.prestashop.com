@@ -10,15 +10,19 @@
 </div>
 
 # docs.cloud.prestashop.com
-Prestashop Tech Vendors online documentation of Prestashop Cloud Services 
+Prestashop SA documentation website for module and theme builders.
 
 <!-- ABOUT THE PROJECT -->
 
 ## 🧐 About The Project
 
-This repository contains the VuePress documentation for tech vendors (former "SaaS App"). 
+This repository contains the documentation and guidelines for developpers that want to develop and submit products into the Addons Marketplace.
+
+It also contains the PrestaShop Integration Framework documentation.
 
 It is currently deployed on Netlify under the name billing-docs.
+
+Powered by VuePress.
 
 ### Prerequisites
 
