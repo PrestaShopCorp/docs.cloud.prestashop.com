@@ -141,6 +141,18 @@ h2 {
   height: 40px;
 }
 
+/* FINAL FIX: Targets the SVG icon and its container with maximum specificity */
+.sidebar-button {
+  /* Set the inherited color for text and line art */
+   color: white !important;
+}
+
+/* Ensures the SVG elements themselves pick up the white color */
+.sidebar-button .icon {
+  stroke: white !important;
+  fill: white !important;
+}
+
 // Old rules cleaned up below
 
 .nav-link.external {
