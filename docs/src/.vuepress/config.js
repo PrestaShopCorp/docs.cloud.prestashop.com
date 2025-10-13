@@ -63,8 +63,17 @@ module.exports = {
       {},
       `
       window.axeptioSettings = {
-        clientId: "68e52bec83b7c8abf20cbf50",
-        cookiesVersion: "docs-fr-EU",
+        clientId: "5e8c75ec2e221153e28022c0",
+        cookiesVersion: "prestashop-base_en_Cp_Cp",
+        googleConsentMode: {
+          default: {
+            analytics_storage: "denied",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            wait_for_update: 500
+          }
+        }
       };
 
       (function(d, s) {
