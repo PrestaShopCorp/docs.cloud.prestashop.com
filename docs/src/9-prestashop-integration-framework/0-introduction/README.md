@@ -21,7 +21,7 @@ Previously known as "SaaS App", the PrestaShop Integration Framework includes se
 
 ### :passport_control: PrestaShop Account
 
-PrestaShop Account establishes a **link between the module and the PrestaShop accounts**. It allows you and PrestaShop to identify the merchant in the PrestaShop system.
+PrestaShop Account establishes a **link between the module and the PrestaShop accounts**. It allows you and PrestaShop to identify the merchant and store in the PrestaShop system.
 
 #### Why Use It?
 - Required to use other services of the PrestaShop Integration Framework
