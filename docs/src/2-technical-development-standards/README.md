@@ -1,4 +1,11 @@
 # Technical Development Standards
+:::warning VERY IMPORTANT
+**The latest major PrestaShop version (V9.0.0) was launched on June 2025** and its adoption is crucial for PrestaShop ecosystem to continue thriving.
+
+👉 **All new products must be compatible** to the latest PrestaShop version available, otherwise the submissions will be automatically rejected by PrestaShop Validation team.
+
+👉 **For all existing products, from February 1st 2026**, all update submissions will be rejected by PrestaShop Validation team if the product is not already compatible with the latest PrestaShop version.
+:::
 
 ## 🚨 Mandatory Technical Rules
 

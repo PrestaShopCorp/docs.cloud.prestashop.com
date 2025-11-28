@@ -160,9 +160,41 @@ module.exports = {
                 '/9-prestashop-integration-framework/5-prestashop-billing/1-overview/',
                 '/9-prestashop-integration-framework/5-prestashop-billing/2-concepts/',
                 '/9-prestashop-integration-framework/5-prestashop-billing/3-tutorial/',
-                '/9-prestashop-integration-framework/5-prestashop-billing/100-hidden/1-checkout-subscription/',
-                '/9-prestashop-integration-framework/5-prestashop-billing/100-hidden/2-address/',
-                '/9-prestashop-integration-framework/5-prestashop-billing/100-hidden/3-payment-method/',
+                {
+                  title: 'How tos',
+                  // path is not required here, children link to it
+                  collapsable: true, // Make sure this nested section is collapsible
+                  children: [
+                    '/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/1-stairstep/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/2-display-invoice-pane/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/3-customize-cancellation/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/4-handle-plan-selection/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/5-retrieve-subscription/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/4-how-tos/6-multiple-billing-period/',
+                  ],
+                },
+                {
+                  title: 'Use Cases',
+                  // path is not required here, children link to it
+                  collapsable: true, // Make sure this nested section is collapsible
+                  children: [
+                    '/9-prestashop-integration-framework/5-prestashop-billing/5-use-cases/1-flat-fee/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/5-use-cases/2-stair-step/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/5-use-cases/3-usage-based/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/5-use-cases/4-charge-at-term/',
+                  ],
+                },
+                {
+                  title: 'References',
+                  // path is not required here, children link to it
+                  collapsable: true, // Make sure this nested section is collapsible
+                  children: [
+                    '/9-prestashop-integration-framework/5-prestashop-billing/6-references/1-webhook/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/6-references/2-billing-api/',
+                    '/9-prestashop-integration-framework/5-prestashop-billing/6-references/3-billing-cdc/',
+                  ],
+                },
+                '/9-prestashop-integration-framework/5-prestashop-billing/7-faq/',
               ],
             },
             '/9-prestashop-integration-framework/7-prestashop-cloudsync/',

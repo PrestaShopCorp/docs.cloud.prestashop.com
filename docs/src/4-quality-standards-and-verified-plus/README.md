@@ -4,7 +4,11 @@
 
 The **Verified+** badge represents the highest quality standard on the PrestaShop Marketplace. It signals to merchants that a module has passed comprehensive quality checks and meets PrestaShop's most stringent criteria for technical reliability for PrestaShop Store versions 1.7.8 and up.
 
-**Warning: Verified+ badge does not cover PrestaShop versions under 1.7.8**
+:::warning VERY IMPORTANT
+**The latest major PrestaShop version (V9.0.0) was launched on June 2025** and its adoption is crucial for PrestaShop ecosystem to continue thriving.
+
+👉 **For all existing Verified + modules, from January 1st 2026**, the badge will be removed by PrestaShop Validation team if the product is not already compatible with the latest PrestaShop version.
+:::
 
 ### What Verified+ Means
 
