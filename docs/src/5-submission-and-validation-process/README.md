@@ -1,5 +1,11 @@
 # Submission & Validation Process
+:::warning VERY IMPORTANT
+**The latest major PrestaShop version (V9.0.0) was launched on June 2025** and its adoption is crucial for PrestaShop ecosystem to continue thriving.
 
+👉 **All new products must be compatible** to the latest PrestaShop version available, otherwise the submissions will be automatically rejected by PrestaShop Validation team.
+
+👉 **For all existing products, from February 1st 2026**, all update submissions will be rejected by PrestaShop Validation team if the product is not already compatible with the latest PrestaShop version.
+:::
 ## Pre-Submission Preparation
 
 Before submitting your module or theme, ensure you have met **all mandatory requirements** outlined in the [Technical Development Standards](/2-technical-development-standards/) and [Content & Marketing Standards](/3-content-and-marketing-standards/) sections.
