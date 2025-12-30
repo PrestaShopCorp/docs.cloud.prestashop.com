@@ -12,6 +12,8 @@
 These rules are **non-negotiable**. Failure to comply will result in automatic rejection.
 
 ### Core Module Structure
+#### 🚨 Module Technical Name
+Since december 2025 **the module technical name must be strictly identical for all ZIP versions of the same module.**
 
 #### 🚨 Module Structure Compliance
 

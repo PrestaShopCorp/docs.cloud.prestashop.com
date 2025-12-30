@@ -17,6 +17,7 @@ Before submitting your module or theme, ensure you have met **all mandatory requ
 #### Technical Compliance Verification:
 Run through each mandatory technical rule listed in sections 2.1-2.3 to confirm full compliance. Pay particular attention to:
 
+- The technical name is strictly identical for all ZIP versions 
 - PrestaShop context protection in all PHP files
 - SQL query sanitisation throughout your code
 - Security file protections (.htaccess and index.php files)
