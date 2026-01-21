@@ -226,13 +226,15 @@ $this->context->smarty->assign('urlAccountsCdn', $accountsService->getAccountsCd
 
 #### PS Account Usage
 
-You can know whether the shop has been successfully associated or not using `isAccountLinked` function from the `PsAccountsService` service.
+You can know whether the shop has been successfully onboarded or not using `isShopIdentityCreated`, `isShopIdentityVerified`, `isShopPointOfContactSet` function from the `PsAccountsService` service.
 
 ```php
 // Account
 $accountsService = $this->getService('<module_name>.ps_accounts_facade')->getPsAccountsService();
 
-$accountsService->isAccountLinked();
+$accountsService->isShopIdentityCreated();
+$accountsService->isShopIdentityVerified();
+$accountsService->isShopPointOfContactSet();
 ```
 
 #### PsBilling
