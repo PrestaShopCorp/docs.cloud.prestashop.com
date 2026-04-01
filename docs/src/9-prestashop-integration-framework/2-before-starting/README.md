@@ -50,9 +50,6 @@ An example module containing the 3 components of the PrestaShop Integration Fram
       },
       "require": {
         "php": ">=7.2",
-        "prestashop/prestashop-accounts-installer": "^1.0",
-        "prestashop/module-lib-service-container": "^1.4",
-        "prestashopcorp/module-lib-billing": "^3",
         "prestashop/module-lib-mbo-installer": "^3.0"
       },
       "autoload": {
@@ -64,6 +61,7 @@ An example module containing the 3 components of the PrestaShop Integration Fram
       "license": "MIT"
     }
 ```
+Don't forget to generate the vendor folder by running the `composer install --no-dev -o` command.
 
 3. In the main PHP file, you should load the dependencies manager
 ```php
