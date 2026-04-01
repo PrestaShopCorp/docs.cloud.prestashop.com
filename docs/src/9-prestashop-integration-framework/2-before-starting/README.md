@@ -36,7 +36,7 @@ An example module containing the 3 components of the PrestaShop Integration Fram
 ```
 
 2. In composer.json, replace the old version by "prestashop/module-lib-mbo-installer": "^3.0"
-```json{17}
+```json{14}
     {
       "name": "prestashop/builtforjsexample",
       "description": "",
