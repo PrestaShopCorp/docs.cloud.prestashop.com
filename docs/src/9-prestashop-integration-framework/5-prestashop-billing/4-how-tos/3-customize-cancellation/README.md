@@ -32,7 +32,7 @@ Here is a working example. Refer to the comments for more information.
     * *******************/
     window?.psaccountsVue?.init();
 
-    // Check if Account is associated before displaying the Billing component
+    // Check if Account is onboarded before displaying the Billing component
     if(window.psaccountsVue.isOnboardingCompleted() == true)
     {
         /*********************

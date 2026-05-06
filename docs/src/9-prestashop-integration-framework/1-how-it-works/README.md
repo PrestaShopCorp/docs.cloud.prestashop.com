@@ -21,25 +21,25 @@ PrestaShop Account is composed of:
 
 When a module is integrated with PrestaShop Account, a frontend component will display for the merchant in the module configuration page.
 
-#### When the store is not linked:
+#### When the store is verified but there aren't point of contact:
 
-![PrestaShop Account not linked](/assets/images/0-overview/ps_account_not_linked.png)
+![PrestaShop Account not linked](/assets/images/accounts/ps_accounts_verified.png)
 
-#### When the store is linked:
+#### When the store is verified and there are point of contact
 
-![PrestaShop Account linked](/assets/images/0-overview/ps_account_linked.png)
+![PrestaShop Account linked](/assets/images/accounts/ps_accounts_poc_set.png)
 
 :::tip Note
-Once a merchant has associated their account through the form, they will remain logged in permanently. If they performed the association when downloading a first PrestaShop Account integrated module, they will not need to do it again when downloading new ones.
+Once a merchant has set their account through the form, they will remain logged in permanently. If they set the account when downloading a first PrestaShop Account integrated module, they will not need to do it again when downloading new ones.
 :::
 
 ### Relationships
 
-For every merchant who has linked their store with PrestaShop Account, an `ownerUuid` and a `shopUuid` will be accessible. These values can be retrieved from the PrestaShop Account context.
+For every merchant who has linked their store with PrestaShop Account, an `ownerUuid` and a `shopUuid` will be accessible. These values can be retrieved from the PrestaShop Account services.
 
-- `ownerUuid`: Store owner User Id
+- `getUserUuid`: get Store point of contact User Id
 
-- `shopUuid`: Prestashop store Id
+- `getShopUuid`: get the Prestashop store Id
 
 ## PrestaShop Billing
 

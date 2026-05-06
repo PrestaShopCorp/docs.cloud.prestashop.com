@@ -232,7 +232,7 @@ You need to inject the `psBillingContext` into the `window.psBillingContext` glo
        * *******************/
        window?.psaccountsVue?.init();
 
-       // Check if Account is associated before displaying Billing component
+       // Check if Account is onboarded before displaying Billing component
        if(window.psaccountsVue.isOnboardingCompleted() == true)
        {
        	  /*********************
