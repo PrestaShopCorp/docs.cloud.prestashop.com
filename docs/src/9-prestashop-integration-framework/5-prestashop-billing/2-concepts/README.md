@@ -2,6 +2,10 @@
 title: Concepts
 ---
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 [[toc]]
 
 # Concepts

@@ -4,6 +4,11 @@ title: Retrieve customer's subscription
 
 [[toc]]
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
+
 You should be able to retrieve a subscription on the configuration page for your module in the back office (located by default at `views/templates/admin/configure.tpl`).
 
 This is a simple working example that is purposefully basic. You can make the code as complex as you need to cover your specific requirements, as long as you follow the steps in this guide.

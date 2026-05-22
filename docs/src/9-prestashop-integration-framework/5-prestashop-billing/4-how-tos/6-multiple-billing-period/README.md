@@ -6,6 +6,10 @@ title: Multiple billing periods
 
 # Multiple billing periods
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 You may want to provide different billing periods to your customers, for example, to offer a discount for a yearly basis subscription to increase your customer commitment.
 
 :::warning Warning

@@ -41,7 +41,7 @@ For every merchant who has linked their store with PrestaShop Account, an `owner
 
 - `getShopUuid`: get the Prestashop store Id
 
-## PrestaShop Billing
+## PrestaShop Billing DEPRECATED
 
 ### Components
 

@@ -4,6 +4,10 @@ title: Billing API
 
 # Billing API
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 The documentation for the Billing API is [available here](https://prestashop-billing.stoplight.io/docs/api-gateway/4edcc51b01cc4-api-gateway-billing).
 
 ## Activating the Sandbox mode for any API request.

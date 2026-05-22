@@ -28,7 +28,7 @@ PrestaShop Account establishes a **link between the module and the PrestaShop ac
 - Saves time for merchants through automatic login
 - Improves your visibility on merchant data: insights on conversions
 
-### :credit_card: PrestaShop Billing
+### :credit_card: PrestaShop Billing DEPRECATED
 
 PrestaShop Billing allows the PrestaShop billing system to deal with the **management and invoicing of merchant subscriptions**.
 
@@ -55,7 +55,7 @@ At the core of PrestaShop, CloudSync allows you to **duplicate and synchronize m
 
 The following configuration is required to use the PrestaShop Integration Framework:
 
-| PrestaShop platform | PHP       | PrestaShop Account | PrestaShop Billing (components) | PrestaShop Billing (PHP helper) | PrestaShop CloudSync (EventBus)         |
+| PrestaShop platform | PHP       | PrestaShop Account | PrestaShop Billing (components) (DEPRECATED) | PrestaShop Billing (PHP helper) (DEPRECATED) | PrestaShop CloudSync (EventBus)         |
 |---------------------|-----------|--------------------|---------------------------------|---------------------------------|-----------------------------------------|
 | 8.0                 | 7.2 – 8.1 | 6.x                | Yes                             | 1.x                             | 2.0.x - PHP 7.1+                        |
 | 1.7.8               | 7.1 – 7.4 | 5.x                | Yes                             | 1.x                             | 2.0.x - PHP 7.1+                        |

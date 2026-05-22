@@ -1,5 +1,9 @@
 # Usage-Based
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 In the usage-based pricing model, customers are charged based on their actual usage of the SaaS product or service. The pricing is directly linked to specific usage metrics, such as the number of active users, data storage utilized, API calls made, or other measurable parameters. Customers pay only for the resources they consume, making it a flexible option for businesses with varying usage needs. This model is ideal for SaaS products with fluctuating or unpredictable usage patterns.
 
 **_Example:_**

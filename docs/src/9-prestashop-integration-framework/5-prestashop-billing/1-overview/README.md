@@ -2,6 +2,10 @@
 title: Overview
 ---
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 # Overview
 
 This section will rapidly bring you up to speed as to how you can integrate PrestaShop Billing into your module.

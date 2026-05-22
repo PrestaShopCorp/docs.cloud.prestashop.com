@@ -40,7 +40,7 @@ To query the PrestaShop Integration Framework APIs, you first need to receive a 
     ```
 The requested audience and scopes may differ depending on the resources you want to request.
 
-## PrestaShop Billing API
+## PrestaShop Billing API DEPRECATED
 
 ### Why Use It?
 
