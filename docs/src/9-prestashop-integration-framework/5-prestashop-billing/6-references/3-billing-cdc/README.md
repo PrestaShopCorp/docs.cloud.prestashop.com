@@ -4,6 +4,10 @@ title: PrestaShop Billing CDC
 
 # PrestaShop Billing CDC
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 [[toc]]
 
 This the technical documentation of the Billing CDC components.

@@ -1,5 +1,9 @@
 # Stairstep
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 The stairstep pricing model involves tiered pricing based on predefined usage thresholds. As customers' usage surpasses specific milestones, their pricing "steps up" to the next tier, resulting in adjusted pricing. Each tier typically offers additional benefits or features, providing incentives for customers to use more of the SaaS product and possibly unlocking volume discounts. The stairstep model aims to encourage customer loyalty and gradual growth in usage.
 
 **_Example:_**

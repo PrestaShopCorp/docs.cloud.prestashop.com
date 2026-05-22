@@ -6,6 +6,10 @@ title: Invoice pane
 
 # Invoice pane
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 You can choose to add the following invoice pane at the location of your choice within your module:
 
 ![PrestaShop Billing Invoice Pane](/assets/images/billing/ps_billing_invoice_pane.jpg)

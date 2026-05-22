@@ -4,6 +4,10 @@ title: FAQ
 
 # FAQ
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 You can find frequently asked questions and their answers here.
 
 **A Merchant is contacting me with a problem of CSP (Content Security Policy) and the PrestaShop Billing frontend component does not load. What can I tell them ?**

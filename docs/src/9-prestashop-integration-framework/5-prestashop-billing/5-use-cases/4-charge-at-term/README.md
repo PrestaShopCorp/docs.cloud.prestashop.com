@@ -1,5 +1,9 @@
 # Charge at Term
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 The charge at term pricing model involves billing customers at fixed intervals, such as monthly or annually, regardless of their actual usage during that period. The pricing is usually based on a predefined set of features or service tiers offered by the SaaS provider. This model is suitable for SaaS that have many different prices such as parcel delivery services (which have variable prices depending on the weight, size and shipping address of the parcels)
 
 **_Example:_**

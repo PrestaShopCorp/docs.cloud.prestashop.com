@@ -6,6 +6,10 @@ title: Stairstep pricing model
 
 # Stairstep pricing model
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 [Our main Tutorial](../../3-tutorial/README.md) presented you with the required steps to implement any of our supported pricing models, but more informations are needed in the [context](#context) for a stairstep pricing model, which will be explained by this tutorial.
 
 :::warning

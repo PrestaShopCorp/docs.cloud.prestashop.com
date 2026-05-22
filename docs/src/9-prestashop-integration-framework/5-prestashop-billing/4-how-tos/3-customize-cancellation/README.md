@@ -6,6 +6,10 @@ title: Cancellation workflow
 
 # Cancellation workflow
 
+::: warning Warning: Deprecated Page
+The PrestaShop Billing component is deprecated since January 2026. No new modules can use this component. Existing modules that already use it remain unchanged.
+:::
+
 In some cases, you might want to understand the reason for a cancellation, or offer your customer a voucher to avoid it. We provide a mechanism which allows you to customize the cancellation workflow.
 
 If you do so, you need to provide your own modal, as this one will not be displayed:
